@@ -1,0 +1,23 @@
+{
+  "short_name": "Infinity",
+  "name": "Infinity | Live thousand lives in one world",
+  "description": "Infinity is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "type": "image/png",
+      "purpose": "any maskable",
+      "sizes": "570x570"
+    },
+    {
+      "src": "favicon.ico",
+      "type": "image/x-icon",
+      "purpose": "any maskable",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
