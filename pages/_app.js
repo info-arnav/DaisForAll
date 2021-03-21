@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }) {
         <meta key="17" property="og:locale" content="en_IN" />
         <meta key="19" property="og:site_name" content="Infinity" />
         <meta key="20" property="og:description" content={description} />
-        <meta key="21" property="fb:page_id" content="174651797681602" />
+        <meta key="21" property="fb:app_id" content="174651797681602" />
         <meta key="22" property="og:region" content="IN" />
         <meta key="23" name="copyright" content="Infinity" />
         <meta key="24" name="keywords" content={tags} />
