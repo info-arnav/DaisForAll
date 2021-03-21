@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://www.arnavgupta.net/</loc>
+</url>
+<url>
+<loc>https://www.arnavgupta.net/robots.txt</loc>
+</url>
+<url>
+<loc>https://www.arnavgupta.net/about</loc>
+</url>
+<url>
+<loc>https://www.arnavgupta.net/allBlogs</loc>
+</url>
+<url>
+<loc>https://www.arnavgupta.net/notFound</loc>
+</url>
+<url>
+<loc>https://www.arnavgupta.net/dashboard</loc>
+</url>
+<url>
+<loc>https://www.arnavgupta.net/privacyPolicy</loc>
+</url>
+<sitemap>
+<loc>https://www.arnavgupta.net/article/article-sitemap.xml</loc>
+</sitemap>
+</urlset>

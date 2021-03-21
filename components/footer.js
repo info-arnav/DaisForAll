@@ -117,6 +117,7 @@ export default function Footer() {
                     <Image
                       src="/instagram.svg"
                       height="11"
+                      alt="instagram"
                       width="11px"
                     ></Image>
                   )}

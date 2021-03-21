@@ -61,7 +61,7 @@ export default function Dashboard() {
         <meta key="12" property="og:image" content={imagec} />
         <meta key="13" property="og:image:alt" content={altc} />
         <meta key="14" name="og:title" content={title} />
-        <meta key="15" name="og:type" content="Website" />
+        <meta key="15" name="og:type" content="website" />
         <meta key="16" name="og:url" content={url} />
         <meta key="17" name="og:locale" content="en_IN" />
         <meta key="19" name="og:site_name" content="Infinity" />
@@ -81,6 +81,7 @@ export default function Dashboard() {
         <link key="29" rel="apple-touch-icon" type="image/png" href={images} />
         <link key="30" rel="manifest" href="/manifest.json" />
         <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
+        <link key="32" name="twitter:title" content={title} />
       </Head>
     </div>
   );
