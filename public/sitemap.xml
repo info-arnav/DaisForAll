@@ -21,7 +21,7 @@
 <url>
 <loc>https://www.arnavgupta.net/privacyPolicy</loc>
 </url>
-<sitemap>
-<loc>https://www.arnavgupta.net/article/article-sitemap.xml</loc>
-</sitemap>
 </urlset>
+<sitemap>
+<loc>https://www.arnavgupta.net/article-sitemap.xml</loc>
+</sitemap>

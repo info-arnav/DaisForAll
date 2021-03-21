@@ -1,4 +1,14 @@
 module.exports = {
+  i18n: {
+    locales: ["en-in"],
+    defaultLocale: "en-in",
+    domains: [
+      {
+        domain: "www.arnavgupta.net",
+        defaultLocale: "en-in",
+      },
+    ],
+  },
   plugins: [
     "postcss-flexbugs-fixes",
     [
