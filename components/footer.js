@@ -85,9 +85,19 @@ export default function Footer() {
                 >
                   {" "}
                   {isAmp ? (
-                    <amp-img src="/facebook.svg" height="11" width="11px" />
+                    <amp-img
+                      src="/facebook.svg"
+                      alt="facebook"
+                      height="11"
+                      width="11px"
+                    />
                   ) : (
-                    <Image src="/facebook.svg" height="11" width="11px"></Image>
+                    <Image
+                      src="/facebook.svg"
+                      alt="facebook"
+                      height="11"
+                      width="11px"
+                    ></Image>
                   )}
                 </a>
                 <a
@@ -97,7 +107,12 @@ export default function Footer() {
                 >
                   {" "}
                   {isAmp ? (
-                    <amp-img src="/instagram.svg" height="11" width="11px" />
+                    <amp-img
+                      src="/instagram.svg"
+                      alt="instagram"
+                      height="11"
+                      width="11px"
+                    />
                   ) : (
                     <Image
                       src="/instagram.svg"
@@ -114,9 +129,19 @@ export default function Footer() {
                 >
                   {" "}
                   {isAmp ? (
-                    <amp-img src="/twitter.svg" height="11" width="11px" />
+                    <amp-img
+                      src="/twitter.svg"
+                      alt="twitter"
+                      height="11"
+                      width="11px"
+                    />
                   ) : (
-                    <Image src="/twitter.svg" height="11" width="11px"></Image>
+                    <Image
+                      src="/twitter.svg"
+                      alt="twitter"
+                      height="11"
+                      width="11px"
+                    ></Image>
                   )}
                 </a>
                 <a
@@ -126,9 +151,19 @@ export default function Footer() {
                 >
                   {" "}
                   {isAmp ? (
-                    <amp-img src="/linkedin.svg" height="11" width="11px" />
+                    <amp-img
+                      src="/linkedin.svg"
+                      alt="linkedin"
+                      height="11"
+                      width="11px"
+                    />
                   ) : (
-                    <Image src="/linkedin.svg" height="11" width="11px"></Image>
+                    <Image
+                      src="/linkedin.svg"
+                      alt="linkedin"
+                      height="11"
+                      width="11px"
+                    ></Image>
                   )}
                 </a>
                 <a
@@ -140,12 +175,14 @@ export default function Footer() {
                   {isAmp ? (
                     <amp-img
                       src="/youtubeStudio.svg"
+                      alt="youtubeStudio"
                       height="11"
                       width="11px"
                     />
                   ) : (
                     <Image
                       src="/youtubeStudio.svg"
+                      alt="youtubeStudio"
                       height="11"
                       width="11px"
                     ></Image>

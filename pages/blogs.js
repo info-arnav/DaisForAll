@@ -4,7 +4,7 @@ export default function Blogs() {
   const description =
     "Find bloogs posted by various people here and enjoy expanding your thougts into their world.";
   const title = "Infinity | Blogs";
-  const url = "https://www.arnavgupta.net";
+  const url = "https://www.arnavgupta.net/blogs";
   const images = "https://www.arnavgupta.net/logo.png";
   const alts = "logo of the infinity website";
   const imagec = "https://www.arnavgupta.net/logo.png";
@@ -15,6 +15,37 @@ export default function Blogs() {
   return (
     <div>
       <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              url: url,
+              logo: imagec,
+            }),
+          }}
+        ></script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "http://schema.org",
+              "@type": "WebSite",
+              colleague: [],
+              image: imagec,
+              name: "Arnav Gupta",
+              url: url,
+              sameAs: [
+                "https://www.youtube.com/channel/UCzzfqCy-j9XZA5KNosqzh6w",
+                "https://www.instagram.com/infinity.newtech/",
+                "https://www.linkedin.com/in/arnav-gupta-0922341a9/",
+                "https://www.facebook.com/infinity.newTechnology",
+                "https://twitter.com/infinityNewTech",
+              ],
+            }),
+          }}
+        />
         <title>{title}</title>
         <meta key="1" name="description" content={description} />
         <meta key="2" name="robots" content="index, follow" />
