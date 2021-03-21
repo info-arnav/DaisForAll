@@ -7,4 +7,3 @@ Disallow: /404
 Disallow: /_error
 Disallow: /_app
 Sitemap : https://www.arnavgupta.net/sitemap.xml
-Sitemap : https://www.arnavgupta.net/article-sitemap.xml

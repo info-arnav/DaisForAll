@@ -79,7 +79,7 @@ export default function Error404() {
         <link key="29" rel="apple-touch-icon" type="image/png" href={images} />
         <link key="30" rel="manifest" href="/manifest.json" />
         <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
-        <link key="32" name="twitter:title" content={title} />
+        <meta key="32" name="twitter:title" content={title} />
       </Head>
     </div>
   );
