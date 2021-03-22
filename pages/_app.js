@@ -3,8 +3,7 @@ import Navigation from "../components/navigation";
 import Footer from "../components/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
-export const config = { amp: "hybrid" };
-function MyApp(props, { Component, pageProps }) {
+function MyApp({ Component, pageProps }) {
   const description = "The page is loading please wait.";
   const title = "Infinity | Loading";
   const url = "https://www.arnavgupta.net";

@@ -6,10 +6,10 @@ import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useAmp } from "next/amp";
 
-export const config = { amp: "hybrid" };
-export default function Footer(props) {
+export default function Footer() {
   const isAmp = useAmp();
   const [validated, setValidated] = useState(false);
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -84,7 +84,7 @@ export default function Footer(props) {
                   style={{ marginRight: "4px" }}
                 >
                   {" "}
-                  {isAmp ? (
+                  {true ? (
                     <amp-img
                       src="/facebook.svg"
                       alt="facebook"
@@ -106,7 +106,7 @@ export default function Footer(props) {
                   style={{ marginRight: "4px" }}
                 >
                   {" "}
-                  {isAmp ? (
+                  {true ? (
                     <amp-img
                       src="/instagram.svg"
                       alt="instagram"
@@ -129,7 +129,7 @@ export default function Footer(props) {
                   style={{ marginRight: "4px" }}
                 >
                   {" "}
-                  {isAmp ? (
+                  {true ? (
                     <amp-img
                       src="/twitter.svg"
                       alt="twitter"
@@ -151,7 +151,7 @@ export default function Footer(props) {
                   style={{ marginRight: "4px" }}
                 >
                   {" "}
-                  {isAmp ? (
+                  {true ? (
                     <amp-img
                       src="/linkedin.svg"
                       alt="linkedin"
@@ -173,7 +173,7 @@ export default function Footer(props) {
                   style={{ marginRight: "4px" }}
                 >
                   {" "}
-                  {isAmp ? (
+                  {true ? (
                     <amp-img
                       src="/youtubeStudio.svg"
                       alt="youtubeStudio"
