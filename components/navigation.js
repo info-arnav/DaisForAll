@@ -43,7 +43,7 @@ export default function Navigation(props) {
   );
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <div>
-      {true ? (
+      {isAmp ? (
         <amp-img
           ref={ref}
           onClick={(e) => {
@@ -116,7 +116,7 @@ export default function Navigation(props) {
       <InstantSearch searchClient={searchClient} indexName="dev_BLOGS">
         <nav>
           <Link href="/" id="image">
-            {true ? (
+            {isAmp ? (
               <amp-img
                 id="image"
                 alt="The logo of the website which showcases a symbol of infinity combined to wires"
@@ -256,7 +256,7 @@ export default function Navigation(props) {
                   backgroundColor: "transparent",
                 }}
               >
-                {true ? (
+                {isAmp ? (
                   <amp-img
                     className="inline"
                     src="/signip.svg"
@@ -295,7 +295,7 @@ export default function Navigation(props) {
                   backgroundColor: "transparent",
                 }}
               >
-                {true ? (
+                {isAmp ? (
                   <amp-img
                     className="inline"
                     src="/login.png"

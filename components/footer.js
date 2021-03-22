@@ -84,7 +84,7 @@ export default function Footer() {
                   style={{ marginRight: "4px" }}
                 >
                   {" "}
-                  {true ? (
+                  {isAmp ? (
                     <amp-img
                       src="/facebook.svg"
                       alt="facebook"
@@ -106,7 +106,7 @@ export default function Footer() {
                   style={{ marginRight: "4px" }}
                 >
                   {" "}
-                  {true ? (
+                  {isAmp ? (
                     <amp-img
                       src="/instagram.svg"
                       alt="instagram"
@@ -129,7 +129,7 @@ export default function Footer() {
                   style={{ marginRight: "4px" }}
                 >
                   {" "}
-                  {true ? (
+                  {isAmp ? (
                     <amp-img
                       src="/twitter.svg"
                       alt="twitter"
@@ -151,7 +151,7 @@ export default function Footer() {
                   style={{ marginRight: "4px" }}
                 >
                   {" "}
-                  {true ? (
+                  {isAmp ? (
                     <amp-img
                       src="/linkedin.svg"
                       alt="linkedin"
@@ -173,7 +173,7 @@ export default function Footer() {
                   style={{ marginRight: "4px" }}
                 >
                   {" "}
-                  {true ? (
+                  {isAmp ? (
                     <amp-img
                       src="/youtubeStudio.svg"
                       alt="youtubeStudio"
