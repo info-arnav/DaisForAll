@@ -6,7 +6,8 @@ import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useAmp } from "next/amp";
 
-export default function Footer() {
+export const config = { amp: "hybrid" };
+export default function Footer(props) {
   const isAmp = useAmp();
   const [validated, setValidated] = useState(false);
   const handleSubmit = (event) => {
