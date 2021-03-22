@@ -93,4 +93,5 @@ function MyApp({ Component, pageProps }) {
     </div>
   );
 }
+export const config = { amp: "hybrid" };
 export default MyApp;

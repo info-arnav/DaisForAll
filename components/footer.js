@@ -9,7 +9,6 @@ import { useAmp } from "next/amp";
 export default function Footer() {
   const isAmp = useAmp();
   const [validated, setValidated] = useState(false);
-
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -34,8 +33,8 @@ export default function Footer() {
           <div className="row">
             <div className="col-xs-12 col-sm-6 col-md-3">
               <div className="widget subscribe no-box">
-                <Link href="/">
-                  <h5 className="widget-title">
+                <Link href="/" style={{ cursor: "pointer" }}>
+                  <h5 className="widget-title" style={{ cursor: "pointer" }}>
                     Infinity
                     <span></span>
                   </h5>
