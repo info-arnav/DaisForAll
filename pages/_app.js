@@ -84,10 +84,6 @@ function MyApp({ Component, pageProps }) {
         <link key="30" rel="manifest" href="/manifest.json" />
         <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
         <meta key="32" name="twitter:title" content={title} />
-        <meta
-          name="facebook-domain-verification"
-          content="rtzltrrgtf01e2f2ow7f9t4mcw9rk9"
-        />
       </Head>
       <Navigation></Navigation>
       <main>
