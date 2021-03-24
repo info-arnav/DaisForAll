@@ -1,5 +1,5 @@
 import { connectToDatabase } from "../../../util/mongodb";
-import bcrypt from "bcrypt/bcrypt";
+import bcrypt from "bcryptjs";
 export default async (req, res) => {
   if (req.method == "POST") {
     const { db } = await connectToDatabase();

@@ -1,9 +1,11 @@
 import { connectToDatabase } from "../../../util/mongodb";
-import bcrypt from "bcrypt/bcrypt";
+import bcrypt from "bcrypt";
 export default async (req, res) => {
   if (req.method == "POST") {
-    bcrypt.hash(req.body.password, 10, function (err, hash) {
-      req.body.password = hash;
+    bcrypt.genSalt(10, function (err, salt) {
+      bcrypt.hash(req.body.password, 10, function (err, hash) {
+        req.body.password = hash;
+      });
     });
     const { db } = await connectToDatabase();
     let username = await db
@@ -11,9 +13,6 @@ export default async (req, res) => {
       .find({ username: req.body.username })
       .limit(1)
       .count();
-    {
-      ("");
-    }
     if (username == 0) {
       let email = await db
         .collection("userData")
