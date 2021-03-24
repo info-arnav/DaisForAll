@@ -82,7 +82,7 @@ export default function Error({ statusCode }) {
         <link key="30" rel="manifest" href="/manifest.json" />
         <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
         <meta key="32" name="twitter:title" content={title} />
-      </Head>
+      </Head>{" "}
     </div>
   );
 }
