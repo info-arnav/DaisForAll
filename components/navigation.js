@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import algoliasearch from "algoliasearch/lite";
+import { useRouter } from "next/router";
 import { InstantSearch, SearchBox } from "react-instantsearch-dom";
 import {
   Button,
@@ -11,27 +12,121 @@ import {
   Modal,
 } from "react-bootstrap";
 import { useAmp } from "next/amp";
+import axios from "axios";
+import jwt from "njwt";
+import Router from "next/dist/next-server/lib/router/router";
 export const config = { amp: "hybrid" };
 export default function Navigation(props) {
-  const [validatedLogin, setValidatedLogin] = useState(false);
-  const [validatedRegister, setValidatedRegister] = useState(false);
-  const handleSubmitLogin = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidatedLogin(true);
+  const credirect = () => {
+    setState("");
+    setState("loggedIn");
+    setValidatedRegister(false);
+    setPassword("");
+    setEmail("");
+    setName("");
+    setUsername("");
+    setError("");
+    router.push("/dashboard");
   };
+  const router = useRouter();
+  const [validatedLogin, setValidatedLogin] = useState(false);
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  const [username, setUsername] = useState("");
+  const [validatedRegister, setValidatedRegister] = useState(false);
   const handleSubmitRegister = (event) => {
     const form = event.currentTarget;
+    event.preventDefault();
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
+      setValidatedRegister(true);
+    } else {
+      axios
+        .post("/api/auth/register", {
+          username: username,
+          password: password,
+          email: email,
+          name: name,
+        })
+        .then((e) =>
+          e.data != "username exists" && e.data != "email exists"
+            ? localStorage.setItem(
+                "userData",
+                jwt.create(
+                  e.data,
+                  "ArnavGod30080422020731017817087571441",
+                  "HS512"
+                )
+              )
+            : setError(e.data)
+        )
+        .then((e) => {
+          let string = localStorage.getItem("userData");
+          string
+            ? jwt.verify(
+                string,
+                "ArnavGod30080422020731017817087571441",
+                "HS512",
+                function (err, verifiedJwt) {
+                  if (err) {
+                    localStorage.removeItem("userData");
+                    setStatus("loggedOut");
+                  } else {
+                    credirect();
+                    setStatus("loggedIn");
+                  }
+                }
+              )
+            : "";
+        });
     }
-
-    setValidatedRegister(true);
+  };
+  const handleSubmitLogin = (event) => {
+    const form = event.currentTarget;
+    event.preventDefault();
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+      setValidatedLogin(true);
+    } else {
+      axios
+        .post("/api/auth/login", {
+          username: username,
+          password: password,
+        })
+        .then((e) =>
+          e.data != "username" && e.data != "password"
+            ? localStorage.setItem(
+                "userData",
+                jwt.create(
+                  e.data,
+                  "ArnavGod30080422020731017817087571441",
+                  "HS512"
+                )
+              )
+            : setError(e.data)
+        )
+        .then((e) => {
+          let string = localStorage.getItem("userData");
+          string
+            ? jwt.verify(
+                string,
+                "ArnavGod30080422020731017817087571441",
+                "HS512",
+                function (err, verifiedJwt) {
+                  if (err) {
+                    localStorage.removeItem("userData");
+                    setStatus("loggedOut");
+                  } else {
+                    credirect();
+                    setStatus("loggedIn");
+                  }
+                }
+              )
+            : "";
+        });
+    }
   };
   const isAmp = useAmp();
   const [show, setShow] = useState(false);
@@ -110,7 +205,24 @@ export default function Navigation(props) {
       &darr;
     </button>
   ));
-  useEffect(() => {}, [show, status]);
+  useEffect(() => {
+    let string = localStorage.getItem("userData");
+    string
+      ? jwt.verify(
+          string,
+          "ArnavGod30080422020731017817087571441",
+          "HS512",
+          function (err, verifiedJwt) {
+            if (err) {
+              localStorage.removeItem("userData");
+              setStatus("loggedOut");
+            } else {
+              setStatus("loggedIn");
+            }
+          }
+        )
+      : "";
+  }, [show, status, state]);
   return (
     <div>
       <InstantSearch searchClient={searchClient} indexName="dev_BLOGS">
@@ -337,7 +449,14 @@ export default function Navigation(props) {
                     <Link href="/dashboard">New Post</Link>
                   </Dropdown.Item>
                   <Dropdown.Item key="logout">
-                    <a>Logout</a>
+                    <a
+                      onClick={() => {
+                        localStorage.removeItem("userData");
+                        setStatus("loggedOut");
+                      }}
+                    >
+                      Logout
+                    </a>
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
@@ -355,6 +474,11 @@ export default function Navigation(props) {
           onHide={() => {
             setShow(false);
             setValidatedRegister(false);
+            setPassword("");
+            setEmail("");
+            setName("");
+            setUsername("");
+            setError("");
           }}
         >
           <Form
@@ -372,7 +496,13 @@ export default function Navigation(props) {
                   style={{ width: "100%" }}
                 >
                   <Form.Label>Name</Form.Label>
-                  <Form.Control type="text" placeholder="Name" required />
+                  <Form.Control
+                    type="text"
+                    placeholder="Name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
                   <Form.Control.Feedback type="invalid">
                     Please provide a valid name.
                   </Form.Control.Feedback>
@@ -387,12 +517,17 @@ export default function Navigation(props) {
                   <Form.Control
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
                     type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                     required
                   />
                   <Form.Control.Feedback type="invalid">
                     Please provide a valid email.
                   </Form.Control.Feedback>
+                  <Form.Text style={{ color: "red" }}>
+                    {error == "email exists" ? "Email in use" : ""}
+                  </Form.Text>
                 </Form.Group>
               </Form.Row>
               <Form.Row>
@@ -402,20 +537,31 @@ export default function Navigation(props) {
                 >
                   <Form.Label>Username</Form.Label>
                   <InputGroup hasValidation>
-                    <InputGroup.Prepend>
-                      <InputGroup.Text id="inputGroupPrepend">
-                        @
-                      </InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <Form.Control
-                      type="text"
-                      placeholder="Username"
-                      aria-describedby="inputGroupPrepend"
-                      required
-                    />
+                    <div style={{ width: "100%", display: "flex" }}>
+                      <InputGroup.Prepend>
+                        <InputGroup.Text
+                          id="inputGroupPrepend"
+                          style={{ height: "100%" }}
+                        >
+                          @
+                        </InputGroup.Text>
+                      </InputGroup.Prepend>
+                      <Form.Control
+                        type="text"
+                        style={{ height: "100%" }}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Username"
+                        aria-describedby="inputGroupPrepend"
+                        required
+                      />
+                    </div>
                     <Form.Control.Feedback type="invalid">
                       Please choose a username.
                     </Form.Control.Feedback>
+                    <Form.Text style={{ color: "red" }}>
+                      {error == "username exists" ? "Username in use" : ""}
+                    </Form.Text>
                   </InputGroup>
                 </Form.Group>
               </Form.Row>
@@ -428,18 +574,20 @@ export default function Navigation(props) {
                   <Form.Control
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                     required
                   />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid password.
+                  </Form.Control.Feedback>
                   <Form.Text>
                     <center>
                       Must contain at least one number and one uppercase and
                       lowercase letter, and at least 8 or more characters
                     </center>
                   </Form.Text>
-                  <Form.Control.Feedback type="invalid">
-                    Please provide a valid password.
-                  </Form.Control.Feedback>
                 </Form.Group>
               </Form.Row>
               <center>
@@ -448,6 +596,11 @@ export default function Navigation(props) {
                   onClick={() => {
                     setState("login");
                     setValidatedRegister(false);
+                    setPassword("");
+                    setEmail("");
+                    setName("");
+                    setUsername("");
+                    setError("");
                   }}
                   style={{ cursor: "pointer" }}
                 >
@@ -462,6 +615,11 @@ export default function Navigation(props) {
                 onClick={() => {
                   setShow(false);
                   setValidatedRegister(false);
+                  setPassword("");
+                  setEmail("");
+                  setName("");
+                  setUsername("");
+                  setError("");
                 }}
               >
                 Close
@@ -487,6 +645,11 @@ export default function Navigation(props) {
           onHide={() => {
             setShow(false);
             setValidatedLogin(false);
+            setPassword("");
+            setEmail("");
+            setName("");
+            setUsername("");
+            setError("");
           }}
         >
           <Form
@@ -505,20 +668,32 @@ export default function Navigation(props) {
                 >
                   <Form.Label>Username</Form.Label>
                   <InputGroup hasValidation>
-                    <InputGroup.Prepend>
-                      <InputGroup.Text id="inputGroupPrepend">
-                        @
-                      </InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <Form.Control
-                      type="text"
-                      placeholder="Username"
-                      aria-describedby="inputGroupPrepend"
-                      required
-                    />
-                    <Form.Control.Feedback type="invalid">
+                    <div style={{ width: "100%", display: "flex" }}>
+                      <InputGroup.Prepend>
+                        <InputGroup.Text
+                          id="inputGroupPrepend"
+                          style={{ height: "100%" }}
+                        >
+                          @
+                        </InputGroup.Text>
+                      </InputGroup.Prepend>
+                      <Form.Control
+                        type="text"
+                        style={{ height: "100%" }}
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        placeholder="Username"
+                        aria-describedby="inputGroupPrepend"
+                        required
+                      />
+                    </div>
+
+                    <Form.Control.Feedback type="invalid" true>
                       Please choose a username.
                     </Form.Control.Feedback>
+                    <Form.Text style={{ color: "red" }}>
+                      {error == "username" ? "Invalid username" : ""}
+                    </Form.Text>
                   </InputGroup>
                 </Form.Group>
               </Form.Row>
@@ -531,18 +706,17 @@ export default function Navigation(props) {
                   <Form.Control
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                     required
                   />
-                  <Form.Text>
-                    <center>
-                      Must contain at least one number and one uppercase and
-                      lowercase letter, and at least 8 or more characters
-                    </center>
-                  </Form.Text>
                   <Form.Control.Feedback type="invalid">
                     Please provide a valid password.
                   </Form.Control.Feedback>
+                  <Form.Text style={{ color: "red" }}>
+                    {error == "password" ? "invalid password" : ""}
+                  </Form.Text>
                 </Form.Group>
               </Form.Row>
               <center>
@@ -551,6 +725,11 @@ export default function Navigation(props) {
                   onClick={() => {
                     setState("register");
                     setValidatedLogin(false);
+                    setPassword("");
+                    setEmail("");
+                    setName("");
+                    setUsername("");
+                    setError("");
                   }}
                   style={{ cursor: "pointer" }}
                 >
@@ -565,6 +744,11 @@ export default function Navigation(props) {
                 onClick={() => {
                   setShow(false);
                   setValidatedLogin(false);
+                  setPassword("");
+                  setEmail("");
+                  setName("");
+                  setUsername("");
+                  setError("");
                 }}
               >
                 Close
