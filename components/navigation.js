@@ -16,7 +16,7 @@ import axios from "axios";
 import jwt from "njwt";
 import Router from "next/dist/next-server/lib/router/router";
 export const config = { amp: "hybrid" };
-export default function Navigation(props) {
+export default function Navigation({ userStatus }) {
   const credirect = () => {
     setState("");
     setState("loggedIn");
@@ -52,35 +52,20 @@ export default function Navigation(props) {
         })
         .then((e) =>
           e.data != "username exists" && e.data != "email exists"
-            ? localStorage.setItem(
-                "userData",
-                jwt.create(
-                  e.data,
-                  "ArnavGod30080422020731017817087571441",
-                  "HS512"
-                )
-              )
+            ? (() => {
+                localStorage.setItem(
+                  "userData",
+                  jwt.create(
+                    e.data,
+                    "ArnavGod30080422020731017817087571441",
+                    "HS512"
+                  )
+                );
+                credirect();
+                setStatus("loggedIn");
+              })()
             : setError(e.data)
-        )
-        .then((e) => {
-          let string = localStorage.getItem("userData");
-          string
-            ? jwt.verify(
-                string,
-                "ArnavGod30080422020731017817087571441",
-                "HS512",
-                function (err, verifiedJwt) {
-                  if (err) {
-                    localStorage.removeItem("userData");
-                    setStatus("loggedOut");
-                  } else {
-                    credirect();
-                    setStatus("loggedIn");
-                  }
-                }
-              )
-            : "";
-        });
+        );
     }
   };
   const handleSubmitLogin = (event) => {
@@ -97,41 +82,26 @@ export default function Navigation(props) {
         })
         .then((e) =>
           e.data != "username" && e.data != "password"
-            ? localStorage.setItem(
-                "userData",
-                jwt.create(
-                  e.data,
-                  "ArnavGod30080422020731017817087571441",
-                  "HS512"
-                )
-              )
+            ? (() => {
+                localStorage.setItem(
+                  "userData",
+                  jwt.create(
+                    e.data,
+                    "ArnavGod30080422020731017817087571441",
+                    "HS512"
+                  )
+                );
+                credirect();
+                setStatus("loggedIn");
+              })()
             : setError(e.data)
-        )
-        .then((e) => {
-          let string = localStorage.getItem("userData");
-          string
-            ? jwt.verify(
-                string,
-                "ArnavGod30080422020731017817087571441",
-                "HS512",
-                function (err, verifiedJwt) {
-                  if (err) {
-                    localStorage.removeItem("userData");
-                    setStatus("loggedOut");
-                  } else {
-                    credirect();
-                    setStatus("loggedIn");
-                  }
-                }
-              )
-            : "";
-        });
+        );
     }
   };
   const isAmp = useAmp();
   const [show, setShow] = useState(false);
   const [state, setState] = useState("register");
-  const [status, setStatus] = useState("loggedOut");
+  const [status, setStatus] = useState(userStatus);
   const searchClient = algoliasearch(
     "8PCXEU15SU",
     "7b08d93fde9eb5eebb3d081f764b2ec4"
@@ -205,24 +175,7 @@ export default function Navigation(props) {
       &darr;
     </button>
   ));
-  useEffect(() => {
-    let string = localStorage.getItem("userData");
-    string
-      ? jwt.verify(
-          string,
-          "ArnavGod30080422020731017817087571441",
-          "HS512",
-          function (err, verifiedJwt) {
-            if (err) {
-              localStorage.removeItem("userData");
-              setStatus("loggedOut");
-            } else {
-              setStatus("loggedIn");
-            }
-          }
-        )
-      : "";
-  }, [show, status, state]);
+  useEffect(() => {}, []);
   return (
     <div>
       <InstantSearch searchClient={searchClient} indexName="dev_BLOGS">
@@ -467,7 +420,6 @@ export default function Navigation(props) {
       {state == "register" && (
         <Modal
           size="lg"
-          {...props}
           aria-labelledby="contained-modal-title-vcenter"
           centered
           show={show}
@@ -637,7 +589,6 @@ export default function Navigation(props) {
       )}
       {state == "login" && (
         <Modal
-          {...props}
           size="lg"
           aria-labelledby="contained-modal-title-vcenter"
           centered
@@ -766,4 +717,25 @@ export default function Navigation(props) {
       )}
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  let string = localStorage.getItem("userData");
+  let userStatus = "loggedOut";
+  string
+    ? jwt.verify(
+        string,
+        "ArnavGod30080422020731017817087571441",
+        "HS512",
+        function (err, verifiedJwt) {
+          if (err) {
+            localStorage.removeItem("userData");
+            userStatus = "loggedOut";
+          } else {
+            userStatus = "loggedIn";
+          }
+        }
+      )
+    : "";
+  return { props: { userStatus } };
 }
