@@ -16,7 +16,7 @@ import axios from "axios";
 import jwt from "njwt";
 import Router from "next/dist/next-server/lib/router/router";
 export const config = { amp: "hybrid" };
-export default function Navigation({ userStatus }) {
+export default function Navigation(props) {
   const credirect = () => {
     setState("");
     setState("loggedIn");
@@ -101,7 +101,7 @@ export default function Navigation({ userStatus }) {
   const isAmp = useAmp();
   const [show, setShow] = useState(false);
   const [state, setState] = useState("register");
-  const [status, setStatus] = useState(userStatus);
+  const [status, setStatus] = useState("loggedOut");
   const searchClient = algoliasearch(
     "8PCXEU15SU",
     "7b08d93fde9eb5eebb3d081f764b2ec4"
@@ -175,7 +175,23 @@ export default function Navigation({ userStatus }) {
       &darr;
     </button>
   ));
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (localStorage.getItem("userData")) {
+      jwt.verify(
+        localStorage.getItem("userData"),
+        "ArnavGod30080422020731017817087571441",
+        "HS512",
+        function (err, verifiedJwt) {
+          if (err) {
+            localStorage.removeItem("userData");
+            setStatus("loggedOut");
+          } else {
+            setStatus("loggedIn");
+          }
+        }
+      );
+    }
+  }, []);
   return (
     <div>
       <InstantSearch searchClient={searchClient} indexName="dev_BLOGS">
@@ -420,6 +436,7 @@ export default function Navigation({ userStatus }) {
       {state == "register" && (
         <Modal
           size="lg"
+          {...props}
           aria-labelledby="contained-modal-title-vcenter"
           centered
           show={show}
@@ -590,6 +607,7 @@ export default function Navigation({ userStatus }) {
       {state == "login" && (
         <Modal
           size="lg"
+          {...props}
           aria-labelledby="contained-modal-title-vcenter"
           centered
           show={show}
@@ -717,25 +735,4 @@ export default function Navigation({ userStatus }) {
       )}
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  let string = localStorage.getItem("userData");
-  let userStatus = "loggedOut";
-  string
-    ? jwt.verify(
-        string,
-        "ArnavGod30080422020731017817087571441",
-        "HS512",
-        function (err, verifiedJwt) {
-          if (err) {
-            localStorage.removeItem("userData");
-            userStatus = "loggedOut";
-          } else {
-            userStatus = "loggedIn";
-          }
-        }
-      )
-    : "";
-  return { props: { userStatus } };
 }
