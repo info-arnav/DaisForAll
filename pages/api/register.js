@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../../../util/mongodb";
+import { connectToDatabase } from "../../util/mongodb";
 import bcrypt from "bcrypt";
 export default async (req, res) => {
   if (req.methos == "POST") {
