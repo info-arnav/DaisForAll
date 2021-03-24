@@ -1,5 +1,5 @@
 import { connectToDatabase } from "../../../util/mongodb";
-import bcrypt from "bcrypt";
+import bcrypt from "bcrypt/bcrypt";
 export default async (req, res) => {
   if (req.method == "POST") {
     bcrypt.hash(req.body.password, 10, function (err, hash) {
