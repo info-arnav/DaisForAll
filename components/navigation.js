@@ -44,7 +44,7 @@ export default function Navigation(props) {
       setValidatedRegister(true);
     } else {
       axios
-        .post("/api/register", {
+        .post("/api/auth/register", {
           username: username,
           password: password,
           email: email,
@@ -91,7 +91,7 @@ export default function Navigation(props) {
       setValidatedLogin(true);
     } else {
       axios
-        .post("/api/login", {
+        .post("/api/auth/login", {
           username: username,
           password: password,
         })
