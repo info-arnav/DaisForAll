@@ -1,5 +1,5 @@
 import { connectToDatabase } from "../../../util/mongodb";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 export default async (req, res) => {
   if (req.method == "POST") {
     bcrypt.genSalt(10, function (err, salt) {
