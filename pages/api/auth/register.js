@@ -11,6 +11,9 @@ export default async (req, res) => {
       .find({ username: req.body.username })
       .limit(1)
       .count();
+    {
+      ("");
+    }
     if (username == 0) {
       let email = await db
         .collection("userData")
