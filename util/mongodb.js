@@ -1,8 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const MONGODB_URI =
-  "mongodb+srv://arnav:Arnav300804@cluster0.qzvuc.mongodb.net/arnavguptanet?retryWrites=true&w=majority";
-const MONGODB_DB = "arnavguptanet";
+const { MONGODB_URI, MONGODB_DB } = process.env;
 
 if (!MONGODB_URI) {
   throw new Error(
