@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tinymce/tinymce-react": "^3.11.1",
     "algoliasearch": "^4.8.6",
     "axios": "^0.21.1",
     "axios-progress-bar": "^1.2.0",

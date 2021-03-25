@@ -37,6 +37,27 @@ export default function Navigation(props) {
       setStatus("loggedOut");
     }
   }, []);
+  useEffect(() => {
+    window.addEventListener("storage", () => {
+      if (localStorage.getItem("userData")) {
+        jwt.verify(
+          localStorage.getItem("userData"),
+          "ArnavGod30080422020731017817087571441",
+          "HS512",
+          function (err, verifiedJwt) {
+            if (err) {
+              localStorage.removeItem("userData");
+              setStatus("loggedOut");
+            } else {
+              setStatus("loggedIn");
+            }
+          }
+        );
+      } else {
+        setStatus("loggedOut");
+      }
+    });
+  }, []);
   const credirect = () => {
     setState("");
     setState("loggedIn");
