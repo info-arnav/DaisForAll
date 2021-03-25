@@ -10,6 +10,7 @@ export default function Footer() {
   const isAmp = useAmp();
   const [validated, setValidated] = useState(false);
 
+  const [buttonLoading, setButtonLoading] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -18,8 +19,10 @@ export default function Footer() {
       setValidated(true);
     } else {
       event.preventDefault();
+      setButtonLoading(true);
       axios
         .post("/api/contact", { email: email, message: message })
+        .then(setButtonLoading(false))
         .then(setMessage(""))
         .then(setValidated(false))
         .then(setEmail(""));
@@ -229,7 +232,12 @@ export default function Footer() {
                   </Form.Group>
 
                   <Button style={{ border: "none" }} type="submit">
-                    Submit form
+                    {buttonLoading ? (
+                      <Spinner size="sm" animation="border" />
+                    ) : (
+                      ""
+                    )}{" "}
+                    Send
                   </Button>
                 </Form>
               </div>
