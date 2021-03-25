@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
     } else {
       setStatuses("loggedOut");
     }
-  }, []);
+  }, [statuses]);
   const description = "The page is loading please wait.";
   const title = "Infinity | Loading";
   const url = "https://www.arnavgupta.net";
@@ -107,15 +107,12 @@ function MyApp({ Component, pageProps }) {
         <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
         <meta key="32" name="twitter:title" content={title} />
       </Head>
-      {statuses && (
-        <div>
-          <Navigation statuses={statuses}></Navigation>
-          <main>
-            <Component {...pageProps} statuses={statuses} />
-          </main>
-          <Footer></Footer>
-        </div>
-      )}
+
+      <Navigation statuses={statuses}></Navigation>
+      <main>
+        <Component {...pageProps} statuses={statuses} />
+      </main>
+      <Footer></Footer>
     </div>
   );
 }
