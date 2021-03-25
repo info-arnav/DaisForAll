@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useDebugValue, useEffect, useState } from "react";
 import Link from "next/link";
 import algoliasearch from "algoliasearch/lite";
 import { useRouter } from "next/router";
@@ -101,7 +101,7 @@ export default function Navigation(props) {
   const isAmp = useAmp();
   const [show, setShow] = useState(false);
   const [state, setState] = useState("register");
-  const [status, setStatus] = useState("loggedOut");
+  const [status, setStatus] = useState(props.statuses);
   const searchClient = algoliasearch(
     "8PCXEU15SU",
     "7b08d93fde9eb5eebb3d081f764b2ec4"
@@ -175,23 +175,6 @@ export default function Navigation(props) {
       &darr;
     </button>
   ));
-  useEffect(() => {
-    if (localStorage.getItem("userData")) {
-      jwt.verify(
-        localStorage.getItem("userData"),
-        "ArnavGod30080422020731017817087571441",
-        "HS512",
-        function (err, verifiedJwt) {
-          if (err) {
-            localStorage.removeItem("userData");
-            setStatus("loggedOut");
-          } else {
-            setStatus("loggedIn");
-          }
-        }
-      );
-    }
-  }, []);
   return (
     <div>
       <InstantSearch searchClient={searchClient} indexName="dev_BLOGS">
@@ -234,15 +217,16 @@ export default function Navigation(props) {
                 <Dropdown.Item key="home">
                   <Link href="/">Home</Link>
                 </Dropdown.Item>
-                {status == "loggedIn" ? (
-                  <Dropdown.Item key="blogs">
-                    <Link href="/blogs">Blogs</Link>
-                  </Dropdown.Item>
-                ) : (
-                  <Dropdown.Item key="about">
-                    <Link href="/about">About</Link>
-                  </Dropdown.Item>
-                )}
+                {status &&
+                  (status == "loggedIn" ? (
+                    <Dropdown.Item key="blogs">
+                      <Link href="/blogs">Blogs</Link>
+                    </Dropdown.Item>
+                  ) : (
+                    <Dropdown.Item key="about">
+                      <Link href="/about">About</Link>
+                    </Dropdown.Item>
+                  ))}
               </Dropdown.Menu>{" "}
             </Dropdown>
           </div>
@@ -270,167 +254,169 @@ export default function Navigation(props) {
                 Home
               </button>
             </Link>
-            {status != "loggedIn" ? (
-              <Link
-                href="/about"
-                style={{
-                  display: "inherit",
-                  marginRight: "10px",
-                }}
-              >
-                <button
-                  className="btn btn-4 btn-4c icon-arrow-right"
-                  style={{ marginRight: "5px" }}
-                  id={
-                    typeof window !== "undefined"
-                      ? window.location.pathname === "/about"
-                        ? "active"
-                        : "data"
-                      : "data"
-                  }
-                  wfd-id="62"
+            {status &&
+              (status != "loggedIn" ? (
+                <Link
+                  href="/about"
+                  style={{
+                    display: "inherit",
+                    marginRight: "10px",
+                  }}
                 >
-                  About
-                </button>
-              </Link>
-            ) : (
-              <Link
-                href="/blogs"
-                style={{
-                  display: "inherit",
-                  marginRight: "10px",
-                }}
-              >
-                <button
-                  className="btn btn-4 btn-4c icon-arrow-right"
-                  style={{ marginRight: "5px" }}
-                  id={
-                    typeof window !== "undefined"
-                      ? window.location.pathname === "/blogs"
-                        ? "active"
+                  <button
+                    className="btn btn-4 btn-4c icon-arrow-right"
+                    style={{ marginRight: "5px" }}
+                    id={
+                      typeof window !== "undefined"
+                        ? window.location.pathname === "/about"
+                          ? "active"
+                          : "data"
                         : "data"
-                      : "data"
-                  }
-                  wfd-id="62"
+                    }
+                    wfd-id="62"
+                  >
+                    About
+                  </button>
+                </Link>
+              ) : (
+                <Link
+                  href="/blogs"
+                  style={{
+                    display: "inherit",
+                    marginRight: "10px",
+                  }}
                 >
-                  Blogs
-                </button>
-              </Link>
-            )}
+                  <button
+                    className="btn btn-4 btn-4c icon-arrow-right"
+                    style={{ marginRight: "5px" }}
+                    id={
+                      typeof window !== "undefined"
+                        ? window.location.pathname === "/blogs"
+                          ? "active"
+                          : "data"
+                        : "data"
+                    }
+                    wfd-id="62"
+                  >
+                    Blogs
+                  </button>
+                </Link>
+              ))}
           </div>
           <SearchBox
             style={{ width: "100%" }}
             translations={{ placeholder: "Search" }}
           />
-          {status !== "loggedIn" ? (
-            <div style={{ display: "inherit" }}>
-              {" "}
-              <button
-                onClick={() => {
-                  setShow(true);
-                  setState("register");
-                }}
-                style={{
-                  padding: "0",
-                  marginLeft: "2px",
-                  border: "none",
-                  backgroundColor: "transparent",
-                }}
-              >
-                {isAmp ? (
-                  <amp-img
-                    className="inline"
-                    src="/signip.svg"
-                    height="40px"
-                    width="40px"
-                    style={{
-                      borderRadius: "50%",
-                      marginLeft: "2px",
-                    }}
-                    alt="signup button represented with an icon"
-                  />
-                ) : (
-                  <img
-                    className="inline"
-                    src="/signip.svg"
-                    height="40px"
-                    width="40px"
-                    style={{
-                      borderRadius: "50%",
-                      marginLeft: "2px",
-                    }}
-                    alt="signup button represented with an icon"
-                  />
-                )}
-              </button>
-              <button
-                onClick={() => {
-                  setShow(true);
-                  setState("login");
-                }}
-                style={{
-                  padding: "0",
-                  border: "none",
-                  marginLeft: "2px",
-                  marginRight: "10px",
-                  backgroundColor: "transparent",
-                }}
-              >
-                {isAmp ? (
-                  <amp-img
-                    className="inline"
-                    src="/login.png"
-                    height="40px"
-                    width="40px"
-                    style={{
-                      borderRadius: "50%",
-                      marginLeft: "2px",
-                    }}
-                    alt="login button represented with an icon"
-                  />
-                ) : (
-                  <img
-                    className="inline"
-                    src="/login.png"
-                    height="40px"
-                    width="40px"
-                    style={{
-                      borderRadius: "50%",
-                      marginLeft: "2px",
-                    }}
-                    alt="login button represented with an icon"
-                  ></img>
-                )}
-              </button>
-            </div>
-          ) : (
-            <div>
-              <Dropdown>
-                <Dropdown.Toggle as={CustomToggle}></Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item key="profile">
-                    <Link href="/active">Profile</Link>
-                  </Dropdown.Item>
-                  <Dropdown.Item key="bookmarks">
-                    <Link href="/bookmarked">Bookmarks</Link>
-                  </Dropdown.Item>
-                  <Dropdown.Item key="new post">
-                    <Link href="/dashboard">New Post</Link>
-                  </Dropdown.Item>
-                  <Dropdown.Item key="logout">
-                    <a
-                      onClick={() => {
-                        localStorage.removeItem("userData");
-                        setStatus("loggedOut");
+          {status &&
+            (status !== "loggedIn" ? (
+              <div style={{ display: "inherit" }}>
+                {" "}
+                <button
+                  onClick={() => {
+                    setShow(true);
+                    setState("register");
+                  }}
+                  style={{
+                    padding: "0",
+                    marginLeft: "2px",
+                    border: "none",
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  {isAmp ? (
+                    <amp-img
+                      className="inline"
+                      src="/signip.svg"
+                      height="40px"
+                      width="40px"
+                      style={{
+                        borderRadius: "50%",
+                        marginLeft: "2px",
                       }}
-                    >
-                      Logout
-                    </a>
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-          )}
+                      alt="signup button represented with an icon"
+                    />
+                  ) : (
+                    <img
+                      className="inline"
+                      src="/signip.svg"
+                      height="40px"
+                      width="40px"
+                      style={{
+                        borderRadius: "50%",
+                        marginLeft: "2px",
+                      }}
+                      alt="signup button represented with an icon"
+                    />
+                  )}
+                </button>
+                <button
+                  onClick={() => {
+                    setShow(true);
+                    setState("login");
+                  }}
+                  style={{
+                    padding: "0",
+                    border: "none",
+                    marginLeft: "2px",
+                    marginRight: "10px",
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  {isAmp ? (
+                    <amp-img
+                      className="inline"
+                      src="/login.png"
+                      height="40px"
+                      width="40px"
+                      style={{
+                        borderRadius: "50%",
+                        marginLeft: "2px",
+                      }}
+                      alt="login button represented with an icon"
+                    />
+                  ) : (
+                    <img
+                      className="inline"
+                      src="/login.png"
+                      height="40px"
+                      width="40px"
+                      style={{
+                        borderRadius: "50%",
+                        marginLeft: "2px",
+                      }}
+                      alt="login button represented with an icon"
+                    ></img>
+                  )}
+                </button>
+              </div>
+            ) : (
+              <div>
+                <Dropdown>
+                  <Dropdown.Toggle as={CustomToggle}></Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item key="profile">
+                      <Link href="/active">Profile</Link>
+                    </Dropdown.Item>
+                    <Dropdown.Item key="bookmarks">
+                      <Link href="/bookmarked">Bookmarks</Link>
+                    </Dropdown.Item>
+                    <Dropdown.Item key="new post">
+                      <Link href="/dashboard">New Post</Link>
+                    </Dropdown.Item>
+                    <Dropdown.Item key="logout">
+                      <a
+                        onClick={() => {
+                          localStorage.removeItem("userData");
+                          setStatus("loggedOut");
+                        }}
+                      >
+                        Logout
+                      </a>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
+            ))}
         </nav>
       </InstantSearch>
       {state == "register" && (
@@ -518,6 +504,7 @@ export default function Navigation(props) {
                       <Form.Control
                         type="text"
                         style={{ height: "100%" }}
+                        pattern="[a-z0-9]+"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Username"
@@ -525,6 +512,9 @@ export default function Navigation(props) {
                         required
                       />
                     </div>
+                    <Form.Text style={{ width: "100%" }}>
+                      Only alphabets and numbers allowed
+                    </Form.Text>
                     <Form.Control.Feedback type="invalid">
                       Please choose a username.
                     </Form.Control.Feedback>
@@ -541,22 +531,21 @@ export default function Navigation(props) {
                 >
                   <Form.Label>Password</Form.Label>
                   <Form.Control
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    pattern="(?=.*\d)(?=\S+$)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                     required
                   />
+                  <Form.Text>
+                    Must contain at least one number and one uppercase and
+                    lowercase letter, no spaces and at least 8 or more
+                    characters
+                  </Form.Text>
                   <Form.Control.Feedback type="invalid">
                     Please provide a valid password.
                   </Form.Control.Feedback>
-                  <Form.Text>
-                    <center>
-                      Must contain at least one number and one uppercase and
-                      lowercase letter, and at least 8 or more characters
-                    </center>
-                  </Form.Text>
                 </Form.Group>
               </Form.Row>
               <center>
