@@ -21,6 +21,7 @@ export default function Footer() {
         .post("/api/contact", { email: email, message: message })
         .then(setMessage(""))
         .then(setEmail(""));
+      setValidated(false);
     }
 
     setValidated(true);
