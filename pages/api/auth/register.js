@@ -25,6 +25,23 @@ export default async (req, res) => {
           email: req.body.email,
           name: req.body.name,
           password: req.body.password,
+          image: "",
+          images: [],
+          dateCreated: new Date(),
+          dateUpdated: new Date(),
+          profile: "",
+          profiles: [],
+          passwords: [],
+          usernames: [],
+          followers: [],
+          following: [],
+          bookmarked: [],
+          posts: [],
+          viewedPosts: [],
+          viewedProfiles: [],
+          tags: [],
+          viewedTypes: [],
+          liked: [],
         });
         let finalData = await db
           .collection("userData")

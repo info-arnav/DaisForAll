@@ -15,6 +15,7 @@ import { useAmp } from "next/amp";
 import axios from "axios";
 import jwt from "njwt";
 import Router from "next/dist/next-server/lib/router/router";
+import { Spinner } from "react-bootstrap";
 export const config = { amp: "hybrid" };
 export default function Navigation(props) {
   useEffect(() => {
@@ -54,6 +55,7 @@ export default function Navigation(props) {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [username, setUsername] = useState("");
+  const [buttonLoading, setButtonLoading] = useState(false);
   const [validatedRegister, setValidatedRegister] = useState(false);
   const handleSubmitRegister = (event) => {
     const form = event.currentTarget;
@@ -62,6 +64,7 @@ export default function Navigation(props) {
       event.stopPropagation();
       setValidatedRegister(true);
     } else {
+      setButtonLoading(true);
       axios
         .post("/api/auth/register", {
           username: username,
@@ -69,7 +72,8 @@ export default function Navigation(props) {
           email: email,
           name: name,
         })
-        .then((e) =>
+        .then((e) => {
+          setButtonLoading(false);
           e.data != "username exists" && e.data != "email exists"
             ? (() => {
                 localStorage.setItem(
@@ -83,8 +87,8 @@ export default function Navigation(props) {
                 credirect();
                 setStatus("loggedIn");
               })()
-            : setError(e.data)
-        );
+            : setError(e.data);
+        });
     }
   };
   const handleSubmitLogin = (event) => {
@@ -94,12 +98,14 @@ export default function Navigation(props) {
       event.stopPropagation();
       setValidatedLogin(true);
     } else {
+      setButtonLoading(true);
       axios
         .post("/api/auth/login", {
           username: username,
           password: password,
         })
-        .then((e) =>
+        .then((e) => {
+          setButtonLoading(false);
           e.data != "username" && e.data != "password"
             ? (() => {
                 localStorage.setItem(
@@ -113,8 +119,8 @@ export default function Navigation(props) {
                 credirect();
                 setStatus("loggedIn");
               })()
-            : setError(e.data)
-        );
+            : setError(e.data);
+        });
     }
   };
   const isAmp = useAmp();
@@ -606,6 +612,7 @@ export default function Navigation(props) {
                 variant="primary"
                 type="submit"
               >
+                {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}{" "}
                 Register
               </Button>
             </Modal.Footer>
@@ -735,6 +742,7 @@ export default function Navigation(props) {
                 variant="primary"
                 type="submit"
               >
+                {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}{" "}
                 Login
               </Button>
             </Modal.Footer>

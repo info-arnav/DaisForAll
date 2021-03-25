@@ -2,7 +2,16 @@ import Head from "next/head";
 import Navigation from "../components/navigation";
 import Footer from "../components/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Router from "next/router";
+import "nprogress/nprogress.css";
+import NProgress from "nprogress";
 import "../styles/globals.css";
+import { loadProgressBar } from "axios-progress-bar";
+loadProgressBar();
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
+NProgress.configure({ showSpinner: false });
 function MyApp({ Component, pageProps }) {
   const description = "The page is loading please wait.";
   const title = "Infinity | Loading";

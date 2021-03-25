@@ -305,6 +305,9 @@ iframe {
 a {
   cursor: pointer;
 }
+#nprogress .spinner-icon {
+  display: none;
+}
 .hitsDisplay {
   background-color: #fff;
   padding-top: 10px;
