@@ -57,7 +57,7 @@ export default function Navigation(props) {
         setStatus("loggedOut");
       }
     });
-  }, []);
+  });
   const credirect = () => {
     setState("");
     setState("loggedIn");
