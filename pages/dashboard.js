@@ -43,6 +43,9 @@ export default function Dashboard() {
   const handleEditorChange = (content, editor) => {
     console.log("Content was updated:", content);
   };
+  {
+    ("");
+  }
   const description =
     "Have thoughts and mind ? Just share them with everyone by posting it here.";
   const title = "Infinity | Dashboard";
