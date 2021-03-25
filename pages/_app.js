@@ -1,9 +1,7 @@
 import Head from "next/head";
 import Navigation from "../components/navigation";
 import Footer from "../components/footer";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Router from "next/router";
-import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import "../styles/globals.css";
 import { loadProgressBar } from "axios-progress-bar";
