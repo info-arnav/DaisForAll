@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import axios from "axios";
-import { Form } from "react-bootstrap";
+import { Form, Spinner } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useAmp } from "next/amp";
 
