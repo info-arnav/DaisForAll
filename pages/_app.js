@@ -2,30 +2,8 @@ import Head from "next/head";
 import Navigation from "../components/navigation";
 import Footer from "../components/footer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import jwt from "njwt";
 import "../styles/globals.css";
-import { useEffect, useState } from "react";
 function MyApp({ Component, pageProps }) {
-  const [statuses, setStatuses] = useState(false);
-  useEffect(() => {
-    if (localStorage.getItem("userData")) {
-      jwt.verify(
-        localStorage.getItem("userData"),
-        "ArnavGod30080422020731017817087571441",
-        "HS512",
-        function (err, verifiedJwt) {
-          if (err) {
-            localStorage.removeItem("userData");
-            setStatuses("loggedOut");
-          } else {
-            setStatuses("loggedIn");
-          }
-        }
-      );
-    } else {
-      setStatuses("loggedOut");
-    }
-  }, [statuses]);
   const description = "The page is loading please wait.";
   const title = "Infinity | Loading";
   const url = "https://www.arnavgupta.net";
@@ -107,10 +85,9 @@ function MyApp({ Component, pageProps }) {
         <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
         <meta key="32" name="twitter:title" content={title} />
       </Head>
-
-      <Navigation statuses={statuses}></Navigation>
+      <Navigation></Navigation>
       <main>
-        <Component {...pageProps} statuses={statuses} />
+        <Component {...pageProps} />
       </main>
       <Footer></Footer>
     </div>

@@ -17,6 +17,25 @@ import jwt from "njwt";
 import Router from "next/dist/next-server/lib/router/router";
 export const config = { amp: "hybrid" };
 export default function Navigation(props) {
+  useEffect(() => {
+    if (localStorage.getItem("userData")) {
+      jwt.verify(
+        localStorage.getItem("userData"),
+        "ArnavGod30080422020731017817087571441",
+        "HS512",
+        function (err, verifiedJwt) {
+          if (err) {
+            localStorage.removeItem("userData");
+            setStatus("loggedOut");
+          } else {
+            setStatus("loggedIn");
+          }
+        }
+      );
+    } else {
+      setStatus("loggedOut");
+    }
+  }, []);
   const credirect = () => {
     setState("");
     setState("loggedIn");
@@ -101,7 +120,7 @@ export default function Navigation(props) {
   const isAmp = useAmp();
   const [show, setShow] = useState(false);
   const [state, setState] = useState("register");
-  const [status, setStatus] = useState(props.statuses);
+  const [status, setStatus] = useState(false);
   const searchClient = algoliasearch(
     "8PCXEU15SU",
     "7b08d93fde9eb5eebb3d081f764b2ec4"
