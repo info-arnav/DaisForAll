@@ -57,7 +57,7 @@ export default function Navigation(props) {
         setStatus("loggedOut");
       }
     });
-  });
+  }, []);
   const credirect = () => {
     setState("");
     setState("loggedIn");
@@ -454,6 +454,7 @@ export default function Navigation(props) {
                         onClick={() => {
                           localStorage.removeItem("userData");
                           setStatus("loggedOut");
+                          router.push("/");
                         }}
                       >
                         Logout

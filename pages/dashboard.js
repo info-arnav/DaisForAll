@@ -39,7 +39,7 @@ export default function Dashboard() {
         router.push("/");
       }
     });
-  });
+  }, []);
   const handleEditorChange = (content, editor) => {
     console.log("Content was updated:", content);
   };
