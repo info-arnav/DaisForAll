@@ -20,8 +20,8 @@ export default function Footer() {
       axios
         .post("/api/contact", { email: email, message: message })
         .then(setMessage(""))
-        .then(setEmail(""));
-      setValidated(false);
+        .then(setEmail(""))
+        .then(setValidated(false));
     }
 
     setValidated(true);
