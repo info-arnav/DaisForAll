@@ -15,6 +15,7 @@ export default function Footer() {
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+      setValidated(true);
     } else {
       event.preventDefault();
       axios
@@ -23,8 +24,6 @@ export default function Footer() {
         .then(setValidated(false))
         .then(setEmail(""));
     }
-
-    setValidated(true);
   };
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
