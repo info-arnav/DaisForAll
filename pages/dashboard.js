@@ -243,7 +243,7 @@ export default function Dashboard() {
           </Form.Group>
           <Form.Group>
             <img
-              src={dataUri | "/default.webp"}
+              src={dataUri || "/default.webp"}
               onError={() => setDataUri("")}
               style={{ width: "100%" }}
             ></img>
