@@ -197,6 +197,7 @@ export default function Navigation(props) {
             setStatus("loggedOut");
           } else {
             setStatus("loggedIn");
+            router.prefetch("/dashboard");
           }
         }
       );
@@ -217,6 +218,7 @@ export default function Navigation(props) {
               setStatus("loggedOut");
             } else {
               setStatus("loggedIn");
+              router.prefetch("/dashboard");
             }
           }
         );
