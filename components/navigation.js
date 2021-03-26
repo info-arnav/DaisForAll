@@ -26,12 +26,7 @@ export default function Navigation(props) {
   const YourReCaptchaComponent = () => {
     const { executeRecaptcha } = useGoogleReCaptcha();
     const token = executeRecaptcha("login_page");
-    axios
-      .post("https://www.google.com/recaptcha/api/siteverify", {
-        secret: "6LdZVY8aAAAAAAr6e-8t8JvIgDTM50JyISujjtB4",
-        response: token,
-      })
-      .then((e) => console.log(e.data));
+    console.log(token);
     return "done";
   };
   const [tokens, setTokens] = useState();
