@@ -41,7 +41,7 @@ export default function Dashboard() {
       event.preventDefault();
       setButtonLoading(true);
       axios
-        .post("/api/post", {
+        .post("/api/new/post", {
           blog: blog,
           image: dataUri,
           title: titles,
