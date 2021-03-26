@@ -257,7 +257,7 @@ export default function Dashboard() {
           </Form.Group>
           <Form.Group>
             <Button type="submit" style={{ width: "100%", border: "none" }}>
-              {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}
+              {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}{" "}
               POST
             </Button>
           </Form.Group>
