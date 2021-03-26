@@ -184,7 +184,7 @@ export default function Dashboard() {
               type="text"
               placeholder="Title"
               required
-              value={DataTransferItemList}
+              value={titles}
               onChange={(e) => setTitles(e.target.value)}
             />
           </Form.Group>
