@@ -1,10 +1,31 @@
 import Head from "next/head";
 import { Editor } from "@tinymce/tinymce-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import jwt from "njwt";
+import { Form } from "react-bootstrap";
 export default function Dashboard() {
+  const [dataUri, setDataUri] = useState("");
+  const fileToDataUri = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        resolve(event.target.result);
+      };
+      reader.readAsDataURL(file);
+    });
+  const onChange = (file) => {
+    if (!file) {
+      setDataUri("");
+      return;
+    }
+
+    fileToDataUri(file).then((dataUri) => {
+      setDataUri(dataUri);
+    });
+  };
   const router = useRouter();
+  const [value, setValue] = useState("");
   useEffect(() => {
     if (localStorage.getItem("userData")) {
       jwt.verify(
@@ -128,26 +149,63 @@ export default function Dashboard() {
         <meta key="32" name="twitter:title" content={title} />
       </Head>
       <div style={{ width: "97%", marginLeft: "calc(calc(100% - 97%) / 2)" }}>
-        <Editor
-          initialValue="<p>This is the initial content of the editor</p>"
-          apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
-          init={{
-            height: 600,
-            menubar: false,
-            plugins: [
-              "advlist autolink lists link image charmap print preview anchor",
-              "searchreplace visualblocks code fullscreen",
-              "insertdatetime media table paste code help wordcount",
-            ],
-            toolbar:
-              "undo redo | formatselect | bold italic backcolor | \
+        <Form>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Title</Form.Label>
+            <Form.Control type="text" placeholder="Title" required />
+          </Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Blog</Form.Label>
+            <Editor
+              initialValue="<p>This is the initial content of the editor</p>"
+              apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+              init={{
+                height: 600,
+                menubar: false,
+                plugins: [
+                  "advlist autolink lists link image charmap print preview anchor",
+                  "searchreplace visualblocks code fullscreen",
+                  "insertdatetime media table paste code help wordcount",
+                ],
+                toolbar:
+                  "undo redo | formatselect | bold italic backcolor | \
              alignleft aligncenter alignright alignjustify | \
              bullist numlist outdent indent | removeformat | help",
-            branding: false,
-          }}
-          onEditorChange={handleEditorChange}
-        />
-        <br></br>
+                branding: false,
+              }}
+              onEditorChange={handleEditorChange}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Tags</Form.Label>
+            <Form.Control type="text" placeholder="Tags" required />
+          </Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Image Description</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Image Description"
+              required
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Image</Form.Label>
+            <Form.Control
+              onChange={(event) => onChange(event.target.files[0] || null)}
+              type="file"
+              accept=".png, .jpg, jpeg, .svg, .webp"
+              placeholder="Image"
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <img
+              src={dataUri || "/default.jpg"}
+              onError={() => setDataUri("")}
+              style={{ width: "100%" }}
+            ></img>
+          </Form.Group>
+        </Form>
       </div>
     </div>
   );
