@@ -199,11 +199,19 @@ export default function Dashboard() {
             />
           </Form.Group>
           <Form.Group>
-            <img
-              src={dataUri || "/default.jpg"}
-              onError={() => setDataUri("")}
-              style={{ width: "100%" }}
-            ></img>
+            {dataUri ? (
+              <img
+                src={dataUri}
+                onError={() => setDataUri("")}
+                style={{ width: "100%" }}
+              ></img>
+            ) : (
+              <img
+                src={"/default.jpg"}
+                onError={() => setDataUri("")}
+                style={{ width: "100%" }}
+              ></img>
+            )}
           </Form.Group>
         </Form>
       </div>
