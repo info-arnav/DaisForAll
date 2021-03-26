@@ -490,6 +490,7 @@ export default function Navigation(props) {
           }}
         >
           <ReCAPTCHA
+            size="invisible"
             sitekey="6LdZVY8aAAAAAOE4ca-jux3EI3iMOyGiLZhQq8u3"
             onChange={onChange}
           />
@@ -669,6 +670,8 @@ export default function Navigation(props) {
           }}
         >
           <ReCAPTCHA
+            size="invisible"
+            size="invisible"
             sitekey="6LdZVY8aAAAAAOE4ca-jux3EI3iMOyGiLZhQq8u3"
             onChange={onChange}
           />
