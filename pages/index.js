@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 export default function Home() {
   const description =
     "Infinity is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.";

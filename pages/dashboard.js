@@ -3,7 +3,6 @@ import { Editor } from "@tinymce/tinymce-react";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import jwt from "njwt";
-
 export default function Dashboard() {
   const router = useRouter();
   useEffect(() => {
@@ -128,25 +127,28 @@ export default function Dashboard() {
         <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
         <meta key="32" name="twitter:title" content={title} />
       </Head>
-      <Editor
-        initialValue="<p>This is the initial content of the editor</p>"
-        apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
-        init={{
-          height: 500,
-          menubar: false,
-          plugins: [
-            "advlist autolink lists link image charmap print preview anchor",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table paste code help wordcount",
-          ],
-          toolbar:
-            "undo redo | formatselect | bold italic backcolor | \
+      <div style={{ width: "97%", marginLeft: "calc(calc(100% - 97%) / 2)" }}>
+        <Editor
+          initialValue="<p>This is the initial content of the editor</p>"
+          apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+          init={{
+            height: 600,
+            menubar: false,
+            plugins: [
+              "advlist autolink lists link image charmap print preview anchor",
+              "searchreplace visualblocks code fullscreen",
+              "insertdatetime media table paste code help wordcount",
+            ],
+            toolbar:
+              "undo redo | formatselect | bold italic backcolor | \
              alignleft aligncenter alignright alignjustify | \
              bullist numlist outdent indent | removeformat | help",
-          branding: false,
-        }}
-        onEditorChange={handleEditorChange}
-      />
+            branding: false,
+          }}
+          onEditorChange={handleEditorChange}
+        />
+        <br></br>
+      </div>
     </div>
   );
 }

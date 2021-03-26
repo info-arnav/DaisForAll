@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/index.module.scss";
+
 export default function Error({ statusCode }) {
   const description = "You may have landed on a wrong page.";
   const title = statusCode
