@@ -4,7 +4,15 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import jwt from "njwt";
 import { Button, Form } from "react-bootstrap";
+import axios from "axios";
 export default function Dashboard() {
+  const [blog, setBlog] = useState("");
+  const [validated, setValidated] = useState(false);
+  const [tag, setTag] = useState("");
+  const [buttonLoading, setButtonLoading] = useState(false);
+  const [username, setUsername] = useState("");
+  const [title, setTitle] = useState("");
+  const [imageDescription, setImageDescription] = useState("");
   const [dataUri, setDataUri] = useState("");
   const fileToDataUri = (file) =>
     new Promise((resolve, reject) => {
@@ -19,10 +27,30 @@ export default function Dashboard() {
       setDataUri("");
       return;
     }
-
     fileToDataUri(file).then((dataUri) => {
       setDataUri(dataUri);
     });
+  };
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+      setValidated(true);
+    } else {
+      event.preventDefault();
+      setButtonLoading(true);
+      axios
+        .post("/api/post", {
+          blog: blog,
+          image: dataUri,
+          title: title,
+          tag: tag,
+          imageDescription: imageDescription,
+          username: username,
+        })
+        .then((E) => setButtonLoading(false));
+    }
   };
   const router = useRouter();
   const [value, setValue] = useState("");
@@ -61,7 +89,7 @@ export default function Dashboard() {
     });
   }, []);
   const handleEditorChange = (content, editor) => {
-    console.log("Content was updated:", content);
+    setBlog(content);
   };
   {
     ("");
@@ -149,10 +177,16 @@ export default function Dashboard() {
         <meta key="32" name="twitter:title" content={title} />
       </Head>
       <div style={{ width: "97%", marginLeft: "calc(calc(100% - 97%) / 2)" }}>
-        <Form>
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Title</Form.Label>
-            <Form.Control type="text" placeholder="Title" required />
+            <Form.Control
+              type="text"
+              placeholder="Title"
+              required
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Blog</Form.Label>
@@ -178,7 +212,13 @@ export default function Dashboard() {
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Tags</Form.Label>
-            <Form.Control type="text" placeholder="Tags" required />
+            <Form.Control
+              type="text"
+              placeholder="Tags"
+              required
+              value={tag}
+              onChange={(e) => setTag(e.target.value)}
+            />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Image Description</Form.Label>
@@ -186,6 +226,8 @@ export default function Dashboard() {
               type="text"
               placeholder="Image Description"
               required
+              value={imageDescription}
+              onChange={(e) => setImageDescription(e.target.value)}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
@@ -215,6 +257,7 @@ export default function Dashboard() {
           </Form.Group>
           <Form.Group>
             <Button type="submit" style={{ width: "100%", border: "none" }}>
+              {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}
               POST
             </Button>
           </Form.Group>
