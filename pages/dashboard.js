@@ -214,7 +214,7 @@ export default function Dashboard() {
             )}
           </Form.Group>
           <Form.Group>
-            <Button type="submit" style={{ width: "100%" }}>
+            <Button type="submit" style={{ width: "100%", border: "none" }}>
               POST
             </Button>
           </Form.Group>
