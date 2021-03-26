@@ -27,6 +27,9 @@ export default function Navigation(props) {
     const { executeRecaptcha } = useGoogleReCaptcha();
     const token = executeRecaptcha("login_page");
     console.log(token);
+    {
+      ("");
+    }
     return "done";
   };
   const [tokens, setTokens] = useState();
