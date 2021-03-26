@@ -489,6 +489,7 @@ export default function Navigation(props) {
             setError("");
           }}
         >
+          {""}
           <ReCAPTCHA
             size="invisible"
             sitekey="6LdZVY8aAAAAAOE4ca-jux3EI3iMOyGiLZhQq8u3"
