@@ -3,7 +3,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import jwt from "njwt";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 export default function Dashboard() {
   const [blog, setBlog] = useState("");
@@ -11,7 +11,7 @@ export default function Dashboard() {
   const [tag, setTag] = useState("");
   const [buttonLoading, setButtonLoading] = useState(false);
   const [username, setUsername] = useState("");
-  const [title, setTitle] = useState("");
+  const [titles, setTitles] = useState("");
   const [imageDescription, setImageDescription] = useState("");
   const [dataUri, setDataUri] = useState("");
   const fileToDataUri = (file) =>
@@ -44,7 +44,7 @@ export default function Dashboard() {
         .post("/api/post", {
           blog: blog,
           image: dataUri,
-          title: title,
+          title: titles,
           tag: tag,
           imageDescription: imageDescription,
           username: username,
@@ -184,8 +184,8 @@ export default function Dashboard() {
               type="text"
               placeholder="Title"
               required
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              value={DataTransferItemList}
+              onChange={(e) => setTitles(e.target.value)}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
