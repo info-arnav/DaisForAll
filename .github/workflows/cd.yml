@@ -1,0 +1,13 @@
+# CD workflow for React app
+
+name: React App CD
+
+on:
+  push:
+    branches:
+    - main
+    - releases/*
+
+env:
+  owner: Arnav
+  domain: github.io
