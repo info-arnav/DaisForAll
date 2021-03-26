@@ -41,7 +41,7 @@ export default function Dashboard() {
       event.preventDefault();
       setButtonLoading(true);
       axios
-        .post("/api/new/post", {
+        .post("/api/new/posts", {
           blog: blog,
           image: dataUri,
           title: titles,
@@ -49,6 +49,7 @@ export default function Dashboard() {
           imageDescription: imageDescription,
           username: username,
         })
+        .then((e) => router.push(e.data))
         .then((E) => setButtonLoading(false));
     }
   };

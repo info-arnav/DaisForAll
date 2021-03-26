@@ -3,17 +3,12 @@ import bcrypt from "bcryptjs";
 export default async (req, res) => {
   if (req.method == "POST") {
     const { db } = await connectToDatabase();
-    let user = await db
-      .collection("userData")
-      .find({ username: req.body.username })
-      .limit(1)
-      .count();
     let userData = await db
       .collection("userData")
       .find({ username: req.body.username })
       .limit(1)
       .toArray();
-    if (user == 0) {
+    if (userData.length == 0) {
       res.status(202).send("username");
     } else {
       bcrypt.compare(

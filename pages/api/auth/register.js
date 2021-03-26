@@ -20,35 +20,32 @@ export default async (req, res) => {
         .limit(1)
         .count();
       if (username == 0 && email == 0) {
-        let data = await db.collection("userData").insertOne({
-          username: req.body.username,
-          email: req.body.email,
-          name: req.body.name,
-          password: req.body.password,
-          image: "",
-          images: [],
-          dateCreated: new Date(),
-          dateUpdated: new Date(),
-          profile: "",
-          profiles: [],
-          passwords: [],
-          usernames: [],
-          followers: [],
-          following: [],
-          bookmarked: [],
-          posts: [],
-          viewedPosts: [],
-          viewedProfiles: [],
-          tags: [],
-          viewedTypes: [],
-          liked: [],
-        });
-        let finalData = await db
+        let data = await db
           .collection("userData")
-          .find({ username: req.body.username })
-          .limit(1)
-          .toArray();
-        await res.status(200).json(finalData);
+          .insertOne({
+            username: req.body.username,
+            email: req.body.email,
+            name: req.body.name,
+            password: req.body.password,
+            image: "",
+            images: [],
+            dateCreated: new Date(),
+            dateUpdated: new Date(),
+            profile: "",
+            profiles: [],
+            passwords: [],
+            usernames: [],
+            followers: [],
+            following: [],
+            bookmarked: [],
+            posts: [],
+            viewedPosts: [],
+            viewedProfiles: [],
+            tags: [],
+            viewedTypes: [],
+            liked: [],
+          })
+          .then((e) => res.status(200).json(e.ops));
       } else {
         res.status(202).json("email exists");
       }
