@@ -89,14 +89,14 @@ export default function Footer() {
                   {" "}
                   {isAmp ? (
                     <amp-img
-                      src="/facebook.svg"
+                      src="/facebook.webp"
                       alt="facebook"
                       height="11"
                       width="11px"
                     />
                   ) : (
                     <Image
-                      src="/facebook.svg"
+                      src="/facebook.webp"
                       alt="facebook"
                       height="11"
                       width="11px"
@@ -111,14 +111,14 @@ export default function Footer() {
                   {" "}
                   {isAmp ? (
                     <amp-img
-                      src="/instagram.svg"
+                      src="/instagram.webp"
                       alt="instagram"
                       height="11"
                       width="11px"
                     />
                   ) : (
                     <Image
-                      src="/instagram.svg"
+                      src="/instagram.webp"
                       height="11"
                       alt="instagram"
                       width="11px"
@@ -134,14 +134,14 @@ export default function Footer() {
                   {" "}
                   {isAmp ? (
                     <amp-img
-                      src="/twitter.svg"
+                      src="/twitter.webp"
                       alt="twitter"
                       height="11"
                       width="11px"
                     />
                   ) : (
                     <Image
-                      src="/twitter.svg"
+                      src="/twitter.webp"
                       alt="twitter"
                       height="11"
                       width="11px"
@@ -156,14 +156,14 @@ export default function Footer() {
                   {" "}
                   {isAmp ? (
                     <amp-img
-                      src="/linkedin.svg"
+                      src="/linkedin.webp"
                       alt="linkedin"
                       height="11"
                       width="11px"
                     />
                   ) : (
                     <Image
-                      src="/linkedin.svg"
+                      src="/linkedin.webp"
                       alt="linkedin"
                       height="11"
                       width="11px"
@@ -178,14 +178,14 @@ export default function Footer() {
                   {" "}
                   {isAmp ? (
                     <amp-img
-                      src="/youtubeStudio.svg"
+                      src="/youtubeStudio.webp"
                       alt="youtubeStudio"
                       height="11"
                       width="11px"
                     />
                   ) : (
                     <Image
-                      src="/youtubeStudio.svg"
+                      src="/youtubeStudio.webp"
                       alt="youtubeStudio"
                       height="11"
                       width="11px"

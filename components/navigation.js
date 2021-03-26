@@ -47,7 +47,7 @@ export default function Navigation(props) {
             onClick(e);
           }}
           className="inline"
-          src="/login.svg"
+          src="/login.webp"
           height="40px"
           width="40px"
           style={{
@@ -65,7 +65,7 @@ export default function Navigation(props) {
             onClick(e);
           }}
           className="inline"
-          src="/login.svg"
+          src="/login.webp"
           height="40px"
           width="40px"
           style={{
@@ -376,7 +376,7 @@ export default function Navigation(props) {
                   {isAmp ? (
                     <amp-img
                       className="inline"
-                      src="/signip.svg"
+                      src="/signip.webp"
                       height="40px"
                       width="40px"
                       style={{
@@ -388,7 +388,7 @@ export default function Navigation(props) {
                   ) : (
                     <img
                       className="inline"
-                      src="/signip.svg"
+                      src="/signip.webp"
                       height="40px"
                       width="40px"
                       style={{
