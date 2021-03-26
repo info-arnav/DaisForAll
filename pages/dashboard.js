@@ -3,7 +3,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import jwt from "njwt";
-import { Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 export default function Dashboard() {
   const [dataUri, setDataUri] = useState("");
   const fileToDataUri = (file) =>
@@ -212,6 +212,11 @@ export default function Dashboard() {
                 style={{ width: "100%" }}
               ></img>
             )}
+          </Form.Group>
+          <Form.Group>
+            <Button type="submit" style={{ width: "100%" }}>
+              POST
+            </Button>
           </Form.Group>
         </Form>
       </div>
