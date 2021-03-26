@@ -509,11 +509,6 @@ export default function Navigation(props) {
                   <Modal.Title>Register</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <GoogleReCaptcha
-                    onVerify={(token) => {
-                      setToken(token);
-                    }}
-                  />
                   <Form.Row>
                     <Form.Group
                       controlId="validationCustom03"
@@ -693,11 +688,6 @@ export default function Navigation(props) {
                   <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <GoogleReCaptcha
-                    onVerify={(token) => {
-                      setToken(token);
-                    }}
-                  />
                   <Form.Row>
                     <Form.Group
                       controlId="validationCustomUsername"
