@@ -18,58 +18,8 @@ import jwt from "njwt";
 import Router from "next/dist/next-server/lib/router/router";
 import { Spinner } from "react-bootstrap";
 const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"));
+export const config = { amp: "hybrid" };
 export default function Navigation(props) {
-  useEffect(() => {
-    if (localStorage.getItem("userData")) {
-      jwt.verify(
-        localStorage.getItem("userData"),
-        "ArnavGod30080422020731017817087571441",
-        "HS512",
-        function (err, verifiedJwt) {
-          if (err) {
-            localStorage.removeItem("userData");
-            setStatus("loggedOut");
-          } else {
-            setStatus("loggedIn");
-          }
-        }
-      );
-    } else {
-      setStatus("loggedOut");
-    }
-  }, []);
-  useEffect(() => {
-    window.addEventListener("storage", () => {
-      if (localStorage.getItem("userData")) {
-        jwt.verify(
-          localStorage.getItem("userData"),
-          "ArnavGod30080422020731017817087571441",
-          "HS512",
-          function (err, verifiedJwt) {
-            if (err) {
-              localStorage.removeItem("userData");
-              setStatus("loggedOut");
-            } else {
-              setStatus("loggedIn");
-            }
-          }
-        );
-      } else {
-        setStatus("loggedOut");
-      }
-    });
-  }, []);
-  const credirect = () => {
-    setState("");
-    setState("loggedIn");
-    setValidatedRegister(false);
-    setPassword("");
-    setEmail("");
-    setName("");
-    setUsername("");
-    setError("");
-    router.push("/dashboard");
-  };
   const router = useRouter();
   const [validatedLogin, setValidatedLogin] = useState(false);
   const [password, setPassword] = useState("");
@@ -79,74 +29,6 @@ export default function Navigation(props) {
   const [username, setUsername] = useState("");
   const [buttonLoading, setButtonLoading] = useState(false);
   const [validatedRegister, setValidatedRegister] = useState(false);
-  const handleSubmitRegister = (event) => {
-    const form = event.currentTarget;
-    event.preventDefault();
-    if (form.checkValidity() === false) {
-      event.stopPropagation();
-      setValidatedRegister(true);
-    } else {
-      setButtonLoading(true);
-      axios
-        .post("/api/auth/register", {
-          username: username,
-          password: password,
-          email: email,
-          name: name,
-        })
-        .then((e) => {
-          router.prefetch("/dashboard");
-          setButtonLoading(false);
-          e.data != "username exists" && e.data != "email exists"
-            ? (() => {
-                localStorage.setItem(
-                  "userData",
-                  jwt.create(
-                    e.data,
-                    "ArnavGod30080422020731017817087571441",
-                    "HS512"
-                  )
-                );
-                credirect();
-                setStatus("loggedIn");
-              })()
-            : setError(e.data);
-        });
-    }
-  };
-  const handleSubmitLogin = (event) => {
-    const form = event.currentTarget;
-    event.preventDefault();
-    if (form.checkValidity() === false) {
-      event.stopPropagation();
-      setValidatedLogin(true);
-    } else {
-      setButtonLoading(true);
-      axios
-        .post("/api/auth/login", {
-          username: username,
-          password: password,
-        })
-        .then((e) => {
-          router.prefetch("/dashboard");
-          setButtonLoading(false);
-          e.data != "username" && e.data != "password"
-            ? (() => {
-                localStorage.setItem(
-                  "userData",
-                  jwt.create(
-                    e.data,
-                    "ArnavGod30080422020731017817087571441",
-                    "HS512"
-                  )
-                );
-                credirect();
-                setStatus("loggedIn");
-              })()
-            : setError(e.data);
-        });
-    }
-  };
   const isAmp = useAmp();
   const [show, setShow] = useState(false);
   const [state, setState] = useState("register");
@@ -224,6 +106,125 @@ export default function Navigation(props) {
       &darr;
     </button>
   ));
+  const credirect = () => {
+    setState("");
+    setState("loggedIn");
+    setValidatedRegister(false);
+    setPassword("");
+    setEmail("");
+    setName("");
+    setUsername("");
+    setError("");
+    router.push("/dashboard");
+  };
+  const handleSubmitRegister = (event) => {
+    const form = event.currentTarget;
+    event.preventDefault();
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+      setValidatedRegister(true);
+    } else {
+      setButtonLoading(true);
+      axios
+        .post("/api/auth/register", {
+          username: username,
+          password: password,
+          email: email,
+          name: name,
+        })
+        .then((e) => {
+          router.prefetch("/dashboard");
+          setButtonLoading(false);
+          e.data != "username exists" && e.data != "email exists"
+            ? (() => {
+                localStorage.setItem(
+                  "userData",
+                  jwt.create(
+                    e.data,
+                    "ArnavGod30080422020731017817087571441",
+                    "HS512"
+                  )
+                );
+                credirect();
+                setStatus("loggedIn");
+              })()
+            : setError(e.data);
+        });
+    }
+  };
+  const handleSubmitLogin = (event) => {
+    const form = event.currentTarget;
+    event.preventDefault();
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+      setValidatedLogin(true);
+    } else {
+      setButtonLoading(true);
+      axios
+        .post("/api/auth/login", {
+          username: username,
+          password: password,
+        })
+        .then((e) => {
+          router.prefetch("/dashboard");
+          setButtonLoading(false);
+          e.data != "username" && e.data != "password"
+            ? (() => {
+                localStorage.setItem(
+                  "userData",
+                  jwt.create(
+                    e.data,
+                    "ArnavGod30080422020731017817087571441",
+                    "HS512"
+                  )
+                );
+                credirect();
+                setStatus("loggedIn");
+              })()
+            : setError(e.data);
+        });
+    }
+  };
+  useEffect(() => {
+    if (localStorage.getItem("userData")) {
+      jwt.verify(
+        localStorage.getItem("userData"),
+        "ArnavGod30080422020731017817087571441",
+        "HS512",
+        function (err, verifiedJwt) {
+          if (err) {
+            localStorage.removeItem("userData");
+            setStatus("loggedOut");
+          } else {
+            setStatus("loggedIn");
+          }
+        }
+      );
+    } else {
+      setStatus("loggedOut");
+    }
+  }, []);
+  useEffect(() => {
+    window.addEventListener("storage", () => {
+      if (localStorage.getItem("userData")) {
+        jwt.verify(
+          localStorage.getItem("userData"),
+          "ArnavGod30080422020731017817087571441",
+          "HS512",
+          function (err, verifiedJwt) {
+            if (err) {
+              localStorage.removeItem("userData");
+              setStatus("loggedOut");
+            } else {
+              setStatus("loggedIn");
+            }
+          }
+        );
+      } else {
+        setStatus("loggedOut");
+      }
+    });
+  }, []);
   return (
     <div>
       <InstantSearch searchClient={searchClient} indexName="dev_BLOGS">

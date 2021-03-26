@@ -5,7 +5,7 @@ import axios from "axios";
 import { Form, Spinner } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useAmp } from "next/amp";
-
+export const config = { amp: "hybrid" };
 export default function Footer() {
   const isAmp = useAmp();
   const [validated, setValidated] = useState(false);
