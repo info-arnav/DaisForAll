@@ -18,11 +18,7 @@ import jwt from "njwt";
 import Router from "next/dist/next-server/lib/router/router";
 import { Spinner } from "react-bootstrap";
 const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"));
-const recaptchaRef = React.createRef();
 export default function Navigation(props) {
-  function onChange(value) {
-    console.log("Captcha value:", value);
-  }
   useEffect(() => {
     if (localStorage.getItem("userData")) {
       jwt.verify(
@@ -90,7 +86,6 @@ export default function Navigation(props) {
       event.stopPropagation();
       setValidatedRegister(true);
     } else {
-      recaptchaRef.current.execute();
       setButtonLoading(true);
       axios
         .post("/api/auth/register", {
@@ -126,7 +121,6 @@ export default function Navigation(props) {
       event.stopPropagation();
       setValidatedLogin(true);
     } else {
-      recaptchaRef.current.execute();
       setButtonLoading(true);
       axios
         .post("/api/auth/login", {
@@ -492,13 +486,6 @@ export default function Navigation(props) {
             setError("");
           }}
         >
-          {""}
-          <ReCAPTCHA
-            size="invisible"
-            ref={recaptchaRef}
-            sitekey="6LdZVY8aAAAAAOE4ca-jux3EI3iMOyGiLZhQq8u3"
-            onChange={onChange}
-          />
           <Form
             noValidate
             validated={validatedRegister}
@@ -674,12 +661,6 @@ export default function Navigation(props) {
             setError("");
           }}
         >
-          <ReCAPTCHA
-            size="invisible"
-            ref={recaptchaRef}
-            sitekey="6LdZVY8aAAAAAOE4ca-jux3EI3iMOyGiLZhQq8u3"
-            onChange={onChange}
-          />
           <Form
             noValidate
             validated={validatedLogin}
