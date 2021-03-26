@@ -206,11 +206,11 @@ export default function Dashboard() {
                 style={{ width: "100%" }}
               ></img>
             ) : (
-              <Image
+              <img
                 src={"/default.jpg"}
                 onError={() => setDataUri("")}
                 style={{ width: "100%" }}
-              ></Image>
+              ></img>
             )}
           </Form.Group>
         </Form>
