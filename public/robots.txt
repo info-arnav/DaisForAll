@@ -1,7 +1,6 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow: /notFound
-Disallow: /Dashboard
 Disallow: /api/*
 Disallow: /404
 Disallow: /_error
