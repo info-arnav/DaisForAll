@@ -6,12 +6,12 @@ export default function Article({ data }) {
   const description =
     "Infinity is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.";
   const title = `Infinity | ${data.title}`;
-  const url = `https://www.arnavgupta.net/article/${data._id}`
+  const url = `https://www.arnavgupta.net/article/${data._id}`;
   const images = "https://www.arnavgupta.net/logo.png";
   const alts = "logo of the infinity website";
-  const imagec = data.image;
+  const imagec = `https://www.arnavgupta.net/api/image/${data._id}`;
   const altc = data.imageDescription;
-  const tag= `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
+  const tag = `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
     data.title
   }, ${data.tags && data.tags.toString()}`;
   const card = "summary_large_image";
