@@ -1,8 +1,10 @@
 import Head from "next/head";
 import { Editor } from "@tinymce/tinymce-react";
+import Compress from "react-image-file-resizer";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import jwt from "njwt";
+import Resizer from "react-image-file-resizer";
 import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 export default function Dashboard() {
@@ -14,22 +16,25 @@ export default function Dashboard() {
   const [titles, setTitles] = useState("");
   const [imageDescription, setImageDescription] = useState("");
   const [dataUri, setDataUri] = useState("");
-  const fileToDataUri = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        resolve(event.target.result);
-      };
-      reader.readAsDataURL(file);
-    });
+
   const onChange = (file) => {
     if (!file) {
       setDataUri("");
       return;
     }
-    fileToDataUri(file).then((dataUri) => {
-      setDataUri(dataUri);
-    });
+    Resizer.imageFileResizer(
+      file,
+      1080,
+      400,
+      "WEBP",
+      100,
+      0,
+      (uri) => {
+        setDataUri(uri);
+        console.log(uri);
+      },
+      "base64"
+    );
   };
   const handleSubmit = (event) => {
     const form = event.currentTarget;
