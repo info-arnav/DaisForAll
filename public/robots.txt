@@ -5,4 +5,5 @@ Disallow: /api/*
 Disallow: /404
 Disallow: /_error
 Disallow: /_app
+Allow: /api/image/*
 Sitemap : https://www.arnavgupta.net/sitemap.xml
