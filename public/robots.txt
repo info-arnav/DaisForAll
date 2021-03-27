@@ -1,9 +1,9 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
+Allow: /api/image/*
 Disallow: /notFound
 Disallow: /api/*
 Disallow: /404
 Disallow: /_error
 Disallow: /_app
-Allow: /api/image/*
 Sitemap : https://www.arnavgupta.net/sitemap.xml
