@@ -47,7 +47,7 @@ export default function Head({
       <title>{title}</title>
       <meta key="1" name="description" content={description} />
       <meta key="2" name="robots" content="index, follow" />
-      <meta key="3" name="twitter:card" content={card | "summary"} />
+      <meta key="3" name="twitter:card" content={card || "summary"} />
       <meta key="4" name="twitter:site" content="@infinityNewTech" />
       <meta key="5" name="twitter:creator" content="@infinityNewTech" />
       <meta key="6" name="twitter:description" content={description} />
