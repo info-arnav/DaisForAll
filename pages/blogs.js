@@ -1,5 +1,5 @@
 import Head from "../components/head";
-export const config = { amp: true };
+
 export default function Blogs() {
   const description =
     "Find bloogs posted by various people here and enjoy expanding your thougts into their world.";

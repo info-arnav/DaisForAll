@@ -1,5 +1,5 @@
 import Head from "../components/head";
-export const config = { amp: true };
+
 export default function About() {
   const description =
     "Infinity is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.";

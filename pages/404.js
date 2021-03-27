@@ -1,5 +1,4 @@
 import Head from "../components/head";
-export const config = { amp: true };
 export default function Error404() {
   const description = "You may have landed on a wrong page.";
   const title = "Infinity | Error 404";

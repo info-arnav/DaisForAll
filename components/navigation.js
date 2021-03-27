@@ -12,13 +12,11 @@ import {
   InputGroup,
   Modal,
 } from "react-bootstrap";
-import { useAmp } from "next/amp";
 import axios from "axios";
 import jwt from "njwt";
 import Router from "next/dist/next-server/lib/router/router";
 import { Spinner } from "react-bootstrap";
 const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"));
-export const config = { amp: "hybrid" };
 export default function Navigation(props) {
   const router = useRouter();
   const [validatedLogin, setValidatedLogin] = useState(false);
@@ -29,7 +27,6 @@ export default function Navigation(props) {
   const [username, setUsername] = useState("");
   const [buttonLoading, setButtonLoading] = useState(false);
   const [validatedRegister, setValidatedRegister] = useState(false);
-  const isAmp = useAmp();
   const [show, setShow] = useState(false);
   const [state, setState] = useState("register");
   const [status, setStatus] = useState(false);
@@ -39,43 +36,23 @@ export default function Navigation(props) {
   );
   const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
     <div>
-      {isAmp ? (
-        <amp-img
-          ref={ref}
-          onClick={(e) => {
-            e.preventDefault();
-            onClick(e);
-          }}
-          className="inline"
-          src="/login.webp"
-          height="40px"
-          width="40px"
-          style={{
-            borderRadius: "50%",
-            marginLeft: "5px",
-            marginRight: "5px",
-          }}
-          alt="login profile dropdown icon"
-        />
-      ) : (
-        <img
-          ref={ref}
-          onClick={(e) => {
-            e.preventDefault();
-            onClick(e);
-          }}
-          className="inline"
-          src="/login.webp"
-          height="40px"
-          width="40px"
-          style={{
-            borderRadius: "50%",
-            marginLeft: "5px",
-            marginRight: "5px",
-          }}
-          alt="login profile dropdown icon"
-        />
-      )}
+      <img
+        ref={ref}
+        onClick={(e) => {
+          e.preventDefault();
+          onClick(e);
+        }}
+        className="inline"
+        src="/login.webp"
+        height="40px"
+        width="40px"
+        style={{
+          borderRadius: "50%",
+          marginLeft: "5px",
+          marginRight: "5px",
+        }}
+        alt="login profile dropdown icon"
+      />
     </div>
   ));
   const CustomToggleSecond = React.forwardRef(({ children, onClick }, ref) => (
@@ -234,35 +211,19 @@ export default function Navigation(props) {
       <InstantSearch searchClient={searchClient} indexName="dev_BLOGS">
         <nav>
           <Link href="/" id="image">
-            {isAmp ? (
-              <amp-img
-                id="image"
-                alt="The logo of the website which showcases a symbol of infinity combined to wires"
-                src="/logo.png"
-                width="60px"
-                height="60px"
-                style={{
-                  borderRadius: "50%",
-                  marginLeft: "5px",
-                  marginRight: "5px",
-                }}
-                className="d-inline-block align-top"
-              />
-            ) : (
-              <img
-                id="image"
-                alt="The logo of the website which showcases a symbol of infinity combined to wires"
-                src="/logo.png"
-                width="60px"
-                height="60px"
-                style={{
-                  borderRadius: "50%",
-                  marginLeft: "5px",
-                  marginRight: "5px",
-                }}
-                className="d-inline-block align-top"
-              />
-            )}
+            <img
+              id="image"
+              alt="The logo of the website which showcases a symbol of infinity combined to wires"
+              src="/logo.png"
+              width="60px"
+              height="60px"
+              style={{
+                borderRadius: "50%",
+                marginLeft: "5px",
+                marginRight: "5px",
+              }}
+              className="d-inline-block align-top"
+            />
           </Link>
           <div>
             <Dropdown id="navToggle">
@@ -377,31 +338,17 @@ export default function Navigation(props) {
                     backgroundColor: "transparent",
                   }}
                 >
-                  {isAmp ? (
-                    <amp-img
-                      className="inline"
-                      src="/signip.webp"
-                      height="40px"
-                      width="40px"
-                      style={{
-                        borderRadius: "50%",
-                        marginLeft: "2px",
-                      }}
-                      alt="signup button represented with an icon"
-                    />
-                  ) : (
-                    <img
-                      className="inline"
-                      src="/signip.webp"
-                      height="40px"
-                      width="40px"
-                      style={{
-                        borderRadius: "50%",
-                        marginLeft: "2px",
-                      }}
-                      alt="signup button represented with an icon"
-                    />
-                  )}
+                  <img
+                    className="inline"
+                    src="/signip.webp"
+                    height="40px"
+                    width="40px"
+                    style={{
+                      borderRadius: "50%",
+                      marginLeft: "2px",
+                    }}
+                    alt="signup button represented with an icon"
+                  />
                 </button>
                 <button
                   onClick={() => {
@@ -416,31 +363,17 @@ export default function Navigation(props) {
                     backgroundColor: "transparent",
                   }}
                 >
-                  {isAmp ? (
-                    <amp-img
-                      className="inline"
-                      src="/login.png"
-                      height="40px"
-                      width="40px"
-                      style={{
-                        borderRadius: "50%",
-                        marginLeft: "2px",
-                      }}
-                      alt="login button represented with an icon"
-                    />
-                  ) : (
-                    <img
-                      className="inline"
-                      src="/login.png"
-                      height="40px"
-                      width="40px"
-                      style={{
-                        borderRadius: "50%",
-                        marginLeft: "2px",
-                      }}
-                      alt="login button represented with an icon"
-                    ></img>
-                  )}
+                  <img
+                    className="inline"
+                    src="/login.png"
+                    height="40px"
+                    width="40px"
+                    style={{
+                      borderRadius: "50%",
+                      marginLeft: "2px",
+                    }}
+                    alt="login button represented with an icon"
+                  ></img>
                 </button>
               </div>
             ) : (

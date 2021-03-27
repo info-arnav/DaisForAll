@@ -4,10 +4,7 @@ import Image from "next/image";
 import axios from "axios";
 import { Form, Spinner } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { useAmp } from "next/amp";
-export const config = { amp: "hybrid" };
 export default function Footer() {
-  const isAmp = useAmp();
   const [validated, setValidated] = useState(false);
 
   const [buttonLoading, setButtonLoading] = useState(false);
@@ -81,122 +78,48 @@ export default function Footer() {
                 <h5 className="widget-title">
                   Follow up<span></span>
                 </h5>
-                <a
-                  className="fa"
-                  href="https://www.facebook.com/infinity.newTechnology"
-                  style={{ marginRight: "4px" }}
-                >
-                  {" "}
-                  {isAmp ? (
-                    <amp-img
-                      src="/facebook.webp"
-                      alt="facebook"
-                      height="11"
-                      width="11px"
-                    />
-                  ) : (
+                {[
+                  {
+                    url: "https://www.facebook.com/infinity.newTechnology",
+                    image: "/facebook.webp",
+                    media: "facebook",
+                  },
+                  {
+                    url: "https://www.instagram.com/infinity.newtech/",
+                    image: "/instagram.webp",
+                    media: "instagram",
+                  },
+                  {
+                    url: "https://twitter.com/infinityNewTech",
+                    image: "/twitter.webp",
+                    media: "twitter",
+                  },
+                  {
+                    url: "https://www.linkedin.com/in/arnav-gupta-0922341a9/",
+                    image: "/linkedin.webp",
+                    media: "linkedin",
+                  },
+                  {
+                    url:
+                      "https://www.youtube.com/channel/UCzzfqCy-j9XZA5KNosqzh6w",
+                    image: "/youtubeStudio.webp",
+                    media: "youtubeStudio",
+                  },
+                ].map((e) => (
+                  <a className="fa" href={e.url} style={{ marginRight: "4px" }}>
+                    {" "}
                     <Image
-                      src="/facebook.webp"
-                      alt="facebook"
+                      src={e.image}
+                      alt={e.media}
                       height="11"
                       width="11px"
                     ></Image>
-                  )}
-                </a>
-                <a
-                  className="fa"
-                  href="https://www.instagram.com/infinity.newtech/"
-                  style={{ marginRight: "4px" }}
-                >
-                  {" "}
-                  {isAmp ? (
-                    <amp-img
-                      src="/instagram.webp"
-                      alt="instagram"
-                      height="11"
-                      width="11px"
-                    />
-                  ) : (
-                    <Image
-                      src="/instagram.webp"
-                      height="11"
-                      alt="instagram"
-                      width="11px"
-                    ></Image>
-                  )}
-                </a>
-                <a
-                  className="fa"
-                  href="
-                https://twitter.com/infinityNewTech"
-                  style={{ marginRight: "4px" }}
-                >
-                  {" "}
-                  {isAmp ? (
-                    <amp-img
-                      src="/twitter.webp"
-                      alt="twitter"
-                      height="11"
-                      width="11px"
-                    />
-                  ) : (
-                    <Image
-                      src="/twitter.webp"
-                      alt="twitter"
-                      height="11"
-                      width="11px"
-                    ></Image>
-                  )}
-                </a>
-                <a
-                  className="fa"
-                  href="https://www.linkedin.com/in/arnav-gupta-0922341a9/"
-                  style={{ marginRight: "4px" }}
-                >
-                  {" "}
-                  {isAmp ? (
-                    <amp-img
-                      src="/linkedin.webp"
-                      alt="linkedin"
-                      height="11"
-                      width="11px"
-                    />
-                  ) : (
-                    <Image
-                      src="/linkedin.webp"
-                      alt="linkedin"
-                      height="11"
-                      width="11px"
-                    ></Image>
-                  )}
-                </a>
-                <a
-                  className="fa"
-                  href="https://www.youtube.com/channel/UCzzfqCy-j9XZA5KNosqzh6w"
-                  style={{ marginRight: "4px" }}
-                >
-                  {" "}
-                  {isAmp ? (
-                    <amp-img
-                      src="/youtubeStudio.webp"
-                      alt="youtubeStudio"
-                      height="11"
-                      width="11px"
-                    />
-                  ) : (
-                    <Image
-                      src="/youtubeStudio.webp"
-                      alt="youtubeStudio"
-                      height="11"
-                      width="11px"
-                    ></Image>
-                  )}
-                </a>
+                  </a>
+                ))}
               </div>
             </div>
             <br />
             <br />
-
             <div className="col-xs-12 col-sm-6 col-md-3">
               <div className="widget no-box">
                 <h5 className="widget-title">
