@@ -7,7 +7,7 @@ import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import "../styles/globals.css";
 import { loadProgressBar } from "axios-progress-bar";
-loadProgressBar();
+//loadProgressBar()
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
