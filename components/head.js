@@ -11,15 +11,6 @@ export default Head = ({
   tags,
   card,
 }) => {
-  const description = description;
-  const title = title;
-  const url = url;
-  const images = images;
-  const alts = alts;
-  const imagec = imagec;
-  const altc = altc;
-  const tags = tags;
-  const card = card;
   return (
     <Head>
       <script
