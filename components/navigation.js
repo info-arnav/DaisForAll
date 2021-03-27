@@ -135,7 +135,9 @@ export default function Navigation(props) {
         .then((e) => {
           router.prefetch("/dashboard");
           setButtonLoading(false);
-          e.data != "username exists" && e.data != "email exists"
+          e.data != "username exists" &&
+          e.data != "email exists" &&
+          e.data != "error"
             ? (() => {
                 localStorage.setItem(
                   "userData",
@@ -168,7 +170,7 @@ export default function Navigation(props) {
         .then((e) => {
           router.prefetch("/dashboard");
           setButtonLoading(false);
-          e.data != "username" && e.data != "password"
+          e.data != "username" && e.data != "password" && e.data != "error"
             ? (() => {
                 localStorage.setItem(
                   "userData",

@@ -55,7 +55,8 @@ export default function Dashboard() {
           username: username,
         })
         .then((e) => router.push(e.data))
-        .then((E) => setButtonLoading(false));
+        .then((E) => setButtonLoading(false))
+        .catch((e) => e.response && router.push("/"));
     }
   };
   const router = useRouter();
