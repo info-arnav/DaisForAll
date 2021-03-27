@@ -166,7 +166,7 @@ export default function Dashboard() {
               placeholder="Tags"
               required
               value={tags}
-              onChange={(e) => setTas(e.target.value)}
+              onChange={(e) => setTags(e.target.value)}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
