@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export default Head = ({
+export default function Head({
   description,
   title,
   url,
@@ -10,7 +10,7 @@ export default Head = ({
   altc,
   tags,
   card,
-}) => {
+}) {
   return (
     <Head>
       <script
@@ -82,4 +82,4 @@ export default Head = ({
       <meta key="32" name="twitter:title" content={title} />
     </Head>
   );
-};
+}
