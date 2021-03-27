@@ -1,5 +1,6 @@
+import axios from "axios";
 import Head from "../../components/head";
-export default function Article() {
+export default function Article({data}) {
   const description =
     "Infinity is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.";
   const title = "Infinity | Live thousand lives in one world";
@@ -24,6 +25,16 @@ export default function Article() {
         tags={tags}
         card={card}
       ></Head>
+      <div>{data}</div>
     </div>
   );
+}
+
+export async function getServerSideProps({params}){
+  const id = params.id
+  let data = []
+  const res =  axios.get(`/api/data/posts/${id}`).then(e => data = e)
+  return {
+    props:{data}
+  }
 }
