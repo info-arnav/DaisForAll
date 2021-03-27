@@ -11,7 +11,7 @@ export default function Article({ data }) {
   const alts = "logo of the infinity website";
   const imagec = data.image;
   const altc = data.imageDescription;
-  const tags = `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
+  const tag= `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
     data.title
   }, ${data.tags && data.tags.toString()}`;
   const card = "summary_large_image";
@@ -25,7 +25,7 @@ export default function Article({ data }) {
         alts={alts}
         imagec={imagec}
         altc={altc}
-        tags={tags}
+        tags={tag}
         card={card}
       ></Head>
     </div>
