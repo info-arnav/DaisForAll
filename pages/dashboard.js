@@ -3,7 +3,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import Compress from "react-image-file-resizer";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import jwt from "njwt";
+import jwt, { verify } from "njwt";
 import Resizer from "react-image-file-resizer";
 import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
@@ -71,6 +71,7 @@ export default function Dashboard() {
           if (err) {
             router.push("/");
           }
+          else{setUsername(verifiedJwt.username)}
         }
       );
     } else {
@@ -88,6 +89,7 @@ export default function Dashboard() {
             if (err) {
               router.push("/");
             }
+            else{setUsername(verifiedJwt.username)}
           }
         );
       } else {
