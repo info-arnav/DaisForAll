@@ -3,7 +3,16 @@ import { useEffect } from "react";
 import Head from "../../components/head";
 export default function Article({ data }) {
   data = data[0];
-  const description = `Blog | ${data.blog.toString().replace(/<[^>]*>/g, '').splice(0, data.blog.toString().replace(/<[^>]*>/g, '').indexOf("."))}`
+  const description = data.blog
+    .toString()
+    .replace(/<[^>]*>/g, "")
+    .splice(
+      0,
+      data.blog
+        .toString()
+        .replace(/<[^>]*>/g, "")
+        .indexOf(".")
+    );
   const title = `Infinity | ${data.title} | ${data.username}`;
   const url = `https://www.arnavgupta.net/article/${data._id}`;
   const images = "https://www.arnavgupta.net/logo.png";
