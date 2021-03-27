@@ -45,6 +45,10 @@ export default async (req, res) => {
             viewedTypes: [],
             liked: [],
           })
+          .then((e) => {
+            e.ops.images = [];
+            return e;
+          })
           .then((e) => res.status(200).json(e.ops));
       } else {
         res.status(202).json("email exists");
