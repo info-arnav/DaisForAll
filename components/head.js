@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Heads from "next/head";
 
 export default function Head({
   description,
@@ -12,7 +12,7 @@ export default function Head({
   card,
 }) {
   return (
-    <Head>
+    <Heads>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -80,6 +80,6 @@ export default function Head({
       <link key="30" rel="manifest" href="/manifest.json" />
       <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
       <meta key="32" name="twitter:title" content={title} />
-    </Head>
+    </Heads>
   );
 }
