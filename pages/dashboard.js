@@ -10,7 +10,7 @@ import axios from "axios";
 export default function Dashboard() {
   const [blog, setBlog] = useState("");
   const [validated, setValidated] = useState(false);
-  const [tag, setTag] = useState("");
+  const [tags, setTags] = useState("");
   const [buttonLoading, setButtonLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [titles, setTitles] = useState("");
@@ -50,7 +50,7 @@ export default function Dashboard() {
           blog: blog,
           image: dataUri,
           title: titles,
-          tag: tag,
+          tags: tags,
           imageDescription: imageDescription,
           username: username,
         })
@@ -165,8 +165,8 @@ export default function Dashboard() {
               type="text"
               placeholder="Tags"
               required
-              value={tag}
-              onChange={(e) => setTag(e.target.value)}
+              value={tags}
+              onChange={(e) => setTas(e.target.value)}
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
