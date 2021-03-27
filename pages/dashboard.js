@@ -109,7 +109,7 @@ export default function Dashboard() {
   const alts = "logo of the infinity website";
   const imagec = "https://www.arnavgupta.net/logo.png";
   const altc = "logo of the infinity website";
-  const tags =
+  const tag =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post,dashboard, live thousand lives in one world,new, blog, new blog";
   const card = "summary_large_image";
   return (
@@ -122,7 +122,7 @@ export default function Dashboard() {
         alts={alts}
         imagec={imagec}
         altc={altc}
-        tags={tags}
+        tags={tag}
         card={card}
       ></Head>
       <div style={{ width: "97%", marginLeft: "calc(calc(100% - 97%) / 2)" }}>
