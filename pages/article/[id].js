@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import Head from "../../components/head";
 import Jwt from "njwt";
 import { useRouter } from "next/router";
+import Navigation from "../../components/navigation";
+import Footer from "../../components/footer";
 export default function Article({ data }) {
   data = data[0];
   const description =
@@ -52,6 +54,7 @@ export default function Article({ data }) {
   });
   return (
     <div>
+      <Navigation></Navigation>
       <Head
         description={description}
         title={title}
@@ -63,6 +66,8 @@ export default function Article({ data }) {
         tags={tag}
         card={card}
       ></Head>
+      <main></main>
+      <Footer></Footer>
     </div>
   );
 }

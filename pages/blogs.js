@@ -1,4 +1,6 @@
+import Footer from "../components/footer";
 import Head from "../components/head";
+import Navigation from "../components/navigation";
 
 export default function Blogs() {
   const description =
@@ -14,6 +16,7 @@ export default function Blogs() {
   const card = "summary_large_image";
   return (
     <div>
+      <Navigation></Navigation>
       <Head
         description={description}
         title={title}
@@ -25,6 +28,8 @@ export default function Blogs() {
         tags={tags}
         card={card}
       ></Head>
+      <main></main>
+      <Footer></Footer>
     </div>
   );
 }

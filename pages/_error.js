@@ -1,4 +1,6 @@
+import Footer from "../components/footer";
 import Head from "../components/head";
+import Navigation from "../components/navigation";
 import styles from "../styles/index.module.scss";
 
 export default function Error({ statusCode }) {
@@ -15,6 +17,7 @@ export default function Error({ statusCode }) {
   const card = "summary_large_image";
   return (
     <div>
+      <Navigation></Navigation>
       <Head
         description={description}
         title={title}
@@ -26,6 +29,8 @@ export default function Error({ statusCode }) {
         tags={tags}
         card={card}
       ></Head>
+      <main></main>
+      <Footer></Footer>
     </div>
   );
 }

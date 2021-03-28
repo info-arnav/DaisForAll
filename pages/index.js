@@ -1,4 +1,6 @@
+import Footer from "../components/footer";
 import Head from "../components/head";
+import Navigation from "../components/navigation";
 export default function Home() {
   const description =
     "Infinity is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.";
@@ -13,6 +15,7 @@ export default function Home() {
   const card = "summary_large_image";
   return (
     <div>
+      <Navigation></Navigation>
       <Head
         description={description}
         title={title}
@@ -24,6 +27,8 @@ export default function Home() {
         tags={tags}
         card={card}
       ></Head>
+      <main></main>
+      <Footer></Footer>
     </div>
   );
 }

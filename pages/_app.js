@@ -6,7 +6,7 @@ import Router from "next/router";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import "../styles/globals.css";
-import { loadProgressBar } from "axios-progress-bar"
+import { loadProgressBar } from "axios-progress-bar";
 //loadProgressBar()
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -36,11 +36,7 @@ function MyApp({ Component, pageProps }) {
         tags={tags}
         card={card}
       ></Head>
-      <Navigation></Navigation>
-      <main>
-        <Component {...pageProps} />
-      </main>
-      <Footer></Footer>
+      <Component {...pageProps} />
     </div>
   );
 }
