@@ -5,30 +5,34 @@ import Jwt from "njwt";
 import { useRouter } from "next/router";
 export default function Article({ data }) {
   data = data[0];
-  const description = `${data.blog
-    .toString()
-    .replace(/<[^>]*>/g, "")
-    .slice(
-      0,
-      data.blog
-        .toString()
-        .replace(/<[^>]*>/g, "")
-        .indexOf(".")
-    )}.....`;
-  const title = `Infinity | ${data.title} | ${data.username}`;
-  const url = `https://www.arnavgupta.net/article/${data._id}`;
-  const images = "https://www.arnavgupta.net/logo.png";
-  const alts = "logo of the infinity website";
-  const imagec = `https://www.arnavgupta.net/api/image/${data._id}`;
-  const altc = data.imageDescription;
+  const description =
+    data.blog &&
+    `${data.blog
+      .toString()
+      .replace(/<[^>]*>/g, "")
+      .slice(
+        0,
+        data.blog
+          .toString()
+          .replace(/<[^>]*>/g, "")
+          .indexOf(".")
+      )}.....`;
+  const title = data._id && `Infinity | ${data.title} | ${data.username}`;
+  const url = data._id && `https://www.arnavgupta.net/article/${data._id}`;
+  const images = data._id && "https://www.arnavgupta.net/logo.png";
+  const alts = data._id && "logo of the infinity website";
+  const imagec = data._id && `https://www.arnavgupta.net/api/image/${data._id}`;
+  const altc = data._id && data.imageDescription;
   const router = useRouter();
-  const tag = `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
-    data.title
-  }, ${data.tags && data.tags.toString()}`;
+  const tag =
+    data._id &&
+    `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
+      data.title
+    }, ${data.tags.toString()}`;
   const card = "summary_large_image";
   useEffect(() => {
     if (data.error) {
-      router.push("/");
+      router.push("/page_does_not_exist");
     }
     if (localStorage.getItem("userData")) {
       Jwt.verify(
@@ -65,9 +69,13 @@ export default function Article({ data }) {
 
 export async function getServerSideProps({ params }) {
   const id = params.id;
-  let res = await fetch(`https://www.arnavgupta.net/api/data/posts/${id}`);
-  let data = await res.json();
-  return {
-    props: { data },
-  };
+  if (id.length == 24) {
+    let res = await fetch(`https://www.arnavgupta.net/api/data/posts/${id}`);
+    let data = await res.json();
+    return {
+      props: { data },
+    };
+  } else {
+    return { props: { data: [{ error: true }] } };
+  }
 }

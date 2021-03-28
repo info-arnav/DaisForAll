@@ -17,7 +17,9 @@ export default async (req, res) => {
         function (err, result) {
           if (result) {
             userData.images = [];
-            res.status(200).send(userData);
+            res
+              .status(200)
+              .send({ _id: userData._id, username: userData.username });
           } else {
             res.status(202).send("password");
           }
