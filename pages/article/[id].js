@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import Head from "../../components/head";
 import Jwt from "njwt";
+import { useRouter } from "next/router";
 export default function Article({ data }) {
   data = data[0];
   const description = `${data.blog
@@ -20,11 +21,15 @@ export default function Article({ data }) {
   const alts = "logo of the infinity website";
   const imagec = `https://www.arnavgupta.net/api/image/${data._id}`;
   const altc = data.imageDescription;
+  const router = useRouter();
   const tag = `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
     data.title
   }, ${data.tags && data.tags.toString()}`;
   const card = "summary_large_image";
   useEffect(() => {
+    if (data.error) {
+      router.push("/");
+    }
     if (localStorage.getItem("userData")) {
       Jwt.verify(
         localStorage.getItem("userData"),
