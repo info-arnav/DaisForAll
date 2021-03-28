@@ -17,8 +17,17 @@ export default async (req, res) => {
         dateCreated: new Date(),
         dateUpdated: new Date(),
         bookmarks: [],
-        viewes: [],
+        views: [],
         likes: [],
+      })
+      .then(async (e) => {
+        await db
+          .collection("userData")
+          .update(
+            { username: req.body.username },
+            { $push: { posts: e.ops[0]._id } }
+          );
+        return e;
       })
       .then((e) => res.status(200).send(`/article/${e.ops[0]._id}`));
   } else {

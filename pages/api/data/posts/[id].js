@@ -7,5 +7,7 @@ export default async (req, res) => {
     .collection("posts")
     .find({ _id: ObjectID(id) })
     .toArray();
+  posts.images = [];
+  posts.image = "";
   res.json(posts);
 };

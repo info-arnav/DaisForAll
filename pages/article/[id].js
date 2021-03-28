@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import Head from "../../components/head";
+import Jwt from "njwt";
 export default function Article({ data }) {
   data = data[0];
   const description = `${data.blog
@@ -23,6 +24,23 @@ export default function Article({ data }) {
     data.title
   }, ${data.tags && data.tags.toString()}`;
   const card = "summary_large_image";
+  useEffect(() => {
+    if (localStorage.getItem("userData")) {
+      Jwt.verify(
+        localStorage.getItem("userData"),
+        "ArnavGod30080422020731017817087571441",
+        "HS512",
+        async function (err, verifiedJwt) {
+          if (!err) {
+            await axios.post("/api/views", {
+              post: data._id,
+              user: data.username,
+            });
+          }
+        }
+      );
+    }
+  });
   return (
     <div>
       <Head
