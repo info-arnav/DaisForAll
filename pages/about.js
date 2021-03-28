@@ -1,6 +1,5 @@
 import Footer from "../components/footer";
 import Head from "../components/head";
-import Navigation from "../components/navigation";
 
 export default function About() {
   const description =
@@ -16,7 +15,6 @@ export default function About() {
   const card = "summary_large_image";
   return (
     <div>
-      <Navigation></Navigation>
       <Head
         description={description}
         title={title}

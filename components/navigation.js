@@ -1,6 +1,7 @@
 import React, { useDebugValue, useEffect, useState } from "react";
 import Link from "next/link";
 import algoliasearch from "algoliasearch/lite";
+import CustomToggle from "./customToggle";
 import { useRouter } from "next/router";
 import { InstantSearch, SearchBox } from "react-instantsearch-dom";
 import dynamic from "next/dynamic";
@@ -16,6 +17,9 @@ import axios from "axios";
 import jwt from "njwt";
 import Router from "next/dist/next-server/lib/router/router";
 import { Spinner } from "react-bootstrap";
+import Dropdowns from "./dropdownClosed";
+import Ddo from "./dropdownopen";
+import Signed from "./signed";
 const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"));
 export default function Navigation(props) {
   const router = useRouter();
@@ -34,55 +38,6 @@ export default function Navigation(props) {
     "8PCXEU15SU",
     "7b08d93fde9eb5eebb3d081f764b2ec4"
   );
-  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-    <div>
-      <img
-        ref={ref}
-        onClick={(e) => {
-          e.preventDefault();
-          onClick(e);
-        }}
-        className="inline"
-        src="/login.webp"
-        height="40px"
-        width="40px"
-        style={{
-          borderRadius: "50%",
-          marginLeft: "5px",
-          marginRight: "5px",
-        }}
-        alt="login profile dropdown icon"
-      />
-    </div>
-  ));
-  const CustomToggleSecond = React.forwardRef(({ children, onClick }, ref) => (
-    <button
-      ref={ref}
-      style={{
-        marginRight: "10px",
-        marginLeft: "10px",
-        width: "85px",
-        padding: "0.25px",
-        paddingLeft: "0",
-      }}
-      onClick={(e) => {
-        e.preventDefault();
-        onClick(e);
-      }}
-      className="btn btn-4 btn-4c icon-arrow-right"
-      id="data"
-      wfd-id="62"
-    >
-      {typeof window !== "undefined"
-        ? window.location.pathname === "/blogs"
-          ? "Blogs"
-          : window.location.pathname === "/about"
-          ? "About"
-          : "Home"
-        : ""}
-      &darr;
-    </button>
-  ));
   const credirect = () => {
     setState("");
     setState("loggedIn");
@@ -184,28 +139,6 @@ export default function Navigation(props) {
       setStatus("loggedOut");
     }
   }, []);
-  useEffect(() => {
-    window.addEventListener("storage", () => {
-      if (localStorage.getItem("userData")) {
-        jwt.verify(
-          localStorage.getItem("userData"),
-          "ArnavGod30080422020731017817087571441",
-          "HS512",
-          function (err, verifiedJwt) {
-            if (err) {
-              localStorage.removeItem("userData");
-              setStatus("loggedOut");
-            } else {
-              setStatus("loggedIn");
-              router.prefetch("/dashboard");
-            }
-          }
-        );
-      } else {
-        setStatus("loggedOut");
-      }
-    });
-  }, []);
   return (
     <div>
       <InstantSearch searchClient={searchClient} indexName="dev_BLOGS">
@@ -225,99 +158,8 @@ export default function Navigation(props) {
               className="d-inline-block align-top"
             />
           </Link>
-          <div>
-            <Dropdown id="navToggle">
-              <Dropdown.Toggle as={CustomToggleSecond}></Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item key="home">
-                  <Link href="/">Home</Link>
-                </Dropdown.Item>
-                {status &&
-                  (status == "loggedIn" ? (
-                    <Dropdown.Item key="blogs">
-                      <Link href="/blogs">Blogs</Link>
-                    </Dropdown.Item>
-                  ) : (
-                    <Dropdown.Item key="about">
-                      <Link href="/about">About</Link>
-                    </Dropdown.Item>
-                  ))}
-              </Dropdown.Menu>{" "}
-            </Dropdown>
-          </div>
-          <div id="inDropdown">
-            {" "}
-            <Link
-              href="/"
-              style={{
-                display: "inherit",
-                marginRight: "10px",
-              }}
-            >
-              <button
-                className="btn btn-4 btn-4c icon-arrow-right"
-                style={{ marginRight: "5px" }}
-                id={
-                  typeof window !== "undefined"
-                    ? window.location.pathname === "/"
-                      ? "active"
-                      : "data"
-                    : "data"
-                }
-                wfd-id="62"
-              >
-                Home
-              </button>
-            </Link>
-            {status &&
-              (status != "loggedIn" ? (
-                <Link
-                  href="/about"
-                  style={{
-                    display: "inherit",
-                    marginRight: "10px",
-                  }}
-                >
-                  <button
-                    className="btn btn-4 btn-4c icon-arrow-right"
-                    style={{ marginRight: "5px" }}
-                    id={
-                      typeof window !== "undefined"
-                        ? window.location.pathname === "/about"
-                          ? "active"
-                          : "data"
-                        : "data"
-                    }
-                    wfd-id="62"
-                  >
-                    About
-                  </button>
-                </Link>
-              ) : (
-                <Link
-                  href="/blogs"
-                  style={{
-                    display: "inherit",
-                    marginRight: "10px",
-                  }}
-                >
-                  <button
-                    className="btn btn-4 btn-4c icon-arrow-right"
-                    style={{ marginRight: "5px" }}
-                    id={
-                      typeof window !== "undefined"
-                        ? window.location.pathname === "/blogs"
-                          ? "active"
-                          : "data"
-                        : "data"
-                    }
-                    wfd-id="62"
-                  >
-                    Blogs
-                  </button>
-                </Link>
-              ))}
-          </div>
+          <Dropdowns status={status}></Dropdowns>
+          <Ddo status={status}></Ddo>
           <SearchBox
             style={{ width: "100%" }}
             translations={{ placeholder: "Search" }}
@@ -325,14 +167,13 @@ export default function Navigation(props) {
           {status &&
             (status !== "loggedIn" ? (
               <div style={{ display: "inherit" }}>
-                {" "}
                 <button
                   onClick={() => {
                     setShow(true);
                     setState("register");
                   }}
                   style={{
-                    padding: "0",
+                    paDding: "0",
                     marginLeft: "2px",
                     border: "none",
                     backgroundColor: "transparent",
@@ -356,7 +197,7 @@ export default function Navigation(props) {
                     setState("login");
                   }}
                   style={{
-                    padding: "0",
+                    paDding: "0",
                     border: "none",
                     marginLeft: "2px",
                     marginRight: "10px",
@@ -377,33 +218,7 @@ export default function Navigation(props) {
                 </button>
               </div>
             ) : (
-              <div>
-                <Dropdown>
-                  <Dropdown.Toggle as={CustomToggle}></Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item key="profile">
-                      <Link href="/active">Profile</Link>
-                    </Dropdown.Item>
-                    <Dropdown.Item key="bookmarks">
-                      <Link href="/bookmarked">Bookmarks</Link>
-                    </Dropdown.Item>
-                    <Dropdown.Item key="new post">
-                      <Link href="/dashboard">New Post</Link>
-                    </Dropdown.Item>
-                    <Dropdown.Item key="logout">
-                      <a
-                        onClick={() => {
-                          localStorage.removeItem("userData");
-                          setStatus("loggedOut");
-                          router.push("/");
-                        }}
-                      >
-                        Logout
-                      </a>
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </div>
+              <Signed></Signed>
             ))}
         </nav>
       </InstantSearch>

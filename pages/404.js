@@ -1,6 +1,5 @@
 import Footer from "../components/footer";
 import Head from "../components/head";
-import Navigation from "../components/navigation";
 export default function Error404() {
   const description = "You may have landed on a wrong page.";
   const title = "Infinity | Error 404";
@@ -14,7 +13,6 @@ export default function Error404() {
   const card = "summary_large_image";
   return (
     <div>
-      <Navigation></Navigation>
       <Head
         description={description}
         title={title}

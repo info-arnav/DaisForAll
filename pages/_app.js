@@ -1,12 +1,10 @@
 import Navigation from "../components/navigation";
-import Footer from "../components/footer";
 import Head from "../components/head";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Router from "next/router";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import "../styles/globals.css";
-import { loadProgressBar } from "axios-progress-bar";
 //loadProgressBar()
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -36,6 +34,7 @@ function MyApp({ Component, pageProps }) {
         tags={tags}
         card={card}
       ></Head>
+      <Navigation></Navigation>
       <Component {...pageProps} />
     </div>
   );

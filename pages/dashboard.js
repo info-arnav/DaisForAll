@@ -1,6 +1,5 @@
 import Head from "../components/head";
 import { Editor } from "@tinymce/tinymce-react";
-import Compress from "react-image-file-resizer";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import jwt, { verify } from "njwt";
@@ -8,7 +7,6 @@ import Resizer from "react-image-file-resizer";
 import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 import Footer from "../components/footer";
-import Navigation from "../components/navigation";
 export default function Dashboard() {
   const [blog, setBlog] = useState("");
   const [validated, setValidated] = useState(false);
@@ -83,29 +81,7 @@ export default function Dashboard() {
       router.push("/");
     }
   }, []);
-  useEffect(() => {
-    window.addEventListener("storage", () => {
-      if (localStorage.getItem("userData")) {
-        jwt.verify(
-          localStorage.getItem("userData"),
-          "ArnavGod30080422020731017817087571441",
-          "HS512",
-          function (err, verifiedJwt) {
-            if (err) {
-              setLoaded(false);
-              router.push("/");
-            } else {
-              setLoaded(true);
-              setUsername(verifiedJwt.body[0].username);
-            }
-          }
-        );
-      } else {
-        setLoaded(false);
-        router.push("/");
-      }
-    });
-  }, []);
+
   const handleEditorChange = (content, editor) => {
     setBlog(content);
   };
@@ -126,7 +102,6 @@ export default function Dashboard() {
   return (
     <div>
       {" "}
-      <Navigation></Navigation>
       <Head
         description={description}
         title={title}

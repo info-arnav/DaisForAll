@@ -16,10 +16,9 @@ export default async (req, res) => {
         userData[0].password,
         function (err, result) {
           if (result) {
-            userData.images = [];
             res
               .status(200)
-              .send({ _id: userData._id, username: userData.username });
+              .send([{ _id: userData[0]._id, username: userData[0].username }]);
           } else {
             res.status(202).send("password");
           }
