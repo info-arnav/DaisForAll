@@ -7,6 +7,8 @@ import jwt, { verify } from "njwt";
 import Resizer from "react-image-file-resizer";
 import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
+import Footer from "../components/footer";
+import Navigation from "../components/navigation";
 export default function Dashboard() {
   const [blog, setBlog] = useState("");
   const [validated, setValidated] = useState(false);
@@ -124,6 +126,7 @@ export default function Dashboard() {
   return (
     <div>
       {" "}
+      <Navigation></Navigation>
       <Head
         description={description}
         title={title}
@@ -135,87 +138,96 @@ export default function Dashboard() {
         tags={tag}
         card={card}
       ></Head>
-      {loaded && (
-        <div style={{ width: "97%", marginLeft: "calc(calc(100% - 97%) / 2)" }}>
-          <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Title</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Title"
-                required
-                value={titles}
-                onChange={(e) => setTitles(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Blog</Form.Label>
-              <Editor
-                initialValue="<p>This is the initial content of the editor</p>"
-                apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
-                init={{
-                  height: 600,
-                  menubar: false,
-                  plugins: [
-                    "advlist autolink lists link image charmap print preview anchor",
-                    "searchreplace visualblocks code fullscreen",
-                    "insertdatetime media table paste code help wordcount",
-                  ],
-                  toolbar:
-                    "undo redo | formatselect | bold italic backcolor | \
+      <main>
+        {loaded && (
+          <div
+            style={{ width: "97%", marginLeft: "calc(calc(100% - 97%) / 2)" }}
+          >
+            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Title</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Title"
+                  required
+                  value={titles}
+                  onChange={(e) => setTitles(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Blog</Form.Label>
+                <Editor
+                  initialValue="<p>This is the initial content of the editor</p>"
+                  apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+                  init={{
+                    height: 600,
+                    menubar: false,
+                    plugins: [
+                      "advlist autolink lists link image charmap print preview anchor",
+                      "searchreplace visualblocks code fullscreen",
+                      "insertdatetime media table paste code help wordcount",
+                    ],
+                    toolbar:
+                      "undo redo | formatselect | bold italic backcolor | \
              alignleft aligncenter alignright alignjustify | \
              bullist numlist outdent indent | removeformat | help",
-                  branding: false,
-                }}
-                onEditorChange={handleEditorChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Tags</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Tags"
-                required
-                value={tags}
-                onChange={(e) => setTags(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Image Description</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Image Description"
-                required
-                value={imageDescription}
-                onChange={(e) => setImageDescription(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Label>Image</Form.Label>
-              <Form.Control
-                onChange={(event) => onChange(event.target.files[0] || null)}
-                type="file"
-                accept=".png, .jpg, jpeg, .svg, .webp"
-                placeholder="Image"
-                required
-              />
-            </Form.Group>
-            <Form.Group>
-              <img
-                src={dataUri || "/default.webp"}
-                onError={() => setDataUri("")}
-                style={{ width: "100%" }}
-              ></img>
-            </Form.Group>
-            <Form.Group>
-              <Button type="submit" style={{ width: "100%", border: "none" }}>
-                {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}{" "}
-                POST
-              </Button>
-            </Form.Group>
-          </Form>
-        </div>
-      )}
+                    branding: false,
+                  }}
+                  onEditorChange={handleEditorChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Tags</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Tags"
+                  required
+                  value={tags}
+                  onChange={(e) => setTags(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Image Description</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Image Description"
+                  required
+                  value={imageDescription}
+                  onChange={(e) => setImageDescription(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Image</Form.Label>
+                <Form.Control
+                  onChange={(event) => onChange(event.target.files[0] || null)}
+                  type="file"
+                  accept=".png, .jpg, jpeg, .svg, .webp"
+                  placeholder="Image"
+                  required
+                />
+              </Form.Group>
+              <Form.Group>
+                <img
+                  src={dataUri || "/default.webp"}
+                  onError={() => setDataUri("")}
+                  style={{ width: "100%" }}
+                ></img>
+              </Form.Group>
+              <Form.Group>
+                <Button type="submit" style={{ width: "100%", border: "none" }}>
+                  {buttonLoading ? (
+                    <Spinner size="sm" animation="border" />
+                  ) : (
+                    ""
+                  )}{" "}
+                  POST
+                </Button>
+              </Form.Group>
+            </Form>
+          </div>
+        )}
+      </main>
+      <Footer></Footer>
     </div>
   );
 }
