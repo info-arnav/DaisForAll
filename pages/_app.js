@@ -1,9 +1,11 @@
 import Navigation from "../components/navigation";
+import "../styles/505.css";
 import Head from "../components/head";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Router from "next/router";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
+import "../styles/404.css";
 import "../styles/globals.css";
 //loadProgressBar()
 Router.events.on("routeChangeStart", () => NProgress.start());
