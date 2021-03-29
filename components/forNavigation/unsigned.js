@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-import dynamic from "next/dynamic";
-const Login = dynamic(() => import("./login"));
-const Register = dynamic(() => import("./register"));
+import Login from "./login";
+import Register from "./register";
 export default function Unsigned(props) {
   const [show, setShow] = useState(false);
   const [state, setState] = useState("");

@@ -1,7 +1,6 @@
 import { Dropdown } from "react-bootstrap";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-const CustomToggleSecond = dynamic(() => import("./customToggleSecond"));
+import CustomToggleSecond from "./customToggleSecond";
 export default function Dropdownse(status) {
   return (
     <div>

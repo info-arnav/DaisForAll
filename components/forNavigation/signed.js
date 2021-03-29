@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Dropdown } from "react-bootstrap";
-import dynamic from "next/dynamic";
-const CustomToggle = dynamic(() => import("./customToggle"));
+import CustomToggle from "./customToggle";
 
 export default function Signed() {
   const router = useRouter();
