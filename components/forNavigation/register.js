@@ -30,7 +30,6 @@ export default function Register() {
           name: name,
         })
         .then((e) => {
-          router.prefetch("/dashboard");
           setButtonLoading(false);
           e.data != "username exists" &&
           e.data != "email exists" &&
@@ -44,6 +43,7 @@ export default function Register() {
                     "HS512"
                   )
                 );
+                router.prefetch("/dashboard");
                 location.replace("/dashboard");
               })()
             : setError(e.data);

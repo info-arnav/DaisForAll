@@ -27,7 +27,6 @@ export default function Login() {
           password: password,
         })
         .then((e) => {
-          router.prefetch("/dashboard");
           setButtonLoading(false);
           e.data != "username" && e.data != "password" && e.data != "error"
             ? (() => {
@@ -39,6 +38,7 @@ export default function Login() {
                     "HS512"
                   )
                 );
+                router.prefetch("/dashboard");
                 location.replace("/dashboard");
               })()
             : setError(e.data);

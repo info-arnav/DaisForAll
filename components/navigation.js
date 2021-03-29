@@ -27,8 +27,8 @@ export default function Navigation(props) {
             localStorage.removeItem("userData");
             setStatus("loggedOut");
           } else {
-            setStatus("loggedIn");
             router.prefetch("/dashboard");
+            setStatus("loggedIn");
           }
         }
       );
