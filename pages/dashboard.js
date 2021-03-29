@@ -8,7 +8,9 @@ import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 import Footer from "../components/footer";
 export default function Dashboard() {
-  const [blog, setBlog] = useState("");
+  const [blog, setBlog] = useState(
+    "<p>This is the initial content of the editor</p>"
+  );
   const [validated, setValidated] = useState(false);
   const [tags, setTags] = useState("");
   const [buttonLoading, setButtonLoading] = useState(false);
@@ -53,6 +55,10 @@ export default function Dashboard() {
           tags: tags,
           imageDescription: imageDescription,
           username: username,
+        })
+        .then((e) => {
+          router.prefetch(e.data);
+          return e;
         })
         .then((e) => router.push(e.data))
         .then((E) => setButtonLoading(false))

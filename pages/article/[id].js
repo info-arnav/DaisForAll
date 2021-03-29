@@ -64,7 +64,11 @@ export default function Article({ data }) {
         tags={tag}
         card={card}
       ></Head>
-      <main></main>
+      <main>
+        <img src={`/api/image/${data._id}`} alt={data.imageDescription}></img>
+        <h1>{data.title}</h1>
+        <p dangerouslySetInnerHTML={{ __html: data.blog }}></p>
+      </main>
       <Footer></Footer>
     </div>
   );
