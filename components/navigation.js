@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import algoliasearch from "algoliasearch/lite";
 import { useRouter } from "next/router";
 import { InstantSearch, SearchBox } from "react-instantsearch-dom";
