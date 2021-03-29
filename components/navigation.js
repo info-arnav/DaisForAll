@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import algoliasearch from "algoliasearch/lite";
 import { useRouter } from "next/router";
 import { InstantSearch, SearchBox } from "react-instantsearch-dom";
 import dynamic from "next/dynamic";
 import jwt from "njwt";
-import Dropdowns from "./forNavigation/dropdownClosed";
-import Ddo from "./forNavigation/dropdownopen";
-import Signed from "./forNavigation/signed";
-import Unsigned from "./forNavigation/unsigned";
+const Dropdowns = dynamic(() => import("./forNavigation/dropdownClosed"));
+const Ddo = dynamic(() => import("./forNavigation/dropdownopen"));
+const Signed = dynamic(() => import("./forNavigation/signed"));
+const Unsigned = dynamic(() => import("./forNavigation/unsigned"));
 export default function Navigation(props) {
   const router = useRouter();
   const [status, setStatus] = useState(false);
