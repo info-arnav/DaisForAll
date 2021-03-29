@@ -12,6 +12,7 @@ export default function Register() {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [username, setUsername] = useState("");
+
   const [buttonLoading, setButtonLoading] = useState(false);
   const [validatedRegister, setValidatedRegister] = useState(false);
   const handleSubmitRegister = (event) => {
