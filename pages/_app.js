@@ -1,5 +1,4 @@
 import Navigation from "../components/navigation";
-import "../styles/505.css";
 import Head from "../components/head";
 import Router from "next/router";
 import "bootstrap/dist/css/bootstrap.min.css";
