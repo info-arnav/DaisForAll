@@ -13,11 +13,12 @@ export default function Register() {
         response: value,
       })
       .then((e) => {
-        e.data.success == true ? setDisabled(false) : "";
+        e.data.success == true ? setDisabled(false) : setDerror(true);
       });
   }
   const router = useRouter();
   const [disabled, setDisabled] = useState(true);
+  const [derror, setDerror] = useState(false);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -171,6 +172,11 @@ export default function Register() {
               onChange={onChange}
               onTimeout={() => setDisabled(true)}
             />
+            <Form.Text style={{ color: "red" }}>
+              {derror == true
+                ? "We couldnt verify that u=you are an human"
+                : ""}
+            </Form.Text>
           </Form.Group>
         </Form.Row>
         <Form.Row>
