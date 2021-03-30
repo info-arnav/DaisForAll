@@ -8,9 +8,7 @@ import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 import Footer from "../components/footer";
 export default function Dashboard() {
-  const [blog, setBlog] = useState(
-    "<p>This is the initial content of the editor</p>"
-  );
+  const [blog, setBlog] = useState("");
   const [validated, setValidated] = useState(false);
   const [tags, setTags] = useState("");
   const [buttonLoading, setButtonLoading] = useState(false);
@@ -35,7 +33,6 @@ export default function Dashboard() {
       0,
       (uri) => {
         setDataUri(uri);
-        console.log(uri);
       },
       "base64"
     );
@@ -92,9 +89,6 @@ export default function Dashboard() {
     }
   }, []);
 
-  const handleEditorChange = (content, editor) => {
-    setBlog(content);
-  };
   {
     ("");
   }
@@ -142,6 +136,7 @@ export default function Dashboard() {
               <Form.Group controlId="formBasicEmail">
                 <Form.Label id="required">Blog</Form.Label>
                 <Editor
+                  value={blog}
                   initialValue="<p>This is the initial content of the editor</p>"
                   apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
                   init={{
@@ -158,16 +153,53 @@ export default function Dashboard() {
              bullist numlist outdent indent | removeformat | help",
                     branding: false,
                   }}
-                  onEditorChange={handleEditorChange}
+                  onEditorChange={(e) => setBlog(e)}
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label>Computer Programme if any</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Computer Programme"
+                <Form.Label>Computer Programmes</Form.Label>
+                <Editor
                   value={computerProgramme}
-                  onChange={(e) => setComputerProgramme(e.target.value)}
+                  initialValue=""
+                  apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+                  init={{
+                    height: 200,
+                    menubar: false,
+                    plugins: [
+                      "advlist autolink lists link image charmap print preview anchor",
+                      "searchreplace visualblocks code fullscreen",
+                      "insertdatetime media table paste code help wordcount",
+                    ],
+                    toolbar:
+                      "undo redo | formatselect | bold italic backcolor | \
+             alignleft aligncenter alignright alignjustify | \
+             bullist numlist outdent indent | removeformat | help",
+                    branding: false,
+                  }}
+                  onEditorChange={(e) => setCompProgramme(e)}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Ownership Conditions</Form.Label>
+                <Editor
+                  value={conditions}
+                  initialValue=""
+                  apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+                  init={{
+                    height: 200,
+                    menubar: false,
+                    plugins: [
+                      "advlist autolink lists link image charmap print preview anchor",
+                      "searchreplace visualblocks code fullscreen",
+                      "insertdatetime media table paste code help wordcount",
+                    ],
+                    toolbar:
+                      "undo redo | formatselect | bold italic backcolor | \
+             alignleft aligncenter alignright alignjustify | \
+             bullist numlist outdent indent | removeformat | help",
+                    branding: false,
+                  }}
+                  onEditorChange={(e) => setConditions(e)}
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
@@ -178,15 +210,6 @@ export default function Dashboard() {
                   required
                   value={tags}
                   onChange={(e) => setTags(e.target.value)}
-                />
-              </Form.Group>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Ownership Conditions If Any</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Conditions"
-                  value={conditions}
-                  onChange={(e) => setConditions(e.target.value)}
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">

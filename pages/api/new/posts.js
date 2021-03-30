@@ -19,7 +19,7 @@ export default async (req, res) => {
         bookmarks: [],
         views: [],
         conditions: req.body.conditions,
-        omputerProgramme: omputerProgramme,
+        computerProgramme: req.body.computerProgramme,
         likes: [],
       })
       .then(async (e) => {

@@ -99,9 +99,23 @@ export default function Article({ data }) {
         card={card}
       ></Head>
       <main>
-        <img src={`/api/image/${data._id}`} alt={data.imageDescription}></img>
-        <h1>{data.title}</h1>
-        <p dangerouslySetInnerHTML={{ __html: data.blog }}></p>
+        <div style={{ width: "90%", marginLeft: "5%" }}>
+          <img src={`/api/image/${data._id}`} alt={data.imageDescription}></img>
+          <h1>{data.title}</h1>
+          <div>
+            <p dangerouslySetInnerHTML={{ __html: data.blog }}></p>
+          </div>
+          <pre>
+            <p
+              className="p"
+              style={{ color: "white" }}
+              dangerouslySetInnerHTML={{ __html: data.computerProgramme }}
+            ></p>
+          </pre>
+          <pre className="conditions">
+            <p dangerouslySetInnerHTML={{ __html: data.conditions }}></p>
+          </pre>
+        </div>
       </main>
       <Footer></Footer>
     </div>

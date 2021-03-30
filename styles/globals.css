@@ -605,6 +605,15 @@ ul.social-footer2 li a {
   content: " *";
   color: red;
 }
+.p * {
+  color: white;
+}
+.conditions {
+  background-color: #e6e5e5 !important;
+}
+.conditions * {
+  color: black;
+}
 pre {
   padding: 16px !important;
   overflow: auto !important;
