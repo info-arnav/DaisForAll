@@ -22,7 +22,7 @@ export default function Head({
             "@type": "WebSite",
             colleague: [],
             image: imagec,
-            name: "Arnav Gupta",
+            name: "Infinity",
             url: url,
             logo: imagec,
             sameAs: [
