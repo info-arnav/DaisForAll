@@ -64,7 +64,7 @@ export default function Article({ data }) {
               "@type": "Article",
               mainEntityOfPage: {
                 "@type": "WebPage",
-                "@id": "https://google.com/article",
+                "@id": url,
               },
               a: "",
               headline: data.title,
