@@ -56,6 +56,7 @@ export default function Article({ data }) {
     <div>
       <Heads>
         <script
+          key={-2}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
