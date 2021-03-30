@@ -1,12 +1,23 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import jwt from "njwt";
+import ReCAPTCHA from "react-google-recaptcha";
 import dynamic from "next/dynamic";
 import React, { useState } from "react";
 import { Button, Form, InputGroup, Modal, Spinner } from "react-bootstrap";
-import Recapcha from "./recapcha";
 export default function Register() {
+  function onChange(value) {
+    axios
+      .post("/api/verify", {
+        secret: "6LcM8JQaAAAAANE5B1sZchi2IrljEHNtQPo8Ioml",
+        response: value,
+      })
+      .then((e) => {
+        e.data.success == true ? setDisabled(false) : "";
+      });
+  }
   const router = useRouter();
+  const [disabled, setDisabled] = useState(true);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -17,7 +28,6 @@ export default function Register() {
   const handleSubmitRegister = (event) => {
     const form = event.currentTarget;
     event.preventDefault();
-    recaptchaRef.current.execute();
     if (form.checkValidity() === false) {
       event.stopPropagation();
       setValidatedRegister(true);
@@ -57,7 +67,6 @@ export default function Register() {
       validated={validatedRegister}
       onSubmit={handleSubmitRegister}
     >
-      <Recapcha></Recapcha>
       <Modal.Header closeButton>
         <Modal.Title>Register</Modal.Title>
       </Modal.Header>
@@ -156,14 +165,24 @@ export default function Register() {
           </Form.Group>
         </Form.Row>
         <Form.Row>
+          <Form.Group>
+            <ReCAPTCHA
+              sitekey="6LcM8JQaAAAAAJ-uBIX5Oho6BYWrw-pBQn0L4ZCo"
+              onChange={onChange}
+              onTimeout={() => setDisabled(true)}
+            />
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
           <Form.Group style={{ width: "100%" }}>
             <Button
               style={{ border: "none", width: "100%" }}
               variant="primary"
               type="submit"
+              disabled={disabled}
             >
               {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}
-              Register
+              Register {disabled}
             </Button>
           </Form.Group>
         </Form.Row>

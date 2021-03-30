@@ -583,9 +583,6 @@ footer.light .footer-copyright {
 .typo-light span {
   color: #fff;
 }
-.grecaptcha-badge {
-  z-index: 0;
-}
 ul.social-footer2 {
   margin: 0;
   padding: 0;

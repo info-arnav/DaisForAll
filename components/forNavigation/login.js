@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import jwt from "njwt";
 import React, { useState } from "react";
 import { Button, Form, InputGroup, Modal, Spinner } from "react-bootstrap";
-import Recapcha from "./recapcha";
 export default function Login() {
   const recaptchaRef = React.createRef();
   const router = useRouter();
@@ -47,7 +46,6 @@ export default function Login() {
   };
   return (
     <Form noValidate validated={validatedLogin} onSubmit={handleSubmitLogin}>
-      <Recapcha></Recapcha>
       <Modal.Header closeButton>
         <Modal.Title>Login</Modal.Title>
       </Modal.Header>

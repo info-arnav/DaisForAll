@@ -29,6 +29,7 @@
     "react-google-recaptcha-v3": "^1.8.0",
     "react-image-file-resizer": "^0.4.2",
     "react-instantsearch-dom": "^6.10.3",
+    "react-recaptcha-google": "^1.1.1",
     "sass": "^1.32.8"
   },
   "devDependencies": {
