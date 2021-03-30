@@ -71,7 +71,7 @@ export default function Unsigned(props) {
           <center>
             <p style={{ marginBottom: "20px" }}>
               Already registered ?{" "}
-              <a onClick={() => setState("login")}>Click here</a>
+              <a onClick={() => setState("login")}>Login here</a>
             </p>
           </center>
         </Modal>
@@ -90,8 +90,8 @@ export default function Unsigned(props) {
           <Login></Login>
           <center>
             <p style={{ marginBottom: "20px" }}>
-              Already registered ?{" "}
-              <a onClick={() => setState("register")}>Click here</a>
+              Not yoet Register ?{" "}
+              <a onClick={() => setState("register")}>Reegister here</a>
             </p>
           </center>
         </Modal>
