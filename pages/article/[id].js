@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
+import Heads from "next/head";
 import Head from "../../components/head";
 import Jwt from "njwt";
 import { useRouter } from "next/router";
@@ -53,6 +54,37 @@ export default function Article({ data }) {
   });
   return (
     <div>
+      <Heads>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": "https://google.com/article",
+              },
+              headline: data.title,
+              image: [imagec],
+              datePublished: data.dateCreated,
+              dateModified: data.dateUpdated,
+              author: {
+                "@type": "Person",
+                name: data.name,
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Infinity",
+                logo: {
+                  "@type": "ImageObject",
+                  url: images,
+                },
+              },
+            }),
+          }}
+        ></script>
+      </Heads>
       <Head
         description={description}
         title={title}

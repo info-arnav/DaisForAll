@@ -14,8 +14,8 @@ export default async (req, res) => {
               { username: req.body.user },
               { $push: { viewedPosts: req.body.post } }
             )
-      )
-      .then((e) => res.status(200).send("done"));
+            .then((e) => res.status(200).send("done"))
+      );
   } else {
     res.status(404).send("error");
   }
