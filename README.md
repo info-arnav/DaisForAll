@@ -1,5 +1,4 @@
 # Infinity - Live thousand lives in one world
----
 ![logo of infinity with 2 wires](https://www.arnavgupta.net/logo.png "logo")
 ---
 ## Introduction to the project
