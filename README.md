@@ -15,3 +15,10 @@ So the respo has a database which is added at the util folder, the frontend in p
 ## Introduction to the programme
 
 The chain starts from _app.js I guess so please start there.
+
+## Execute
+
+```bash
+npm run install && npm run build
+npm run start
+```
