@@ -14,7 +14,19 @@ export default function Head({
   return (
     <Heads>
       <script
-        key="-1"
+        key={-3}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            url: url,
+            logo: imagec,
+          }),
+        }}
+      ></script>
+      <script
+        key={-1}
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -22,9 +34,8 @@ export default function Head({
             "@type": "WebSite",
             colleague: [],
             image: imagec,
-            name: "Infinity",
+            name: "Arnav Gupta",
             url: url,
-            logo: imagec,
             sameAs: [
               "https://www.youtube.com/channel/UCzzfqCy-j9XZA5KNosqzh6w",
               "https://www.instagram.com/infinity.newtech/",
@@ -35,7 +46,7 @@ export default function Head({
           }),
         }}
       />
-      <title key={0}>{title}</title>
+      <title key="0">{title}</title>
       <meta key="1" name="description" content={description} />
       <meta key="2" name="robots" content="index, follow" />
       <meta key="3" name="twitter:card" content={card || "summary"} />
