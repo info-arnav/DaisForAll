@@ -187,8 +187,8 @@ export default function Register() {
               type="submit"
               disabled={disabled}
             >
-              {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}
-              Register {disabled}
+              {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}{" "}
+              Register
             </Button>
           </Form.Group>
         </Form.Row>

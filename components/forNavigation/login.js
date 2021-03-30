@@ -112,7 +112,7 @@ export default function Login() {
               variant="primary"
               type="submit"
             >
-              {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}
+              {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}{" "}
               Login
             </Button>
           </Form.Group>
