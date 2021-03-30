@@ -68,7 +68,7 @@ export default function Login() {
                 </InputGroup.Prepend>
                 <Form.Control
                   type="text"
-                  style={{ height: "100%" }}
+                  style={{ height: "100%", textTransform: "lowercase" }}
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="Username"

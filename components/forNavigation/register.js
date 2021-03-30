@@ -124,7 +124,7 @@ export default function Register() {
                 </InputGroup.Prepend>
                 <Form.Control
                   type="text"
-                  style={{ height: "100%" }}
+                  style={{ height: "100%", textTransform: "lowercase" }}
                   pattern="[a-z0-9]+"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
