@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import jwt from "njwt";
-import dynamic from "next/dynamic";
-import { useState } from "react";
-const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"));
+import React, { useState } from "react";
 import { Button, Form, InputGroup, Modal, Spinner } from "react-bootstrap";
+import Recapcha from "./recapcha";
 export default function Login() {
+  const recaptchaRef = React.createRef();
   const router = useRouter();
   const [validatedLogin, setValidatedLogin] = useState(false);
   const [password, setPassword] = useState("");
@@ -47,6 +47,7 @@ export default function Login() {
   };
   return (
     <Form noValidate validated={validatedLogin} onSubmit={handleSubmitLogin}>
+      <Recapcha></Recapcha>
       <Modal.Header closeButton>
         <Modal.Title>Login</Modal.Title>
       </Modal.Header>
@@ -106,25 +107,19 @@ export default function Login() {
             </Form.Text>
           </Form.Group>
         </Form.Row>
+        <Form.Row>
+          <Form.Group style={{ width: "100%" }}>
+            <Button
+              style={{ border: "none", width: "100%" }}
+              variant="primary"
+              type="submit"
+            >
+              {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}
+              Login
+            </Button>
+          </Form.Group>
+        </Form.Row>
       </Modal.Body>
-      <Modal.Footer>
-        <Button
-          style={{ border: "none" }}
-          variant="secondary"
-          onClick={() => {
-            setShow(false);
-            setValidatedLogin(false);
-            setPassword("");
-            setUsername("");
-            setError("");
-          }}
-        >
-          Close
-        </Button>
-        <Button style={{ border: "none" }} variant="primary" type="submit">
-          {buttonLoading ? <Spinner size="sm" animation="border" /> : ""} Login
-        </Button>
-      </Modal.Footer>
     </Form>
   );
 }

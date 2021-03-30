@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import Login from "./login";
 import Register from "./register";
 export default function Unsigned(props) {
@@ -68,6 +68,12 @@ export default function Unsigned(props) {
           }}
         >
           <Register></Register>
+          <center>
+            <p style={{ marginBottom: "20px" }}>
+              Already registered ?{" "}
+              <a onClick={() => setState("login")}>Click here</a>
+            </p>
+          </center>
         </Modal>
       )}
       {state == "login" && show && (
@@ -82,6 +88,12 @@ export default function Unsigned(props) {
           }}
         >
           <Login></Login>
+          <center>
+            <p style={{ marginBottom: "20px" }}>
+              Already registered ?{" "}
+              <a onClick={() => setState("register")}>Click here</a>
+            </p>
+          </center>
         </Modal>
       )}
     </div>

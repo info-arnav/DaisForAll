@@ -2,9 +2,9 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import jwt from "njwt";
 import dynamic from "next/dynamic";
-import { useState } from "react";
-const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"));
+import React, { useState } from "react";
 import { Button, Form, InputGroup, Modal, Spinner } from "react-bootstrap";
+import Recapcha from "./recapcha";
 export default function Register() {
   const router = useRouter();
   const [password, setPassword] = useState("");
@@ -17,6 +17,7 @@ export default function Register() {
   const handleSubmitRegister = (event) => {
     const form = event.currentTarget;
     event.preventDefault();
+    recaptchaRef.current.execute();
     if (form.checkValidity() === false) {
       event.stopPropagation();
       setValidatedRegister(true);
@@ -56,6 +57,7 @@ export default function Register() {
       validated={validatedRegister}
       onSubmit={handleSubmitRegister}
     >
+      <Recapcha></Recapcha>
       <Modal.Header closeButton>
         <Modal.Title>Register</Modal.Title>
       </Modal.Header>
@@ -153,28 +155,19 @@ export default function Register() {
             </Form.Control.Feedback>
           </Form.Group>
         </Form.Row>
+        <Form.Row>
+          <Form.Group style={{ width: "100%" }}>
+            <Button
+              style={{ border: "none", width: "100%" }}
+              variant="primary"
+              type="submit"
+            >
+              {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}
+              Register
+            </Button>
+          </Form.Group>
+        </Form.Row>
       </Modal.Body>
-      <Modal.Footer>
-        <Button
-          style={{ border: "none" }}
-          variant="secondary"
-          onClick={() => {
-            setShow(false);
-            setValidatedRegister(false);
-            setPassword("");
-            setEmail("");
-            setName("");
-            setUsername("");
-            setError("");
-          }}
-        >
-          Close
-        </Button>
-        <Button style={{ border: "none" }} variant="primary" type="submit">
-          {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}
-          Register
-        </Button>
-      </Modal.Footer>
     </Form>
   );
 }
