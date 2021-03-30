@@ -134,7 +134,7 @@ export default function Register() {
                 />
               </div>
               <Form.Text style={{ width: "100%" }}>
-                Only alphabets and numbers allowed
+                Only small alphabets and numbers allowed
               </Form.Text>
               <Form.Control.Feedback type="invalid">
                 Please choose a username.
