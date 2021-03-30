@@ -65,6 +65,7 @@ export default function Article({ data }) {
                 "@type": "WebPage",
                 "@id": "https://google.com/article",
               },
+              a: "",
               headline: data.title,
               image: [imagec],
               datePublished: data.dateCreated,
