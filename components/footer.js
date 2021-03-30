@@ -137,7 +137,7 @@ export default function Footer() {
                     <Form.Control
                       required
                       type="email"
-                      placeholder="Email"
+                      placeholder="Email*"
                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -148,7 +148,7 @@ export default function Footer() {
                     <Form.Control
                       required
                       type="text"
-                      placeholder="Message"
+                      placeholder="Message*"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                     />

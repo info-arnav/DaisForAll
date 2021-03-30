@@ -55,7 +55,7 @@ export default function Login() {
             controlId="validationCustomUsername"
             style={{ width: "100%" }}
           >
-            <Form.Label>Username</Form.Label>
+            <Form.Label id="required">Username</Form.Label>
             <InputGroup hasValidation>
               <div style={{ width: "100%", display: "flex" }}>
                 <InputGroup.Prepend>
@@ -88,7 +88,7 @@ export default function Login() {
         </Form.Row>
         <Form.Row>
           <Form.Group controlId="validationCustom03" style={{ width: "100%" }}>
-            <Form.Label>Password</Form.Label>
+            <Form.Label id="required">Password</Form.Label>
             <Form.Control
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               type="password"

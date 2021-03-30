@@ -15,6 +15,8 @@ export default function Dashboard() {
   const [tags, setTags] = useState("");
   const [buttonLoading, setButtonLoading] = useState(false);
   const [username, setUsername] = useState("");
+  const [conditions, setConditions] = useState("");
+  const [computerProgramme, setCompProgramme] = useState("");
   const [titles, setTitles] = useState("");
   const [imageDescription, setImageDescription] = useState("");
   const [dataUri, setDataUri] = useState("");
@@ -52,6 +54,8 @@ export default function Dashboard() {
           blog: blog,
           image: dataUri,
           title: titles,
+          conditions: conditions,
+          computerProgramme: computerProgramme,
           tags: tags,
           imageDescription: imageDescription,
           username: username,
@@ -126,7 +130,7 @@ export default function Dashboard() {
           >
             <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label>Title</Form.Label>
+                <Form.Label id="required">Title</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Title"
@@ -136,7 +140,7 @@ export default function Dashboard() {
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label>Blog</Form.Label>
+                <Form.Label id="required">Blog</Form.Label>
                 <Editor
                   initialValue="<p>This is the initial content of the editor</p>"
                   apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
@@ -158,7 +162,16 @@ export default function Dashboard() {
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label>Tags</Form.Label>
+                <Form.Label>Computer Programme if any</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Computer Programme"
+                  value={computerProgramme}
+                  onChange={(e) => setComputerProgramme(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label id="required">Tags</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Tags"
@@ -168,7 +181,16 @@ export default function Dashboard() {
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label>Image Description</Form.Label>
+                <Form.Label>Ownership Conditions If Any</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Conditions"
+                  value={conditions}
+                  onChange={(e) => setConditions(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label id="required">Image Description</Form.Label>
                 <Form.Control
                   type="text"
                   placeholder="Image Description"
@@ -178,7 +200,7 @@ export default function Dashboard() {
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label>Image</Form.Label>
+                <Form.Label id="required">Image</Form.Label>
                 <Form.Control
                   onChange={(event) => onChange(event.target.files[0] || null)}
                   type="file"

@@ -74,7 +74,7 @@ export default function Register() {
       <Modal.Body>
         <Form.Row>
           <Form.Group controlId="validationCustom03" style={{ width: "100%" }}>
-            <Form.Label>Name</Form.Label>
+            <Form.Label id="required">Name</Form.Label>
             <Form.Control
               type="text"
               placeholder="Name"
@@ -89,7 +89,7 @@ export default function Register() {
         </Form.Row>
         <Form.Row>
           <Form.Group controlId="validationCustom03" style={{ width: "100%" }}>
-            <Form.Label>Email</Form.Label>
+            <Form.Label id="required">Email</Form.Label>
             <Form.Control
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
               type="text"
@@ -111,7 +111,7 @@ export default function Register() {
             controlId="validationCustomUsername"
             style={{ width: "100%" }}
           >
-            <Form.Label>Username</Form.Label>
+            <Form.Label id="required">Username</Form.Label>
             <InputGroup hasValidation>
               <div style={{ width: "100%", display: "flex" }}>
                 <InputGroup.Prepend>
@@ -147,7 +147,7 @@ export default function Register() {
         </Form.Row>
         <Form.Row>
           <Form.Group controlId="validationCustom03" style={{ width: "100%" }}>
-            <Form.Label>Password</Form.Label>
+            <Form.Label id="required">Password</Form.Label>
             <Form.Control
               pattern="(?=.*\d)(?=\S+$)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               type="password"

@@ -18,6 +18,8 @@ export default async (req, res) => {
         dateUpdated: new Date(),
         bookmarks: [],
         views: [],
+        conditions: req.body.conditions,
+        omputerProgramme: omputerProgramme,
         likes: [],
       })
       .then(async (e) => {
