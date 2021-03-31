@@ -28,12 +28,7 @@ export default function Article({ data }) {
   const router = useRouter();
   const tag =
     data._id &&
-    `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
-      data.title
-    },${data.tags
-      .toString()
-      .split(" ")
-      .map((e) => e)}`;
+    `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${data.title}`;
   const card = "summary_large_image";
   useEffect(() => {
     if (data.error) {
@@ -113,14 +108,6 @@ export default function Article({ data }) {
             src={`/api/image/${data._id}`}
             alt={data.imageDescription}
           ></img>
-          <div>
-            {data.tags
-              .toString()
-              .split(" ")
-              .map((e) => (
-                <a href="">{e} </a>
-              ))}
-          </div>
           <b>
             <h1 style={{ marginBottom: "8px" }}>{data.title}</h1>
           </b>
