@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Heads from "next/head";
 import Head from "../../components/head";
 import Jwt from "njwt";
@@ -30,7 +30,10 @@ export default function Article({ data }) {
     data._id &&
     `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
       data.title
-    }, ${data.tags.toString()}`;
+    },${data.tags
+      .toString()
+      .split(" ")
+      .map((e) => e)}`;
   const card = "summary_large_image";
   useEffect(() => {
     if (data.error) {
@@ -51,7 +54,7 @@ export default function Article({ data }) {
         }
       );
     }
-  });
+  }, []);
   return (
     <div>
       <Heads>
@@ -100,21 +103,62 @@ export default function Article({ data }) {
       ></Head>
       <main>
         <div style={{ width: "90%", marginLeft: "5%" }}>
-          <img src={`/api/image/${data._id}`} alt={data.imageDescription}></img>
-          <h1>{data.title}</h1>
+          <img
+            style={{
+              width: "100%",
+              borderRadius: "20px",
+              marginBottom: "20px",
+            }}
+            description={data.description}
+            src={`/api/image/${data._id}`}
+            alt={data.imageDescription}
+          ></img>
           <div>
+            {data.tags
+              .toString()
+              .split(" ")
+              .map((e) => (
+                <a href="">{e} </a>
+              ))}
+          </div>
+          <b>
+            <h1 style={{ marginBottom: "8px" }}>{data.title}</h1>
+          </b>
+          <b>
+            <p style={{ color: "black", size: "30px", marginBottom: "10px" }}>
+              By{" "}
+              <a
+                style={{ color: "black", size: "30px", marginBottom: "10px" }}
+                href={`profile/${data.username}`}
+              >
+                {data.username}
+              </a>{" "}
+              on {data.dateCreated.slice(0, 10)}
+            </p>
+          </b>
+          <div style={{ marginBottom: "20px" }}>
             <p dangerouslySetInnerHTML={{ __html: data.blog }}></p>
           </div>
-          <pre>
-            <p
-              className="p"
-              style={{ color: "white" }}
-              dangerouslySetInnerHTML={{ __html: data.computerProgramme }}
-            ></p>
-          </pre>
-          <pre className="conditions">
-            <p dangerouslySetInnerHTML={{ __html: data.conditions }}></p>
-          </pre>
+          {data.computerProgramme && (
+            <div>
+              <h6 style={{ marginBottom: "20px" }}>Programmes</h6>
+              <pre>
+                <p
+                  className="p"
+                  style={{ color: "white" }}
+                  dangerouslySetInnerHTML={{ __html: data.computerProgramme }}
+                ></p>
+              </pre>
+            </div>
+          )}
+          {data.conditions && (
+            <div>
+              <h6 style={{ marginBottom: "20px" }}>Conitions</h6>
+              <pre className="conditions">
+                <p dangerouslySetInnerHTML={{ __html: data.conditions }}></p>
+              </pre>
+            </div>
+          )}
         </div>
       </main>
       <Footer></Footer>
