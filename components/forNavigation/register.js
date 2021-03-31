@@ -35,6 +35,9 @@ export default function Register() {
       setValidatedRegister(true);
     } else {
       setDisabled(true);
+      {
+        ("");
+      }
       setButtonLoading(true);
       axios
         .post("/api/auth/register", {
