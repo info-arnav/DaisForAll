@@ -16,8 +16,8 @@ export default function Footer() {
       setValidated(true);
     } else {
       event.preventDefault();
-      setDisabled(true);
       setButtonLoading(true);
+      setDisabled(true);
       axios
         .post("/api/contact", { email: email, message: message })
         .then(setButtonLoading(false))
