@@ -34,7 +34,7 @@ export default function Register() {
       event.stopPropagation();
       setValidatedRegister(true);
     } else {
-      setDisable(true);
+      setDisabled(true);
       setButtonLoading(true);
       axios
         .post("/api/auth/register", {
