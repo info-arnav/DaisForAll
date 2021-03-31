@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Heads from "next/head";
 import Head from "../../components/head";
 import Jwt from "njwt";
+import parse from "html-react-parser";
 import { useRouter } from "next/router";
 import Footer from "../../components/footer";
 import DOMPurify from "dompurify";
@@ -145,35 +146,17 @@ export default function Article({ data }) {
               on {data.dateCreated.slice(0, 10)}
             </p>
           </b>
-          <div style={{ marginBottom: "20px" }}>
-            <p key={blog} dangerouslySetInnerHTML={{ __html: blog }}></p>
-          </div>
+          <div style={{ marginBottom: "20px" }}>{parse(blog)}</div>
           {computerProgramme && (
             <div>
               <h6 style={{ marginBottom: "20px" }}>Programmes</h6>
-              <pre>
-                <p
-                  className="p"
-                  style={{ color: "white" }}
-                  key={computerProgramme}
-                  dangerouslySetInnerHTML={{
-                    __html: computerProgramme,
-                  }}
-                ></p>
-              </pre>
+              <pre>{parse(computerProgramme)}</pre>
             </div>
           )}
           {condition && (
             <div>
               <h6 style={{ marginBottom: "20px" }}>Conitions</h6>
-              <pre className="conditions">
-                <p
-                  key={condition}
-                  dangerouslySetInnerHTML={{
-                    __html: condition,
-                  }}
-                ></p>
-              </pre>
+              <pre className="conditions">{parse(condition)}</pre>
             </div>
           )}
         </div>
