@@ -21,7 +21,7 @@ export default async (req, res) => {
             let data = await db
               .collection("userData")
               .insertOne({
-                username: req.body.username.toLowercase(),
+                username: req.body.username.toLowerCase(),
                 email: req.body.email,
                 name: req.body.name,
                 password: req.body.password,
