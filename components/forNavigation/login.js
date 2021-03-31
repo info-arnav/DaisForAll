@@ -21,8 +21,6 @@ export default function Login() {
       event.stopPropagation();
       setValidatedLogin(true);
     } else {
-      setButtonLoading(true);
-      setDisabled(true);
       axios
         .post("/api/auth/login", {
           username: username,
@@ -40,11 +38,15 @@ export default function Login() {
                   )
                 );
                 router.prefetch("/dashboard");
-                setButtonLoading(false);
-                setDisabled(false);
+                setButtonLoading(true);
+                setDisabled(true);
                 location.replace("/dashboard");
               })()
-            : setError(e.data);
+            : (() => {
+                setError(e.data);
+                setButtonLoading(false);
+                setDisabled(false);
+              })();
         });
     }
   };

@@ -47,7 +47,6 @@ export default function Register() {
           name: name,
         })
         .then((e) => {
-          setButtonLoading(false);
           e.data != "username exists" &&
           e.data != "email exists" &&
           e.data != "error"
@@ -65,7 +64,11 @@ export default function Register() {
                 setDisabled(false);
                 location.replace("/dashboard");
               })()
-            : setError(e.data);
+            : (() => {
+                setError(e.data);
+                setButtonLoading(false);
+                setDisabled(false);
+              })();
         });
     }
   };
