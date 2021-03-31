@@ -28,6 +28,7 @@ export default function Register() {
   const [validatedRegister, setValidatedRegister] = useState(false);
   const handleSubmitRegister = (event) => {
     const form = event.currentTarget;
+    setUsername(username.toLowerCase());
     event.preventDefault();
     if (form.checkValidity() === false) {
       event.stopPropagation();
