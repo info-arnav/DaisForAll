@@ -8,7 +8,7 @@ import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 import Footer from "../components/footer";
 export default function Dashboard() {
-  const [disabled, setDisabled] = useState("false");
+  const [disabled, setDisabled] = useState(false);
   const [blog, setBlog] = useState("");
   const [validated, setValidated] = useState(false);
   const [tags, setTags] = useState("");
