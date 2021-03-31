@@ -5,6 +5,7 @@ import Head from "../../components/head";
 import Jwt from "njwt";
 import { useRouter } from "next/router";
 import Footer from "../../components/footer";
+import DOMPurify from "dompurify";
 export default function Article({ data }) {
   data = data[0];
   const description =
@@ -21,6 +22,11 @@ export default function Article({ data }) {
       )}.....`;
   const title = data._id && `Infinity | ${data.title} | ${data.username}`;
   const url = data._id && `https://www.arnavgupta.net/article/${data._id}`;
+  const [condition, setCondition] = useState(data.conditions);
+  const [computerProgramme, setComputerProgramme] = useState(
+    data.computerProgramme
+  );
+  const [blog, setBlog] = useState(data.blog);
   const images = data._id && "https://www.arnavgupta.net/logo.png";
   const alts = data._id && "logo of the infinity website";
   const imagec = data._id && `https://www.arnavgupta.net/api/image/${data._id}`;
@@ -28,7 +34,13 @@ export default function Article({ data }) {
   const router = useRouter();
   const tag =
     data._id &&
-    `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${data.title}`;
+    `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
+      data.title
+    },
+    ${data.tags
+      .toString()
+      .split(" ")
+      .map((e) => e)}`;
   const card = "summary_large_image";
   useEffect(() => {
     if (data.error) {
@@ -49,7 +61,7 @@ export default function Article({ data }) {
         }
       );
     }
-  }, []);
+  }, [condition, computerProgramme, blog]);
   return (
     <div>
       <Heads>
@@ -108,6 +120,16 @@ export default function Article({ data }) {
             src={`/api/image/${data._id}`}
             alt={data.imageDescription}
           ></img>
+          <div>
+            {data.tags
+              .toString()
+              .split(" ")
+              .map((e) => (
+                <div style={{ display: "inline" }}>
+                  <a href="">{e} </a>
+                </div>
+              ))}
+          </div>
           <b>
             <h1 style={{ marginBottom: "8px" }}>{data.title}</h1>
           </b>
@@ -124,25 +146,33 @@ export default function Article({ data }) {
             </p>
           </b>
           <div style={{ marginBottom: "20px" }}>
-            <p dangerouslySetInnerHTML={{ __html: data.blog }}></p>
+            <p key={blog} dangerouslySetInnerHTML={{ __html: blog }}></p>
           </div>
-          {data.computerProgramme && (
+          {computerProgramme && (
             <div>
               <h6 style={{ marginBottom: "20px" }}>Programmes</h6>
               <pre>
                 <p
                   className="p"
                   style={{ color: "white" }}
-                  dangerouslySetInnerHTML={{ __html: data.computerProgramme }}
+                  key={computerProgramme}
+                  dangerouslySetInnerHTML={{
+                    __html: computerProgramme,
+                  }}
                 ></p>
               </pre>
             </div>
           )}
-          {data.conditions && (
+          {condition && (
             <div>
               <h6 style={{ marginBottom: "20px" }}>Conitions</h6>
               <pre className="conditions">
-                <p dangerouslySetInnerHTML={{ __html: data.conditions }}></p>
+                <p
+                  key={condition}
+                  dangerouslySetInnerHTML={{
+                    __html: condition,
+                  }}
+                ></p>
               </pre>
             </div>
           )}

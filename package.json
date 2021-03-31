@@ -16,6 +16,7 @@
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
+    "dompurify": "^2.2.7",
     "mongodb": "^3.6.5",
     "next": "10.0.9",
     "njwt": "^1.0.0",
