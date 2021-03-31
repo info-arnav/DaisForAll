@@ -6,7 +6,7 @@ import { Form, Spinner } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 export default function Footer() {
   const [validated, setValidated] = useState(false);
-
+  const [disabled, setDisabled] = useState(false);
   const [buttonLoading, setButtonLoading] = useState(false);
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -16,13 +16,16 @@ export default function Footer() {
       setValidated(true);
     } else {
       event.preventDefault();
+      setDisabled(true);
       setButtonLoading(true);
       axios
         .post("/api/contact", { email: email, message: message })
         .then(setButtonLoading(false))
         .then(setMessage(""))
+        .then(setDisabled(false))
         .then(setValidated(false))
-        .then(setEmail(""));
+        .then(setEmail(""))
+        .catch((e) => console.log(e.response));
     }
   };
   const [message, setMessage] = useState("");
@@ -154,7 +157,11 @@ export default function Footer() {
                     />
                   </Form.Group>
 
-                  <Button style={{ border: "none" }} type="submit">
+                  <Button
+                    style={{ border: "none" }}
+                    type="submit"
+                    disabled={disabled}
+                  >
                     {buttonLoading ? (
                       <Spinner size="sm" animation="border" />
                     ) : (

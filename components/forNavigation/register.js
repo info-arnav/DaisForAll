@@ -34,6 +34,7 @@ export default function Register() {
       event.stopPropagation();
       setValidatedRegister(true);
     } else {
+      setDisable(true);
       setButtonLoading(true);
       axios
         .post("/api/auth/register", {
@@ -57,6 +58,8 @@ export default function Register() {
                   )
                 );
                 router.prefetch("/dashboard");
+                setButtonLoading(false);
+                setDisabled(false);
                 location.replace("/dashboard");
               })()
             : setError(e.data);

@@ -8,6 +8,7 @@ import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 import Footer from "../components/footer";
 export default function Dashboard() {
+  const [disabled, setDisabled] = useState("false");
   const [blog, setBlog] = useState("");
   const [validated, setValidated] = useState(false);
   const [tags, setTags] = useState("");
@@ -46,6 +47,7 @@ export default function Dashboard() {
     } else {
       event.preventDefault();
       setButtonLoading(true);
+      setDisabled(true);
       axios
         .post("/api/new/posts", {
           blog: blog,
@@ -63,6 +65,7 @@ export default function Dashboard() {
         })
         .then((e) => router.push(e.data))
         .then((E) => setButtonLoading(false))
+        .then((e) => setDisabled(false))
         .catch((e) => e.response && router.push("/"));
     }
   };
@@ -240,7 +243,11 @@ export default function Dashboard() {
                 ></img>
               </Form.Group>
               <Form.Group>
-                <Button type="submit" style={{ width: "100%", border: "none" }}>
+                <Button
+                  type="submit"
+                  style={{ width: "100%", border: "none" }}
+                  disabled={disabled}
+                >
                   {buttonLoading ? (
                     <Spinner size="sm" animation="border" />
                   ) : (

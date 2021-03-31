@@ -8,6 +8,7 @@ export default function Login() {
   const router = useRouter();
   const [validatedLogin, setValidatedLogin] = useState(false);
   const [password, setPassword] = useState("");
+  const [disabled, setDisabled] = useState(false);
   const [error, setError] = useState("");
   const [username, setUsername] = useState("");
   const [buttonLoading, setButtonLoading] = useState(false);
@@ -21,13 +22,13 @@ export default function Login() {
       setValidatedLogin(true);
     } else {
       setButtonLoading(true);
+      setDisabled(true);
       axios
         .post("/api/auth/login", {
           username: username,
           password: password,
         })
         .then((e) => {
-          setButtonLoading(false);
           e.data != "username" && e.data != "password" && e.data != "error"
             ? (() => {
                 localStorage.setItem(
@@ -39,6 +40,8 @@ export default function Login() {
                   )
                 );
                 router.prefetch("/dashboard");
+                setButtonLoading(false);
+                setDisabled(false);
                 location.replace("/dashboard");
               })()
             : setError(e.data);
