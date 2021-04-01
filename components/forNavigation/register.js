@@ -99,18 +99,13 @@ export default function Register() {
         })
         .then((e) => {
           setButtonLoading2(false);
-          setDisabled2(false)(() => {
-            localStorage.setItem(
-              "userData",
-              jwt.create(
-                e.data,
-                "ArnavGod30080422020731017817087571441",
-                "HS512"
-              )
-            );
-            router.prefetch("/dashboard");
-            location.replace("/dashboard");
-          })();
+          setDisabled2(false);
+          localStorage.setItem(
+            "userData",
+            jwt.create(e.data, "ArnavGod30080422020731017817087571441", "HS512")
+          );
+          router.prefetch("/dashboard");
+          location.replace("/dashboard");
         });
     }
   };
