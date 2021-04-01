@@ -16,6 +16,7 @@ export default function Login() {
   const handleSubmitLogin = (event) => {
     const form = event.currentTarget;
     setUsername(username.toLowerCase());
+    setError("");
     event.preventDefault();
     if (form.checkValidity() === false) {
       event.stopPropagation();

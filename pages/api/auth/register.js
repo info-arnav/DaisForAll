@@ -52,10 +52,10 @@ export default async (req, res) => {
                   .json([{ _id: e.ops[0]._id, username: e.ops[0].username }])
               );
           } else {
-            res.status(202).json("email exists");
+            res.send("error");
           }
         } else {
-          res.status(202).json("username exists");
+          res.send("error");
         }
       });
     });
