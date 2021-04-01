@@ -39,10 +39,13 @@ export default function Article({ data }) {
     `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
       data.title
     },
-    ${data.tags
-      .toString()
-      .split(" ")
-      .map((e) => e)}`;
+    ${
+      data.tags &&
+      data.tags
+        .toString()
+        .split(" ")
+        .map((e) => e)
+    }`;
   const card = "summary_large_image";
   useEffect(() => {
     if (data.error) {
@@ -123,22 +126,23 @@ export default function Article({ data }) {
             alt={data.imageDescription}
           ></img>
           <div>
-            {data.tags
-              .toString()
-              .split(" ")
-              .map((e) => (
-                <div style={{ display: "inline" }}>
-                  <div
-                    style={{
-                      display: "inline",
-                    }}
-                  >
-                    <Link style={{}} href={`/tags/${e}`}>
-                      {"#" + e}
-                    </Link>
-                  </div>{" "}
-                </div>
-              ))}
+            {data.tags &&
+              data.tags
+                .toString()
+                .split(" ")
+                .map((e) => (
+                  <div style={{ display: "inline" }}>
+                    <div
+                      style={{
+                        display: "inline",
+                      }}
+                    >
+                      <Link style={{}} href={`/tags/${e}`}>
+                        {"#" + e}
+                      </Link>
+                    </div>{" "}
+                  </div>
+                ))}
           </div>
           <b>
             <h1 style={{ marginBottom: "8px" }}>{data.title}</h1>
