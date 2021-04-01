@@ -121,8 +121,8 @@ export default function Article({ data }) {
               borderRadius: "20px 20px 0px 0px",
               marginBottom: "20px",
             }}
-            description={data.description}
-            src={`/api/image/${data._id}`}
+            description={data.imageDescription}
+            src={data.image}
             alt={data.imageDescription}
           ></img>
           <div>

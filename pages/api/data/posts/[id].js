@@ -10,7 +10,6 @@ export default async (req, res) => {
       .toArray()
       .catch((e) => res.json([{ error: true }]));
     posts.images = [];
-    posts.image = "";
     if (posts.length != 0) {
       res.json(posts);
     } else {
