@@ -17,6 +17,7 @@
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
     "dompurify": "^2.2.7",
+    "fs": "^0.0.1-security",
     "html-react-parser": "^1.2.4",
     "mongodb": "^3.6.5",
     "next": "10.0.9",

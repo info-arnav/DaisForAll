@@ -16,8 +16,8 @@ export default function Footer() {
       setValidated(true);
     } else {
       event.preventDefault();
-      setButtonLoading(true);
       setDisabled(true);
+      setButtonLoading(true);
       axios
         .post("/api/contact", { email: email, message: message })
         .then(setButtonLoading(false))
@@ -180,10 +180,16 @@ export default function Footer() {
         <div className="container">
           <div className="row">
             <div className="col-md-12 text-center">
-              <p>
+              <p className="white">
                 Copyright{" "}
-                <Link href="/" style={{ color: "white" }}>
-                  Infinity
+                <Link
+                  className="white"
+                  href="/"
+                  style={{ color: "white !important" }}
+                >
+                  <span className="white" style={{ cursor: "pointer" }}>
+                    Infinity
+                  </span>
                 </Link>{" "}
                 @ 2021. All rights reserved.
               </p>

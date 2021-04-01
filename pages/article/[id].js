@@ -138,7 +138,7 @@ export default function Article({ data }) {
                       }}
                     >
                       <Link style={{}} href={`/tags/${e}`}>
-                        {"#" + e}
+                        <span>{"#" + e}</span>
                       </Link>
                     </div>{" "}
                   </div>
@@ -154,12 +154,12 @@ export default function Article({ data }) {
                 style={{ color: "black", size: "30px", marginBottom: "10px" }}
                 href={`profile/${data.username}`}
               >
-                {data.username}
+                <span style={{ cursor: "pointer" }}>{data.username}</span>
               </Link>{" "}
-              on {data.dateCreated.slice(0, 10)}
+              on {data.dateCreated && data.dateCreated.slice(0, 10)}
             </p>
           </b>
-          <div style={{ marginBottom: "20px" }}>{parse(blog)}</div>
+          <div style={{ marginBottom: "20px" }}>{blog && parse(blog)}</div>
           {computerProgramme && (
             <div>
               <h6 style={{ marginBottom: "20px" }}>Programmes</h6>

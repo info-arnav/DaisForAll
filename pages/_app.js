@@ -6,6 +6,7 @@ import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import "../styles/404.css";
 import "../styles/globals.css";
+import { useEffect } from "react";
 //loadProgressBar()
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -22,6 +23,20 @@ function MyApp({ Component, pageProps }) {
   const tags =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world";
   const card = "summary_large_image";
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/sw.js").then(
+          function (registration) {
+            //nothing as if now i guess
+          },
+          function (err) {
+            console.log("Service Worker registration failed: ", err);
+          }
+        );
+      });
+    }
+  }, []);
   return (
     <div>
       <Head
