@@ -159,7 +159,7 @@ export default function Article({ data }) {
           {computerProgramme && (
             <div>
               <h6 style={{ marginBottom: "20px" }}>Programmes</h6>
-              <pre>{parse(computerProgramme)}</pre>
+              <pre className="invert">{parse(computerProgramme)}</pre>
             </div>
           )}
           {condition && (

@@ -52,7 +52,6 @@ a {
     Segoe UI Symbol;
   font-size: 14px;
   line-height: 1.7;
-  color: #666;
   transition: all 0.4s;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -70,7 +69,10 @@ p {
 p {
   font-size: 14px;
   line-height: 1.7;
-  color: #666;
+}
+.invert {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
 }
 li,
 ul {
