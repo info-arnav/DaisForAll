@@ -70,7 +70,10 @@ p {
   font-size: 14px;
   line-height: 1.7;
 }
-.invert {
+a {
+  color: black;
+}
+.invert * {
   -webkit-filter: invert(100%);
   filter: invert(100%);
 }
