@@ -46,7 +46,7 @@ export default function Unsigned(props) {
       >
         <img
           className="inline"
-          src="/login.png"
+          src="/login.webp"
           height="40px"
           width="40px"
           style={{

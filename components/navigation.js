@@ -44,7 +44,7 @@ export default function Navigation(props) {
             <img
               id="image"
               alt="The logo of the website which showcases a symbol of infinity combined to wires"
-              src="/logo.png"
+              src="/logo.webp"
               width="60px"
               height="60px"
               style={{
