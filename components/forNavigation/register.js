@@ -17,7 +17,7 @@ export default function Register() {
       });
   }
   const router = useRouter();
-  const [disabled, setDisabled] = useState(!true);
+  const [disabled, setDisabled] = useState(true);
   const [disabled2, setDisabled2] = useState(!true);
   const [derror, setDerror] = useState(false);
   const [password, setPassword] = useState("");
