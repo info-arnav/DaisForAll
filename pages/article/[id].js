@@ -7,6 +7,7 @@ import parse from "html-react-parser";
 import { useRouter } from "next/router";
 import Footer from "../../components/footer";
 import DOMPurify from "dompurify";
+import Link from "next/link";
 export default function Article({ data }) {
   data = data[0];
   const description =
@@ -114,7 +115,7 @@ export default function Article({ data }) {
           <img
             style={{
               width: "100%",
-              borderRadius: "20px",
+              borderRadius: "20px 20px 0px 0px",
               marginBottom: "20px",
             }}
             description={data.description}
@@ -127,7 +128,15 @@ export default function Article({ data }) {
               .split(" ")
               .map((e) => (
                 <div style={{ display: "inline" }}>
-                  <a href="">{e} </a>
+                  <div
+                    style={{
+                      display: "inline",
+                    }}
+                  >
+                    <Link style={{}} href={`/tags/${e}`}>
+                      {"#" + e}
+                    </Link>
+                  </div>{" "}
                 </div>
               ))}
           </div>
@@ -137,12 +146,12 @@ export default function Article({ data }) {
           <b>
             <p style={{ color: "black", size: "30px", marginBottom: "10px" }}>
               By{" "}
-              <a
+              <Link
                 style={{ color: "black", size: "30px", marginBottom: "10px" }}
                 href={`profile/${data.username}`}
               >
                 {data.username}
-              </a>{" "}
+              </Link>{" "}
               on {data.dateCreated.slice(0, 10)}
             </p>
           </b>
