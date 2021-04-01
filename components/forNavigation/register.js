@@ -240,6 +240,12 @@ export default function Register() {
               <ReCAPTCHA
                 sitekey="6LcM8JQaAAAAAJ-uBIX5Oho6BYWrw-pBQn0L4ZCo"
                 onChange={onChange}
+                onExpired={() => {
+                  setCode("");
+                  setError("");
+                  setDisabled(true);
+                  setDerror("");
+                }}
                 onTimeout={() => setDisabled(true)}
               />
               <Form.Text style={{ color: "red" }}>
@@ -291,9 +297,6 @@ export default function Register() {
                     placeholder="Code"
                     required
                   />
-                  {codeiv && codeiv !== code && (
-                    <Form.Text style={{ color: "red" }}>Invalid</Form.Text>
-                  )}
                 </Form.Group>
               </Form.Row>
               <Form.Row>
