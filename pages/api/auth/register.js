@@ -50,12 +50,6 @@ export default async (req, res) => {
                 return e;
               })
               .then((e) => {
-                axios.post("/api/google/update", {
-                  url: `/user/${e.ops[0].username}`,
-                });
-                return e;
-              })
-              .then((e) => {
                 res.status(200).json([
                   {
                     _id: e.ops[0]._id,
