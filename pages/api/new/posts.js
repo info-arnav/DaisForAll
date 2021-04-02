@@ -37,12 +37,6 @@ export default async (req, res) => {
         return e;
       })
       .then((e) => {
-        axios.post("/google/update", {
-          url: `/article/${e.ops[0]._id}`,
-        });
-        return e;
-      })
-      .then((e) => {
         fs.readFile(
           path.resolve("./public", "sitemap.xml"),
           "utf-8",
