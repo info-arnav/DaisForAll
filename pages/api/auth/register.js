@@ -50,6 +50,12 @@ export default async (req, res) => {
                 return e;
               })
               .then((e) => {
+                axios.post("/api/google/update", {
+                  url: `/user/${e.ops[0].username}`,
+                });
+                return e;
+              })
+              .then((e) => {
                 fs.readFile(
                   path.resolve("./public", "sitemap.xml"),
                   "utf-8",
