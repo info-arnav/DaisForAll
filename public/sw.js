@@ -5,23 +5,22 @@ self.addEventListener("install", function (event) {
     })
   );
 });
-self.addEventListener("fetch", function (event) {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then(function (response) {
-      if (response) {
-        return response;
-      }
-      return fetch(event.request).then(function (response) {
-        if (!response || response.status !== 200 || response.type !== "basic") {
-          return response;
-        }
-        var responseToCache = response.clone();
-        caches.open("Infinity").then(function (cache) {
-          cache.put(event.request, responseToCache);
-        });
+    (async function () {
+      const cache = await caches.open("Infinity");
+      const cachedResponse = await cache.match(event.request);
+      const networkResponsePromise = fetch(event.request);
 
-        return response;
-      });
-    })
+      event.waitUntil(
+        (async function () {
+          const networkResponse = await networkResponsePromise;
+          await cache.put(event.request, networkResponse.clone());
+        })()
+      );
+
+      // Returned the cached response if we have one, otherwise return the network response.
+      return cachedResponse || networkResponsePromise;
+    })()
   );
 });
