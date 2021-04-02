@@ -113,7 +113,7 @@ export default function Article({ data }) {
         tags={tag}
         card={card}
       ></Head>
-      <main>
+      <main><article>
         <div style={{ width: "90%", marginLeft: "5%" }}>
           <img
             style={{
@@ -172,7 +172,7 @@ export default function Article({ data }) {
               <pre className="conditions">{parse(condition)}</pre>
             </div>
           )}
-        </div>
+        </div></article>
       </main>
       <Footer></Footer>
     </div>
