@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" sample="important"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://www.arnavgupta.net/</loc>
-</url>
-<url>
-<loc>https://www.arnavgupta.net/robots.txt</loc>
-</url>
-<url>
-<loc>https://www.arnavgupta.net/about</loc>
-</url>
-<url>
-<loc>https://www.arnavgupta.net/blogs</loc>
-</url>
-<url>
-<loc>https://www.arnavgupta.net/dashboard</loc>
-</url>
-<url>
-<loc>https://www.arnavgupta.net/article</loc>
-</url>
-<url>
-<loc>https://www.arnavgupta.net/logo.png</loc>
-</url>
+  <url>
+    <loc>https://www.arnavgupta.net/</loc>
+  </url>
+  <url>
+    <loc>https://www.arnavgupta.net/robots.txt</loc>
+  </url>
+  <url>
+    <loc>https://www.arnavgupta.net/about</loc>
+  </url>
+  <url>
+    <loc>https://www.arnavgupta.net/blogs</loc>
+  </url>
+  <url>
+    <loc>https://www.arnavgupta.net/dashboard</loc>
+  </url>
+  <url>
+    <loc>https://www.arnavgupta.net/article</loc>
+  </url>
+  <url>
+    <loc>https://www.arnavgupta.net/logo.png</loc>
+  </url>
 </urlset>

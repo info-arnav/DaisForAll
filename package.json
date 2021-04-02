@@ -18,12 +18,14 @@
     "bootstrap": "^4.6.0",
     "dompurify": "^2.2.7",
     "fs": "^0.0.1-security",
+    "googleapis": "^70.0.0",
     "html-react-parser": "^1.2.4",
     "mongodb": "^3.6.5",
     "next": "10.0.9",
     "njwt": "^1.0.0",
     "nodemailer": "^6.5.0",
     "nprogress": "^0.2.0",
+    "path": "^0.12.7",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
     "react": "^17.0.1",
@@ -34,7 +36,9 @@
     "react-image-file-resizer": "^0.4.2",
     "react-instantsearch-dom": "^6.10.3",
     "react-recaptcha-google": "^1.1.1",
-    "sass": "^1.32.8"
+    "request": "^2.88.2",
+    "sass": "^1.32.8",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@parcel/transformer-jsonld": "^2.0.0-beta.2"
