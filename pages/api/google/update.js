@@ -13,7 +13,7 @@ export default (req, res) => {
   if (req.metod == "POST") {
     jwtClient.authorize(function (err, tokens) {
       if (err) {
-        console.log(err);
+        res.send("Error");
         return;
       }
       let options = {
@@ -29,6 +29,9 @@ export default (req, res) => {
         },
       };
       request(options, function (error, response, body) {
+        if (error) {
+          res.send("Error");
+        }
         res.send("done");
       });
     });
