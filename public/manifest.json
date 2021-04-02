@@ -4,7 +4,7 @@
   "description": "Infinity is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.",
   "icons": [
     {
-      "src": "/logo.svg",
+      "src": "/logo.png",
       "type": "image/png",
       "purpose": "any maskable",
       "sizes": "570x570"
@@ -18,7 +18,6 @@
   ],
   "start_url": "/",
   "display": "minimal-ui",
-  "orientation": "potrait",
   "theme_color": "#FFFFFF",
   "background_color": "#FFFFFF"
 }
