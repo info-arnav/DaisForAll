@@ -56,42 +56,12 @@ export default async (req, res) => {
                 return e;
               })
               .then((e) => {
-                fs.readFile(
-                  path.resolve("./public", "sitemap.xml"),
-                  "utf-8",
-                  (err, data) => {
-                    if (err) {
-                      throw err;
-                    }
-                    xml2js.parseString(data, (err, result) => {
-                      if (err) {
-                        throw err;
-                      }
-                      const postgres = {
-                        loc: `https://www.arnavgupta.net/user/${e.ops[0].username}`,
-                      };
-                      result.urlset.url.push(postgres);
-                      const builder = new xml2js.Builder();
-                      const xml = builder.buildObject(result);
-                      fs.writeFile(
-                        path.resolve("./public", "sitemap.xml"),
-                        xml,
-                        (err) => {
-                          if (err) {
-                            throw err;
-                          } else {
-                            res.status(200).json([
-                              {
-                                _id: e.ops[0]._id,
-                                username: e.ops[0].username,
-                              },
-                            ]);
-                          }
-                        }
-                      );
-                    });
-                  }
-                );
+                res.status(200).json([
+                  {
+                    _id: e.ops[0]._id,
+                    username: e.ops[0].username,
+                  },
+                ]);
               });
           } else {
             res.send("error");

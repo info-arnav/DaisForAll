@@ -37,43 +37,7 @@ export default async (req, res) => {
         return e;
       })
       .then((e) => {
-        axios.post("/api/google/update", {
-          url: `/article/${e.ops[0]._id}`,
-        });
-        return e;
-      })
-      .then((e) => {
-        fs.readFile(
-          path.resolve("./public", "sitemap.xml"),
-          "utf-8",
-          (err, data) => {
-            if (err) {
-              throw err;
-            }
-            xml2js.parseString(data, (err, result) => {
-              if (err) {
-                throw err;
-              }
-              const postgres = {
-                loc: `https://www.arnavgupta.net/article/${e.ops[0]._id}`,
-              };
-              result.urlset.url.push(postgres);
-              const builder = new xml2js.Builder();
-              const xml = builder.buildObject(result);
-              fs.writeFile(
-                path.resolve("./public", "sitemap.xml"),
-                xml,
-                (err) => {
-                  if (err) {
-                    throw err;
-                  } else {
-                    res.status(200).send(`/article/${e.ops[0]._id}`);
-                  }
-                }
-              );
-            });
-          }
-        );
+        res.status(200).send(`/article/${e.ops[0]._id}`);
       });
   } else {
     res.status(404).send("error");
