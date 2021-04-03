@@ -4,6 +4,12 @@
       <loc>https://www.arnavgupta.net/api/users/sitemap</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.arnavgupta.net/posts/sitemap</loc>
+      <loc>https://www.arnavgupta.net/api/posts/sitemap</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.arnavgupta.net/api/image/users/sitemap</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.arnavgupta.net/api/image/posts/sitemap</loc>
     </sitemap>
   </sitemapindex>

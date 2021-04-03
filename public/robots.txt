@@ -9,3 +9,5 @@ Disallow: /_app
 Sitemap : https://www.arnavgupta.net/sitemap.xml
 Sitemap : https://www.arnavgupta.net/api/posts/sitemap
 Sitemap : https://www.arnavgupta.net/api/users/sitemap
+Sitemap : https://www.arnavgupta.net/api/image/posts/sitemap
+Sitemap : https://www.arnavgupta.net/api/image/users/sitemap
