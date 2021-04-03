@@ -60,7 +60,7 @@ export default function Article({ data }) {
           if (!err) {
             await axios.post("/api/views", {
               post: data._id,
-              user: data.username,
+              user: verifiedJwt.body[0].username,
             });
           }
         }
@@ -88,7 +88,7 @@ export default function Article({ data }) {
               dateModified: data.dateUpdated,
               author: {
                 "@type": "Person",
-                name: data.name,
+                name: data.username,
               },
               publisher: {
                 "@type": "Organization",
@@ -113,66 +113,68 @@ export default function Article({ data }) {
         tags={tag}
         card={card}
       ></Head>
-      <main><article>
-        <div style={{ width: "90%", marginLeft: "5%" }}>
-          <img
-            style={{
-              width: "100%",
-              borderRadius: "20px 20px 0px 0px",
-              marginBottom: "20px",
-            }}
-            description={data.imageDescription}
-            src={data.image}
-            alt={data.imageDescription}
-          ></img>
-          <div>
-            {data.tags &&
-              data.tags
-                .toString()
-                .split(" ")
-                .map((e) => (
-                  <div style={{ display: "inline" }}>
-                    <div
-                      style={{
-                        display: "inline",
-                      }}
-                    >
-                      <Link style={{}} href={`/tags/${e}`}>
-                        <span>{"#" + e}</span>
-                      </Link>
-                    </div>{" "}
-                  </div>
-                ))}
+      <main>
+        <article>
+          <div style={{ width: "90%", marginLeft: "5%" }}>
+            <img
+              style={{
+                width: "100%",
+                borderRadius: "20px 20px 0px 0px",
+                marginBottom: "20px",
+              }}
+              description={data.imageDescription}
+              src={data.image}
+              alt={data.imageDescription}
+            ></img>
+            <div>
+              {data.tags &&
+                data.tags
+                  .toString()
+                  .split(" ")
+                  .map((e) => (
+                    <div style={{ display: "inline" }}>
+                      <div
+                        style={{
+                          display: "inline",
+                        }}
+                      >
+                        <Link style={{}} href={`/tags/${e}`}>
+                          <span>{"#" + e}</span>
+                        </Link>
+                      </div>{" "}
+                    </div>
+                  ))}
+            </div>
+            <b>
+              <h1 style={{ marginBottom: "8px" }}>{data.title}</h1>
+            </b>
+            <b>
+              <p style={{ color: "black", size: "30px", marginBottom: "10px" }}>
+                By{" "}
+                <Link
+                  style={{ color: "black", size: "30px", marginBottom: "10px" }}
+                  href={`profile/${data.username}`}
+                >
+                  <span style={{ cursor: "pointer" }}>{data.username}</span>
+                </Link>{" "}
+                on {data.dateCreated && data.dateCreated.slice(0, 10)}
+              </p>
+            </b>
+            <div style={{ marginBottom: "20px" }}>{blog && parse(blog)}</div>
+            {computerProgramme && (
+              <div>
+                <h6 style={{ marginBottom: "20px" }}>Programmes</h6>
+                <pre className="invert">{parse(computerProgramme)}</pre>
+              </div>
+            )}
+            {condition && (
+              <div>
+                <h6 style={{ marginBottom: "20px" }}>Conitions</h6>
+                <pre className="conditions">{parse(condition)}</pre>
+              </div>
+            )}
           </div>
-          <b>
-            <h1 style={{ marginBottom: "8px" }}>{data.title}</h1>
-          </b>
-          <b>
-            <p style={{ color: "black", size: "30px", marginBottom: "10px" }}>
-              By{" "}
-              <Link
-                style={{ color: "black", size: "30px", marginBottom: "10px" }}
-                href={`profile/${data.username}`}
-              >
-                <span style={{ cursor: "pointer" }}>{data.username}</span>
-              </Link>{" "}
-              on {data.dateCreated && data.dateCreated.slice(0, 10)}
-            </p>
-          </b>
-          <div style={{ marginBottom: "20px" }}>{blog && parse(blog)}</div>
-          {computerProgramme && (
-            <div>
-              <h6 style={{ marginBottom: "20px" }}>Programmes</h6>
-              <pre className="invert">{parse(computerProgramme)}</pre>
-            </div>
-          )}
-          {condition && (
-            <div>
-              <h6 style={{ marginBottom: "20px" }}>Conitions</h6>
-              <pre className="conditions">{parse(condition)}</pre>
-            </div>
-          )}
-        </div></article>
+        </article>
       </main>
       <Footer></Footer>
     </div>
