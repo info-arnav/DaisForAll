@@ -11,7 +11,7 @@ export default async (req, res) => {
         return {
           url: [
             { loc: `https://www.arnavgupta.net/user/${e.username}` },
-            { lastmod: `${e.dateUpdated}` },
+            { lastmod: `${e.dateUpdated.slice(0, 10)}` },
           ],
         };
       });
@@ -19,7 +19,7 @@ export default async (req, res) => {
     })
     .then((e) => {
       e.push({
-        _attr: { xlms: "http://www.sitemaps.org/schemas/sitemap/0.9" },
+        _attr: { xlmns: "http://www.sitemaps.org/schemas/sitemap/0.9" },
       });
       return e;
     })
