@@ -139,7 +139,7 @@ export default function Article({ data }) {
                         }}
                       >
                         <Link style={{}} href={`/tags/${e}`}>
-                          <span>{"#" + e}</span>
+                          <span style={{cursor:"pointer"}}>{"#" + e}</span>
                         </Link>
                       </div>{" "}
                     </div>
@@ -153,7 +153,7 @@ export default function Article({ data }) {
                 By{" "}
                 <Link
                   style={{ color: "black", size: "30px", marginBottom: "10px" }}
-                  href={`profile/${data.username}`}
+                  href={`/profile/${data.username}`}
                 >
                   <span style={{ cursor: "pointer" }}>{data.username}</span>
                 </Link>{" "}
