@@ -1,42 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.arnavgupta.net/</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/robots.txt</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/about</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/blogs</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/dashboard</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/article</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/logo.png</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/article/606826e9555c660009049cf4</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/user/amit</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/user/arnav</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/user/god</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/user/ananya</loc>
-  </url>
-  <url>
-    <loc>https://www.arnavgupta.net/user/anuja</loc>
-  </url>
-</urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+  <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+      <loc>http://www.arnavgupta.net/api/users/sitemap</loc>
+    </sitemap>
+    <sitemap>
+      <loc>http://www.arnavgupta.net/posts/sitemap</loc>
+    </sitemap>
+  </sitemapindex>

@@ -12,6 +12,9 @@ export default async (req, res) => {
     users.images = [];
     users.profiles = [];
     users.usernames = [];
+    users.password = "";
+    users.email = "";
+    users.name = "";
     users.passwords = [];
     if (users.length != 0) {
       res.json(users);
