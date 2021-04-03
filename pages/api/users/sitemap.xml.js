@@ -24,7 +24,7 @@ export default async (req, res) => {
       return e;
     })
     .then((e) =>
-      res.setHeader("Content-Type", "text/xml").send(
+      res.send(
         xml(
           [
             {
