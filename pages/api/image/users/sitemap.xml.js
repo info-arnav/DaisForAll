@@ -46,7 +46,7 @@ export default async (req, res) => {
           {
             declaration: {
               standalone: "yes",
-              encoding: "UTF-16",
+              encoding: "UTF-8",
             },
           }
         )
