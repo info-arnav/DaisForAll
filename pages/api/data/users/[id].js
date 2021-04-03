@@ -16,7 +16,7 @@ export default async (req, res) => {
     if (users.length != 0) {
       res.json(users);
     } 
-  } else {
+   else {
     res.json([{ error: true }]);
   }
 };
