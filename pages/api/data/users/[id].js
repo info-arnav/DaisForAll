@@ -3,7 +3,7 @@ import { connectToDatabase } from "../../../../util/mongodb";
 export default async (req, res) => {
   const { db } = await connectToDatabase();
   const { id } = req.query;
-  if (id.length == 24) {
+  
     const users = await db
       .collection("userData")
       .find({ username: id })
@@ -18,10 +18,8 @@ export default async (req, res) => {
     users.passwords = [];
     if (users.length != 0) {
       res.json(users);
-    } else {
-      res.json([{ error: true }]);
-    }
-  } else {
+    } 
+   else {
     res.json([{ error: true }]);
   }
 };
