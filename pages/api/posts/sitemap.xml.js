@@ -19,7 +19,7 @@ export default async (req, res) => {
     })
     .then((e) => {
       e.push({
-        _attr: { xlmns: "http://www.sitemaps.org/schemas/sitemap/0.9" },
+        _attr: { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" },
       });
       return e;
     })
