@@ -101,13 +101,7 @@ export default function Footer() {
                     url: "https://www.linkedin.com/in/arnav-gupta-0922341a9/",
                     image: "/linkedin.webp",
                     media: "linkedin",
-                  },
-                  {
-                    url:
-                      "https://www.youtube.com/channel/UCzzfqCy-j9XZA5KNosqzh6w",
-                    image: "/youtubeStudio.webp",
-                    media: "youtubeStudio",
-                  },
+                  }
                 ].map((e) => (
                   <a className="fa" href={e.url} style={{ marginRight: "4px" }}>
                     {" "}
