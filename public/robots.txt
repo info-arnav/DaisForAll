@@ -1,11 +1,14 @@
 # https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Allow: /api/image/*
+
+User-agent: _
+Allow: /api/image/_
+Allow: /api/posts/sitemap.xml
+Allow: /api/users/sitemap.xml
 Disallow: /notFound
 Disallow: /api/
 Disallow: /404
-Disallow: /_error
-Disallow: /_app
+Disallow: /\_error
+Disallow: /\_app
 Sitemap : https://www.arnavgupta.net/sitemap.xml
 Sitemap : https://www.arnavgupta.net/api/posts/sitemap.xml
 Sitemap : https://www.arnavgupta.net/api/users/sitemap.xml
