@@ -6,7 +6,7 @@ module.exports = {
         headers: [
           {
             key: "Content-Type",
-            value: "text/xml",
+            value: "application/xml",
           },
         ],
       },
@@ -15,7 +15,7 @@ module.exports = {
         headers: [
           {
             key: "Content-Type",
-            value: "text/xml",
+            value: "application/xml",
           },
         ],
       },
@@ -24,7 +24,7 @@ module.exports = {
         headers: [
           {
             key: "Content-Type",
-            value: "text/xml",
+            value: "application/xml",
           },
         ],
       },
@@ -33,7 +33,7 @@ module.exports = {
         headers: [
           {
             key: "Content-Type",
-            value: "text/xml",
+            value: "application/xml",
           },
         ],
       },
