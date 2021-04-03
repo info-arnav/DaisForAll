@@ -24,7 +24,7 @@ export default async (req, res) => {
       return e;
     })
     .then((e) =>
-      res.send(
+      res..send(
         xml(
           [
             {

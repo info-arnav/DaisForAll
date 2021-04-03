@@ -1,4 +1,44 @@
 module.exports = {
+  async headers() {
+    return [
+      {
+        source: "/api/users/sitemap.xml",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/xml",
+          },
+        ],
+      },
+      {
+        source: "/api/posts/sitemap.xml",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/xml",
+          },
+        ],
+      },
+      {
+        source: "/api/image/users/sitemap.xml",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/xml",
+          },
+        ],
+      },
+      {
+        source: "/api/image/posts/sitemap.xml",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/xml",
+          },
+        ],
+      },
+    ];
+  },
   i18n: {
     locales: ["en-in"],
     defaultLocale: "en-in",
