@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "test": "node server.js"
+    "test": "next start",
+    "start": "node server.js"
   },
   "dependencies": {
     "@tinymce/tinymce-react": "^3.11.1",
