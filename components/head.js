@@ -38,6 +38,7 @@ export default function Head({
             url: url,
             sameAs: [
               "https://www.youtube.com/channel/UCzzfqCy-j9XZA5KNosqzh6w",
+              "https://www.arnavgupta.net/",
               "https://www.instagram.com/infinity.newtech/",
               "https://www.linkedin.com/in/arnav-gupta-0922341a9/",
               "https://www.facebook.com/infinity.newTechnology",
@@ -82,6 +83,7 @@ export default function Head({
       <link key="30" rel="manifest" href="/manifest.json" />
       <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
       <meta key="32" name="twitter:title" content={title} />
+ 
     </Heads>
   );
 }
