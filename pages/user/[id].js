@@ -84,13 +84,9 @@ export default function User({ data }) {
 
 export async function getServerSideProps({ params }) {
   const id = params.id;
-  if (id.length == 24) {
-    let res = await fetch(`https://www.arnavgupta.net/api/data/users/${id}`);
-    let data = await res.json();
-    return {
-      props: { data },
-    };
-  } else {
-    return { props: { data: [{ error: true }] } };
-  }
+  let res = await fetch(`https://www.arnavgupta.net/api/data/users/${id}`);
+  let data = await res.json();
+  return {
+    props: { data },
+  };
 }
