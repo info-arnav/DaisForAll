@@ -20,7 +20,7 @@ export default async (req, res) => {
                 ],
               },
               {
-                lastmod: `${e.dateUpdated.getFullYear()}/${e.dateUpdated.getMonth()}/${e.dateUpdated.getDate()}`,
+                lastmod: `${e.dateUpdated.getFullYear()}-${e.dateUpdated.getMonth()}-${e.dateUpdated.getDate()}`,
               },
             ],
           };
