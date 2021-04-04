@@ -4,6 +4,9 @@
       <loc>https://www.arnavgupta.net/api/users/sitemap.xml</loc>
     </sitemap>
     <sitemap>
+      <loc>https://www.arnavgupta.net/main.xml</loc>
+    </sitemap>
+    <sitemap>
       <loc>https://www.arnavgupta.net/general-images.xml</loc>
     </sitemap>
     <sitemap>

@@ -70,6 +70,9 @@ export default function Footer() {
                     <Link href="/blogs">&nbsp;Blogs</Link>
                   </li>
                   <li>
+                    <Link href="/privacy-policy">&nbsp;Privacy Policy</Link>
+                  </li>
+                  <li>
                     <Link href="/dashboard">&nbsp;Dashboard</Link>
                   </li>
                 </ul>
@@ -101,7 +104,7 @@ export default function Footer() {
                     url: "https://www.linkedin.com/in/arnav-gupta-0922341a9/",
                     image: "/linkedin.webp",
                     media: "linkedin",
-                  }
+                  },
                 ].map((e) => (
                   <a className="fa" href={e.url} style={{ marginRight: "4px" }}>
                     {" "}
