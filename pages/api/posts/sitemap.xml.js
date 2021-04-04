@@ -12,7 +12,11 @@ export default async (req, res) => {
           url: [
             { loc: `https://www.arnavgupta.net/article/${e._id}` },
             {
-              lastmod: `${e.dateUpdated.getFullYear()}-${e.dateUpdated.getMonth()}-${e.dateUpdated.getDate()}`,
+              lastmod: `${e.dateUpdated.getFullYear()}-${
+                e.dateUpdated.getMonth().length == 2
+                  ? e.dateUpdated.getMonth().length
+                  : `0${e.dateUpdated.getMonth().length}`
+              }-${e.dateUpdated.getDate()}`,
             },
           ],
         };

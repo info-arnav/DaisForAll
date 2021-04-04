@@ -159,7 +159,11 @@ export default function Article({ data }) {
                 </Link>{" "}
                 on{" "}
                 {data.dateCreated &&
-                  `${e.dateCreated.getFullYear()}-${e.dateCreated.getMonth()}-${e.dateCreated.getDate()}`}
+                  `${e.dateCreated.getFullYear()}-${
+                    e.dateCreated.getMonth().length == 2
+                      ? e.dateCreated.getMonth().length
+                      : `0${e.dateCreated.getMonth().length}`
+                  }-${e.dateCreated.getDate()}`}
               </p>
             </b>
             <div style={{ marginBottom: "20px" }}>{blog && parse(blog)}</div>
