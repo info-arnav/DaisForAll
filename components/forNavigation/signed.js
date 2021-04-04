@@ -11,7 +11,7 @@ export default function Signed() {
         <Dropdown.Toggle as={CustomToggle}></Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item key="profile">
-            <Link href="/user-profile">Profile</Link>
+            <Link href="/your-profile">Profile</Link>
           </Dropdown.Item>
           <Dropdown.Item key="bookmarks">
             <Link href="/bookmarks">Bookmarks</Link>
