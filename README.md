@@ -9,6 +9,7 @@ So the website is developed on **NextJS** which is a **ReactJS** framework. **Re
 
 ## Introduction to the respioratory
 
+### Default branch is Infinity
 So the respo has a database which is added at the util folder, the frontend in pages folder(excluding api), and server in pages/api directory. The css files for the project is in CSS directory. The components supporting the frontend are in components direcotry.
 
 ## Introduction to the programme
