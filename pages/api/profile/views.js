@@ -9,7 +9,10 @@ export default async (req, res) => {
         { username: req.body.id },
         {
           $push: {
-            viewedProfiles: { someOneElseViewedYourProfile: req.body.user },
+            viewedProfiles: {
+              date: new Date(),
+              someOneElseViewedYourProfile: req.body.user,
+            },
           },
         }
       )
