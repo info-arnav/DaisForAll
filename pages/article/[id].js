@@ -123,7 +123,7 @@ export default function Article({ data }) {
                 marginBottom: "20px",
               }}
               description={data.imageDescription}
-              src={`https://www.arnavgupta.net/api/image/${data._id}`}
+              src={data.image}
               alt={data.imageDescription}
             ></img>
             <div>
