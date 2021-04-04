@@ -157,9 +157,7 @@ export default function Article({ data }) {
                 >
                   <span style={{ cursor: "pointer" }}>{data.username}</span>
                 </Link>{" "}
-                on{" "}
-                {data.dateCreated &&
-                  `${data.dateCreated.getFullYear()}/${data.dateCreated.getMonth()}/${data.dateCreated.getDate()}`}
+                on {data.dateCreated && data.dateCreated.slice(0, 10)}
               </p>
             </b>
             <div style={{ marginBottom: "20px" }}>{blog && parse(blog)}</div>
