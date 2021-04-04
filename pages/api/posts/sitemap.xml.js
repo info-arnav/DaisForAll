@@ -11,7 +11,7 @@ export default async (req, res) => {
         return {
           url: [
             { loc: `https://www.arnavgupta.net/article/${e._id}` },
-            { lastmod: `${e.dateUpdated.slice(0, 10)}` },
+            { lastmod: `${e.dateUpdated.toString().slice(0, 10)}` },
           ],
         };
       });

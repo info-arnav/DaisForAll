@@ -19,7 +19,9 @@ export default async (req, res) => {
                   },
                 ],
               },
-              { lastmod: `${e.dateUpdated.slice(0, 10)}` },
+              {
+                lastmod: `${e.dateUpdated.getFullYear()}/${e.dateUpdated.getMonth()}/${e.dateUpdated.getDate()}`,
+              },
             ],
           };
         }

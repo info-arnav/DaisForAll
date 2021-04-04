@@ -139,7 +139,7 @@ export default function Article({ data }) {
                         }}
                       >
                         <Link style={{}} href={`/tags/${e}`}>
-                          <span style={{cursor:"pointer"}}>{"#" + e}</span>
+                          <span style={{ cursor: "pointer" }}>{"#" + e}</span>
                         </Link>
                       </div>{" "}
                     </div>
@@ -157,7 +157,9 @@ export default function Article({ data }) {
                 >
                   <span style={{ cursor: "pointer" }}>{data.username}</span>
                 </Link>{" "}
-                on {data.dateCreated && data.dateCreated.slice(0, 10)}
+                on{" "}
+                {data.dateCreated &&
+                  `${e.dateCreated.getFullYear()}/${e.dateCreated.getMonth()}/${e.dateCreated.getDate()}`}
               </p>
             </b>
             <div style={{ marginBottom: "20px" }}>{blog && parse(blog)}</div>
