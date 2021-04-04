@@ -11,10 +11,10 @@ export default function Signed() {
         <Dropdown.Toggle as={CustomToggle}></Dropdown.Toggle>
         <Dropdown.Menu>
           <Dropdown.Item key="profile">
-            <Link href="/active">Profile</Link>
+            <Link href="/user-profile">Profile</Link>
           </Dropdown.Item>
           <Dropdown.Item key="bookmarks">
-            <Link href="/bookmarked">Bookmarks</Link>
+            <Link href="/bookmarks">Bookmarks</Link>
           </Dropdown.Item>
           <Dropdown.Item key="new post">
             <Link href="/dashboard">New Post</Link>
