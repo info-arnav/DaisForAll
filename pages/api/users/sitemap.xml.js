@@ -9,16 +9,7 @@ export default async (req, res) => {
     .then(async (e) => {
       let a = await e.map((e) => {
         return {
-          url: [
-            { loc: `https://www.arnavgupta.net/user/${e.username}` },
-            {
-              lastmod: `${e.dateUpdated.getFullYear()}-${
-                e.dateUpdated.getMonth().length == 2
-                  ? e.dateUpdated.getMonth().length
-                  : `0${e.dateUpdated.getMonth().length}`
-              }-${e.dateUpdated.getDate()}`,
-            },
-          ],
+          url: [{ loc: `https://www.arnavgupta.net/user/${e.username}` }],
         };
       });
       return a;
