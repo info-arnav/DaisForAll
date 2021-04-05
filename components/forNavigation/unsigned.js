@@ -90,8 +90,8 @@ export default function Unsigned(props) {
           <Login></Login>
           <center>
             <p style={{ marginBottom: "20px" }}>
-              Not yoet Register ?{" "}
-              <a onClick={() => setState("register")}>Reegister here</a>
+              Not yet Registered ?{" "}
+              <a onClick={() => setState("register")}>Register here</a>
             </p>
           </center>
         </Modal>

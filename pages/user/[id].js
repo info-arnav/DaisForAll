@@ -90,7 +90,7 @@ export async function getServerSideProps({ params }) {
     .findOne({ username: id })
     .catch((e) => {
       return {
-        props: { data: [{ error: true }] },
+        props: { data: { error: true } },
       };
     });
   users = JSON.parse(JSON.stringify(users));
@@ -107,7 +107,7 @@ export async function getServerSideProps({ params }) {
     };
   } else {
     return {
-      props: { data: [{ error: true }] },
+      props: { data: { error: true } },
     };
   }
 }

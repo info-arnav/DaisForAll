@@ -198,9 +198,9 @@ export async function getServerSideProps({ params }) {
       posts.images = [];
       return { props: { data: posts } };
     } else {
-      return { props: { data: [{ error: true }] } };
+      return { props: { data: { error: true } } };
     }
   } else {
-    return { props: { data: [{ error: true }] } };
+    return { props: { data: { error: true } } };
   }
 }
