@@ -9,7 +9,7 @@ export default async (req, res) => {
       .findOne({ _id: ObjectID(id) })
       .catch((e) => res.json([{ error: true }]));
     posts.images = [];
-    if (posts.length != 0) {
+    if (posts._id) {
       res.json(posts);
     } else {
       res.json([{ error: true }]);

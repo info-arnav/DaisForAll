@@ -8,14 +8,14 @@ export default async (req, res) => {
     .collection("userData")
     .findOne({ username: id })
     .catch((e) => res.json([{ error: true }]));
-  users.images = [];
-  users.profiles = [];
-  users.usernames = [];
-  users.password = "";
-  users.email = "";
-  users.name = "";
-  users.passwords = [];
-  if (users.length != 0) {
+  if (users._id) {
+    users.images = [];
+    users.profiles = [];
+    users.usernames = [];
+    users.password = "";
+    users.email = "";
+    users.name = "";
+    users.passwords = [];
     res.json(users);
   } else {
     res.json([{ error: true }]);

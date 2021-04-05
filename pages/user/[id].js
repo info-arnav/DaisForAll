@@ -94,18 +94,18 @@ export async function getServerSideProps({ params }) {
       };
     });
   users = JSON.parse(JSON.stringify(users));
-  users.images = [];
-  users.profiles = [];
-  users.usernames = [];
-  users.password = "";
-  users.email = "";
-  users.name = "";
-  users.passwords = [];
-  if (users.length != 0) {
+  if (users._id) {
     return {
       props: { data: users },
     };
   } else {
+    users.images = [];
+    users.profiles = [];
+    users.usernames = [];
+    users.password = "";
+    users.email = "";
+    users.name = "";
+    users.passwords = [];
     return {
       props: { data: [{ error: true }] },
     };
