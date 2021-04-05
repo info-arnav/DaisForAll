@@ -620,6 +620,7 @@ ul.social-footer2 li a {
   color: black;
 }
 pre {
+  color:white,
   padding: 16px !important;
   overflow: auto !important;
   font-size: 85% !important;
