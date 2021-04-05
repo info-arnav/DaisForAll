@@ -7,7 +7,7 @@ let transporter = nodemailer.createTransport({
   port: 465,
   secure: true, // true for 465, false for other ports
   auth: {
-    user: "info@arnavgupta.net", // generated ethereal user
+    user: "info@passionatebloggers.me", // generated ethereal user
     pass: "God71441", // generated ethereal password
   },
 });
@@ -19,21 +19,21 @@ export default async (req, res) => {
         const { db } = await connectToDatabase();
         let username = await db
           .collection("userData")
-          .findOne({ username: req.body.username })
+          .find({ username: req.body.username })
           .limit(1)
           .count();
         if (username == 0) {
           let email = await db
             .collection("userData")
-            .findOne({ email: req.body.email })
+            .find({ email: req.body.email })
             .limit(1)
             .count();
           if (username == 0 && email == 0) {
             let code = Math.floor(Math.random() * 10000) + 1000;
             transporter.sendMail(
               {
-                from: '"Team Infinity 👥" <info@arnavgupta.net>',
-                to: `info@arnavgupta.net, ${req.body.email}`,
+                from: '"Team Infinity 👥" <info@passionatebloggers.me>',
+                to: `info@passionatebloggers.me, ${req.body.email}`,
                 subject: "Email Verification",
                 text: `Your verification Code is ${code}`,
                 html: `<b>Your verification Code is ${code}</b>`,
