@@ -73,10 +73,7 @@ p {
 a {
   color: black;
 }
-.invert * {
-  -webkit-filter: invert(100%);
-  filter: invert(100%);
-}
+
 li,
 ul {
   margin: 0;
