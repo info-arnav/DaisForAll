@@ -8,6 +8,7 @@ import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 import Footer from "../components/footer";
 export default function Dashboard() {
+  let copy = init1;
   const init1 = {
     height: 200,
     branding: false,
@@ -93,8 +94,8 @@ export default function Dashboard() {
     content_style:
       "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
   };
-  let init2 = init1;
-  init2.height == 600;
+  copy.height = 600;
+  let init2 = copy;
   const [disabled, setDisabled] = useState(false);
   const [blog, setBlog] = useState("");
   const [validated, setValidated] = useState(false);
@@ -228,6 +229,7 @@ export default function Dashboard() {
                 <Form.Text>
                   To add codepen,etc just add an iframe tag in custom html
                 </Form.Text>
+                <br></br>
                 <Editor
                   value={blog}
                   initialValue="<p>This is the initial content of the editor</p>"
