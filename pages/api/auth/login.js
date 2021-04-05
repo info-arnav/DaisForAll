@@ -6,8 +6,7 @@ export default async (req, res) => {
     let userData = await db
       .collection("userData")
       .findOne({ username: req.body.username.toLowerCase() })
-      .limit(1)
-      .toArray();
+      .limit(1);
     if (userData.length == 0) {
       res.status(202).send("username");
     } else {

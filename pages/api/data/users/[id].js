@@ -7,7 +7,6 @@ export default async (req, res) => {
   const users = await db
     .collection("userData")
     .findOne({ username: id })
-    .toArray()
     .catch((e) => res.json([{ error: true }]));
   users.images = [];
   users.profiles = [];

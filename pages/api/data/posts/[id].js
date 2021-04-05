@@ -7,7 +7,6 @@ export default async (req, res) => {
     const posts = await db
       .collection("posts")
       .findOne({ _id: ObjectID(id) })
-      .toArray()
       .catch((e) => res.json([{ error: true }]));
     posts.images = [];
     if (posts.length != 0) {

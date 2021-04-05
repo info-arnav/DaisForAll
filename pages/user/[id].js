@@ -89,7 +89,6 @@ export async function getServerSideProps({ params }) {
   const users = await db
     .collection("userData")
     .findOne({ username: id })
-    .toArray()
     .catch((e) => {
       return {
         props: { data: [{ error: true }] },

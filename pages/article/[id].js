@@ -191,7 +191,6 @@ export async function getServerSideProps({ params }) {
     const posts = await db
       .collection("posts")
       .findOne({ _id: ObjectID(id) })
-      .toArray()
       .catch((e) => {
         return { props: { data: [{ error: true }] } };
       });
