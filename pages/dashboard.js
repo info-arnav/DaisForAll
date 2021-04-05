@@ -148,12 +148,14 @@ export default function Dashboard() {
                     plugins: [
                       "advlist autolink lists link image charmap print preview anchor",
                       "searchreplace visualblocks code fullscreen",
+                      "codesample",
+                      "code",
                       "insertdatetime media table paste code help wordcount",
                     ],
                     toolbar:
                       "undo redo | formatselect | bold italic backcolor | \
              alignleft aligncenter alignright alignjustify | \
-             bullist numlist outdent indent | removeformat | help",
+             bullist numlist outdent indent | removeformat | codesample | code | help",
                     branding: false,
                   }}
                   onEditorChange={(e) => setBlog(e)}
@@ -171,12 +173,14 @@ export default function Dashboard() {
                     plugins: [
                       "advlist autolink lists link image charmap print preview anchor",
                       "searchreplace visualblocks code fullscreen",
+                      "codesample",
+                      "code",
                       "insertdatetime media table paste code help wordcount",
                     ],
                     toolbar:
                       "undo redo | formatselect | bold italic backcolor | \
              alignleft aligncenter alignright alignjustify | \
-             bullist numlist outdent indent | removeformat | help",
+             bullist numlist outdent indent | removeformat | codesample | code | help",
                     branding: false,
                   }}
                   onEditorChange={(e) => setCompProgramme(e)}
@@ -194,15 +198,19 @@ export default function Dashboard() {
                     plugins: [
                       "advlist autolink lists link image charmap print preview anchor",
                       "searchreplace visualblocks code fullscreen",
+                      "codesample",
+                      "code",
                       "insertdatetime media table paste code help wordcount",
                     ],
                     toolbar:
                       "undo redo | formatselect | bold italic backcolor | \
              alignleft aligncenter alignright alignjustify | \
-             bullist numlist outdent indent | removeformat | help",
+             bullist numlist outdent indent | removeformat | codesample | code | help",
                     branding: false,
                   }}
-                  onEditorChange={(e) => setConditions(e)}
+                  onEditorChange={(e) => {
+                    setConditions(e);
+                  }}
                 />
               </Form.Group>
               <Form.Group controlId="formBasicEmail">
