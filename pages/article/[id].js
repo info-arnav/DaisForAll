@@ -150,14 +150,15 @@ export default function Article({ data }) {
             </b>
             <b>
               <p style={{ color: "black", size: "30px", marginBottom: "10px" }}>
-                By{" "}
+                {data.username && By}{" "}
                 <Link
                   style={{ color: "black", size: "30px", marginBottom: "10px" }}
                   href={`/user/${data.username}`}
                 >
                   <span style={{ cursor: "pointer" }}>{data.username}</span>
                 </Link>{" "}
-                on {data.dateCreated && data.dateCreated.slice(0, 10)}
+                {data.dateCreated && "on"}{" "}
+                {data.dateCreated && data.dateCreated.slice(0, 10)}
               </p>
             </b>
             <div style={{ marginBottom: "20px" }}>{blog && parse(blog)}</div>

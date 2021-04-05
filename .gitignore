@@ -89,3 +89,6 @@ typings/
 
 #parcel
 .parcel-cache/
+
+#travis
+out
