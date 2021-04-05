@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Heads from "next/head";
 import Head from "../../components/head";
+import { connectToDatabase } from "../../util/mongodb";
 import Jwt from "njwt";
 import parse from "html-react-parser";
 import { useRouter } from "next/router";
@@ -84,9 +85,30 @@ export default function User({ data }) {
 
 export async function getServerSideProps({ params }) {
   const id = params.id;
-  let res = await fetch(`https://www.arnavgupta.net/api/data/users/${id}`);
-  let data = await res.json();
-  return {
-    props: { data },
-  };
+  const { db } = await connectToDatabase();
+  const users = await db
+    .collection("userData")
+    .find({ username: id })
+    .toArray()
+    .catch((e) => {
+      return {
+        props: { data: [{ error: true }] },
+      };
+    });
+  users.images = [];
+  users.profiles = [];
+  users.usernames = [];
+  users.password = "";
+  users.email = "";
+  users.name = "";
+  users.passwords = [];
+  if (users.length != 0) {
+    return {
+      props: { data: JSON.parse(JSON.stringify(users)) },
+    };
+  } else {
+    return {
+      props: { data: [{ error: true }] },
+    };
+  }
 }

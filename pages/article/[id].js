@@ -4,10 +4,12 @@ import Heads from "next/head";
 import Head from "../../components/head";
 import Jwt from "njwt";
 import parse from "html-react-parser";
+import { connectToDatabase } from "../../util/mongodb";
 import { useRouter } from "next/router";
 import Footer from "../../components/footer";
 import DOMPurify from "dompurify";
 import Link from "next/link";
+import { ObjectID } from "bson";
 export default function Article({ data }) {
   data = data[0];
   const description =
@@ -184,12 +186,21 @@ export default function Article({ data }) {
 
 export async function getServerSideProps({ params }) {
   const id = params.id;
+  const { db } = await connectToDatabase();
   if (id.length == 24) {
-    let res = await fetch(`https://www.arnavgupta.net/api/data/posts/${id}`);
-    let data = await res.json();
-    return {
-      props: { data },
-    };
+    const posts = await db
+      .collection("posts")
+      .find({ _id: ObjectID(id) })
+      .toArray()
+      .catch((e) => {
+        return { props: { data: [{ error: true }] } };
+      });
+    posts.images = [];
+    if (posts.length != 0) {
+      return { props: { data: JSON.parse(JSON.stringify(posts)) } };
+    } else {
+      return { props: { data: [{ error: true }] } };
+    }
   } else {
     return { props: { data: [{ error: true }] } };
   }
