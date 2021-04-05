@@ -8,7 +8,7 @@ export default async (req, res) => {
     .collection("userData")
     .findOne({ username: id })
     .catch((e) => res.json([{ error: true }]));
-  if (users._id) {
+  if (users) {
     users.images = [];
     users.profiles = [];
     users.usernames = [];

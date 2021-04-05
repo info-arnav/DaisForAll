@@ -94,11 +94,7 @@ export async function getServerSideProps({ params }) {
       };
     });
   users = JSON.parse(JSON.stringify(users));
-  if (users._id) {
-    return {
-      props: { data: users },
-    };
-  } else {
+  if (users) {
     users.images = [];
     users.profiles = [];
     users.usernames = [];
@@ -106,6 +102,10 @@ export async function getServerSideProps({ params }) {
     users.email = "";
     users.name = "";
     users.passwords = [];
+    return {
+      props: { data: users },
+    };
+  } else {
     return {
       props: { data: [{ error: true }] },
     };

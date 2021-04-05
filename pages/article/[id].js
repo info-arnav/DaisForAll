@@ -194,10 +194,10 @@ export async function getServerSideProps({ params }) {
         return { props: { data: [{ error: true }] } };
       });
     posts = JSON.parse(JSON.stringify(posts));
-    if (posts._id) {
+    if (posts) {
+      posts.images = [];
       return { props: { data: posts } };
     } else {
-      posts.images = [];
       return { props: { data: [{ error: true }] } };
     }
   } else {

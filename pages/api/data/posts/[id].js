@@ -8,8 +8,7 @@ export default async (req, res) => {
       .collection("posts")
       .findOne({ _id: ObjectID(id) })
       .catch((e) => res.json([{ error: true }]));
-    posts.images = [];
-    if (posts._id) {
+    if (posts) {
       res.json(posts);
     } else {
       res.json([{ error: true }]);
