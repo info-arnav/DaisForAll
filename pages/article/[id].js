@@ -150,7 +150,7 @@ export default function Article({ data }) {
             </b>
             <b>
               <p style={{ color: "black", size: "30px", marginBottom: "10px" }}>
-                {data.username && By}{" "}
+                {data.username && "By"}{" "}
                 <Link
                   style={{ color: "black", size: "30px", marginBottom: "10px" }}
                   href={`/user/${data.username}`}
