@@ -8,7 +8,6 @@ import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 import Footer from "../components/footer";
 export default function Dashboard() {
-  let copy = init1;
   const init1 = {
     height: 200,
     branding: false,
@@ -94,6 +93,7 @@ export default function Dashboard() {
     content_style:
       "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
   };
+  let copy = init1;
   copy.height = 600;
   let init2 = copy;
   const [disabled, setDisabled] = useState(false);
