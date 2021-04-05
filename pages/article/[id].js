@@ -190,7 +190,7 @@ export async function getServerSideProps({ params }) {
   if (id.length == 24) {
     const posts = await db
       .collection("posts")
-      .find({ _id: ObjectID(id) })
+      .findOne({ _id: ObjectID(id) })
       .toArray()
       .catch((e) => {
         return { props: { data: [{ error: true }] } };

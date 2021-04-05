@@ -11,13 +11,13 @@ export default async (req, res) => {
         const { db } = await connectToDatabase();
         let username = await db
           .collection("userData")
-          .find({ username: req.body.username })
+          .findOne({ username: req.body.username })
           .limit(1)
           .count();
         if (username == 0) {
           let email = await db
             .collection("userData")
-            .find({ email: req.body.email })
+            .findOne({ email: req.body.email })
             .limit(1)
             .count();
           if (username == 0 && email == 0) {

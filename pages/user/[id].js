@@ -88,7 +88,7 @@ export async function getServerSideProps({ params }) {
   const { db } = await connectToDatabase();
   const users = await db
     .collection("userData")
-    .find({ username: id })
+    .findOne({ username: id })
     .toArray()
     .catch((e) => {
       return {

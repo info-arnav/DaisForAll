@@ -5,7 +5,7 @@ export default async (req, res) => {
     const { db } = await connectToDatabase();
     let userData = await db
       .collection("userData")
-      .find({ username: req.body.username.toLowerCase() })
+      .findOne({ username: req.body.username.toLowerCase() })
       .limit(1)
       .toArray();
     if (userData.length == 0) {
