@@ -12,12 +12,12 @@ export default async (req, res) => {
     } else {
       bcrypt.compare(
         req.body.password,
-        userData[0].password,
+        userData.password,
         function (err, result) {
           if (result) {
             res
               .status(200)
-              .send([{ _id: userData[0]._id, username: userData[0].username }]);
+              .send([{ _id: userData._id, username: userData.username }]);
           } else {
             res.status(202).send("password");
           }

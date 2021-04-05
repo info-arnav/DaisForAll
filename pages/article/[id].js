@@ -11,7 +11,6 @@ import DOMPurify from "dompurify";
 import Link from "next/link";
 import { ObjectID } from "bson";
 export default function Article({ data }) {
-  data = data[0];
   const description =
     data.blog &&
     `${data.blog
@@ -188,15 +187,16 @@ export async function getServerSideProps({ params }) {
   const id = params.id;
   const { db } = await connectToDatabase();
   if (id.length == 24) {
-    const posts = await db
+    let posts = await db
       .collection("posts")
       .findOne({ _id: ObjectID(id) })
       .catch((e) => {
         return { props: { data: [{ error: true }] } };
       });
+    posts = JSON.parse(JSON.stringify(posts));
     posts.images = [];
     if (posts.length != 0) {
-      return { props: { data: JSON.parse(JSON.stringify(posts)) } };
+      return { props: { data: posts } };
     } else {
       return { props: { data: [{ error: true }] } };
     }
