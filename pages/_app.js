@@ -1,7 +1,7 @@
 import Navigation from "../components/navigation";
 import Head from "../components/head";
 import Router from "next/router";
-import "../styles/cards.css";
+import "../styles/cards.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";

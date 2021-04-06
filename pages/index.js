@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Button } from "react-bootstrap";
 import Footer from "../components/footer";
 import Head from "../components/head";
 import { connectToDatabase } from "../util/mongodb";
@@ -29,11 +30,29 @@ export default function Home(data) {
         tags={tags}
         card={card}
       ></Head>
-      <main>
-        {data&& data.map((e) => (
-          <a href={`/article/${e._id}`}>{e.title} {" "}</a>
+      <main style={{marginBottom:"20px"}}>
+<div id="columns" style={{breakInside: "avoid"}}>{data&& data.map((e) => (<div class="item-2">
+    <a href={`/article/${e._id}`} class="card">
+      <div class="thumb" style={{backgroundImage:`url(/api/image/${e._id})`}}></div>
+      <article>
+        <h1>{e.title}</h1>
+        <span dangerouslySetInnerHTML={{__html:e.blog
+      .split("newPage")[0]
+      .toString()
+      .replace(/<[^>]*>/g, "")
+      .slice(
+        0,
+        160
+      )}}></span>
+      </article>
+    </a>
+  </div>
         ))}
-        <br></br>
+  
+	</div><br></br>{data.length > 20 && 
+  <div style={{width:"95%", marginLeft:"calc(2.5%)"}}>
+  <Button style={{border:'none'}}>Previous</Button>{" "}
+  <Button style={{border:'none'}}>Next</Button></div>}
       </main>
       <Footer></Footer>
     </div>
