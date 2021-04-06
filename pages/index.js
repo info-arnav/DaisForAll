@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import Footer from "../components/footer";
+import Footer from "../components/footer";import Heads from "next/head"
 import Head from "../components/head";
 import { connectToDatabase } from "../util/mongodb";
 export default function Home(data) {
@@ -34,7 +34,39 @@ export default function Home(data) {
 <div id="columns" style={{breakInside: "avoid"}}>{data&& data.map((e) => (<div class="item-2">
     <a href={`/article/${e._id}`} class="card">
       <div class="thumb" style={{backgroundImage:`url(/api/image/${e._id})`}}></div>
-      <article>
+      <article><Heads>
+      <script
+        key={e._id}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://www.arnavgupta.net/article/${e._id}`,
+            },
+            a: "",
+            headline: data.title,
+            image: `https://www.arnavgupta.net/api/image/${e._id}`,
+            datePublished: data.dateCreated,
+            dateModified: data.dateUpdated,
+            author: {
+              "@type": "Person",
+              name: e.username,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Infinity",
+              logo: {
+                "@type": "ImageObject",
+                url: images,
+              },
+            },
+          }),
+        }}
+      ></script>
+    </Heads>
         <h1>{e.title}</h1>
         <span dangerouslySetInnerHTML={{__html:e.blog
       .split("newPage")[0]
