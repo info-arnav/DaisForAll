@@ -128,7 +128,7 @@ export default function Article({ data }) {
                 marginBottom: "20px",
               }}
               description={data.imageDescription}
-              src={imagec}
+              src={imagec}loading="lazy"
               alt={data.imageDescription}
             ></img>
             <div>
