@@ -34,7 +34,7 @@ export default function Home(data) {
 <div id="columns" style={{breakInside: "avoid"}}>{data&& data.map((e) => (<div class="item-2">
     <a href={`/article/${e._id}`} class="card">
       <div class="thumb" style={{backgroundImage:`url(/api/image/${e._id})`}}></div>
-      <article><Heads>
+      <article><Heads><div></div>
       <script
         key={e._id}
         type="application/ld+json"
