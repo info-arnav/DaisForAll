@@ -6,8 +6,9 @@ export default async (req, res) => {
   if (id.length == 24) {
     const posts = await db
       .collection("posts")
-      .findOne({ _id: ObjectID(id) })
-      .catch((e) => res.json([{ error: true }]));
+      .aggregate([{ $match: { _id: ObjectID(id) } }])
+      .limit(1)
+      .toArray();
     if (posts) {
       res.json(posts);
     } else {

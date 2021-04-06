@@ -10,6 +10,7 @@ import Footer from "../../components/footer";
 import DOMPurify from "dompurify";
 import Link from "next/link";
 export default function User({ data }) {
+  data = data[0]
   const description = data.profile
     ? "infinity | " + data.description
     : `Infinity profile of ${data.username}. You can see a list of their posts, etc here.`;
@@ -87,27 +88,20 @@ export async function getServerSideProps({ params }) {
   const { db } = await connectToDatabase();
   let users = await db
     .collection("userData")
-    .findOne({ username: id })
-    .catch((e) => {
-      return {
-        props: { data: { error: true } },
-      };
-    });
+    .aggregate([
+      { $match: { username: id } },
+      { $project: { username: 1, profile: 1, name: 1 } },
+    ])
+    .limit(1)
+    .toArray();
   users = JSON.parse(JSON.stringify(users));
   if (users) {
-    users.images = [];
-    users.profiles = [];
-    users.usernames = [];
-    users.password = "";
-    users.email = "";
-    users.name = "";
-    users.passwords = [];
     return {
       props: { data: users },
     };
   } else {
     return {
-      props: { data: { error: true } },
+      props: { data: [{ error: true }] },
     };
   }
 }

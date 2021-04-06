@@ -11,8 +11,9 @@ import DOMPurify from "dompurify";
 import Link from "next/link";
 import { ObjectID } from "bson";
 export default function Article({ data }) {
+  data = data[0]
   const description =
-    data.blog.split("newPage")[0] &&
+    data.blog &&
     `${data.blog
       .split("newPage")[0]
       .toString()
@@ -32,7 +33,7 @@ export default function Article({ data }) {
   const [computerProgramme, setComputerProgramme] = useState(
     data.computerProgramme
   );
-  const [blog, setBlog] = useState(data.blog.split("newPage"));
+  const [blog, setBlog] = useState(data.blog && data.blog.split("newPage"));
   const images = data._id && "https://www.arnavgupta.net/logo.png";
   const alts = data._id && "logo of the infinity website";
   const imagec = data._id && `https://www.arnavgupta.net/api/image/${data._id}`;
@@ -127,7 +128,7 @@ export default function Article({ data }) {
                 marginBottom: "20px",
               }}
               description={data.imageDescription}
-              src={data.image}
+              src={imagec}
               alt={data.imageDescription}
             ></img>
             <div>
@@ -166,7 +167,7 @@ export default function Article({ data }) {
               </p>
             </b>
             <div style={{ marginBottom: "20px" }}>
-              {blog[current] && parse(blog[current])}
+              {blog && parse(blog[current])}
             </div>
             {computerProgramme && (
               <div>
@@ -180,7 +181,7 @@ export default function Article({ data }) {
                 <pre className="conditions">{parse(condition)}</pre>
               </div>
             )}
-            {blog.length != 1 && (
+            {blog && blog.length != 1 && (
               <div style={{ width: "100%" }}>
                 <button
                   className="btn btn-4 btn-4c icon-arrow-right"
@@ -215,18 +216,30 @@ export async function getServerSideProps({ params }) {
   if (id.length == 24) {
     let posts = await db
       .collection("posts")
-      .findOne({ _id: ObjectID(id) })
-      .catch((e) => {
-        return { props: { data: [{ error: true }] } };
-      });
+      .aggregate([
+        { $match: { _id: ObjectID(id) } },
+        {
+          $project: {
+            blog: 1,
+            title: 1,
+            imageDescription: 1,
+            tags: 1,
+            username: 1,
+            condition: 1,
+            computerProgramme: 1,
+          },
+        },
+      ])
+      .limit(1)
+      .toArray();
     posts = JSON.parse(JSON.stringify(posts));
     if (posts) {
       posts.images = [];
       return { props: { data: posts } };
     } else {
-      return { props: { data: { error: true } } };
+      return { props: { data: [{ error: true }] } };
     }
   } else {
-    return { props: { data: { error: true } } };
+    return { props: { data: [{ error: true }] } };
   }
 }

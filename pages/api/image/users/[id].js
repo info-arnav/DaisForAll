@@ -3,7 +3,14 @@ import { connectToDatabase } from "../../../../util/mongodb";
 export default async (req, res) => {
   const { db } = await connectToDatabase();
   const { id } = req.query;
-  const user = await db.collection("userData").find({ username: id }).toArray();
+  const user = await db.collection("userData").aggregate([
+    { $match: { username:id } },
+    {
+      $project: {
+        image:1
+      },
+    },
+  ]).toArray();
   const image_string = user[0].image;
   const im = image_string.split(",")[1];
   const img = Buffer.from(im, "base64");

@@ -4,8 +4,14 @@ export default async (req, res) => {
   const { db } = await connectToDatabase();
   const { id } = req.query;
   const posts = await db
-    .collection("posts")
-    .find({ _id: ObjectID(id) })
+    .collection("posts").aggregate([
+      { $match: { _id: ObjectID(id) } },
+      {
+        $project: {
+          image:1
+        },
+      },
+    ])
     .toArray();
   const image_string = posts[0].image;
   const im = image_string.split(",")[1];
