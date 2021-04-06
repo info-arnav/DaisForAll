@@ -224,7 +224,7 @@ export async function getServerSideProps({ params }) {
             title: 1,
             imageDescription: 1,
             tags: 1,
-            username: 1,
+            username: 1,dateCreated:1,dateUpdated:1,
             condition: 1,
             computerProgramme: 1,
           },
