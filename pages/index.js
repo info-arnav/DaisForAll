@@ -47,7 +47,7 @@ export default function Home(data) {
               "@id": `https://www.arnavgupta.net/article/${e._id}`,
             },
             a: "",
-            headline: data.title,
+            headline: e.title,
             image: `https://www.arnavgupta.net/api/image/${e._id}`,
             datePublished: data.dateCreated,
             dateModified: data.dateUpdated,
