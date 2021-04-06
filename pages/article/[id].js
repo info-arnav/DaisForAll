@@ -12,13 +12,15 @@ import Link from "next/link";
 import { ObjectID } from "bson";
 export default function Article({ data }) {
   const description =
-    data.blog &&
+    data.blog.split("newPage")[0] &&
     `${data.blog
+      .split("newPage")[0]
       .toString()
       .replace(/<[^>]*>/g, "")
       .slice(
         0,
         data.blog
+          .split("newPage")[0]
           .toString()
           .replace(/<[^>]*>/g, "")
           .indexOf(".")
@@ -26,10 +28,11 @@ export default function Article({ data }) {
   const title = data._id && `Infinity | ${data.title} | ${data.username}`;
   const url = data._id && `https://www.arnavgupta.net/article/${data._id}`;
   const [condition, setCondition] = useState(data.conditions);
+  let [current, setCurrent] = useState(0);
   const [computerProgramme, setComputerProgramme] = useState(
     data.computerProgramme
   );
-  const [blog, setBlog] = useState(data.blog);
+  const [blog, setBlog] = useState(data.blog.split("newPage"));
   const images = data._id && "https://www.arnavgupta.net/logo.png";
   const alts = data._id && "logo of the infinity website";
   const imagec = data._id && `https://www.arnavgupta.net/api/image/${data._id}`;
@@ -67,7 +70,7 @@ export default function Article({ data }) {
         }
       );
     }
-  }, [condition, computerProgramme, blog]);
+  }, [condition, computerProgramme, blog, current]);
   return (
     <div>
       <Heads>
@@ -162,7 +165,9 @@ export default function Article({ data }) {
                 {data.dateCreated && data.dateCreated.slice(0, 10)}
               </p>
             </b>
-            <div style={{ marginBottom: "20px" }}>{blog && parse(blog)}</div>
+            <div style={{ marginBottom: "20px" }}>
+              {blog[current] && parse(blog[current])}
+            </div>
             {computerProgramme && (
               <div>
                 <h6 style={{ marginBottom: "20px" }}>Programmes</h6>
@@ -175,6 +180,27 @@ export default function Article({ data }) {
                 <pre className="conditions">{parse(condition)}</pre>
               </div>
             )}
+            {blog.length != 1 && (
+              <div style={{ width: "100%" }}>
+                <button
+                  className="btn btn-4 btn-4c icon-arrow-right"
+                  style={{ display: "inline" }}
+                  disabled={current == 0}
+                  onClick={() => setCurrent(current - 1)}
+                >
+                  Previous Page
+                </button>{" "}
+                <button
+                  className="btn btn-4 btn-4c icon-arrow-right"
+                  style={{ display: "inline", alignSelf: "right" }}
+                  onClick={() => setCurrent(current + 1)}
+                  disabled={blog.length == current + 1}
+                >
+                  Next page
+                </button>
+              </div>
+            )}
+            <br></br>
           </div>
         </article>
       </main>

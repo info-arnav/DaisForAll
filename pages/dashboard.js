@@ -227,7 +227,12 @@ export default function Dashboard() {
               <Form.Group controlId="formBasicEmail">
                 <Form.Label id="required">Blog</Form.Label>
                 <Form.Text>
-                  To add codepen,etc just add an iframe tag in custom html
+                  To add codepen,etc just add an iframe tag in custom html.
+                  (format-{">"}code)
+                </Form.Text>
+                <Form.Text>
+                  Want multiple pages ? just type the word newPage, wherever you
+                  want the second page to start.
                 </Form.Text>
                 <br></br>
                 <Editor
