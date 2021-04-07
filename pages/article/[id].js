@@ -11,6 +11,7 @@ import DOMPurify from "dompurify";
 import Link from "next/link";
 import { ObjectID } from "bson";
 export default function Article({ data }) {
+  const color = [red, purple, blue, grey, black, yellow, green]
   data = data[0]
   const description =
     data.blog &&
@@ -49,7 +50,7 @@ export default function Article({ data }) {
       data.tags
         .toString()
         .split(" ")
-        .map((e) => e)
+        .map((e) => e&&e)
     }`;
   const card = "summary_large_image";
   useEffect(() => {
@@ -136,7 +137,7 @@ export default function Article({ data }) {
                 data.tags
                   .toString()
                   .split(" ")
-                  .map((e) => (
+                  .map((e) => ( e&&
                     <div style={{ display: "inline" }}>
                       <div
                         style={{
@@ -144,7 +145,7 @@ export default function Article({ data }) {
                         }}
                       >
                         <Link style={{}} href={`/tags/${e}`}>
-                          <span style={{ cursor: "pointer" }}>{"#" + e}</span>
+                          <span style={{ fontSize:"11px",fontWeight:"bold",borderRadius:"5px",padding:"5px",cursor: "pointer",backgroundColor:colors[Math.floor(Math.random() * colors.length)],color:"white" }}>{"#" + e}</span>
                         </Link>
                       </div>{" "}
                     </div>
