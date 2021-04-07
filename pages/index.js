@@ -106,6 +106,16 @@ export default function Home(data) {
                                   style={{
                                     display: "inline",
                                     margin: "2px",
+                                    display: "inline",
+                                    borderRadius: "5px",
+                                    padding: "5px",
+                                    cursor: "pointer",
+                                    backgroundColor:
+                                      colors[
+                                        Math.floor(
+                                          Math.random() * colors.length
+                                        )
+                                      ],
                                   }}
                                 >
                                   <div
@@ -118,16 +128,6 @@ export default function Home(data) {
                                         style={{
                                           fontSize: "11px",
                                           fontWeight: "bold",
-                                          borderRadius: "5px",
-                                          padding: "5px",
-                                          cursor: "pointer",
-                                          backgroundColor:
-                                            colors[
-                                              Math.floor(
-                                                Math.random() * colors.length
-                                              )
-                                            ],
-                                          color: "white",
                                         }}
                                       >
                                         {"#" + e}
