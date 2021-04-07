@@ -11,8 +11,8 @@ import DOMPurify from "dompurify";
 import Link from "next/link";
 import { ObjectID } from "bson";
 export default function Article({ data }) {
-  const color = [red, purple, blue, grey, black, yellow, green]
-  data = data[0]
+  const colors = ["red", "purple", "blue", "grey", "black"];
+  data = data[0];
   const description =
     data.blog &&
     `${data.blog
@@ -50,7 +50,7 @@ export default function Article({ data }) {
       data.tags
         .toString()
         .split(" ")
-        .map((e) => e&&e)
+        .map((e) => e && e)
     }`;
   const card = "summary_large_image";
   useEffect(() => {
@@ -129,7 +129,8 @@ export default function Article({ data }) {
                 marginBottom: "20px",
               }}
               description={data.imageDescription}
-              src={imagec}loading="lazy"
+              src={imagec}
+              loading="lazy"
               alt={data.imageDescription}
             ></img>
             <div>
@@ -137,19 +138,37 @@ export default function Article({ data }) {
                 data.tags
                   .toString()
                   .split(" ")
-                  .map((e) => ( e&&
-                    <div style={{ display: "inline" }}>
-                      <div
-                        style={{
-                          display: "inline",
-                        }}
-                      >
-                        <Link style={{}} href={`/tags/${e}`}>
-                          <span style={{ fontSize:"11px",fontWeight:"bold",borderRadius:"5px",padding:"5px",cursor: "pointer",backgroundColor:colors[Math.floor(Math.random() * colors.length)],color:"white" }}>{"#" + e}</span>
-                        </Link>
-                      </div>{" "}
-                    </div>
-                  ))}
+                  .map(
+                    (e) =>
+                      e && (
+                        <div style={{ display: "inline" }}>
+                          <div
+                            style={{
+                              display: "inline",
+                            }}
+                          >
+                            <Link style={{}} href={`/tags/${e}`}>
+                              <span
+                                style={{
+                                  fontSize: "11px",
+                                  fontWeight: "bold",
+                                  borderRadius: "5px",
+                                  padding: "5px",
+                                  cursor: "pointer",
+                                  backgroundColor:
+                                    colors[
+                                      Math.floor(Math.random() * colors.length)
+                                    ],
+                                  color: "white",
+                                }}
+                              >
+                                {"#" + e}
+                              </span>
+                            </Link>
+                          </div>{" "}
+                        </div>
+                      )
+                  )}
             </div>
             <b>
               <h1 style={{ marginBottom: "8px" }}>{data.title}</h1>
@@ -161,7 +180,10 @@ export default function Article({ data }) {
                   style={{ color: "black", size: "30px", marginBottom: "10px" }}
                   href={`/user/${data.username}`}
                 >
-                  <span style={{ cursor: "pointer" }}>{data.username}</span>
+                  <span style={{ cursor: "pointer" }}>
+                    {data.username.charAt(0).toUpperCase() +
+                      data.username.slice(1)}
+                  </span>
                 </Link>{" "}
                 {data.dateCreated && "on"}{" "}
                 {data.dateCreated && data.dateCreated.slice(0, 10)}
@@ -225,7 +247,9 @@ export async function getServerSideProps({ params }) {
             title: 1,
             imageDescription: 1,
             tags: 1,
-            username: 1,dateCreated:1,dateUpdated:1,
+            username: 1,
+            dateCreated: 1,
+            dateUpdated: 1,
             condition: 1,
             computerProgramme: 1,
           },

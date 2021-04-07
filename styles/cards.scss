@@ -31,7 +31,6 @@ div#columns figure img {
 
 div#columns figure figcaption {
   font-size: 0.9rem;
-  color: #444;
   line-height: 1.5;
 }
 
@@ -39,11 +38,9 @@ div#columns small {
   font-size: 1rem;
   float: right;
   text-transform: uppercase;
-  color: #aaa;
 }
 
 div#columns small a {
-  color: #666;
   text-decoration: none;
   transition: 0.4s color;
 }
@@ -89,7 +86,6 @@ div#columns:hover figure:not(:hover) {
 .card {
   background: white;
   text-decoration: none;
-  color: #444;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -116,9 +112,10 @@ div#columns:hover figure:not(:hover) {
   h1 {
     font-size: 20px;
     margin: 0;
-    color: #333;
   }
-
+  .card {
+    border-radius: 20px !important;
+  }
   p {
     flex: 1;
     line-height: 1.4;
@@ -126,11 +123,7 @@ div#columns:hover figure:not(:hover) {
 
   span {
     font-size: 12px;
-    font-weight: bold;
-    color: #999;
-    text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin: 2em 0 0 0;
   }
 
   .thumb {
