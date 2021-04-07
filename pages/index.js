@@ -103,10 +103,11 @@ export default function Home(data) {
                             (e) =>
                               e && (
                                 <div
+                                  className="important"
                                   style={{
-                                    display: "inline",
+                                    display: "inline-flex",
                                     margin: "2px",
-                                    display: "inline",
+
                                     borderRadius: "5px",
                                     padding: "5px",
                                     cursor: "pointer",
@@ -127,6 +128,7 @@ export default function Home(data) {
                                       <span
                                         style={{
                                           fontSize: "11px",
+                                          color: "white",
                                           fontWeight: "bold",
                                         }}
                                       >

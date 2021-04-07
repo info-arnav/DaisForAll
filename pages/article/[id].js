@@ -144,7 +144,7 @@ export default function Article({ data }) {
                         <div
                           style={{
                             margin: "2px",
-                            display: "inline",
+                            display: "inline-flex",
                             borderRadius: "5px",
                             padding: "5px",
                             cursor: "pointer",
