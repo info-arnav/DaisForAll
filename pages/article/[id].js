@@ -193,19 +193,26 @@ export default function Article({ data }) {
                 {data.dateCreated && data.dateCreated.slice(0, 10)}
               </p>
             </b>
-            <div style={{ marginBottom: "20px" }}>
-              {blog && parse(blog[current])}
-            </div>
+            <div
+              style={{ marginBottom: "20px" }}
+              dangerouslySetInnerHTML={{ __html: blog }}
+            ></div>
             {computerProgramme && (
               <div>
                 <h6 style={{ marginBottom: "20px" }}>Programmes</h6>
-                <pre className="invert">{parse(computerProgramme)}</pre>
+                <pre
+                  className="invert"
+                  dangerouslySetInnerHTML={{ __html: computerProgramme }}
+                ></pre>
               </div>
             )}
             {condition && (
               <div>
                 <h6 style={{ marginBottom: "20px" }}>Conitions</h6>
-                <pre className="conditions">{parse(condition)}</pre>
+                <pre
+                  className="conditions"
+                  dangerouslySetInnerHTML={{ __html: condition }}
+                ></pre>
               </div>
             )}
             {blog && blog.length != 1 && (
