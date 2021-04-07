@@ -221,7 +221,7 @@ export async function getServerSideProps({ params }) {
     ])
     .limit(20)
     .toArray();
-  posts = JSON.parse(JSON.stringify(posts));
+  posts = JSON.parse(JSON.stringify(posts)).reverse();
   if (posts) {
     posts.images = [];
     return { props: { data: posts } };
