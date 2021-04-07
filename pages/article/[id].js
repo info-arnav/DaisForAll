@@ -250,7 +250,7 @@ export async function getServerSideProps({ params }) {
             username: 1,
             dateCreated: 1,
             dateUpdated: 1,
-            condition: 1,
+            conditions: 1,
             computerProgramme: 1,
           },
         },
