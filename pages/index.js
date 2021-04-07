@@ -17,8 +17,16 @@ export default function Home(data) {
   const alts = "logo of the infinity website";
   const imagec = "https://www.arnavgupta.net/logo.png";
   const altc = "logo of the infinity website";
-  const tags =
-    "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world";
+  const tags = `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${data.map(
+    (data) => {
+      data.title;
+    }
+  )}, ${data.map((data) =>
+    data.tags
+      .toString()
+      .split(" ")
+      .map((e) => e && e)
+  )}`;
   const card = "summary_large_image";
   return (
     <div>
