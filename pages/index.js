@@ -193,7 +193,7 @@ export default function Home(data) {
             <Button style={{ border: "none" }}>Previous</Button>{" "}
             <Button style={{ border: "none" }}>Next</Button>
           </div>
-        )}
+        )}{" "}
       </main>
       <Footer></Footer>
     </div>
