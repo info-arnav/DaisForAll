@@ -119,7 +119,7 @@ export default function Home(data) {
                                           fontSize: "8px",
                                           fontWeight: "bold",
                                           borderRadius: "5px",
-                                          padding: "5px",
+                                          padding: "2px",
                                           cursor: "pointer",
                                           backgroundColor:
                                             colors[
