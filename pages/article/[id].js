@@ -141,7 +141,7 @@ export default function Article({ data }) {
                   .map(
                     (e) =>
                       e && (
-                        <div style={{ display: "inline" }}>
+                        <div style={{ margin: "2px", display: "inline" }}>
                           <div
                             style={{
                               display: "inline",

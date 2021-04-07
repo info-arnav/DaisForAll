@@ -105,7 +105,7 @@ export default function Home(data) {
                                 <div
                                   style={{
                                     display: "inline",
-                                    marginTop: "2px",
+                                    margin: "2px",
                                   }}
                                 >
                                   <div
