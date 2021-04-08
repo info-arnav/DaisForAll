@@ -75,8 +75,8 @@ a {
 }
 li {
   list-style-position: inside !important;
-  padding-left: 21px !important;
-  text-indent: -21px !important;
+  padding-left: 21px;
+  text-indent: -21px;
 }
 input,
 textarea {
