@@ -75,7 +75,7 @@ a {
 }
 li {
   list-style-position: inside !important;
-  padding-left: 21px;
+  padding-left: 21px !important;
   text-indent: -21px;
 }
 asas {
