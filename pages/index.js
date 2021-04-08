@@ -51,15 +51,23 @@ export default function Home(data) {
       ></Head>
       <main style={{ marginBottom: "20px" }}>
         <Offline>
-          <Toast>
+          <Toast
+            style={{
+              marginLeft: "10px",
+              position: "fixed",
+              zIndex: "1111111",
+              opacity: "1",
+            }}
+          >
             <Toast.Header closeButton={false}>
               <img
                 src="/logo.webp"
                 className="rounded mr-2"
+                height={20}
                 alt="logo of infinity"
               />
               <strong className="mr-auto">Infinity</strong>
-              <small>just now</small>
+              <small>Since you are offline I guess.</small>
             </Toast.Header>
             <Toast.Body>
               You are offline. Connect to Internet for new Feed
