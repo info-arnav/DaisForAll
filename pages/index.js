@@ -5,7 +5,6 @@ import Footer from "../components/footer";
 import Heads from "next/head";
 import Head from "../components/head";
 import { connectToDatabase } from "../util/mongodb";
-import { Toast, ToastBody } from "react-bootstrap";
 import { Offline } from "react-detect-offline";
 import Link from "next/link";
 export default function Home(data) {
