@@ -73,7 +73,11 @@ p {
 a {
   color: black;
 }
-
+li {
+  list-style-position: inside !important;
+  padding-left: 21px !important;
+  text-indent: -21px !important;
+}
 input,
 textarea {
   outline: 0;
