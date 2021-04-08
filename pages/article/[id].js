@@ -44,9 +44,8 @@ export default function Article({ data }) {
   const [blog, setBlog] = useState(data.blog && data.blog.split("newPage"));
   const images = data._id && "https://www.arnavgupta.net/logo.png";
   const alts = data._id && "logo of the infinity website";
-  const imagec = data._id &
-    `https://www.arnavgupta.net/api/image/${data._id}`
- 
+  const imagec = data._id && `https://www.arnavgupta.net/api/image/${data._id}`;
+
   const altc = data._id && data.imageDescription;
   const router = useRouter();
   const tag =
@@ -137,7 +136,6 @@ export default function Article({ data }) {
                 borderRadius: "20px 20px 0px 0px",
                 marginBottom: "20px",
               }}
-            
               description={data.imageDescription}
               src={`https://www.arnavgupta.net/api/image/${data._id}`}
               loading="lazy"
