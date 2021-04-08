@@ -47,10 +47,6 @@ module.exports = {
         domain: "www.arnavgupta.net",
         defaultLocale: "en-in",
       },
-      {
-        domain: "www.passionatebloggers.me",
-        defaultLocale: "en-in",
-      },
     ],
   },
   plugins: [
