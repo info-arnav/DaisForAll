@@ -11,6 +11,7 @@ export default function Head({
   tags,
   card,
 }) {
+  tags = tags + "infiniti";
   return (
     <Heads>
       <script
@@ -83,7 +84,6 @@ export default function Head({
       <link key="30" rel="manifest" href="/manifest.json" />
       <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
       <meta key="32" name="twitter:title" content={title} />
- 
     </Heads>
   );
 }

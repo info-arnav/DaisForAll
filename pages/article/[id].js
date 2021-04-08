@@ -37,7 +37,9 @@ export default function Article({ data }) {
   const [blog, setBlog] = useState(data.blog && data.blog.split("newPage"));
   const images = data._id && "https://www.arnavgupta.net/logo.png";
   const alts = data._id && "logo of the infinity website";
-  const imagec = data._id && `https://www.arnavgupta.net/api/image/${data._id}`;
+  const [imagec, setImagec] = useState(
+    `https://www.arnavgupta.net/api/image/${data._id}`
+  );
   const altc = data._id && data.imageDescription;
   const router = useRouter();
   const tag =
@@ -72,7 +74,7 @@ export default function Article({ data }) {
         }
       );
     }
-  }, [condition, computerProgramme, blog, current]);
+  }, [condition, computerProgramme, blog, current, imagec]);
   return (
     <div>
       <Heads>
@@ -128,6 +130,7 @@ export default function Article({ data }) {
                 borderRadius: "20px 20px 0px 0px",
                 marginBottom: "20px",
               }}
+              onError={(e) => setImagec("/logo.webp")}
               description={data.imageDescription}
               src={imagec}
               loading="lazy"
