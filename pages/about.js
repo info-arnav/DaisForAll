@@ -30,7 +30,7 @@ export default function About() {
       ></Head>
       <main>
         <Offline>
-          <ToastBody>
+          <Toast>
             <Toast.Header closeButton={false}>
               <img
                 src="/logo.webp"
