@@ -146,7 +146,7 @@ export default function Home(data) {
                     >
                       <h1 style={{ cursor: "pointer", marginBottom: "2px" }}>
                         {e.title}
-                      </h1>
+                      </h1>{" "}
                     </Link>
                     <div style={{ marginBottom: "7px" }}>
                       <b>
