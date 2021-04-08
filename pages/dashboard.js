@@ -6,6 +6,8 @@ import jwt, { verify } from "njwt";
 import Resizer from "react-image-file-resizer";
 import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
+import { Toast, ToastBody } from "react-bootstrap";
+import { Offline } from "react-detect-offline";
 import Footer from "../components/footer";
 export default function Dashboard() {
   const init1 = {
@@ -209,6 +211,22 @@ export default function Dashboard() {
         card={card}
       ></Head>
       <main>
+        <Offline>
+          <Toast>
+            <Toast.Header closeButton={false}>
+              <img
+                src="/logo.webp"
+                className="rounded mr-2"
+                alt="logo of infinity"
+              />
+              <strong className="mr-auto">Infinity</strong>
+              <small>just now</small>
+            </Toast.Header>
+            <Toast.Body>
+              You are offline. Connect to Internet for new Feed
+            </Toast.Body>
+          </Toast>
+        </Offline>
         {loaded && (
           <div
             style={{ width: "97%", marginLeft: "calc(calc(100% - 97%) / 2)" }}

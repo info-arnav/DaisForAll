@@ -8,9 +8,11 @@ import parse from "html-react-parser";
 import { useRouter } from "next/router";
 import Footer from "../../components/footer";
 import DOMPurify from "dompurify";
+import { Toast, ToastBody } from "react-bootstrap";
+import { Offline } from "react-detect-offline";
 import Link from "next/link";
 export default function User({ data }) {
-  data = data[0]
+  data = data[0];
   const description = data.profile
     ? "infinity | " + data.description
     : `Infinity profile of ${data.username}. You can see a list of their posts, etc here.`;
@@ -77,7 +79,24 @@ export default function User({ data }) {
         tags={tag}
         card={card}
       ></Head>
-      <main></main>
+      <main>
+        <Offline>
+          <Toast>
+            <Toast.Header closeButton={false}>
+              <img
+                src="/logo.webp"
+                className="rounded mr-2"
+                alt="logo of infinity"
+              />
+              <strong className="mr-auto">Infinity</strong>
+              <small>just now</small>
+            </Toast.Header>
+            <Toast.Body>
+              You are offline. Connect to Internet for new Feed
+            </Toast.Body>
+          </Toast>
+        </Offline>
+      </main>
       <Footer></Footer>
     </div>
   );

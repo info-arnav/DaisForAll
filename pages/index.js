@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Toast, ToastBody } from "react-bootstrap";
 import Footer from "../components/footer";
 import Heads from "next/head";
 import Head from "../components/head";
 import { connectToDatabase } from "../util/mongodb";
+import { Toast, ToastBody } from "react-bootstrap";
+import { Offline } from "react-detect-offline";
 import Link from "next/link";
 export default function Home(data) {
   const colors = [
@@ -49,6 +51,22 @@ export default function Home(data) {
         card={card}
       ></Head>
       <main style={{ marginBottom: "20px" }}>
+        <Offline>
+          <Toast>
+            <Toast.Header closeButton={false}>
+              <img
+                src="/logo.webp"
+                className="rounded mr-2"
+                alt="logo of infinity"
+              />
+              <strong className="mr-auto">Infinity</strong>
+              <small>just now</small>
+            </Toast.Header>
+            <Toast.Body>
+              You are offline. Connect to Internet for new Feed
+            </Toast.Body>
+          </Toast>
+        </Offline>
         <div id="columns" style={{ breakInside: "avoid" }}>
           {data &&
             data.map((e) => (

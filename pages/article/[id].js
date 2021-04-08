@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Heads from "next/head";
 import Head from "../../components/head";
+import { Toast, ToastBody } from "react-bootstrap";
+import { Offline } from "react-detect-offline";
 import Jwt from "njwt";
 import parse from "html-react-parser";
 import { connectToDatabase } from "../../util/mongodb";
@@ -128,6 +130,22 @@ export default function Article({ data }) {
         card={card}
       ></Head>
       <main>
+        <Offline>
+          <Toast>
+            <Toast.Header closeButton={false}>
+              <img
+                src="/logo.webp"
+                className="rounded mr-2"
+                alt="logo of infinity"
+              />
+              <strong className="mr-auto">Infinity</strong>
+              <small>just now</small>
+            </Toast.Header>
+            <Toast.Body>
+              You are offline. Connect to Internet for new Feed
+            </Toast.Body>
+          </Toast>
+        </Offline>
         <article>
           <div style={{ width: "90%", marginLeft: "5%" }}>
             <img

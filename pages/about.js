@@ -1,3 +1,5 @@
+import { Toast, ToastBody } from "react-bootstrap";
+import { Offline } from "react-detect-offline";
 import Footer from "../components/footer";
 import Head from "../components/head";
 
@@ -26,7 +28,24 @@ export default function About() {
         tags={tags}
         card={card}
       ></Head>
-      <main></main>
+      <main>
+        <Offline>
+          <ToastBody>
+            <Toast.Header closeButton={false}>
+              <img
+                src="/logo.webp"
+                className="rounded mr-2"
+                alt="logo of infinity"
+              />
+              <strong className="mr-auto">Infinity</strong>
+              <small>just now</small>
+            </Toast.Header>
+            <Toast.Body>
+              You are offline. Connect to Internet for new Feed
+            </Toast.Body>
+          </Toast>
+        </Offline>
+      </main>
       <Footer></Footer>
     </div>
   );
