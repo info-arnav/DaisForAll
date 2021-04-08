@@ -104,6 +104,30 @@ export default function User({ data }) {
             </Toast.Body>
           </Toast>
         </Offline>
+        <div style={{ display: "none" }}>
+          <Toast
+            style={{
+              marginLeft: "10px",
+              position: "fixed",
+              zIndex: "1111111",
+              opacity: "1",
+            }}
+          >
+            <Toast.Header closeButton={false}>
+              <img
+                src="/logo.webp"
+                className="rounded mr-2"
+                height={20}
+                alt="logo of infinity"
+              />
+              <strong className="mr-auto">Infinity</strong>
+              <small>Since you are offline I guess.</small>
+            </Toast.Header>
+            <Toast.Body>
+              You are offline. Connect to Internet for new Feed
+            </Toast.Body>
+          </Toast>
+        </div>
       </main>
       <Footer></Footer>
     </div>
