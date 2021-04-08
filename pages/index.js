@@ -50,29 +50,6 @@ export default function Home(data) {
         card={card}
       ></Head>
       <main style={{ marginBottom: "20px" }}>
-        <Offline>
-          <div
-            className="fade toast show"
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
-            style="margin-left: 10px; position: fixed; z-index: 1111111; opacity: 1;"
-          >
-            <div className="toast-header">
-              <img
-                src="/logo.webp"
-                className="rounded mr-2"
-                height="20"
-                alt="logo of infinity"
-              />
-              <strong className="mr-auto">Infinity</strong>
-              <small>Since you are offline I guess.</small>
-            </div>
-            <div className="toast-body">
-              You are offline. Connect to Internet for new Feed
-            </div>
-          </div>
-        </Offline>
         <div id="columns" style={{ breakInside: "avoid" }}>
           {data &&
             data.map((e) => (

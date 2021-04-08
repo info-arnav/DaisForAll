@@ -7,13 +7,14 @@ import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 import "../styles/404.css";
 import "../styles/globals.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 //loadProgressBar()
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 NProgress.configure({ showSpinner: false });
 function MyApp({ Component, pageProps }) {
+  const [offline, setOffline] = useState(false);
   const description = "The page is loading please wait.";
   const title = "Infinity | Loading";
   const url = "https://www.arnavgupta.net";
@@ -26,6 +27,12 @@ function MyApp({ Component, pageProps }) {
   const card = "summary_large_image";
   useEffect(() => {
     if ("serviceWorker" in navigator) {
+      window.addEventListener("offline", () => {
+        setOffline(true);
+      });
+      window.addEventListener("online", () => {
+        setOffline(false);
+      });
       window.addEventListener("load", function () {
         navigator.serviceWorker.register("/sw.js").then(
           function (registration) {
@@ -52,6 +59,35 @@ function MyApp({ Component, pageProps }) {
         card={card}
       ></Head>
       <Navigation></Navigation>
+      {offline && (
+        <div
+          className="fade toast show"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+          style={{
+            marginLeft: "10px",
+            position: "fixed",
+            marginTop: "80px",
+            zIndex: "1111111",
+            opacity: 1,
+          }}
+        >
+          <div className="toast-header">
+            <img
+              src="/logo.webp"
+              className="rounded mr-2"
+              height="20"
+              alt="logo of infinity"
+            />
+            <strong className="mr-auto">Infinity</strong>
+            <small>Since you are offline I guess.</small>
+          </div>
+          <div className="toast-body">
+            You are offline. Connect to Internet for new Feed
+          </div>
+        </div>
+      )}
       <Component {...pageProps} />
     </div>
   );
