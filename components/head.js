@@ -36,7 +36,10 @@ export default function Head({
             colleague: [],
             image: imagec,
             name: "Arnav Gupta",
-            url: "https://www.arnavgupta.net/",
+            url: [
+              "https://www.arnavgupta.net/",
+              "https://www.passionatebloggers.me/",
+            ],
             sameAs: [
               "https://www.youtube.com/channel/UCzzfqCy-j9XZA5KNosqzh6w",
               "https://www.arnavgupta.net/",
