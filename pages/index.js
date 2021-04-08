@@ -51,28 +51,27 @@ export default function Home(data) {
       ></Head>
       <main style={{ marginBottom: "20px" }}>
         <Offline>
-          <Toast
-            style={{
-              marginLeft: "10px",
-              position: "fixed",
-              zIndex: "1111111",
-              opacity: "1",
-            }}
+          <div
+            className="fade toast show"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+            style="margin-left: 10px; position: fixed; z-index: 1111111; opacity: 1;"
           >
-            <Toast.Header closeButton={false}>
+            <div className="toast-header">
               <img
                 src="/logo.webp"
                 className="rounded mr-2"
-                height={20}
+                height="20"
                 alt="logo of infinity"
               />
               <strong className="mr-auto">Infinity</strong>
               <small>Since you are offline I guess.</small>
-            </Toast.Header>
-            <Toast.Body>
+            </div>
+            <div className="toast-body">
               You are offline. Connect to Internet for new Feed
-            </Toast.Body>
-          </Toast>
+            </div>
+          </div>
         </Offline>
         <div id="columns" style={{ breakInside: "avoid" }}>
           {data &&
@@ -229,30 +228,6 @@ export default function Home(data) {
             <Button style={{ border: "none" }}>Next</Button>
           </div>
         )}{" "}
-        <div style={{ display: "none" }}>
-          <Toast
-            style={{
-              marginLeft: "10px",
-              position: "fixed",
-              zIndex: "1111111",
-              opacity: "1",
-            }}
-          >
-            <Toast.Header closeButton={false}>
-              <img
-                src="/logo.webp"
-                className="rounded mr-2"
-                height={20}
-                alt="logo of infinity"
-              />
-              <strong className="mr-auto">Infinity</strong>
-              <small>Since you are offline I guess.</small>
-            </Toast.Header>
-            <Toast.Body>
-              You are offline. Connect to Internet for new Feed
-            </Toast.Body>
-          </Toast>
-        </div>
       </main>
       <Footer></Footer>
     </div>
