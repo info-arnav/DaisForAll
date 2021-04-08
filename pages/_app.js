@@ -82,7 +82,7 @@ function MyApp({ Component, pageProps }) {
               alt="logo of infinity"
             />
             <strong className="mr-auto">Infinity</strong>
-            <small>Since you are offline I guess.</small>
+            <small>Since you are offline.</small>
           </div>
           <div className="toast-body">
             You are offline. Connect to Internet for new Feed
