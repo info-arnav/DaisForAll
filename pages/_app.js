@@ -27,6 +27,7 @@ function MyApp({ Component, pageProps }) {
   const card = "summary_large_image";
   useEffect(() => {
     if ("serviceWorker" in navigator) {
+      window.navigator.onLine == false && setOffline(true);
       window.addEventListener("offline", () => {
         setOffline(true);
       });
