@@ -7,7 +7,14 @@ import Head from "../components/head";
 import { connectToDatabase } from "../util/mongodb";
 import Link from "next/link";
 export default function Home(data) {
-  const colors = ["red", "purple", "blue", "grey", "black"];
+  const colors = [
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+  ];
   data = data.data;
   const description =
     "Infinity is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.";

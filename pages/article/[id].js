@@ -11,7 +11,14 @@ import DOMPurify from "dompurify";
 import Link from "next/link";
 import { ObjectID } from "bson";
 export default function Article({ data }) {
-  const colors = ["red", "purple", "blue", "grey", "black"];
+  const colors = [
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+  ];
   data = data[0];
   const description =
     data.blog &&
