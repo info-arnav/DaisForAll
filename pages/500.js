@@ -364,14 +364,14 @@ export default function Error404() {
                     className="st8 st10"
                     font-size="21"
                   >
-                    500
+                    404
                   </text>
                   <text
                     transform="translate(659.5 213.994)"
                     className="st8 st10"
                     font-size="24.025"
                   >
-                    Some error occured
+                    Page not found.
                   </text>
                 </g>
                 <g id="ladders">
