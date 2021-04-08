@@ -1,9 +1,9 @@
 import Footer from "../components/footer";
 import Head from "../components/head";
-export default function Error404() {
-  const description = "You may have landed on a wrong page.";
-  const title = "Infinity | Error 404";
-  const url = "https://www.arnavgupta.net/404";
+export default function Error500() {
+  const description = "Some error occured.";
+  const title = "Infinity | Error 500";
+  const url = "https://www.arnavgupta.net/500";
   const images = "https://www.arnavgupta.net/logo.png";
   const alts = "logo of the infinity website";
   const imagec = "https://www.arnavgupta.net/logo.png";
