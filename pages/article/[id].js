@@ -198,7 +198,7 @@ export default function Article({ data }) {
             </b>
             <div
               style={{ marginBottom: "20px" }}
-              dangerouslySetInnerHTML={{ __html: blog }}
+              dangerouslySetInnerHTML={{ __html: blog[current] }}
             ></div>
             {computerProgramme && (
               <div>
