@@ -233,73 +233,63 @@ export default function Dashboard() {
                   onChange={(e) => setTitles(e.target.value)}
                 />
               </Form.Group>
-
-              <Accordion>
-                <Card>
-                  <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="0">
-                      Blog
-                    </Accordion.Toggle>
-                  </Card.Header>
-                  <Accordion.Collapse eventKey="0">
-                    <Card.Body>
-                      <Form.Group controlId="formBasicEmail">
-                        <Form.Label id="required">Blog</Form.Label>
-                        <Form.Text>
-                          To add codepen,etc just add an iframe tag in custom
-                          html. (format-{">"}code)
-                        </Form.Text>
-                        <Form.Text>
-                          Want multiple pages ? just type the word newPage,
-                          wherever you want the second page to start.
-                        </Form.Text>
-                        <br></br>
-                        <Editor
-                          value={blog}
-                          initialValue="<p>This is the initial content of the editor</p>"
-                          apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
-                          init={init2}
-                          onEditorChange={(e) => setBlog(e)}
-                        />
-                      </Form.Group>
-                    </Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-                <Card>
-                  <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                      Additional
-                    </Accordion.Toggle>
-                  </Card.Header>
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body>
-                      {" "}
-                      <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Computer Programmes</Form.Label>
-                        <Editor
-                          value={computerProgramme}
-                          initialValue=""
-                          apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
-                          init={init1}
-                          onEditorChange={(e) => setCompProgramme(e)}
-                        />
-                      </Form.Group>
-                      <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Ownership Conditions</Form.Label>
-                        <Editor
-                          value={conditions}
-                          initialValue=""
-                          apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
-                          init={init1}
-                          onEditorChange={(e) => {
-                            setConditions(e);
-                          }}
-                        />
-                      </Form.Group>
-                    </Card.Body>
-                  </Accordion.Collapse>
-                </Card>
-              </Accordion>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label id="required">Blog</Form.Label>
+                <Form.Text>
+                  To add codepen,etc just add an iframe tag in custom html.
+                  (format-{">"}code)
+                </Form.Text>
+                <Form.Text>
+                  Want multiple pages ? just type the word newPage, wherever you
+                  want the second page to start.
+                </Form.Text>
+                <br></br>
+                <Editor
+                  value={blog}
+                  initialValue="<p>This is the initial content of the editor</p>"
+                  apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+                  init={init2}
+                  onEditorChange={(e) => setBlog(e)}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Accordion>
+                  <Card>
+                    <Card.Header>
+                      <Accordion.Toggle as={Button} variant="link" eventKey="1">
+                        Additional
+                      </Accordion.Toggle>
+                    </Card.Header>
+                    <Accordion.Collapse eventKey="1">
+                      <Card.Body>
+                        {" "}
+                        <Form.Group controlId="formBasicEmail">
+                          <Form.Label>Computer Programmes</Form.Label>
+                          <Editor
+                            value={computerProgramme}
+                            initialValue=""
+                            apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+                            init={init1}
+                            onEditorChange={(e) => setCompProgramme(e)}
+                          />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicEmail">
+                          <Form.Label>Ownership Conditions</Form.Label>
+                          <Editor
+                            value={conditions}
+                            initialValue=""
+                            apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+                            init={init1}
+                            onEditorChange={(e) => {
+                              setConditions(e);
+                            }}
+                          />
+                        </Form.Group>
+                      </Card.Body>
+                    </Accordion.Collapse>
+                  </Card>
+                </Accordion>
+              </Form.Group>
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label id="required">Tags</Form.Label>
