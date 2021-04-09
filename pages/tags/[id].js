@@ -63,6 +63,7 @@ export default function Home(data) {
                   >
                     <div
                       class="thumb"
+                      alt={e.imageDescription}
                       style={{
                         backgroundImage: `url(/api/image/${e._id})`,
                         cursor: "pointer",

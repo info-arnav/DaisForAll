@@ -139,6 +139,7 @@ export default function Article({ data }) {
                 marginBottom: "20px",
               }}
               description={data.imageDescription}
+              alt={data.description}
               src={`https://www.infinity.cyou/api/image/${data._id}`}
               loading="lazy"
               alt={data.imageDescription}
