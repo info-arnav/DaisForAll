@@ -9,8 +9,8 @@ Disallow: /api/
 Disallow: /404
 Disallow: /\_error
 Disallow: /\_app
-Sitemap : https://www.arnavgupta.net/sitemap.xml
-Sitemap : https://www.arnavgupta.net/api/posts/sitemap.xml
-Sitemap : https://www.arnavgupta.net/api/users/sitemap.xml
-Sitemap : https://www.arnavgupta.net/api/image/posts/sitemap.xml
-Sitemap : https://www.arnavgupta.net/api/image/users/sitemap.xml
+Sitemap : https://www.infinity.cyou/sitemap.xml
+Sitemap : https://www.infinity.cyou/api/posts/sitemap.xml
+Sitemap : https://www.infinity.cyou/api/users/sitemap.xml
+Sitemap : https://www.infinity.cyou/api/image/posts/sitemap.xml
+Sitemap : https://www.infinity.cyou/api/image/users/sitemap.xml

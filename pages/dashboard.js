@@ -188,10 +188,10 @@ export default function Dashboard() {
   const description =
     "Have thoughts and mind ? Just share them with everyone by posting it here.";
   const title = "Infinity | Dashboard";
-  const url = "https://www.arnavgupta.net/dashboard";
-  const images = "https://www.arnavgupta.net/logo.png";
+  const url = "https://www.infinity.cyou/dashboard";
+  const images = "https://www.infinity.cyou/logo.png";
   const alts = "logo of the infinity website";
-  const imagec = "https://www.arnavgupta.net/logo.png";
+  const imagec = "https://www.infinity.cyou/logo.png";
   const altc = "logo of the infinity website";
   const tag =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post,dashboard, live thousand lives in one world,new, blog, new blog";

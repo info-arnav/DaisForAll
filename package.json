@@ -1,7 +1,8 @@
 {
-  "name": "arnavgupta.net",
+  "name": "infinity.cyou",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://www.infinity.cyou/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

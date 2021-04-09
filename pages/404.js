@@ -3,10 +3,10 @@ import Head from "../components/head";
 export default function Error500() {
   const description = "Some error occured.";
   const title = "Infinity | Error 500";
-  const url = "https://www.arnavgupta.net/500";
-  const images = "https://www.arnavgupta.net/logo.png";
+  const url = "https://www.infinity.cyou/500";
+  const images = "https://www.infinity.cyou/logo.png";
   const alts = "logo of the infinity website";
-  const imagec = "https://www.arnavgupta.net/logo.png";
+  const imagec = "https://www.infinity.cyou/logo.png";
   const altc = "logo of the infinity website";
   const tags =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world,404,error";

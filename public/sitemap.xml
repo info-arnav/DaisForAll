@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-      <loc>https://www.arnavgupta.net/api/users/sitemap.xml</loc>
+      <loc>https://www.infinity.cyou/api/users/sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.arnavgupta.net/main.xml</loc>
+      <loc>https://www.infinity.cyou/main.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.arnavgupta.net/general-images.xml</loc>
+      <loc>https://www.infinity.cyou/general-images.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.arnavgupta.net/api/posts/sitemap.xml</loc>
+      <loc>https://www.infinity.cyou/api/posts/sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.arnavgupta.net/api/image/users/sitemap.xml</loc>
+      <loc>https://www.infinity.cyou/api/image/users/sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.arnavgupta.net/api/image/posts/sitemap.xml</loc>
+      <loc>https://www.infinity.cyou/api/image/posts/sitemap.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.arnavgupta.net/api/tags/sitemap.xml</loc>
+      <loc>https://www.infinity.cyou/api/tags/sitemap.xml</loc>
     </sitemap>
   </sitemapindex>

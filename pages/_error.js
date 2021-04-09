@@ -6,10 +6,10 @@ export default function Error({ statusCode }) {
   const title = statusCode
     ? `Infinity | Error ${statusCode}`
     : "Infinity | Error 404";
-  const url = "https://www.arnavgupta.net/_error";
-  const images = "https://www.arnavgupta.net/logo.png";
+  const url = "https://www.infinity.cyou/_error";
+  const images = "https://www.infinity.cyou/logo.png";
   const alts = "logo of the infinity website";
-  const imagec = "https://www.arnavgupta.net/logo.png";
+  const imagec = "https://www.infinity.cyou/logo.png";
   const altc = "logo of the infinity website";
   const tags = `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, error,${statusCode}`;
   const card = "summary_large_image";

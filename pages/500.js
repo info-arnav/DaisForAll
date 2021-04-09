@@ -3,10 +3,10 @@ import Head from "../components/head";
 export default function Error404() {
   const description = "You may have landed on a wrong page.";
   const title = "Infinity | Error 404";
-  const url = "https://www.arnavgupta.net/404";
-  const images = "https://www.arnavgupta.net/logo.png";
+  const url = "https://www.infinity.cyou/404";
+  const images = "https://www.infinity.cyou/logo.png";
   const alts = "logo of the infinity website";
-  const imagec = "https://www.arnavgupta.net/logo.png";
+  const imagec = "https://www.infinity.cyou/logo.png";
   const altc = "logo of the infinity website";
   const tags =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world,404,error";

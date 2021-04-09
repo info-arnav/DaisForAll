@@ -37,16 +37,16 @@ export default function Article({ data }) {
           .indexOf(".")
       )}.....`;
   const title = data._id && `Infinity | ${data.title} | ${data.username}`;
-  const url = data._id && `https://www.arnavgupta.net/article/${data._id}`;
+  const url = data._id && `https://www.infinity.cyou/article/${data._id}`;
   const [condition, setCondition] = useState(data.conditions);
   let [current, setCurrent] = useState(0);
   const [computerProgramme, setComputerProgramme] = useState(
     data.computerProgramme
   );
   const [blog, setBlog] = useState(data.blog && data.blog.split("newPage"));
-  const images = data._id && "https://www.arnavgupta.net/logo.png";
+  const images = data._id && "https://www.infinity.cyou/logo.png";
   const alts = data._id && "logo of the infinity website";
-  const imagec = data._id && `https://www.arnavgupta.net/api/image/${data._id}`;
+  const imagec = data._id && `https://www.infinity.cyou/api/image/${data._id}`;
 
   const altc = data._id && data.imageDescription;
   const router = useRouter();
@@ -139,7 +139,7 @@ export default function Article({ data }) {
                 marginBottom: "20px",
               }}
               description={data.imageDescription}
-              src={`https://www.arnavgupta.net/api/image/${data._id}`}
+              src={`https://www.infinity.cyou/api/image/${data._id}`}
               loading="lazy"
               alt={data.imageDescription}
             ></img>

@@ -1,6 +1,7 @@
 # Infinity - Live thousand lives in one world
-![logo of infinity with 2 wires](https://www.arnavgupta.net/logo.png "logo")
----
+
+## ![logo of infinity with 2 wires](https://www.infinity.cyou/logo.png "logo")
+
 ## Introduction to the project
 
 Infinity is a platform created for various people to share their ideas, poems, stories, essays, programms, knowledge, creativity, logics, reasonings, etc with the world.
@@ -10,11 +11,12 @@ So the website is developed on **NextJS** which is a **ReactJS** framework. **Re
 ## Introduction to the respioratory
 
 ### Default branch is Infinity
+
 So the respo has a database which is added at the util folder, the frontend in pages folder(excluding api), and server in pages/api directory. The css files for the project is in CSS directory. The components supporting the frontend are in components direcotry.
 
 ## Introduction to the programme
 
-The chain starts from _app.js I guess so please start there.
+The chain starts from \_app.js I guess so please start there.
 
 ## Execute
 

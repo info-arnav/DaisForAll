@@ -11,11 +11,11 @@ export default async (req, res) => {
         if (e.image) {
           return {
             url: [
-              { loc: `https://www.arnavgupta.net/user/${e.username}` },
+              { loc: `https://www.infinity.cyou/user/${e.username}` },
               {
                 "image:image": [
                   {
-                    "image:loc": `https://www.arnavgupta.net/api/image/users/${e.username}`,
+                    "image:loc": `https://www.infinity.cyou/api/image/users/${e.username}`,
                   },
                 ],
               },

@@ -18,7 +18,7 @@ export default async (req, res) => {
     .then(async (e) => {
       let a = await e.map((e) => {
         return {
-          url: [{ loc: `https://www.arnavgupta.net/tags/${e}` }],
+          url: [{ loc: `https://www.infinity.cyou/tags/${e}` }],
         };
       });
       return a;

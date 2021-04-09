@@ -7,10 +7,10 @@ export default function Blogs() {
   const description =
     "Find bloogs posted by various people here and enjoy expanding your thougts into their world.";
   const title = "Infinity | Blogs";
-  const url = "https://www.arnavgupta.net/blogs";
-  const images = "https://www.arnavgupta.net/logo.png";
+  const url = "https://www.infinity.cyou/blogs";
+  const images = "https://www.infinity.cyou/logo.png";
   const alts = "logo of the infinity website";
-  const imagec = "https://www.arnavgupta.net/logo.png";
+  const imagec = "https://www.infinity.cyou/logo.png";
   const altc = "logo of the infinity website";
   const tags =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world,all,global";

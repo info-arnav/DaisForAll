@@ -51,6 +51,10 @@ module.exports = {
         domain: "www.passionatebloggers.me",
         defaultLocale: "en-in",
       },
+      {
+        domain: "www.infinity.cyou",
+        defaultLocale: "en-in",
+      },
     ],
   },
   plugins: [

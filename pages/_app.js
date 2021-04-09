@@ -17,10 +17,10 @@ function MyApp({ Component, pageProps }) {
   const [offline, setOffline] = useState(false);
   const description = "The page is loading please wait.";
   const title = "Infinity | Loading";
-  const url = "https://www.arnavgupta.net";
-  const images = "https://www.arnavgupta.net/logo.png";
+  const url = "https://www.infinity.cyou";
+  const images = "https://www.infinity.cyou/logo.png";
   const alts = "logo of the infinity website";
-  const imagec = "https://www.arnavgupta.net/logo.png";
+  const imagec = "https://www.infinity.cyou/logo.png";
   const altc = "logo of the infinity website";
   const tags =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world";

@@ -17,15 +17,15 @@ export default function User({ data }) {
     ? "infinity | " + data.description
     : `Infinity profile of ${data.username}. You can see a list of their posts, etc here.`;
   const title = data._id && `Infinity | ${data.username}`;
-  const url = data._id && `https://www.arnavgupta.net/user/${data.username}`;
+  const url = data._id && `https://www.infinity.cyou/user/${data.username}`;
   const [condition, setCondition] = useState(data.conditions);
   const [computerProgramme, setComputerProgramme] = useState(
     data.computerProgramme
   );
-  const images = data._id && "https://www.arnavgupta.net/logo.png";
+  const images = data._id && "https://www.infinity.cyou/logo.png";
   const alts = data._id && "logo of the infinity website";
   const imagec = data.image
-    ? `https://www.arnavgupta.net/api/image/users/${data._id}`
+    ? `https://www.infinity.cyou/api/image/users/${data._id}`
     : images;
   const altc = `user avatar - ${data.username}`;
   const router = useRouter();

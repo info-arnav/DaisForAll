@@ -20,10 +20,10 @@ export default function Home(data) {
   const description =
     "Infinity is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.";
   const title = "Infinity | Live thousand lives in one world";
-  const url = "https://www.arnavgupta.net";
-  const images = "https://www.arnavgupta.net/logo.png";
+  const url = "https://www.infinity.cyou";
+  const images = "https://www.infinity.cyou/logo.png";
   const alts = "logo of the infinity website";
-  const imagec = "https://www.arnavgupta.net/logo.png";
+  const imagec = "https://www.infinity.cyou/logo.png";
   const altc = "logo of the infinity website";
   const tags = `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${data.map(
     (data) => {
@@ -79,11 +79,11 @@ export default function Home(data) {
                             "@type": "Article",
                             mainEntityOfPage: {
                               "@type": "WebPage",
-                              "@id": `https://www.arnavgupta.net/article/${e._id}`,
+                              "@id": `https://www.infinity.cyou/article/${e._id}`,
                             },
                             a: "",
                             headline: e.title,
-                            image: `https://www.arnavgupta.net/api/image/${e._id}`,
+                            image: `https://www.infinity.cyou/api/image/${e._id}`,
                             datePublished: e.dateCreated,
                             dateModified: e.dateUpdated,
                             author: {

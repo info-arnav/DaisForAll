@@ -11,7 +11,7 @@ export default function Head({
   tags,
   card,
 }) {
-  tags = tags + "infiniti";
+  tags = tags + "infiniti, cyou";
   return (
     <Heads>
       <script
@@ -40,6 +40,7 @@ export default function Head({
             sameAs: [
               "https://www.youtube.com/channel/UCzzfqCy-j9XZA5KNosqzh6w",
               "https://www.arnavgupta.net/",
+              "https://www.infinity.cyou/",
               "https://www.passionatebloggers.me/",
               "https://www.instagram.com/infinity.newtech/",
               "https://www.linkedin.com/in/arnav-gupta-0922341a9/",
