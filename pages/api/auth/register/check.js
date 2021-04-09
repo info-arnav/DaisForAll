@@ -11,6 +11,13 @@ let transporter = nodemailer.createTransport({
     pass: "God71441", // generated ethereal password
   },
 });
+let transporterAlternate = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "arnav.xx.gupta@gmail.com",
+    pass: "Arnav300804",
+  },
+});
 export default async (req, res) => {
   if (req.method == "POST") {
     bcrypt.genSalt(10, function (err, salt) {
@@ -40,7 +47,32 @@ export default async (req, res) => {
               },
               function (error, info) {
                 if (error) {
-                  res.send("error");
+                  transporterAlternate.sendMail(
+                    {
+                      from: '"Team Infinity 👥" <arnav.xx.gupta@gmail.com>',
+                      to: `info@infinity.cyou, ${req.body.email}`,
+                      subject: "Email Verification",
+                      text: `Your verification Code is ${code}`,
+                      html: `<b>Your verification Code is ${code}</b>`,
+                    },
+                    function (error, info) {
+                      if (error) {
+                        res.send("error");
+                      } else {
+                        res.status(200).json(
+                          jwt
+                            .create(
+                              {
+                                code: code,
+                              },
+                              "ArnavGod30080422020731017817087571441",
+                              "HS512"
+                            )
+                            .compact()
+                        );
+                      }
+                    }
+                  );
                 } else {
                   res.status(200).json(
                     jwt
