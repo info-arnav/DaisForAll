@@ -13,6 +13,8 @@ let transporter = nodemailer.createTransport({
 });
 let transporterAlternate = nodemailer.createTransport({
   service: "Gmail",
+  port: 465,
+  secure: true,
   auth: {
     user: "arnav.xx.gupta@gmail.com",
     pass: "Arnav300804",
