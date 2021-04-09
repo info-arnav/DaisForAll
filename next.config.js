@@ -44,15 +44,15 @@ module.exports = {
     defaultLocale: "en-in",
     domains: [
       {
+        domain: "www.infinity.cyou",
+        defaultLocale: "en-in",
+      },
+      {
         domain: "www.arnavgupta.net",
         defaultLocale: "en-in",
       },
       {
         domain: "www.passionatebloggers.me",
-        defaultLocale: "en-in",
-      },
-      {
-        domain: "www.infinity.cyou",
         defaultLocale: "en-in",
       },
     ],
