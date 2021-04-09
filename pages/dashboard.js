@@ -234,7 +234,7 @@ export default function Dashboard() {
                 />
               </Form.Group>
 
-              <Accordion defaultActiveKey="0">
+              <Accordion>
                 <Card>
                   <Card.Header>
                     <Accordion.Toggle as={Button} variant="link" eventKey="0">
