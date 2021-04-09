@@ -13,7 +13,7 @@ export default async (req, res) => {
       .insertOne({
         title: req.body.title,
         username: req.body.username,
-        tags: req.body.tags,
+        tags: req.body.tags.replace("#", " "),
         blog: req.body.blog,
         image: req.body.image,
         imageDescription: req.body.imageDescription,
