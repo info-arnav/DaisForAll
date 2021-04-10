@@ -4,14 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import jwt, { verify } from "njwt";
 import Resizer from "react-image-file-resizer";
-import {
-  Accordion,
-  Button,
-  Card,
-  CardColumns,
-  Form,
-  Spinner,
-} from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 import axios from "axios";
 import { Toast, ToastBody } from "react-bootstrap";
 import { Offline } from "react-detect-offline";
@@ -252,45 +245,28 @@ export default function Dashboard() {
                   onEditorChange={(e) => setBlog(e)}
                 />
               </Form.Group>
-              <Form.Group>
-                <Accordion>
-                  <Card>
-                    <Card.Header>
-                      <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                        Additional
-                      </Accordion.Toggle>
-                    </Card.Header>
-                    <Accordion.Collapse eventKey="1">
-                      <Card.Body>
-                        {" "}
-                        <Form.Group controlId="formBasicEmail">
-                          <Form.Label>Computer Programmes</Form.Label>
-                          <Editor
-                            value={computerProgramme}
-                            initialValue=""
-                            apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
-                            init={init1}
-                            onEditorChange={(e) => setCompProgramme(e)}
-                          />
-                        </Form.Group>
-                        <Form.Group controlId="formBasicEmail">
-                          <Form.Label>Ownership Conditions</Form.Label>
-                          <Editor
-                            value={conditions}
-                            initialValue=""
-                            apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
-                            init={init1}
-                            onEditorChange={(e) => {
-                              setConditions(e);
-                            }}
-                          />
-                        </Form.Group>
-                      </Card.Body>
-                    </Accordion.Collapse>
-                  </Card>
-                </Accordion>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Computer Programmes</Form.Label>
+                <Editor
+                  value={computerProgramme}
+                  initialValue=""
+                  apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+                  init={init1}
+                  onEditorChange={(e) => setCompProgramme(e)}
+                />
               </Form.Group>
-
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Ownership Conditions</Form.Label>
+                <Editor
+                  value={conditions}
+                  initialValue=""
+                  apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+                  init={init1}
+                  onEditorChange={(e) => {
+                    setConditions(e);
+                  }}
+                />
+              </Form.Group>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label id="required">Tags</Form.Label>
                 <Form.Control
