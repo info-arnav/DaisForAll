@@ -10,6 +10,9 @@ import { Toast, ToastBody } from "react-bootstrap";
 import { Offline } from "react-detect-offline";
 import Footer from "../components/footer";
 export default function Dashboard() {
+  const [additional, setAdditional] = useState(false);
+  const [blogs, setBlogs] = useState(false);
+  const [preview, setPreview] = useState(false);
   const init1 = {
     height: 200,
     branding: false,
@@ -245,28 +248,7 @@ export default function Dashboard() {
                   onEditorChange={(e) => setBlog(e)}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Computer Programmes</Form.Label>
-                <Editor
-                  value={computerProgramme}
-                  initialValue=""
-                  apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
-                  init={init1}
-                  onEditorChange={(e) => setCompProgramme(e)}
-                />
-              </Form.Group>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Ownership Conditions</Form.Label>
-                <Editor
-                  value={conditions}
-                  initialValue=""
-                  apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
-                  init={init1}
-                  onEditorChange={(e) => {
-                    setConditions(e);
-                  }}
-                />
-              </Form.Group>
+
               <Form.Group controlId="formBasicEmail">
                 <Form.Label id="required">Tags</Form.Label>
                 <Form.Control
@@ -290,7 +272,10 @@ export default function Dashboard() {
               <Form.Group controlId="formBasicEmail">
                 <Form.Label id="required">Image</Form.Label>
                 <Form.Control
-                  onChange={(event) => onChange(event.target.files[0] || null)}
+                  onChange={(event) => {
+                    onChange(event.target.files[0] || null);
+                    setPreview(true);
+                  }}
                   type="file"
                   accept=".png, .jpg, jpeg, .svg, .webp"
                   placeholder="Image"
@@ -298,12 +283,50 @@ export default function Dashboard() {
                 />
               </Form.Group>
               <Form.Group>
-                <img
-                  src={dataUri || "/default.webp"}
-                  onError={() => setDataUri("")}
-                  style={{ width: "100%" }}
-                ></img>
+                <Button onClick={(e) => setPreview(!preview)}>
+                  Image Preview
+                </Button>
               </Form.Group>
+              {preview && (
+                <Form.Group>
+                  <img
+                    src={dataUri || "/default.webp"}
+                    onError={() => setDataUri("")}
+                    style={{ width: "100%" }}
+                  ></img>
+                </Form.Group>
+              )}
+              <Form.Group>
+                <Button onClick={(e) => setAdditional(!additional)}>
+                  Advanced Features
+                </Button>
+              </Form.Group>
+              {additional && (
+                <div>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Computer Programmes</Form.Label>
+                    <Editor
+                      value={computerProgramme}
+                      initialValue=""
+                      apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+                      init={init1}
+                      onEditorChange={(e) => setCompProgramme(e)}
+                    />
+                  </Form.Group>
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Ownership Conditions</Form.Label>
+                    <Editor
+                      value={conditions}
+                      initialValue=""
+                      apiKey="pj9jgbi5jyqo7yzpy2wllqiw91bjvhm43wc8ug5ttzxg6wug"
+                      init={init1}
+                      onEditorChange={(e) => {
+                        setConditions(e);
+                      }}
+                    />
+                  </Form.Group>
+                </div>
+              )}
               <Form.Group>
                 <Button
                   type="submit"
