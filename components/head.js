@@ -55,6 +55,7 @@ export default function Head({
               "kailash",
               "gaurav",
               "reyansh",
+              "priyajan",
               "https://www.daisforall.in/",
               "https://www.passionatebloggers.me/",
               "https://www.instagram.com/infinity.newtech/",
