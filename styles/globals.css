@@ -794,6 +794,10 @@ input {
   position: relative;
   z-index: 1;
 }
+.container-login100-form-btn:disabled,
+.login100-form-btn:disabled {
+  background-color: #2220202c !important;
+}
 .wrap-input100 validate-input {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;

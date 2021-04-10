@@ -244,6 +244,7 @@ export default function Register() {
           <Form.Row>
             <Form.Group>
               <ReCAPTCHA
+                size="compact"
                 sitekey="6LcM8JQaAAAAAJ-uBIX5Oho6BYWrw-pBQn0L4ZCo"
                 onChange={onChange}
                 onExpired={() => {
