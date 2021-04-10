@@ -40,24 +40,32 @@ module.exports = {
     ];
   },
   i18n: {
-    locales: ["en-in"],
-    defaultLocale: "en-in",
+    locales: ["en-us", "en-in", "en-uk", "en-nl", "en-au", "en-ca"],
+    defaultLocale: "en-us",
     domains: [
       {
         domain: "www.daisforall.com",
+        defaultLocale: "en-us",
+      },
+      {
+        domain: "www.daisonline.com",
+        defaultLocale: "en-ca",
+      },
+      {
+        domain: "www.daisforall.in",
         defaultLocale: "en-in",
       },
       {
         domain: "www.infinity.cyou",
-        defaultLocale: "en-in",
+        defaultLocale: "en-uk",
       },
       {
         domain: "www.arnavgupta.net",
-        defaultLocale: "en-in",
+        defaultLocale: "en-nl",
       },
       {
         domain: "www.passionatebloggers.me",
-        defaultLocale: "en-in",
+        defaultLocale: "en-au",
       },
     ],
   },
