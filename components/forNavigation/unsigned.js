@@ -73,6 +73,9 @@ export default function Unsigned(props) {
               <a onClick={() => setState("login")}>Login here</a>
             </p>
           </center>
+          <Modal.Footer>
+            <Button onClick={(e) => setShow("")}>Close</Button>
+          </Modal.Footer>
         </Modal>
       )}
       {state == "login" && show && (
@@ -92,6 +95,9 @@ export default function Unsigned(props) {
               <a onClick={() => setState("register")}>Register here</a>
             </p>
           </center>
+          <Modal.Footer>
+            <Button onClick={(e) => setShow("")}>Close</Button>
+          </Modal.Footer>
         </Modal>
       )}
       {""}

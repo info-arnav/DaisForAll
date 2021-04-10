@@ -114,7 +114,7 @@ export default function Register() {
       <Modal.Body style={{ padding: "60px" }}>
         <Form.Group>
           <center>
-            <h4>Regitser</h4>
+            <h4>Register</h4>
           </center>
           <br></br>
         </Form.Group>

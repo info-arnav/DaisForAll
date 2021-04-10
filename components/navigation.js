@@ -214,18 +214,15 @@ export default function Navigation(props) {
           show={search}
           onHide={(e) => setSearch("")}
         >
-          <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
-              Search Results
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
+          <Modal.Header style={{ alignItems: "center" }}>
             <SearchBox
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               style={{ width: "100%" }}
               translations={{ placeholder: "Search" }}
             />
+          </Modal.Header>
+          <Modal.Body>
             <div style={{ marginTop: "10px" }}></div>
             <Hits style={{ width: "100%" }} hitComponent={Hit}></Hits>
           </Modal.Body>
