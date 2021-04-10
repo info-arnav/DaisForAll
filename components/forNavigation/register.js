@@ -111,27 +111,34 @@ export default function Register() {
   };
   return (
     <div>
-      <Modal.Header closeButton>
-        <Modal.Title>Register</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <Modal.Body style={{ padding: "60px" }}>
+        <Form.Group>
+          <center>
+            <h4>Regitser</h4>
+          </center>
+          <br></br>
+        </Form.Group>
         <Form noValidate validated={validatedOTP} onSubmit={handleSubmitOTP}>
           <Form.Row>
             <Form.Group
               controlId="validationCustom03"
               style={{ width: "100%" }}
             >
-              <Form.Label id="required">Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Name"
-                required
-                value={name}
-                onChange={(e) => {
-                  setCode(false);
-                  setName(e.target.value);
-                }}
-              />
+              <div
+                class="wrap-input100 validate-input"
+                data-validate="Password is required"
+              >
+                <Form.Control
+                  type="text"
+                  placeholder="Name"
+                  required
+                  value={name}
+                  onChange={(e) => {
+                    setCode(false);
+                    setName(e.target.value);
+                  }}
+                />
+              </div>
               <Form.Control.Feedback type="invalid">
                 Please provide a valid name.
               </Form.Control.Feedback>
@@ -142,18 +149,22 @@ export default function Register() {
               controlId="validationCustom03"
               style={{ width: "100%" }}
             >
-              <Form.Label id="required">Email</Form.Label>
-              <Form.Control
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
-                type="text"
-                value={email}
-                onChange={(e) => {
-                  setCode(false);
-                  setEmail(e.target.value);
-                }}
-                placeholder="Email"
-                required
-              />
+              <div
+                class="wrap-input100 validate-input"
+                data-validate="Password is required"
+              >
+                <Form.Control
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+                  type="text"
+                  value={email}
+                  onChange={(e) => {
+                    setCode(false);
+                    setEmail(e.target.value);
+                  }}
+                  placeholder="Email"
+                  required
+                />
+              </div>
               <Form.Control.Feedback type="invalid">
                 Please provide a valid email.
               </Form.Control.Feedback>
@@ -167,30 +178,26 @@ export default function Register() {
               controlId="validationCustomUsername"
               style={{ width: "100%" }}
             >
-              <Form.Label id="required">Username</Form.Label>
               <InputGroup hasValidation>
                 <div style={{ width: "100%", display: "flex" }}>
-                  <InputGroup.Prepend>
-                    <InputGroup.Text
-                      id="inputGroupPrepend"
-                      style={{ height: "100%" }}
-                    >
-                      @
-                    </InputGroup.Text>
-                  </InputGroup.Prepend>
-                  <Form.Control
-                    type="text"
-                    style={{ height: "100%", textTransform: "lowercase" }}
-                    pattern="[a-z0-9]+"
-                    value={username}
-                    onChange={(e) => {
-                      setCode(false);
-                      setUsername(e.target.value);
-                    }}
-                    placeholder="Username"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                  />
+                  <div
+                    class="wrap-input100 validate-input"
+                    data-validate="Password is required"
+                  >
+                    <Form.Control
+                      type="text"
+                      style={{ height: "100%", textTransform: "lowercase" }}
+                      pattern="[a-z0-9]+"
+                      value={username}
+                      onChange={(e) => {
+                        setCode(false);
+                        setUsername(e.target.value);
+                      }}
+                      placeholder="Username"
+                      aria-describedby="inputGroupPrepend"
+                      required
+                    />
+                  </div>
                 </div>
                 <Form.Text style={{ width: "100%" }}>
                   Only small alphabets and numbers allowed
@@ -209,18 +216,22 @@ export default function Register() {
               controlId="validationCustom03"
               style={{ width: "100%" }}
             >
-              <Form.Label id="required">Password</Form.Label>
-              <Form.Control
-                pattern="(?=.*\d)(?=\S+$)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                type="password"
-                value={password}
-                onChange={(e) => {
-                  setCode(false);
-                  setPassword(e.target.value);
-                }}
-                placeholder="Password"
-                required
-              />
+              <div
+                class="wrap-input100 validate-input"
+                data-validate="Password is required"
+              >
+                <Form.Control
+                  pattern="(?=.*\d)(?=\S+$)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  type="password"
+                  value={password}
+                  onChange={(e) => {
+                    setCode(false);
+                    setPassword(e.target.value);
+                  }}
+                  placeholder="Password"
+                  required
+                />
+              </div>
               <Form.Text>
                 Must contain at least one number and one uppercase and lowercase
                 letter, no spaces and at least 8 or more characters
@@ -257,15 +268,22 @@ export default function Register() {
           )}
           <Form.Row>
             <Form.Group style={{ width: "100%" }}>
-              <Button
-                style={{ border: "none", width: "100%" }}
-                variant="primary"
-                type="submit"
-                disabled={disabled}
-              >
-                {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}{" "}
-                {code ? "Resend OTP" : "Request OTP"}
-              </Button>
+              <div class="container-login100-form-btn m-t-17">
+                <button
+                  style={{ border: "none", width: "100%" }}
+                  variant="primary"
+                  type="submit"
+                  disabled={disabled}
+                  class="login100-form-btn"
+                >
+                  {buttonLoading ? (
+                    <Spinner size="sm" animation="border" />
+                  ) : (
+                    ""
+                  )}{" "}
+                  {code ? "Resend OTP" : "Request OTP"}
+                </button>
+              </div>
             </Form.Group>
           </Form.Row>
         </Form>
@@ -281,34 +299,41 @@ export default function Register() {
                   controlId="validationCustom03"
                   style={{ width: "100%" }}
                 >
-                  <Form.Label id="required">Code</Form.Label>
-                  <Form.Control
-                    pattern="{4}"
-                    type="number"
-                    value={codeiv}
-                    onChange={(e) => {
-                      setCodeiv(e.target.value);
-                    }}
-                    placeholder="Code"
-                    required
-                  />
+                  <div
+                    class="wrap-input100 validate-input"
+                    data-validate="Password is required"
+                  >
+                    <Form.Control
+                      pattern="{4}"
+                      type="number"
+                      value={codeiv}
+                      onChange={(e) => {
+                        setCodeiv(e.target.value);
+                      }}
+                      placeholder="Code"
+                      required
+                    />
+                  </div>
                 </Form.Group>
               </Form.Row>
               <Form.Row>
                 <Form.Group style={{ width: "100%" }}>
-                  <Button
-                    style={{ border: "none", width: "100%" }}
-                    variant="primary"
-                    type="submit"
-                    disabled={codeiv != code || disabled2}
-                  >
-                    {buttonLoading2 ? (
-                      <Spinner size="sm" animation="border" />
-                    ) : (
-                      ""
-                    )}{" "}
-                    Register
-                  </Button>
+                  <div class="container-login100-form-btn m-t-17">
+                    <button
+                      style={{ border: "none", width: "100%" }}
+                      variant="primary"
+                      type="submit"
+                      disabled={codeiv != code || disabled2}
+                      class="login100-form-btn"
+                    >
+                      {buttonLoading2 ? (
+                        <Spinner size="sm" animation="border" />
+                      ) : (
+                        ""
+                      )}{" "}
+                      Register
+                    </button>
+                  </div>
                 </Form.Group>
               </Form.Row>
             </Form>

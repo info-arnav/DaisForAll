@@ -4,13 +4,15 @@
     format("woff");
 }
 
-#columns {
+#columns,
+.ais-Hits-list {
   column-width: 320px;
   column-gap: 15px;
   width: 95%;
   margin-left: calc(2.5%);
 }
 
+.ais-Hits-list figure,
 div#columns figure {
   background: #fefefe;
   margin: 0 2px 15px;
@@ -22,6 +24,7 @@ div#columns figure {
   break-inside: avoid;
 }
 
+.ais-Hits-list figure img,
 div#columns figure img {
   width: 100%;
   height: auto;
@@ -29,30 +32,36 @@ div#columns figure img {
   margin-bottom: 5px;
 }
 
+.ais-Hits-list figure figcaption,
 div#columns figure figcaption {
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
+.ais-Hits-list small,
 div#columns small {
   font-size: 1rem;
   float: right;
   text-transform: uppercase;
 }
 
+.ais-Hits-list small a,
 div#columns small a {
   text-decoration: none;
   transition: 0.4s color;
 }
 
+.ais-Hits-list:hover figure:not(:hover),
 div#columns:hover figure:not(:hover) {
   opacity: 0.4;
 }
 
 @media screen and (max-width: 750px) {
+  .ais-Hits-list,
   #columns {
     column-gap: 0px;
   }
+  .ais-Hits-list figure,
   #columns figure {
     width: 100%;
   }
@@ -144,14 +153,17 @@ div#columns:hover figure:not(:hover) {
     }
   }
 }
+.ais-Hits-item,
 .item-2 {
   background-color: none;
   margin-bottom: 10px;
   border-radius: 20px;
 }
+.ais-Hits-item a,
 .item-2 a {
   border-radius: 20px;
 }
+.ais-Hits-item *,
 .item-2 * {
   border-radius: 20px;
 }

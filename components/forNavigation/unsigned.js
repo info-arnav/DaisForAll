@@ -58,7 +58,6 @@ export default function Unsigned(props) {
       </button>
       {state == "register" && show && (
         <Modal
-          size="lg"
           {...props}
           aria-labelledby="contained-modal-title-vcenter"
           centered
@@ -78,7 +77,6 @@ export default function Unsigned(props) {
       )}
       {state == "login" && show && (
         <Modal
-          size="lg"
           {...props}
           aria-labelledby="contained-modal-title-vcenter"
           centered

@@ -53,35 +53,34 @@ export default function Login() {
   };
   return (
     <Form noValidate validated={validatedLogin} onSubmit={handleSubmitLogin}>
-      <Modal.Header closeButton>
-        <Modal.Title>Login</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <Modal.Body style={{ padding: "60px" }}>
+        <Form.Group>
+          <center>
+            <h4>Login</h4>
+          </center>
+          <br></br>
+        </Form.Group>
         <Form.Row>
           <Form.Group
             controlId="validationCustomUsername"
             style={{ width: "100%" }}
           >
-            <Form.Label id="required">Username</Form.Label>
             <InputGroup hasValidation>
               <div style={{ width: "100%", display: "flex" }}>
-                <InputGroup.Prepend>
-                  <InputGroup.Text
-                    id="inputGroupPrepend"
-                    style={{ height: "100%" }}
-                  >
-                    @
-                  </InputGroup.Text>
-                </InputGroup.Prepend>
-                <Form.Control
-                  type="text"
-                  style={{ height: "100%", textTransform: "lowercase" }}
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="Username"
-                  aria-describedby="inputGroupPrepend"
-                  required
-                />
+                <div
+                  class="wrap-input100 validate-input"
+                  data-validate="Password is required"
+                >
+                  <Form.Control
+                    type="text"
+                    style={{ height: "100%", textTransform: "lowercase" }}
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Username"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                  />
+                </div>
               </div>
 
               <Form.Control.Feedback type="invalid" true>
@@ -95,15 +94,20 @@ export default function Login() {
         </Form.Row>
         <Form.Row>
           <Form.Group controlId="validationCustom03" style={{ width: "100%" }}>
-            <Form.Label id="required">Password</Form.Label>
-            <Form.Control
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-              required
-            />
+            <div
+              class="wrap-input100 validate-input"
+              data-validate="Password is required"
+            >
+              <Form.Control
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                type="password"
+                class="input100"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+                required
+              />
+            </div>
             <Form.Control.Feedback type="invalid">
               Please provide a valid password.
             </Form.Control.Feedback>
@@ -114,14 +118,17 @@ export default function Login() {
         </Form.Row>
         <Form.Row>
           <Form.Group style={{ width: "100%" }}>
-            <Button
-              style={{ border: "none", width: "100%" }}
-              variant="primary"
-              type="submit"
-            >
-              {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}{" "}
-              Login
-            </Button>
+            <div class="container-login100-form-btn m-t-17">
+              <button
+                style={{ border: "none", width: "100%" }}
+                variant="primary"
+                type="submit"
+                class="login100-form-btn"
+              >
+                {buttonLoading ? <Spinner size="sm" animation="border" /> : ""}{" "}
+                Login
+              </button>
+            </div>
           </Form.Group>
         </Form.Row>
       </Modal.Body>
