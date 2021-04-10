@@ -6,12 +6,12 @@ import { Offline } from "react-detect-offline";
 export default function Blogs() {
   const description =
     "Find bloogs posted by various people here and enjoy expanding your thougts into their world.";
-  const title = "Infinity | Blogs";
-  const url = "https://www.infinity.cyou/blogs";
-  const images = "https://www.infinity.cyou/logo.png";
-  const alts = "logo of the infinity website";
-  const imagec = "https://www.infinity.cyou/logo.png";
-  const altc = "logo of the infinity website";
+  const title = "DaisForAll | Blogs";
+  const url = "https://www.daisforall.com/blogs";
+  const images = "https://www.daisforall.com/logo.png";
+  const alts = "logo of the DaisForAll website";
+  const imagec = "https://www.daisforall.com/logo.png";
+  const altc = "logo of the DaisForAll website";
   const tags =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world,all,global";
   const card = "summary_large_image";

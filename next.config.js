@@ -44,6 +44,10 @@ module.exports = {
     defaultLocale: "en-in",
     domains: [
       {
+        domain: "www.daisforall.com",
+        defaultLocale: "en-in",
+      },
+      {
         domain: "www.infinity.cyou",
         defaultLocale: "en-in",
       },

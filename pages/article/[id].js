@@ -36,17 +36,17 @@ export default function Article({ data }) {
           .replace(/<[^>]*>/g, "")
           .indexOf(".")
       )}.....`;
-  const title = data._id && `Infinity | ${data.title} | ${data.username}`;
-  const url = data._id && `https://www.infinity.cyou/article/${data._id}`;
+  const title = data._id && `DaisForAll | ${data.title} | ${data.username}`;
+  const url = data._id && `https://www.daisforall.com/article/${data._id}`;
   const [condition, setCondition] = useState(data.conditions);
   let [current, setCurrent] = useState(0);
   const [computerProgramme, setComputerProgramme] = useState(
     data.computerProgramme
   );
   const [blog, setBlog] = useState(data.blog && data.blog.split("newPage"));
-  const images = data._id && "https://www.infinity.cyou/logo.png";
-  const alts = data._id && "logo of the infinity website";
-  const imagec = data._id && `https://www.infinity.cyou/api/image/${data._id}`;
+  const images = data._id && "https://www.daisforall.com/logo.png";
+  const alts = data._id && "logo of the DaisForAll website";
+  const imagec = data._id && `https://www.daisforall.com/api/image/${data._id}`;
 
   const altc = data._id && data.imageDescription;
   const router = useRouter();
@@ -108,7 +108,7 @@ export default function Article({ data }) {
               },
               publisher: {
                 "@type": "Organization",
-                name: "Infinity",
+                name: "DaisForAll",
                 logo: {
                   "@type": "ImageObject",
                   url: images,
@@ -140,7 +140,7 @@ export default function Article({ data }) {
               }}
               description={data.imageDescription}
               alt={data.description}
-              src={`https://www.infinity.cyou/api/image/${data._id}`}
+              src={`https://www.daisforall.com/api/image/${data._id}`}
               loading="lazy"
               alt={data.imageDescription}
             ></img>

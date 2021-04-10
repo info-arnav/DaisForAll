@@ -11,7 +11,9 @@ export default function Head({
   tags,
   card,
 }) {
-  tags = tags + "infiniti, cyou";
+  tags =
+    tags +
+    "infiniti, cyou, daisforall, DaisForAll, daisonline, daisOnline,infinity.cyou, arnavgupta.net, passionatebloggers.me, daisforall.com, daisforall.in, www.infinity.cyou, www.arnavgupta.net, www.passionatebloggers.me, www.daisforall.com, www.daisforall.in";
   return (
     <Heads>
       <script
@@ -41,6 +43,8 @@ export default function Head({
               "https://www.youtube.com/channel/UCzzfqCy-j9XZA5KNosqzh6w",
               "https://www.arnavgupta.net/",
               "https://www.infinity.cyou/",
+              "https://www.daisforall.com/",
+              "https://www.daisforall.in/",
               "https://www.passionatebloggers.me/",
               "https://www.instagram.com/infinity.newtech/",
               "https://www.linkedin.com/in/arnav-gupta-0922341a9/",

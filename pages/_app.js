@@ -4,6 +4,7 @@ import Router from "next/router";
 import "../styles/cards.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "nprogress/nprogress.css";
+import "../styles/profile.css";
 import NProgress from "nprogress";
 import "../styles/404.css";
 import "../styles/globals.css";
@@ -16,12 +17,12 @@ NProgress.configure({ showSpinner: false });
 function MyApp({ Component, pageProps }) {
   const [offline, setOffline] = useState(false);
   const description = "The page is loading please wait.";
-  const title = "Infinity | Loading";
-  const url = "https://www.infinity.cyou";
-  const images = "https://www.infinity.cyou/logo.png";
-  const alts = "logo of the infinity website";
-  const imagec = "https://www.infinity.cyou/logo.png";
-  const altc = "logo of the infinity website";
+  const title = "DaisForAll | Loading";
+  const url = "https://www.daisforall.com";
+  const images = "https://www.daisforall.com/logo.png";
+  const alts = "logo of the DaisForAll website";
+  const imagec = "https://www.daisforall.com/logo.png";
+  const altc = "logo of the DaisForAll website";
   const tags =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world";
   const card = "summary_large_image";

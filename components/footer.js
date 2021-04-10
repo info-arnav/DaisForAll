@@ -39,15 +39,15 @@ export default function Footer() {
               <div className="widget subscribe no-box">
                 <Link href="/" style={{ cursor: "pointer" }}>
                   <h5 className="widget-title" style={{ cursor: "pointer" }}>
-                    Infinity
+                    DaisForAll
                     <span></span>
                   </h5>
                 </Link>
                 <p>
-                  Infinity offers an opportunity to every blogger out there to
+                  DaisForAll offers an opportunity to every blogger out there to
                   display their thoughts in front of everyone. ‘Better to write
                   for yourself and have no public, than to write for the public
-                  and have no self’. Infinity is a website where you can write
+                  and have no self’. DaisForAll is a website where you can write
                   your thoughts and let people live in a thousand worlds before
                   they die.
                 </p>
@@ -185,7 +185,7 @@ export default function Footer() {
                   style={{ color: "white !important" }}
                 >
                   <span className="white" style={{ cursor: "pointer" }}>
-                    Infinity
+                    DaisForAll
                   </span>
                 </Link>{" "}
                 @ 2021. All rights reserved.

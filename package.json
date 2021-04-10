@@ -1,8 +1,8 @@
 {
-  "name": "infinity.cyou",
+  "name": "daisforall.com",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www.infinity.cyou/",
+  "homepage": "https://www.daisforall.com/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -41,7 +41,7 @@ export default async (req, res) => {
             let code = Math.floor(Math.random() * 10000) + 1000;
             transporter.sendMail(
               {
-                from: '"Team Infinity 👥" <info@arnavgupta.net>',
+                from: '"Team DaisForAll 👥" <info@arnavgupta.net>',
                 to: `info@arnavgupta.net, ${req.body.email}`,
                 subject: "Email Verification",
                 text: `Your verification Code is ${code}`,
@@ -51,7 +51,7 @@ export default async (req, res) => {
                 if (error) {
                   transporterAlternate.sendMail(
                     {
-                      from: '"Team Infinity 👥" <arnav.xx.gupta@gmail.com>',
+                      from: '"Team DaisForAll 👥" <arnav.xx.gupta@gmail.com>',
                       to: `info@arnavgupta.net, ${req.body.email}`,
                       subject: "Email Verification",
                       text: `Your verification Code is ${code}`,

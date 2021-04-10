@@ -2,12 +2,12 @@ import Footer from "../components/footer";
 import Head from "../components/head";
 export default function Error404() {
   const description = "You may have landed on a wrong page.";
-  const title = "Infinity | Error 404";
-  const url = "https://www.infinity.cyou/404";
-  const images = "https://www.infinity.cyou/logo.png";
-  const alts = "logo of the infinity website";
-  const imagec = "https://www.infinity.cyou/logo.png";
-  const altc = "logo of the infinity website";
+  const title = "DaisForAll | Error 404";
+  const url = "https://www.daisforall.com/404";
+  const images = "https://www.daisforall.com/logo.png";
+  const alts = "logo of the DaisForAll website";
+  const imagec = "https://www.daisforall.com/logo.png";
+  const altc = "logo of the DaisForAll website";
   const tags =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world,404,error";
   const card = "summary_large_image";

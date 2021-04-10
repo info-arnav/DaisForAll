@@ -11,7 +11,7 @@ import Signed from "./forNavigation/signed";
 import Unsigned from "./forNavigation/unsigned";
 import { Button, Modal } from "react-bootstrap";
 export default function Navigation(props) {
-  const images = "https://www.infinity.cyou/logo.png";
+  const images = "https://www.daisforall.com/logo.png";
   const colors = [
     "#ec6767",
     "#b76cc4",
@@ -51,11 +51,11 @@ export default function Navigation(props) {
                 "@type": "Article",
                 mainEntityOfPage: {
                   "@type": "WebPage",
-                  "@id": `https://www.infinity.cyou/article/${hit._id.$oid}`,
+                  "@id": `https://www.daisforall.com/article/${hit._id.$oid}`,
                 },
                 a: "",
                 headline: hit.title,
-                image: `https://www.infinity.cyou/api/image/${hit._id.$oid}`,
+                image: `https://www.daisforall.com/api/image/${hit._id.$oid}`,
                 datePublished: hit.dateCreated,
                 dateModified: hit.dateUpdated,
                 author: {

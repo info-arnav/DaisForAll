@@ -44,7 +44,7 @@ export default async (req, res) => {
         },
         auth: { bearer: tokens.access_token },
         json: {
-          url: `https://www.infinity.cyou/user/${e.username}`,
+          url: `https://www.daisforall.com/user/${e.username}`,
           type: "URL_UPDATED",
         },
       };
@@ -64,7 +64,7 @@ export default async (req, res) => {
                 throw err;
               }
               const postgres = {
-                loc: `https://www.infinity.cyou/user/${e.username}`,
+                loc: `https://www.daisforall.com/user/${e.username}`,
               };
               result.urlset.url.push(postgres);
               const builder = new xml2js.Builder();

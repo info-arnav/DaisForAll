@@ -17,11 +17,11 @@ export default async (req, res) => {
         if (e.image) {
           return {
             url: [
-              { loc: `https://www.infinity.cyou/article/${e._id}` },
+              { loc: `https://www.daisforall.com/article/${e._id}` },
               {
                 "image:image": [
                   {
-                    "image:loc": `https://www.infinity.cyou/api/image/${e._id}`,
+                    "image:loc": `https://www.daisforall.com/api/image/${e._id}`,
                   },
                 ],
               },

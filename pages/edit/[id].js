@@ -4,13 +4,13 @@ import { Offline } from "react-detect-offline";
 import Head from "../../components/head";
 export default function E() {
   const description =
-    "Infinity is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.";
-  const title = "Infinity | Live thousand lives in one world";
-  const url = "https://www.infinity.cyou";
-  const images = "https://www.infinity.cyou/logo.png";
-  const alts = "logo of the infinity website";
-  const imagec = "https://www.infinity.cyou/logo.png";
-  const altc = "logo of the infinity website";
+    "DaisForAll is both like a website and a diary. A place where all people across the globe get a chance to put their views and talent in front of everyone.";
+  const title = "DaisForAll | Live thousand lives in one world";
+  const url = "https://www.daisforall.com";
+  const images = "https://www.daisforall.com/logo.png";
+  const alts = "logo of the DaisForAll website";
+  const imagec = "https://www.daisforall.com/logo.png";
+  const altc = "logo of the DaisForAll website";
   const tags =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world";
   const card = "summary_large_image";
