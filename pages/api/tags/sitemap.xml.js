@@ -4,7 +4,13 @@ export default async (req, res) => {
   const { db } = await connectToDatabase();
   const posts = await db
     .collection("posts")
-    .find({})
+    .aggregate([
+      {
+        $project: {
+          username: 1,
+        },
+      },
+    ])
     .toArray()
     .then(async (e) => {
       const array = [];

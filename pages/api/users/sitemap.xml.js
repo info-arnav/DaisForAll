@@ -4,7 +4,13 @@ export default async (req, res) => {
   const { db } = await connectToDatabase();
   const users = await db
     .collection("userData")
-    .find({})
+    .aggregate([
+      {
+        $project: {
+          username: 1,
+        },
+      },
+    ])
     .toArray()
     .then(async (e) => {
       let a = await e.map((e) => {
