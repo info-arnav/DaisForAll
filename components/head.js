@@ -19,7 +19,12 @@ export default function Head({
       <link
         rel="alternate"
         href="https://www.daisforall.com"
-        hreflang="x-default en-us"
+        hreflang="x-default"
+      />
+      <link
+        rel="alternate"
+        href="https://www.daisforall.com"
+        hreflang="en-us"
       />
       <link
         rel="alternate"
