@@ -32,6 +32,9 @@ export default function Register() {
   const [validatedOTP, setValidatedOTP] = useState(false);
   const [validatedRegister, setValidatedRegister] = useState(false);
   const handleSubmitOTP = (event) => {
+username.toLowerCase()
+username.trim()
+email.trim()
     const form = event.currentTarget;
     setUsername(username.toLowerCase());
     setError("");
@@ -154,7 +157,7 @@ export default function Register() {
                 data-validate="Password is required"
               >
                 <Form.Control
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+                  pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
                   type="text"
                   value={email}
                   onChange={(e) => {
