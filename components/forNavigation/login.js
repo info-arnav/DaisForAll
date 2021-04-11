@@ -15,7 +15,7 @@ export default function Login() {
 
   const handleSubmitLogin = (event) => {
     const form = event.currentTarget;
-    setUsername(username.toLowerCase());
+    setUsername(username.toLowerCase().trim());
     setError("");
     event.preventDefault();
     if (form.checkValidity() === false) {
