@@ -2,8 +2,8 @@
 
 User-agent: _
 Allow: /api/image/_
-Allow: /api/posts/sitemap.xml
-Allow: /api/users/sitemap.xml
+Allow: /api/posts/_
+Allow: /api/users/_
 Disallow: /notFound
 Disallow: /api/
 Disallow: /404
@@ -12,5 +12,36 @@ Disallow: /\_app
 Sitemap : https://www.daisforall.com/sitemap.xml
 Sitemap : https://www.daisforall.com/api/posts/sitemap.xml
 Sitemap : https://www.daisforall.com/api/users/sitemap.xml
+Sitemap : https://www.daisforall.com/api/tags/sitemap.xml
 Sitemap : https://www.daisforall.com/api/image/posts/sitemap.xml
 Sitemap : https://www.daisforall.com/api/image/users/sitemap.xml
+Sitemap : https://www.daisforall.in/en-in/sitemap-in.xml
+Sitemap : https://www.daisforall.in/en-in/api/posts/sitemap-in.xml
+Sitemap : https://www.daisforall.in/en-in/api/users/sitemap-in.xml
+Sitemap : https://www.daisforall.in/en-in/api/image/posts/sitemap-in.xml
+Sitemap : https://www.daisforall.in/en-in/api/image/users/sitemap-in.xml
+Sitemap : https://www.daisonline.com/en-nl/sitemap-online.xml
+Sitemap : https://www.daisonline.com/en-nl/api/posts/sitemap-online.xml
+Sitemap : https://www.daisonline.com/en-nl/api/users/sitemap-online.xml
+Sitemap : https://www.daisonline.com/en-nl/api/image/posts/sitemap-online.xml
+Sitemap : https://www.daisonline.com/en-nl/api/image/users/sitemap-online.xml
+Sitemap : https://www.arnavgupta.net/en-nl/sitemap-arnav.xml
+Sitemap : https://www.arnavgupta.net/en-nl/api/posts/sitemap-arnav.xml
+Sitemap : https://www.arnavgupta.net/en-nl/api/users/sitemap-arnav.xml
+Sitemap : https://www.arnavgupta.net/en-nl/api/image/posts/sitemap-arnav.xml
+Sitemap : https://www.arnavgupta.net/en-nl/api/image/users/sitemap-arnav.xml
+Sitemap : https://www.passionatebloggers.me/en-nl/sitemap-passionatebloggers.xml
+Sitemap : https://www.passionatebloggers.me/en-nl/api/posts/sitemap-passionatebloggers.xml
+Sitemap : https://www.passionatebloggers.me/en-nl/api/users/sitemap-passionatebloggers.xml
+Sitemap : https://www.passionatebloggers.me/en-nl/api/image/posts/sitemap-passionatebloggers.xml
+Sitemap : https://www.passionatebloggers.me/en-nl/api/image/users/sitemap-passionatebloggers.xml
+Sitemap : https://www.infinity.cyou/en-nl/sitemap-infinity.xml
+Sitemap : https://www.infinity.cyou/en-nl/api/posts/sitemap-infinity.xml
+Sitemap : https://www.infinity.cyou/en-nl/api/users/sitemap-infinity.xml
+Sitemap : https://www.infinity.cyou/en-nl/api/image/posts/sitemap-infinity.xml
+Sitemap : https://www.infinity.cyou/en-nl/api/image/users/sitemap-infinity.xml
+Sitemap : https://www.daisforall.in/en-in/api/tags/sitemap-in.xml
+Sitemap : https://www.daisonline.com/en-nl/api/tags/sitemap-online.xml
+Sitemap : https://www.infinity.cyou/en-nl/api/tags/sitemap-infinity.xml
+Sitemap : https://www.passionatebloggers.me/en-nl/api/tags/sitemap-passionatebloggers.xml
+Sitemap : https://www.arnavgupta.net/en-nl/api/tags/sitemap-arnav.xml
