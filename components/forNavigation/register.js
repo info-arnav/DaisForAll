@@ -32,13 +32,13 @@ export default function Register() {
   const [validatedOTP, setValidatedOTP] = useState(false);
   const [validatedRegister, setValidatedRegister] = useState(false);
   const handleSubmitOTP = (event) => {
-setUsername(username.toLowerCase())
-username = username.trim()
-setEmail(email.trim())
     const form = event.currentTarget;
+    setUsername(username.toLowerCase())
+    setUsername(username.trim())
+    setEmail(email.trim())
     setUsername(username.toLowerCase());
     setError("");
-    event.preventDefault();
+    event.preventDefault()
     if (form.checkValidity() === false) {
       event.stopPropagation();
       setValidatedOTP(true);
