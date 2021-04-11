@@ -332,6 +332,43 @@ export default function User() {
                           <div class="mt-3">
                             <h4>{data.username}</h4>
                             <br></br>
+                            <h6 style={{ display: "inline-flex" }}>
+                              <div
+                                style={{
+                                  display: "inline-flex",
+                                  margin: "5px",
+                                  backgroundColor: "#80808061",
+                                  padding: "10px",
+                                  borderRadius: "20px",
+                                }}
+                              >
+                                Posts : {posts.length}
+                              </div>
+                              <div
+                                style={{
+                                  display: "inline-flex",
+                                  margin: "5px",
+                                  backgroundColor: "#80808061",
+                                  padding: "10px",
+                                  borderRadius: "20px",
+                                }}
+                              >
+                                <a href=""> Followers : 0</a>
+                              </div>
+                              <div
+                                style={{
+                                  display: "inline-flex",
+                                  margin: "5px",
+                                  backgroundColor: "#80808061",
+                                  padding: "10px",
+                                  borderRadius: "20px",
+                                }}
+                              >
+                                <a href=""> Following : 0</a>
+                              </div>
+                            </h6>
+                            <br></br>
+                            <br></br>
                             <Button
                               style={{ margin: "2px" }}
                               disabled={status == "loggedOut"}
