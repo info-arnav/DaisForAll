@@ -35,7 +35,7 @@ export default function Register() {
     const form = event.currentTarget;
     event.preventDefault()
     setUsername(username.toLowerCase())
-    username = username.trim()
+    setUsername(username.trim())
     setEmail(email.trim())
     setUsername(username.toLowerCase());
     setError("");
