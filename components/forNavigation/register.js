@@ -38,6 +38,7 @@ export default function Register() {
     setEmail(email.trim())
     setUsername(username.toLowerCase());
     setError("");
+    event.preventDefault()
     if (form.checkValidity() === false) {
       event.stopPropagation();
       setValidatedOTP(true);
