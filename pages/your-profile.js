@@ -8,13 +8,29 @@ import { useRouter } from "next/router";
 import jwt from "njwt";
 import Footer from "../components/footer";
 import DOMPurify from "dompurify";
-import { Button, Toast, ToastBody } from "react-bootstrap";
+import {
+  Button,
+  Form,
+  Modal,
+  Spinner,
+  Toast,
+  ToastBody,
+} from "react-bootstrap";
 import { Offline } from "react-detect-offline";
 import Link from "next/link";
 export default function User() {
+  const [show, setShow] = useState(false);
+  const [data, setData] = useState(false);
+  const [name, setName] = useState();
+  const [disabled, setDisabled] = useState(false);
+  const [twitter, setTwitter] = useState();
+  const [website, setWebsite] = useState();
+  const [github, setGithub] = useState();
+  const [facebook, setFacebook] = useState();
+  const [instagram, setInstagram] = useState();
+  const [bio, setBio] = useState();
   const [status, setStatus] = useState("loggedOut");
   const [posts, setPosts] = useState([]);
-  const [data, setData] = useState(false);
   useEffect(() => {
     if (localStorage.getItem("userData")) {
       Jwt.verify(
@@ -31,7 +47,16 @@ export default function User() {
             Promise.all([
               axios
                 .get(`api/data/users/${verifiedJwt.body[0].username}`)
-                .then((e) => setData(e.data[0])),
+                .then((e) => {
+                  setData(e.data[0]);
+                  setName(e.data[0].name);
+                  setTwitter(e.data[0].twitter);
+                  setWebsite(e.data[0].website);
+                  setGithub(e.data[0].github);
+                  setFacebook(e.data[0].facebook);
+                  setInstagram(e.data[0].instagram);
+                  setBio(e.data[0].profile);
+                }),
               axios
                 .get(`api/data/posts/username/${verifiedJwt.body[0].username}`)
                 .then((e) => setPosts(e.data)),
@@ -52,6 +77,38 @@ export default function User() {
     "#eec636",
     "#97c230",
   ];
+  const [buttonLoading, setButtonLoading] = useState(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setButtonLoading(true);
+    setDisabled(true);
+    axios
+      .post("/api/edit/profile", {
+        name: name,
+        username: data.username,
+        twitter: twitter,
+        website: website,
+        github: github,
+        facebook: facebook,
+        instagram: instagram,
+        profile: bio,
+      })
+      .then((e) => {
+        let newData = data;
+        newData.name = name;
+        newData.twitter = twitter;
+        newData.website = website;
+        newData.github = github;
+        newData.facebook = facebook;
+        newData.instagram = instagram;
+        newData.profile = bio;
+        setData(newData);
+        setButtonLoading(false);
+        setDisabled(false);
+        setShow(false);
+      })
+      .catch((e) => e.response && router.push("/"));
+  };
   const description = "View your profile and edit some stuff here.";
   const title = data._id && `DaisForAll | Your Profile`;
   const url = data._id && `https://www.daisforall.com/your-profile`;
@@ -79,17 +136,10 @@ export default function User() {
         localStorage.getItem("userData"),
         "ArnavGod30080422020731017817087571441",
         "HS512",
-        async function (err, verifiedJwt) {
-          if (!err) {
-            await axios.post("/api/profile/views", {
-              id: data.username,
-              user: verifiedJwt.body[0].username,
-            });
-          }
-        }
+        async function (err, verifiedJwt) {}
       );
     }
-  }, [condition, computerProgramme]);
+  }, [condition, computerProgramme, data, buttonLoading, show, disabled]);
   return (
     <div>
       <Heads>
@@ -119,6 +169,153 @@ export default function User() {
       <main>
         {data && (
           <div class="container2">
+            <Modal
+              cntered
+              show={show}
+              onHide={() => {
+                setShow(false);
+              }}
+            >
+              <form onSubmit={handleSubmit}>
+                <Modal.Body style={{ padding: "60px" }}>
+                  <Form.Group>
+                    <center>
+                      <h2>Profile</h2>
+                      <br></br>
+                    </center>
+                  </Form.Group>
+                  <Form.Group
+                    controlId="validationCustom03"
+                    style={{ width: "100%" }}
+                  >
+                    <div
+                      class="wrap-input100 validate-input"
+                      data-validate="Password is required"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Twitter"
+                        value={twitter}
+                        onChange={(e) => {
+                          setTwitter(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </Form.Group>
+                  <Form.Group
+                    controlId="validationCustom03"
+                    style={{ width: "100%" }}
+                  >
+                    <div
+                      class="wrap-input100 validate-input"
+                      data-validate="Password is required"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Website"
+                        value={website}
+                        onChange={(e) => {
+                          setWebsite(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </Form.Group>
+                  <Form.Group
+                    controlId="validationCustom03"
+                    style={{ width: "100%" }}
+                  >
+                    <div
+                      class="wrap-input100 validate-input"
+                      data-validate="Password is required"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Github"
+                        value={github}
+                        onChange={(e) => {
+                          setGithub(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </Form.Group>
+                  <Form.Group
+                    controlId="validationCustom03"
+                    style={{ width: "100%" }}
+                  >
+                    <div
+                      class="wrap-input100 validate-input"
+                      data-validate="Password is required"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Facebook"
+                        value={facebook}
+                        onChange={(e) => {
+                          setFacebook(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </Form.Group>
+                  <Form.Group
+                    controlId="validationCustom03"
+                    style={{ width: "100%" }}
+                  >
+                    <div
+                      class="wrap-input100 validate-input"
+                      data-validate="Password is required"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Instagram"
+                        value={instagram}
+                        onChange={(e) => {
+                          setInstagram(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </Form.Group>
+                  <Form.Group
+                    controlId="validationCustom03"
+                    style={{ width: "100%" }}
+                  >
+                    <div
+                      class="wrap-input100 validate-input"
+                      data-validate="Password is required"
+                    >
+                      <Form.Control
+                        type="text"
+                        placeholder="Bio"
+                        value={bio}
+                        onChange={(e) => {
+                          setBio(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </Form.Group>
+                  <Form.Group>
+                    <div class="container-login100-form-btn m-t-17">
+                      <button
+                        style={{ border: "none", width: "100%" }}
+                        variant="primary"
+                        type="submit"
+                        disabled={disabled}
+                        class="login100-form-btn"
+                      >
+                        {buttonLoading ? (
+                          <Spinner size="sm" animation="border" />
+                        ) : (
+                          ""
+                        )}{" "}
+                        Make Changed
+                      </button>
+                    </div>
+                  </Form.Group>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button onClick={() => setShow(false)}>Close</Button>
+                </Modal.Footer>
+              </form>
+            </Modal>
             <div class="main-body">
               <div class="row gutters-sm">
                 <div class="col-md-4 mb-3">
@@ -127,7 +324,7 @@ export default function User() {
                       <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
                           <img
-                            src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                            src={`/api/image/users/${data.username}`}
                             alt="Admin"
                             class="rounded-circle"
                             width="150"
@@ -138,6 +335,9 @@ export default function User() {
                             <Button
                               style={{ margin: "2px" }}
                               disabled={status == "loggedOut"}
+                              onClick={() => {
+                                setShow(true);
+                              }}
                             >
                               Edit
                             </Button>

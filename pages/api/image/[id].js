@@ -4,11 +4,12 @@ export default async (req, res) => {
   const { db } = await connectToDatabase();
   const { id } = req.query;
   const posts = await db
-    .collection("posts").aggregate([
+    .collection("posts")
+    .aggregate([
       { $match: { _id: ObjectID(id) } },
       {
         $project: {
-          image:1
+          image: 1,
         },
       },
     ])

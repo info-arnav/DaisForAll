@@ -118,7 +118,7 @@ export default function User({ data, posts }) {
                     <div class="card-body">
                       <div class="d-flex flex-column align-items-center text-center">
                         <img
-                          src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                          src={`/api/image/users/${data.username}`}
                           alt="Admin"
                           class="rounded-circle"
                           width="150"
@@ -257,6 +257,30 @@ export default function User({ data, posts }) {
                         </li>
                       )}
                       {data.facebook && (
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                          <h6 class="mb-0">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              class="feather feather-facebook mr-2 icon-inline text-primary"
+                            >
+                              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                            Facebook
+                          </h6>
+                          <span class="text-secondary">
+                            <a href={data.facebook}>{data.facebook}</a>
+                          </span>
+                        </li>
+                      )}
+                      {data.linkedin && (
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                           <h6 class="mb-0">
                             <svg
@@ -508,7 +532,20 @@ export async function getServerSideProps({ params }) {
     .collection("userData")
     .aggregate([
       { $match: { username: id } },
-      { $project: { username: 1, profile: 1, name: 1 } },
+      {
+        $project: {
+          username: 1,
+          profile: 1,
+          name: 1,
+          name: 1,
+          twitter: 1,
+          website: 1,
+          github: 1,
+          facebook: 1,
+          instagram: 1,
+          bio: 1,
+        },
+      },
     ])
     .limit(1)
     .toArray();

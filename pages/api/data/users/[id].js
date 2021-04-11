@@ -7,7 +7,20 @@ export default async (req, res) => {
     .collection("userData")
     .aggregate([
       { $match: { username: id } },
-      { $project: { username: 1, profile: 1, name: 1 } },
+      {
+        $project: {
+          username: 1,
+          profile: 1,
+          name: 1,
+          name: 1,
+          twitter: 1,
+          website: 1,
+          github: 1,
+          facebook: 1,
+          instagram: 1,
+          bio: 1,
+        },
+      },
     ])
     .limit(1)
     .toArray();
