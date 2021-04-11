@@ -15,7 +15,7 @@ export default async (req, res) => {
     .then(async (e) => {
       let a = await e.map((e) => {
         return {
-          url: [{ loc: `https://www.arnavgupta.net/user/${e.username}` }],
+          url: [{ loc: `https://www.arnavgupta.net/en-nl/user/${e.username}` }],
         };
       });
       return a;

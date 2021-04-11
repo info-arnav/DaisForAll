@@ -15,7 +15,7 @@ export default async (req, res) => {
     .then(async (e) => {
       let a = await e.map((e) => {
         return {
-          url: [{ loc: `https://www.infinity.cyou/article/${e._id}` }],
+          url: [{ loc: `https://www.infinity.cyou/en-nl/article/${e._id}` }],
         };
       });
       return a;

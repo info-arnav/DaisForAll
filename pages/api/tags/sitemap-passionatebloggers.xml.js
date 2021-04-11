@@ -22,7 +22,7 @@ export default async (req, res) => {
     .then(async (e) => {
       let a = await e.map((e) => {
         return {
-          url: [{ loc: `https://www.passionatebloggers.me/tags/${e}` }],
+          url: [{ loc: `https://www.passionatebloggers.me/en-nl/tags/${e}` }],
         };
       });
       return a;

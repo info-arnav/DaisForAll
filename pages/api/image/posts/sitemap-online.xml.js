@@ -16,11 +16,11 @@ export default async (req, res) => {
       let a = await e.map((e) => {
         return {
           url: [
-            { loc: `https://www.daisonline.com/article/${e._id}` },
+            { loc: `https://www.daisonline.com/en-nl/article/${e._id}` },
             {
               "image:image": [
                 {
-                  "image:loc": `https://www.daisonline.com/api/image/${e._id}`,
+                  "image:loc": `https://www.daisonline.com/en-nl/api/image/${e._id}`,
                 },
               ],
             },

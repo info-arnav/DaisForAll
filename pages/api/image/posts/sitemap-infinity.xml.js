@@ -16,11 +16,11 @@ export default async (req, res) => {
       let a = await e.map((e) => {
         return {
           url: [
-            { loc: `https://www.infinity.cyou/article/${e._id}` },
+            { loc: `https://www.infinity.cyou/en-nl/article/${e._id}` },
             {
               "image:image": [
                 {
-                  "image:loc": `https://www.infinity.cyou/api/image/${e._id}`,
+                  "image:loc": `https://www.infinity.cyou/en-nl/api/image/${e._id}`,
                 },
               ],
             },

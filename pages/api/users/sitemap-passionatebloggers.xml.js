@@ -16,7 +16,9 @@ export default async (req, res) => {
       let a = await e.map((e) => {
         return {
           url: [
-            { loc: `https://www.passionatebloggers.me/user/${e.username}` },
+            {
+              loc: `https://www.passionatebloggers.me/en-nl/user/${e.username}`,
+            },
           ],
         };
       });

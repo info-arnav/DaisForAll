@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-      <loc>https://www.infinity.cyou/api/users/sitemap-infinity.xml</loc>
+      <loc>https://www.infinity.cyou/en-nl/api/users/sitemap-infinity.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.infinity.cyou/main-infinity.xml</loc>
+      <loc>https://www.infinity.cyou/en-nl/main-infinity.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.infinity.cyou/general-images-infinity.xml</loc>
+      <loc>https://www.infinity.cyou/en-nl/general-images-infinity.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.infinity.cyou/api/posts/sitemap-infinity.xml</loc>
+      <loc>https://www.infinity.cyou/en-nl/api/posts/sitemap-infinity.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.infinity.cyou/api/image/users/sitemap-infinity.xml</loc>
+      <loc>https://www.infinity.cyou/en-nl/api/image/users/sitemap-infinity.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.infinity.cyou/api/image/posts/sitemap-infinity.xml</loc>
+      <loc>https://www.infinity.cyou/en-nl/api/image/posts/sitemap-infinity.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.infinity.cyou/api/tags/sitemap-infinity.xml</loc>
+      <loc>https://www.infinity.cyou/en-nl/api/tags/sitemap-infinity.xml</loc>
     </sitemap>
   </sitemapindex>

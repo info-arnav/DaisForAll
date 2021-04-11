@@ -22,7 +22,7 @@ export default async (req, res) => {
     .then(async (e) => {
       let a = await e.map((e) => {
         return {
-          url: [{ loc: `https://www.daisonline.com/tags/${e}` }],
+          url: [{ loc: `https://www.daisonline.com/en-nl/tags/${e}` }],
         };
       });
       return a;

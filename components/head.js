@@ -16,6 +16,36 @@ export default function Head({
     "infiniti, cyou, daisforall, DaisForAll, daisonline, daisOnline,infinity.cyou, arnavgupta.net, passionatebloggers.me, daisforall.com, daisforall.in, www.infinity.cyou, www.arnavgupta.net, www.passionatebloggers.me, www.daisforall.com, www.daisforall.in";
   return (
     <Heads>
+      <link
+        rel="alternate"
+        href="https://www.daisforall.com"
+        hreflang="en-us"
+      />
+      <link
+        rel="alternate"
+        href="https://www.infinity.cyou/en-nl/"
+        hreflang="en-nl"
+      />
+      <link
+        rel="alternate"
+        href="https://www.arnavgupta.net/en-nl/"
+        hreflang="en-nl"
+      />
+      <link
+        rel="alternate"
+        href="https://www.passionatebloggers.me/en-nl/"
+        hreflang="en-nl"
+      />
+      <link
+        rel="alternate"
+        href="https://www.daisonline.com/en-nl/"
+        hreflang="en-nl"
+      />
+      <link
+        rel="alternate"
+        href="https://www.daisforall.in/en-in/"
+        hreflang="en-in"
+      />
       <script
         key={-3}
         type="application/ld+json"
@@ -41,9 +71,10 @@ export default function Head({
             url: url,
             sameAs: [
               "https://www.youtube.com/channel/UCzzfqCy-j9XZA5KNosqzh6w",
-              "https://www.arnavgupta.net/",
-              "https://www.infinity.cyou/",
+              "https://www.arnavgupta.net//en-nl/",
+              "https://www.infinity.cyou//en-nl/",
               "https://www.daisforall.com/",
+              "https://www.daisonline.com/en-nl/",
               "ananyagupta.net",
               "ananya gupta",
               "anuja gupta",
@@ -56,8 +87,8 @@ export default function Head({
               "gaurav",
               "reyansh",
               "priyajan",
-              "https://www.daisforall.in/",
-              "https://www.passionatebloggers.me/",
+              "https://www.daisforall.in//en-in/",
+              "https://www.passionatebloggers.me/en-nl/",
               "https://www.instagram.com/infinity.newtech/",
               "https://www.linkedin.com/in/arnav-gupta-0922341a9/",
               "https://www.facebook.com/infinity.newTechnology",

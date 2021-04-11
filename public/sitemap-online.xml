@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
   <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-      <loc>https://www.daisonline.com/api/users/sitemap-online.xml</loc>
+      <loc>https://www.daisonline.com/en-nl/api/users/sitemap-online.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.daisonline.com/main-online.xml</loc>
+      <loc>https://www.daisonline.com/en-nl/main-online.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.daisonline.com/general-images-online.xml</loc>
+      <loc>https://www.daisonline.com/en-nl/general-images-online.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.daisonline.com/api/posts/sitemap-online.xml</loc>
+      <loc>https://www.daisonline.com/en-nl/api/posts/sitemap-online.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.daisonline.com/api/image/users/sitemap-online.xml</loc>
+      <loc>https://www.daisonline.com/en-nl/api/image/users/sitemap-online.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.daisonline.com/api/image/posts/sitemap-online.xml</loc>
+      <loc>https://www.daisonline.com/en-nl/api/image/posts/sitemap-online.xml</loc>
     </sitemap>
     <sitemap>
-      <loc>https://www.daisonline.com/api/tags/sitemap-online.xml</loc>
+      <loc>https://www.daisonline.com/en-nl/api/tags/sitemap-online.xml</loc>
     </sitemap>
   </sitemapindex>

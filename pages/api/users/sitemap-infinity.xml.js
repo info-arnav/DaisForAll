@@ -15,7 +15,7 @@ export default async (req, res) => {
     .then(async (e) => {
       let a = await e.map((e) => {
         return {
-          url: [{ loc: `https://www.infinity.cyou/user/${e.username}` }],
+          url: [{ loc: `https://www.infinity.cyou/en-nl/user/${e.username}` }],
         };
       });
       return a;
