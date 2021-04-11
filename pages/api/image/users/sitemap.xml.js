@@ -14,20 +14,18 @@ export default async (req, res) => {
     .toArray()
     .then(async (e) => {
       let a = await e.map((e) => {
-        if (e.image) {
-          return {
-            url: [
-              { loc: `https://www.daisforall.com/user/${e.username}` },
-              {
-                "image:image": [
-                  {
-                    "image:loc": `https://www.daisforall.com/api/image/users/${e.username}`,
-                  },
-                ],
-              },
-            ],
-          };
-        }
+        return {
+          url: [
+            { loc: `https://www.daisforall.com/user/${e.username}` },
+            {
+              "image:image": [
+                {
+                  "image:loc": `https://www.daisforall.com/api/image/users/${e.username}`,
+                },
+              ],
+            },
+          ],
+        };
       });
       return a;
     })

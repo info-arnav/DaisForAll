@@ -2,8 +2,8 @@ import { connectToDatabase } from "../../../../util/mongodb";
 import xml from "xml";
 export default async (req, res) => {
   const { db } = await connectToDatabase();
-  const posts = await db
-    .collection("posts")
+  const users = await db
+    .collection("userData")
     .aggregate([
       {
         $project: {
@@ -16,11 +16,11 @@ export default async (req, res) => {
       let a = await e.map((e) => {
         return {
           url: [
-            { loc: `https://www.daisforall.com/article/${e._id}` },
+            { loc: `https://www.passionatebloggers.me/user/${e.username}` },
             {
               "image:image": [
                 {
-                  "image:loc": `https://www.daisforall.com/api/image/${e._id}`,
+                  "image:loc": `https://www.passionatebloggers.me/api/image/users/${e.username}`,
                 },
               ],
             },

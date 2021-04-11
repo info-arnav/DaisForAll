@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+      <loc>https://www.daisforall.in/api/users/sitemap-in.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.daisforall.in/main-in.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.daisforall.in/general-images-in.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.daisforall.in/api/posts/sitemap-in.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.daisforall.in/api/image/users/sitemap-in.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.daisforall.in/api/image/posts/sitemap-in.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.daisforall.in/api/tags/sitemap-in.xml</loc>
+    </sitemap>
+  </sitemapindex>

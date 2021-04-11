@@ -1,4 +1,4 @@
-import { connectToDatabase } from "../../../../util/mongodb";
+import { connectToDatabase } from "../../../util/mongodb";
 import xml from "xml";
 export default async (req, res) => {
   const { db } = await connectToDatabase();
@@ -15,26 +15,14 @@ export default async (req, res) => {
     .then(async (e) => {
       let a = await e.map((e) => {
         return {
-          url: [
-            { loc: `https://www.daisforall.com/article/${e._id}` },
-            {
-              "image:image": [
-                {
-                  "image:loc": `https://www.daisforall.com/api/image/${e._id}`,
-                },
-              ],
-            },
-          ],
+          url: [{ loc: `https://www.infinity.cyou/article/${e._id}` }],
         };
       });
       return a;
     })
     .then((e) => {
       e.push({
-        _attr: {
-          xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9",
-          "xmlns:image": "http://www.google.com/schemas/sitemap-image/1.1",
-        },
+        _attr: { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" },
       });
       return e;
     })

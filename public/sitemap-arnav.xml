@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+      <loc>https://www.arnavgupta.net/api/users/sitemap-arnav.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.arnavgupta.net/main-arnav.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.arnavgupta.net/general-images-arnav.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.arnavgupta.net/api/posts/sitemap-arnav.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.arnavgupta.net/api/image/users/sitemap-arnav.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.arnavgupta.net/api/image/posts/sitemap-arnav.xml</loc>
+    </sitemap>
+    <sitemap>
+      <loc>https://www.arnavgupta.net/api/tags/sitemap-arnav.xml</loc>
+    </sitemap>
+  </sitemapindex>
