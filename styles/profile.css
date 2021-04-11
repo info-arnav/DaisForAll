@@ -54,7 +54,7 @@
 }
 @media screen and (min-width: 768px) {
   .sticky {
-    position: sticky;
+    position: sticky;position: -webkit-sticky;
     top: 80px;
   }
 }
