@@ -378,17 +378,22 @@ export default function User({ data, posts }) {
                               href={`/article/${e._id}`}
                             >
                               <div
-                                class="thumb"
-                                alt={e.imageDescription}
                                 style={{
                                   backgroundColor:
                                     colors[
                                       Math.floor(Math.random() * colors.length)
                                     ],
-                                  backgroundImage: `url(/api/image/${e._id})`,
-                                  cursor: "pointer",
                                 }}
-                              ></div>
+                              >
+                                <div
+                                  class="thumb"
+                                  alt={e.imageDescription}
+                                  style={{
+                                    backgroundImage: `url(/api/image/${e._id})`,
+                                    cursor: "pointer",
+                                  }}
+                                ></div>
+                              </div>
                             </Link>
                             <article>
                               <Heads>

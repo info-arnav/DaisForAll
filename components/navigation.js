@@ -31,14 +31,19 @@ export default function Navigation(props) {
     <div class="card" style={{ borderRadius: "20px" }}>
       <a style={{ cursor: "pointer" }} href={`/article/${hit._id.$oid}`}>
         <div
-          class="thumb"
-          alt={hit.imageDescription}
           style={{
             backgroundColor: colors[Math.floor(Math.random() * colors.length)],
-            backgroundImage: `url(/api/image/${hit._id.$oid})`,
-            cursor: "pointer",
           }}
-        ></div>
+        >
+          <div
+            class="thumb"
+            alt={hit.imageDescription}
+            style={{
+              backgroundImage: `url(/api/image/${hit._id.$oid})`,
+              cursor: "pointer",
+            }}
+          ></div>
+        </div>
       </a>
       <article>
         <Heads>
