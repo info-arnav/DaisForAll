@@ -133,7 +133,6 @@ export default function Article({ data }) {
       <main>
         <article>
           <div style={{ width: "90%", marginLeft: "5%" }}>
-            {display ? 1 : 2}
             {display && (
               <img
                 style={{
