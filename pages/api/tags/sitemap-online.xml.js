@@ -6,7 +6,7 @@ export default async (req, res) => {
     .collection("posts")
     .aggregate([
       {
-        $project: { tags: "1" },
+        $project: { tags: 1 },
       },
     ])
     .toArray()
