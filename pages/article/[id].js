@@ -136,6 +136,8 @@ export default function Article({ data }) {
               style={{
                 width: "100%",
                 borderRadius: "20px 20px 0px 0px",
+                backgroundColor:
+                  colors[Math.floor(Math.random() * colors.length)],
                 marginBottom: "20px",
               }}
               description={data.imageDescription}

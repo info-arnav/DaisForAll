@@ -34,6 +34,7 @@ export default function Navigation(props) {
           class="thumb"
           alt={hit.imageDescription}
           style={{
+            backgroundColor: colors[Math.floor(Math.random() * colors.length)],
             backgroundImage: `url(/api/image/${hit._id.$oid})`,
             cursor: "pointer",
           }}
