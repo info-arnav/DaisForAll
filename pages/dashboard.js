@@ -120,6 +120,18 @@ export default function Dashboard() {
     }
     Resizer.imageFileResizer(
       file,
+      10,
+      4,
+      "WEBP",
+      5,
+      0,
+      (uri) => {
+        setCompressed(uri);
+      },
+      "base64"
+    );
+    Resizer.imageFileResizer(
+      file,
       1080,
       400,
       "WEBP",
@@ -131,6 +143,7 @@ export default function Dashboard() {
       "base64"
     );
   };
+  const [compressed, setCompressed] = useState("");
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -149,6 +162,7 @@ export default function Dashboard() {
           conditions: conditions,
           computerProgramme: computerProgramme,
           tags: tags,
+          compressed: compressed,
           imageDescription: imageDescription,
           username: username,
         })
