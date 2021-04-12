@@ -22,6 +22,7 @@ export default function Article({ data }) {
     "#97c230",
   ];
   data = data[0];
+  const [display, setDisplay] = useState(true);
   const description =
     data.blog &&
     `${data.blog
@@ -82,7 +83,7 @@ export default function Article({ data }) {
         }
       );
     }
-  }, [condition, computerProgramme, blog, current]);
+  }, [condition, computerProgramme, blog, current, display]);
   return (
     <div>
       <Heads>
@@ -132,19 +133,37 @@ export default function Article({ data }) {
       <main>
         <article>
           <div style={{ width: "90%", marginLeft: "5%" }}>
-            <img
-              style={{
-                width: "100%",
-                borderRadius: "20px 20px 0px 0px",
-                backgroundColor:
-                  colors[Math.floor(Math.random() * colors.length)],
-                marginBottom: "20px",
-              }}
-              description={data.imageDescription}
-              alt={data.description}
-              src={`https://www.daisforall.com/api/image/${data._id}`}
-              alt={data.imageDescription}
-            ></img>
+            {display ? 1 : 2}
+            {display && (
+              <img
+                style={{
+                  width: "100%",
+                  borderRadius: "20px 20px 0px 0px",
+                  backgroundColor:
+                    colors[Math.floor(Math.random() * colors.length)],
+                  marginBottom: "20px",
+                }}
+                description={data.imageDescription}
+                alt={data.description}
+                onError={() => consolr.log(false)}
+                src={`/api/image/${data._id}`}
+                alt={data.imageDescription}
+              ></img>
+            )}
+            {!display && (
+              <div
+                style={{
+                  width: "100%",
+                  borderRadius: "20px 20px 0px 0px",
+                  backgroundColor:
+                    colors[Math.floor(Math.random() * colors.length)],
+                  marginBottom: "20px",
+                }}
+                description={data.imageDescription}
+                alt={data.description}
+                alt={data.imageDescription}
+              ></div>
+            )}
             <div>
               {data.tags &&
                 data.tags
