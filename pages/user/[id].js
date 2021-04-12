@@ -381,6 +381,10 @@ export default function User({ data, posts }) {
                                 class="thumb"
                                 alt={e.imageDescription}
                                 style={{
+                                  backgroundColor:
+                                    colors[
+                                      Math.floor(Math.random() * colors.length)
+                                    ],
                                   backgroundImage: `url(/api/image/${e._id})`,
                                   cursor: "pointer",
                                 }}

@@ -141,7 +141,6 @@ export default function Article({ data }) {
               description={data.imageDescription}
               alt={data.description}
               src={`https://www.daisforall.com/api/image/${data._id}`}
-              loading="lazy"
               alt={data.imageDescription}
             ></img>
             <div>

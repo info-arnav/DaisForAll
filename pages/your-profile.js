@@ -18,6 +18,7 @@ import {
 } from "react-bootstrap";
 import { Offline } from "react-detect-offline";
 import Link from "next/link";
+import Image from "next/image";
 export default function User() {
   const [show, setShow] = useState(false);
   const [data, setData] = useState(false);
@@ -167,7 +168,11 @@ export default function User() {
         card={card}
       ></Head>
       <main>
-        {data && (
+        {!data ? (
+          <div>
+            <img src="/loading.webp" width="100%"></img>
+          </div>
+        ) : (
           <div class="container2">
             <Modal
               cntered
@@ -561,6 +566,12 @@ export default function User() {
                                   alt={e.imageDescription}
                                   style={{
                                     backgroundImage: `url(/api/image/${e._id})`,
+                                    backgroundColor:
+                                      colors[
+                                        Math.floor(
+                                          Math.random() * colors.length
+                                        )
+                                      ],
                                     cursor: "pointer",
                                   }}
                                 ></div>
