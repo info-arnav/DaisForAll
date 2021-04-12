@@ -24,3 +24,9 @@ The chain starts from \_app.js I guess so please start there.
 npm run install && npm run build
 npm run start
 ```
+
+In case you want to use a custom server instead of vercel just use the following
+
+```bash
+nom run test
+```
