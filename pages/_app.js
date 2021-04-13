@@ -6,6 +6,7 @@ import "nprogress/nprogress.css";
 import "../styles/profile.css";
 import NProgress from "nprogress";
 import "../styles/404.css";
+import "lazysizes";
 import "../styles/globals.css";
 import React, { useEffect, useState } from "react";
 import algoliasearch from "algoliasearch/lite";
@@ -44,24 +45,22 @@ function MyApp({ Component, pageProps }) {
   const Hit = ({ hit }) => (
     <div class="card" style={{ borderRadius: "20px" }}>
       <a style={{ cursor: "pointer" }} href={`/article/${hit._id}`}>
-        <div
+        <img
+          class="thumb"
+          alt={hit.imageDescription}
+          data-src={hit.image}
+          src={hit.compressed}
+          class="lazyload blur-up"
+          width={"100%"}
           style={{
-            backgroundColor: colors[Math.floor(Math.random() * colors.length)],
+            cursor: "pointer",
           }}
-        >
-          <div
-            class="thumb"
-            alt={hit.imageDescription}
-            style={{
-              backgroundImage: `url(${hit.image})`,
-              cursor: "pointer",
-            }}
-          ></div>
-        </div>
+        />
       </a>
       <article>
         <Heads>
           <div></div>
+
           <script
             key={hit._id}
             type="application/ld+json"

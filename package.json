@@ -24,6 +24,7 @@
     "googleapis": "^70.0.0",
     "html-react-parser": "^1.2.4",
     "jimp": "^0.16.1",
+    "lazysizes": "^5.3.2",
     "mongodb": "^3.6.5",
     "next": "10.0.9",
     "njwt": "^1.0.0",

@@ -11,6 +11,16 @@
     height: 1000px !important;
   }
 }
+.blur-up {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  transition: filter 400ms, -webkit-filter 400ms;
+}
+
+.blur-up.lazyloaded {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}
 .centered {
   height: 100%;
   display: flex;
@@ -832,4 +842,6 @@ input {
   height: 60px !important;
   padding: 0 20px !important;
 }
-.btn.btn-primary{border:none !important}
+.btn.btn-primary {
+  border: none !important;
+}

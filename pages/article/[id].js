@@ -133,36 +133,21 @@ export default function Article({ data }) {
       <main>
         <article>
           <div style={{ width: "90%", marginLeft: "5%" }}>
-            {display && (
-              <img
-                style={{
-                  width: "100%",
-                  borderRadius: "20px 20px 0px 0px",
-                  backgroundColor:
-                    colors[Math.floor(Math.random() * colors.length)],
-                  marginBottom: "20px",
-                }}
-                description={data.imageDescription}
-                alt={data.description}
-                onError={() => consolr.log(false)}
-                src={`/api/image/${data._id}`}
-                alt={data.imageDescription}
-              ></img>
-            )}
-            {!display && (
-              <div
-                style={{
-                  width: "100%",
-                  borderRadius: "20px 20px 0px 0px",
-                  backgroundColor:
-                    colors[Math.floor(Math.random() * colors.length)],
-                  marginBottom: "20px",
-                }}
-                description={data.imageDescription}
-                alt={data.description}
-                alt={data.imageDescription}
-              ></div>
-            )}
+            <img
+              style={{
+                width: "100%",
+                borderRadius: "20px 20px 0px 0px",
+                marginBottom: "20px",
+              }}
+              description={data.imageDescription}
+              alt={data.description}
+              onError={() => consolr.log(false)}
+              data-src={`/api/image/${data._id}`}
+              alt={data.imageDescription}
+              data-sizes="auto"
+              className="lazyload blur-up"
+              src={data.compressed}
+            />
             <div>
               {data.tags &&
                 data.tags
@@ -292,6 +277,7 @@ export async function getServerSideProps({ params }) {
             dateCreated: 1,
             dateUpdated: 1,
             conditions: 1,
+            compressed: 1,
             computerProgramme: 1,
           },
         },

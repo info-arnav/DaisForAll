@@ -61,21 +61,17 @@ export default function Home(data) {
                     style={{ cursor: "pointer" }}
                     href={`/article/${e._id}`}
                   >
-                    <div
+                    <img
+                      class="thumb"
+                      alt={e.imageDescription}
+                      data-src={`/api/image/${e._id}`}
+                      src={e.compressed}
+                      class="lazyload blur-up"
+                      width={"100%"}
                       style={{
-                        backgroundColor:
-                          colors[Math.floor(Math.random() * colors.length)],
+                        cursor: "pointer",
                       }}
-                    >
-                      <div
-                        class="thumb"
-                        alt={e.imageDescription}
-                        style={{
-                          backgroundImage: `url(/api/image/${e._id})`,
-                          cursor: "pointer",
-                        }}
-                      ></div>
-                    </div>
+                    />
                   </Link>
                   <article>
                     <Heads>
@@ -237,6 +233,7 @@ export async function getServerSideProps({ params }) {
           imageDescription: 1,
           tags: 1,
           dateUpdated: 1,
+          compressed: 1,
           dateCreated: 1,
           username: 1,
           condition: 1,
