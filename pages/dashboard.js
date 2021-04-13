@@ -120,7 +120,7 @@ export default function Dashboard() {
     }
     Resizer.imageFileResizer(
       file,
-      100,
+      108,
       40,
       "WEBP",
       100,
@@ -129,10 +129,10 @@ export default function Dashboard() {
         setCompressed(uri);
         Resizer.imageFileResizer(
           file,
-          1080,
-          400,
+          540,
+          200,
           "WEBP",
-          100,
+          80,
           0,
           (uri) => {
             setDataUri(uri);
