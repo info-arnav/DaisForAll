@@ -11,12 +11,19 @@
     height: 1000px !important;
   }
 }
+.avoidOverflow {
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
 .blur-up {
   -webkit-filter: blur(10px);
   filter: blur(10px);
   transition: filter 400ms, -webkit-filter 400ms;
 }
-
+.card {
+  overflow: hidden;
+}
 .blur-up.lazyloaded {
   -webkit-filter: blur(0);
   filter: blur(0);

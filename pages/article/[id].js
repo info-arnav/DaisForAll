@@ -132,7 +132,10 @@ export default function Article({ data }) {
       ></Head>
       <main>
         <article>
-          <div style={{ width: "90%", marginLeft: "5%" }}>
+          <div
+            className="avoidOverflow"
+            style={{ width: "90%", marginLeft: "5%" }}
+          >
             <img
               style={{
                 width: "100%",
