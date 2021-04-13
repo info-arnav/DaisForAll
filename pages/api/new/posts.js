@@ -51,6 +51,9 @@ export default async (req, res) => {
           .saveObject(e.ops[0], { autoGenerateObjectIDIfNotExist: true })
           .then((a) => res.status(200).send(`/article/${e.ops[0]._id}`));
       });
+    {
+      (" ");
+    }
   } else {
     res.status(404).send("error");
   }
