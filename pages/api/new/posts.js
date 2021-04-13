@@ -25,8 +25,6 @@ export default async (req, res) => {
         blog: req.body.blog,
         image: req.body.image,
         imageDescription: req.body.imageDescription,
-        imageDescriptions: [req.body.imageDescription],
-        images: [req.body.image],
         dateCreated: new Date(),
         dateUpdated: new Date(),
         bookmarks: [],
@@ -45,10 +43,26 @@ export default async (req, res) => {
         return e;
       })
       .then((e) => {
-        e.ops[0].image = `https://www.daisforall.com/api/image/${e.ops[0]._id}`;
-        e.ops[0].images = "";
         index
-          .saveObject(e.ops[0], { autoGenerateObjectIDIfNotExist: true })
+          .saveObject(
+            {
+              title: req.body.title,
+              username: req.body.username,
+              compressed: req.body.compressed,
+              tags: req.body.tags.replace("#", " "),
+              blog: req.body.blog,
+              image: `https://www.daisforall.com/api/image/${e.ops[0]._id}`,
+              imageDescription: req.body.imageDescription,
+              dateCreated: new Date(),
+              dateUpdated: new Date(),
+              bookmarks: [],
+              views: [],
+              conditions: req.body.conditions,
+              computerProgramme: req.body.computerProgramme,
+              likes: [],
+            },
+            { autoGenerateObjectIDIfNotExist: true }
+          )
           .then((a) => res.status(200).send(`/article/${e.ops[0]._id}`));
       });
     {
