@@ -16,6 +16,12 @@
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
+iframe {
+  width: "100%";
+}
+.test * img {
+  width: 100%;
+}
 .blur-up {
   -webkit-filter: blur(10px);
   filter: blur(10px);

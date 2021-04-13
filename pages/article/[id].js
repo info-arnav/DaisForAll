@@ -212,6 +212,7 @@ export default function Article({ data }) {
               </p>
             </b>
             <div
+              className="test"
               style={{ marginBottom: "20px" }}
               dangerouslySetInnerHTML={{ __html: blog[current] }}
             ></div>
@@ -219,7 +220,7 @@ export default function Article({ data }) {
               <div>
                 <h6 style={{ marginBottom: "20px" }}>Programmes</h6>
                 <pre
-                  className="invert"
+                  className="invert test"
                   dangerouslySetInnerHTML={{ __html: computerProgramme }}
                 ></pre>
               </div>
@@ -228,6 +229,7 @@ export default function Article({ data }) {
               <div>
                 <h6 style={{ marginBottom: "20px" }}>Conitions</h6>
                 <pre
+                  className="test"
                   className="conditions"
                   dangerouslySetInnerHTML={{ __html: condition }}
                 ></pre>
