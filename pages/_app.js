@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }) {
   );
   const Hit = ({ hit }) => (
     <div class="card" style={{ borderRadius: "20px" }}>
-      <a style={{ cursor: "pointer" }} href={`/article/${hit._id.$oid}`}>
+      <a style={{ cursor: "pointer" }} href={`/article/${hit._id}`}>
         <div
           style={{
             backgroundColor: colors[Math.floor(Math.random() * colors.length)],
@@ -53,7 +53,7 @@ function MyApp({ Component, pageProps }) {
             class="thumb"
             alt={hit.imageDescription}
             style={{
-              backgroundImage: `url(/api/image/${hit._id.$oid})`,
+              backgroundImage: `url(${hit.image})`,
               cursor: "pointer",
             }}
           ></div>
@@ -63,7 +63,7 @@ function MyApp({ Component, pageProps }) {
         <Heads>
           <div></div>
           <script
-            key={hit._id.$oid}
+            key={hit._id}
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
@@ -71,11 +71,11 @@ function MyApp({ Component, pageProps }) {
                 "@type": "Article",
                 mainEntityOfPage: {
                   "@type": "WebPage",
-                  "@id": `https://www.daisforall.com/article/${hit._id.$oid}`,
+                  "@id": `https://www.daisforall.com/article/${hit._id}`,
                 },
                 a: "",
                 headline: hit.title,
-                image: `https://www.daisforall.com/api/image/${hit._id.$oid}`,
+                image: `https://www.daisforall.com/api/image/${hit._id}`,
                 datePublished: hit.dateCreated,
                 dateModified: hit.dateUpdated,
                 author: {
@@ -136,7 +136,7 @@ function MyApp({ Component, pageProps }) {
                   )
               )}
         </div>
-        <a style={{ cursor: "pointer" }} href={`/article/${hit._id.$oid}`}>
+        <a style={{ cursor: "pointer" }} href={`/article/${hit._id}`}>
           <h1 style={{ cursor: "pointer", marginBottom: "2px" }}>
             {hit.title}
           </h1>
@@ -149,7 +149,7 @@ function MyApp({ Component, pageProps }) {
             </a>
           </b>
         </div>
-        <a style={{ cursor: "pointer" }} href={`/article/${hit._id.$oid}`}>
+        <a style={{ cursor: "pointer" }} href={`/article/${hit._id}`}>
           <span style={{ marginBottom: "10px", cursor: "pointer" }}>
             {" "}
             <span

@@ -120,25 +120,25 @@ export default function Dashboard() {
     }
     Resizer.imageFileResizer(
       file,
-      10,
-      4,
-      "WEBP",
-      5,
-      0,
-      (uri) => {
-        setCompressed(uri);
-      },
-      "base64"
-    );
-    Resizer.imageFileResizer(
-      file,
-      1080,
-      400,
+      100,
+      40,
       "WEBP",
       100,
       0,
       (uri) => {
-        setDataUri(uri);
+        setCompressed(uri);
+        Resizer.imageFileResizer(
+          file,
+          1080,
+          400,
+          "WEBP",
+          100,
+          0,
+          (uri) => {
+            setDataUri(uri);
+          },
+          "base64"
+        );
       },
       "base64"
     );
