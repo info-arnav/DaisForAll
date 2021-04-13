@@ -17,10 +17,12 @@
   border-top-right-radius: 20px;
 }
 iframe {
-  width: "100%";
+  width: 100% !important;
+  height: auto;
 }
 .test * img {
   width: 100%;
+  height: auto;
 }
 .blur-up {
   -webkit-filter: blur(10px);
