@@ -48,7 +48,6 @@ export default async (req, res) => {
             {
               title: req.body.title,
               username: req.body.username,
-              compressed: req.body.compressed,
               tags: req.body.tags.replace("#", " "),
               blog: req.body.blog,
               image: `https://www.daisforall.com/api/image/${e.ops[0]._id}`,

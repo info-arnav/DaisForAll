@@ -49,7 +49,7 @@ function MyApp({ Component, pageProps }) {
           class="thumb"
           alt={hit.imageDescription}
           data-src={hit.image}
-          src={hit.compressed}
+          src={`/api/image/lower/${hit._id}`}
           class="lazyload blur-up"
           width={"100%"}
           style={{
