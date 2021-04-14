@@ -59,7 +59,7 @@ export default function Head({
             "@context": "https://schema.org",
             "@type": "Organization",
             url: url,
-            logo: imagec,
+            logo: "https://www.daisforall.cyou/logo.png",
           }),
         }}
       ></script>
