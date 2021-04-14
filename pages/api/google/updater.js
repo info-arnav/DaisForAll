@@ -53,7 +53,7 @@ export default async (req, res) => {
             type: "URL_UPDATED",
           },
           {
-            url: `https://www.daisforall.in/article/${e._id}`,
+            url: `https://www.daisforall.in/en-in/article/${e._id}`,
             type: "URL_UPDATED",
           },
           {
@@ -61,7 +61,7 @@ export default async (req, res) => {
             type: "URL_UPDATED",
           },
           {
-            url: `https://www.infinity.cyou/article/${e._id}`,
+            url: `https://www.infinity.cyou/en-nl/article/${e._id}`,
             type: "URL_UPDATED",
           },
           {
@@ -84,7 +84,7 @@ export default async (req, res) => {
               type: "URL_UPDATED",
             },
             {
-              url: `https://www.daisforall.in/article/${e._id}`,
+              url: `https://www.daisforall.in/en-in/article/${e._id}`,
               type: "URL_UPDATED",
             },
             {
@@ -92,7 +92,7 @@ export default async (req, res) => {
               type: "URL_UPDATED",
             },
             {
-              url: `https://www.infinity.cyou/article/${e._id}`,
+              url: `https://www.infinity.cyou/en-nl/article/${e._id}`,
               type: "URL_UPDATED",
             },
             {
@@ -128,7 +128,7 @@ export default async (req, res) => {
               type: "URL_UPDATED",
             },
             {
-              url: `https://www.daisforall.in/tags/${e}`,
+              url: `https://www.daisforall.in/en-in/tags/${e}`,
               type: "URL_UPDATED",
             },
             {
@@ -136,7 +136,7 @@ export default async (req, res) => {
               type: "URL_UPDATED",
             },
             {
-              url: `https://www.infinity.cyou/tags/${e}`,
+              url: `https://www.infinity.cyou/en-nl/tags/${e}`,
               type: "URL_UPDATED",
             },
             {
@@ -159,7 +159,7 @@ export default async (req, res) => {
                 type: "URL_UPDATED",
               },
               {
-                url: `https://www.daisforall.in/tags/${e}`,
+                url: `https://www.daisforall.in/en-in/tags/${e}`,
                 type: "URL_UPDATED",
               },
               {
@@ -167,7 +167,7 @@ export default async (req, res) => {
                 type: "URL_UPDATED",
               },
               {
-                url: `https://www.infinity.cyou/tags/${e}`,
+                url: `https://www.infinity.cyou/en-nl/tags/${e}`,
                 type: "URL_UPDATED",
               },
               {
@@ -203,11 +203,11 @@ export default async (req, res) => {
             type: "URL_UPDATED",
           },
           {
-            url: `https://www.daisforall.in/user/${e.username}`,
+            url: `https://www.daisforall.in/en-in/user/${e.username}`,
             type: "URL_UPDATED",
           },
           {
-            url: `https://www.infinity.cyou/user/${e.username}`,
+            url: `https://www.infinity.cyou/en-nl/user/${e.username}`,
             type: "URL_UPDATED",
           },
           {
@@ -234,11 +234,11 @@ export default async (req, res) => {
               type: "URL_UPDATED",
             },
             {
-              url: `https://www.daisforall.in/user/${e.username}`,
+              url: `https://www.daisforall.in/en-in/user/${e.username}`,
               type: "URL_UPDATED",
             },
             {
-              url: `https://www.infinity.cyou/user/${e.username}`,
+              url: `https://www.infinity.cyou/en-nl/user/${e.username}`,
               type: "URL_UPDATED",
             },
             {
