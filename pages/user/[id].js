@@ -423,7 +423,7 @@ export default function User({ data, posts }) {
                                     }),
                                   }}
                                 ></script>
-                              </Heads>
+                              </Heads>{" "}
                               <div style={{ marginBottom: "10px" }}>
                                 {e.tags &&
                                   e.tags
