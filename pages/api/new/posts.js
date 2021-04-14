@@ -46,6 +46,7 @@ export default async (req, res) => {
         index
           .saveObject(
             {
+              _id: e.ops[0]._id,
               title: req.body.title,
               username: req.body.username,
               tags: req.body.tags.replace("#", " "),
