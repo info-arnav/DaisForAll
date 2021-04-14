@@ -428,7 +428,7 @@ export default function User({ data, posts }) {
                                 {e.tags &&
                                   e.tags
                                     .toString()
-                                    .replace("#", " ")
+                                    .replaceAll("#", " ")
                                     .split(" ")
                                     .map(
                                       (e) =>

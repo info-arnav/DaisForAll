@@ -612,7 +612,7 @@ export default function User() {
                                   {e.tags &&
                                     e.tags
                                       .toString()
-                                      .replace("#", " ")
+                                      .replaceAll("#", " ")
                                       .split(" ")
                                       .map(
                                         (e) =>

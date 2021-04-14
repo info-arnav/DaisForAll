@@ -60,6 +60,7 @@ export default function Article({ data }) {
       data.tags &&
       data.tags
         .toString()
+        .replaceAll("#", " ")
         .split(" ")
         .map((e) => e && e)
     }`;
@@ -155,6 +156,7 @@ export default function Article({ data }) {
               {data.tags &&
                 data.tags
                   .toString()
+                  .replaceAll("#", " ")
                   .split(" ")
                   .map(
                     (e) =>

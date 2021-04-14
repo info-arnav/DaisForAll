@@ -32,6 +32,7 @@ export default function Home(data) {
   )}, ${data.map((data) =>
     data.tags
       .toString()
+      .replaceAll("#", " ")
       .split(" ")
       .map((e) => e && e)
   )}`;
@@ -109,8 +110,8 @@ export default function Home(data) {
                     <div style={{ marginBottom: "10px" }}>
                       {e.tags &&
                         e.tags
-                          .replace("#", " ")
                           .toString()
+                          .replaceAll("#", " ")
                           .split(" ")
                           .map(
                             (e) =>

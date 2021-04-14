@@ -34,7 +34,7 @@ export default function Home(data) {
   )}, ${data.map((data) =>
     data.tags
       .toString()
-      .replace("#", " ")
+      .replaceAll("#", " ")
       .split(" ")
       .map((e) => e && e)
   )}`;
@@ -113,7 +113,7 @@ export default function Home(data) {
                       {e.tags &&
                         e.tags
                           .toString()
-                          .replace("#", " ")
+                          .replaceAll("#", " ")
                           .split(" ")
                           .map(
                             (e) =>
