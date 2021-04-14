@@ -14,6 +14,7 @@ export default async (req, res) => {
       const array = [];
       e.map((e) =>
         e.tags
+          .replace("#", " ")
           .split(" ")
           .map((e) => e && array.indexOf(e) == -1 && array.push(e))
       );

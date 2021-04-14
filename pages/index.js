@@ -109,6 +109,7 @@ export default function Home(data) {
                     <div style={{ marginBottom: "10px" }}>
                       {e.tags &&
                         e.tags
+                          .replace("#", " ")
                           .toString()
                           .split(" ")
                           .map(

@@ -97,6 +97,7 @@ function MyApp({ Component, pageProps }) {
           {hit.tags &&
             hit.tags
               .toString()
+              .replace("#", " ")
               .split(" ")
               .map(
                 (e) =>
