@@ -65,9 +65,6 @@ export default async (req, res) => {
           )
           .then((a) => res.status(200).send(`/article/${e.ops[0]._id}`));
       });
-    {
-      (" ");
-    }
   } else {
     res.status(404).send("error");
   }
