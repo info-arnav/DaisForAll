@@ -28,6 +28,7 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 NProgress.configure({ showSpinner: false });
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {}, [search]);
   const colors = [
     "#ec6767",
     "#b76cc4",
@@ -104,7 +105,7 @@ function MyApp({ Component, pageProps }) {
               .map(
                 (e) =>
                   e && (
-                    <Link style={{}} href={`/tags/${e}`}>
+                    <a style={{}} href={`/tags/${e}`}>
                       <div
                         className="important"
                         style={{
@@ -134,7 +135,7 @@ function MyApp({ Component, pageProps }) {
                           </span>
                         </div>{" "}
                       </div>
-                    </Link>
+                    </a>
                   )
               )}
         </div>
