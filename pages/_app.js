@@ -103,7 +103,7 @@ function MyApp({ Component, pageProps }) {
               .map(
                 (e) =>
                   e && (
-                    <Link style={{}} href={`/tags/${e}`}>
+                    <a style={{}} href={`/tags/${e}`}>
                       <div
                         className="important"
                         style={{
@@ -133,7 +133,7 @@ function MyApp({ Component, pageProps }) {
                           </span>
                         </div>{" "}
                       </div>
-                    </Link>
+                    </a>
                   )
               )}
         </div>
