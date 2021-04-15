@@ -163,23 +163,25 @@ export default function Article({ data }) {
                   .map(
                     (e) =>
                       e && (
-                        <div
-                          style={{
-                            margin: "2px",
-                            display: "inline-flex",
-                            borderRadius: "5px",
-                            padding: "5px",
-                            cursor: "pointer",
-                            backgroundColor:
-                              colors[Math.floor(Math.random() * colors.length)],
-                          }}
-                        >
+                        <Link style={{}} href={`/tags/${e}`}>
                           <div
                             style={{
-                              display: "inline",
+                              margin: "2px",
+                              display: "inline-flex",
+                              borderRadius: "5px",
+                              padding: "5px",
+                              cursor: "pointer",
+                              backgroundColor:
+                                colors[
+                                  Math.floor(Math.random() * colors.length)
+                                ],
                             }}
                           >
-                            <Link style={{}} href={`/tags/${e}`}>
+                            <div
+                              style={{
+                                display: "inline",
+                              }}
+                            >
                               <span
                                 style={{
                                   fontSize: "11px",
@@ -190,9 +192,9 @@ export default function Article({ data }) {
                               >
                                 {"#" + e}
                               </span>
-                            </Link>
-                          </div>{" "}
-                        </div>
+                            </div>{" "}
+                          </div>
+                        </Link>
                       )
                   )}
             </div>

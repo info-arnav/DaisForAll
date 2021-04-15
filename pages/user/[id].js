@@ -434,32 +434,29 @@ export default function User({ data, posts }) {
                                     .map(
                                       (e) =>
                                         e && (
-                                          <div
-                                            className="important"
-                                            style={{
-                                              display: "inline-flex",
-                                              margin: "2px",
-
-                                              borderRadius: "5px",
-                                              padding: "5px",
-                                              cursor: "pointer",
-                                              backgroundColor:
-                                                colors[
-                                                  Math.floor(
-                                                    Math.random() *
-                                                      colors.length
-                                                  )
-                                                ],
-                                            }}
-                                          >
+                                          <Link style={{}} href={`/tags/${e}`}>
                                             <div
+                                              className="important"
                                               style={{
-                                                display: "inline",
+                                                display: "inline-flex",
+                                                margin: "2px",
+
+                                                borderRadius: "5px",
+                                                padding: "5px",
+                                                cursor: "pointer",
+                                                backgroundColor:
+                                                  colors[
+                                                    Math.floor(
+                                                      Math.random() *
+                                                        colors.length
+                                                    )
+                                                  ],
                                               }}
                                             >
-                                              <Link
-                                                style={{}}
-                                                href={`/tags/${e}`}
+                                              <div
+                                                style={{
+                                                  display: "inline",
+                                                }}
                                               >
                                                 <span
                                                   style={{
@@ -470,9 +467,9 @@ export default function User({ data, posts }) {
                                                 >
                                                   {"#" + e}
                                                 </span>
-                                              </Link>
-                                            </div>{" "}
-                                          </div>
+                                              </div>{" "}
+                                            </div>
+                                          </Link>
                                         )
                                     )}
                               </div>
