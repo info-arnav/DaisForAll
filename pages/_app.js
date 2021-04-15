@@ -28,7 +28,6 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 NProgress.configure({ showSpinner: false });
 function MyApp({ Component, pageProps }) {
-  useEffect(() => {}, [search]);
   const colors = [
     "#ec6767",
     "#b76cc4",
@@ -38,6 +37,7 @@ function MyApp({ Component, pageProps }) {
     "#97c230",
   ];
   const [search, setSearch] = useState("");
+  useEffect(() => {}, [search]);
   const router = useRouter();
   const [status, setStatus] = useState(false);
   const searchClient = algoliasearch(
