@@ -132,7 +132,7 @@ export default function Dashboard() {
           540,
           200,
           "WEBP",
-          80,
+          100,
           0,
           (uri) => {
             setDataUri(uri);
