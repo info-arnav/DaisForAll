@@ -1,4 +1,5 @@
 import Heads from "../components/head";
+import Link from "next/link";
 import Router from "next/router";
 import "../styles/cards.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -103,7 +104,7 @@ function MyApp({ Component, pageProps }) {
               .map(
                 (e) =>
                   e && (
-                    <a style={{}} href={`/tags/${e}`}>
+                    <Link style={{}} href={`/tags/${e}`}>
                       <div
                         className="important"
                         style={{
@@ -133,7 +134,7 @@ function MyApp({ Component, pageProps }) {
                           </span>
                         </div>{" "}
                       </div>
-                    </a>
+                    </Link>
                   )
               )}
         </div>
