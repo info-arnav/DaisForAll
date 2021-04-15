@@ -103,25 +103,25 @@ function MyApp({ Component, pageProps }) {
               .map(
                 (e) =>
                   e && (
-                    <div
-                      className="important"
-                      style={{
-                        display: "inline-flex",
-                        margin: "2px",
-
-                        borderRadius: "5px",
-                        padding: "5px",
-                        cursor: "pointer",
-                        backgroundColor:
-                          colors[Math.floor(Math.random() * colors.length)],
-                      }}
-                    >
+                    <Link style={{}} href={`/tags/${e}`}>
                       <div
+                        className="important"
                         style={{
-                          display: "inline",
+                          display: "inline-flex",
+                          margin: "2px",
+
+                          borderRadius: "5px",
+                          padding: "5px",
+                          cursor: "pointer",
+                          backgroundColor:
+                            colors[Math.floor(Math.random() * colors.length)],
                         }}
                       >
-                        <a style={{}} href={`/tags/${e}`}>
+                        <div
+                          style={{
+                            display: "inline",
+                          }}
+                        >
                           <span
                             style={{
                               fontSize: "11px",
@@ -131,9 +131,9 @@ function MyApp({ Component, pageProps }) {
                           >
                             {"#" + e}
                           </span>
-                        </a>
-                      </div>{" "}
-                    </div>
+                        </div>{" "}
+                      </div>
+                    </Link>
                   )
               )}
         </div>
