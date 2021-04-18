@@ -49,7 +49,7 @@ export default function User() {
               axios
                 .get(`api/data/users/${verifiedJwt.body[0].username}`)
                 .then((e) => {
-                  setData(e.data[0]);
+                  setTimeout(setData(e.data[0]), 5000);
                   setName(e.data[0].name);
                   setTwitter(e.data[0].twitter);
                   setWebsite(e.data[0].website);

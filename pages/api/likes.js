@@ -28,7 +28,7 @@ export default async (req, res) => {
                 { username: req.body.username },
                 {
                   $push: {
-                    following: req.body.post,
+                    likes: req.body.post,
                   },
                 }
               )

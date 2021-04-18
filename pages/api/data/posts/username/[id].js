@@ -5,7 +5,23 @@ export default async (req, res) => {
   const { id } = req.query;
   const posts = await db
     .collection("posts")
-    .aggregate([{ $match: { username: id } }])
+    .aggregate([
+      { $match: { username: id } },
+      {
+        $project: {
+          blog: 1,
+          title: 1,
+          imageDescription: 1,
+          tags: 1,
+          dateUpdated: 1,
+          dateCreated: 1,
+          username: 1,
+          compressed: 1,
+          condition: 1,
+          computerProgramme: 1,
+        },
+      },
+    ])
     .toArray();
   if (posts) {
     res.json(posts);

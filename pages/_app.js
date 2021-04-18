@@ -91,7 +91,27 @@ function MyApp({ Component, pageProps }) {
     "#97c230",
   ];
   const [search, setSearch] = useState("");
-  useEffect(() => {}, [search]);
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      window.navigator.onLine == false && setOffline(true);
+      window.addEventListener("offline", () => {
+        setOffline(true);
+      });
+      window.addEventListener("online", () => {
+        setOffline(false);
+      });
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/sw.js").then(
+          function (registration) {
+            //nothing as if now i guess
+          },
+          function (err) {
+            console.log("Service Worker registration failed: ", err);
+          }
+        );
+      });
+    }
+  }, [search]);
   const router = useRouter();
   const [status, setStatus] = useState(false);
   const searchClient = algoliasearch(

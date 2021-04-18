@@ -271,7 +271,7 @@ export default function Home(data) {
   );
 }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const { db } = await connectToDatabase();
   let posts = await db
     .collection("posts")
