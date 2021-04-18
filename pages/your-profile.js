@@ -77,6 +77,60 @@ export default function User() {
     "#00bfa5",
     "#eec636",
     "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
   ];
   const [buttonLoading, setButtonLoading] = useState(false);
   const handleSubmit = (e) => {
@@ -169,8 +223,16 @@ export default function User() {
       ></Head>
       <main>
         {!data ? (
-          <div>
-            <img src="/loading.webp" width="100%"></img>
+          <div style={{ position: "relative", width: "100" }}>
+            <center>
+              <img
+                src="/loading.webp"
+                width="100%"
+                style={{
+                  maxWidth: "763px",
+                }}
+              ></img>
+            </center>
           </div>
         ) : (
           <div class="container2">
@@ -358,7 +420,11 @@ export default function User() {
                                   borderRadius: "20px",
                                 }}
                               >
-                                <a href=""> Followers : 0</a>
+                                <a href="">
+                                  {" "}
+                                  Followers :{" "}
+                                  {data.username && data.followers.length}
+                                </a>
                               </div>
                               <div
                                 style={{
@@ -369,7 +435,11 @@ export default function User() {
                                   borderRadius: "20px",
                                 }}
                               >
-                                <a href=""> Following : 0</a>
+                                <a href="">
+                                  {" "}
+                                  Following :{" "}
+                                  {data.username && data.following.length}
+                                </a>
                               </div>
                             </h6>
                             <br></br>
@@ -633,10 +703,9 @@ export default function User() {
                                                   cursor: "pointer",
                                                   backgroundColor:
                                                     colors[
-                                                      Math.floor(
-                                                        Math.random() *
-                                                          colors.length
-                                                      )
+                                                      e
+                                                        .toLowerCase()
+                                                        .charCodeAt(1) - 96
                                                     ],
                                                 }}
                                               >

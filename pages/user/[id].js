@@ -40,6 +40,60 @@ export default function User({ data, posts }) {
     "#00bfa5",
     "#eec636",
     "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
   ];
   data = data[0];
   const description = data.profile
@@ -147,7 +201,10 @@ export default function User({ data, posts }) {
                                 borderRadius: "20px",
                               }}
                             >
-                              <a href=""> Followers : 0</a>
+                              <a href="">
+                                {" "}
+                                Followers : {data.followers.length}
+                              </a>
                             </div>
                             <div
                               style={{
@@ -158,7 +215,10 @@ export default function User({ data, posts }) {
                                 borderRadius: "20px",
                               }}
                             >
-                              <a href=""> Following : 0</a>
+                              <a href="">
+                                {" "}
+                                Following : {data.following.length}
+                              </a>
                             </div>
                           </h6>
                           <br></br>
@@ -446,10 +506,9 @@ export default function User({ data, posts }) {
                                                 cursor: "pointer",
                                                 backgroundColor:
                                                   colors[
-                                                    Math.floor(
-                                                      Math.random() *
-                                                        colors.length
-                                                    )
+                                                    e
+                                                      .toLowerCase()
+                                                      .charCodeAt(1) - 96
                                                   ],
                                               }}
                                             >
@@ -582,6 +641,8 @@ export async function getServerSideProps({ params }) {
           github: 1,
           compressed: 1,
           facebook: 1,
+          followers: 1,
+          following: 1,
           instagram: 1,
           bio: 1,
         },

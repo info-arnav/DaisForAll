@@ -11,6 +11,8 @@ export default async (req, res) => {
         $project: {
           username: 1,
           profile: 1,
+          followers: 1,
+          following: 1,
           compressed: 1,
           name: 1,
           name: 1,

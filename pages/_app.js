@@ -35,6 +35,60 @@ function MyApp({ Component, pageProps }) {
     "#00bfa5",
     "#eec636",
     "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
+    "#ec6767",
+    "#b76cc4",
+    "#008ecd",
+    "#00bfa5",
+    "#eec636",
+    "#97c230",
   ];
   const [search, setSearch] = useState("");
   useEffect(() => {}, [search]);
@@ -116,7 +170,7 @@ function MyApp({ Component, pageProps }) {
                           padding: "5px",
                           cursor: "pointer",
                           backgroundColor:
-                            colors[Math.floor(Math.random() * colors.length)],
+                            colors[e.toLowerCase().charCodeAt(1) - 96],
                         }}
                       >
                         <div
@@ -211,27 +265,7 @@ function MyApp({ Component, pageProps }) {
   const tags =
     "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world";
   const card = "summary_large_image";
-  useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      window.navigator.onLine == false && setOffline(true);
-      window.addEventListener("offline", () => {
-        setOffline(true);
-      });
-      window.addEventListener("online", () => {
-        setOffline(false);
-      });
-      window.addEventListener("load", function () {
-        navigator.serviceWorker.register("/sw.js").then(
-          function (registration) {
-            //nothing as if now i guess
-          },
-          function (err) {
-            console.log("Service Worker registration failed: ", err);
-          }
-        );
-      });
-    }
-  }, []);
+  useEffect(() => {}, []);
   return (
     <div>
       <InstantSearch searchClient={searchClient} indexName="dev_BLOGS">
