@@ -628,7 +628,7 @@ export default function User({ data, posts }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const id = params.id;
   const { db } = await connectToDatabase();
   let posts = await db

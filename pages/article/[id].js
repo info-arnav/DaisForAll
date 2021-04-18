@@ -435,7 +435,7 @@ export default function Article({ data, data2 }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const id = params.id;
   const { db } = await connectToDatabase();
   if (id.length == 24) {
