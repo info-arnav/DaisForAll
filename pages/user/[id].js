@@ -13,6 +13,18 @@ import { Button, Toast, ToastBody } from "react-bootstrap";
 import { Offline } from "react-detect-offline";
 import Link from "next/link";
 export default function User({ data, posts }) {
+  let onFollow = () => {
+    data.followers.indexOf(activeUser) == -1
+      ? data.followers.push(activeUser)
+      : data.followers.pop(activeUser);
+    sf(!f);
+    axios.post("/api/following", {
+      user1: data.username,
+      username: activeUser,
+    });
+  };
+  const [activeUser, setActiveUser] = useState();
+  let [f, sf] = useState();
   const [status, setStatus] = useState("loggedOut");
   useEffect(() => {
     if (localStorage.getItem("userData")) {
@@ -102,20 +114,20 @@ export default function User({ data, posts }) {
   const title = data._id && `DaisForAll | ${data.username}`;
   const url = data._id && `https://www.daisforall.com/user/${data.username}`;
   const [condition, setCondition] = useState(data.conditions);
+  const [disabled, setDisabled] = useState(true);
   const [computerProgramme, setComputerProgramme] = useState(
     data.computerProgramme
   );
   const images = data._id && "https://www.daisforall.com/logo.png";
   const alts = data._id && "logo of the DaisForAll website";
-  const imagec = data.image
-    ? `https://www.daisforall.com/api/image/users/${data._id}`
-    : images;
+  const imagec = `https://www.daisforall.com/api/image/users/${data._id}`;
   const altc = `user avatar - ${data.username}`;
   const router = useRouter();
   const tag =
     data._id &&
     `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, posts, followers, following,${data.username},`;
   const card = "summary_large_image";
+
   useEffect(() => {
     if (data.error) {
       router.push("/page_does_not_exist");
@@ -127,10 +139,17 @@ export default function User({ data, posts }) {
         "HS512",
         async function (err, verifiedJwt) {
           if (!err) {
-            await axios.post("/api/profile/views", {
-              id: data.username,
-              user: verifiedJwt.body[0].username,
-            });
+            if (verifiedJwt.body[0].username != data.username) {
+              sf(data.followers.indexOf(verifiedJwt.body[0].username) != -1);
+              setActiveUser(verifiedJwt.body[0].username);
+              await axios.post("/api/profile/views", {
+                id: data.username,
+                user: verifiedJwt.body[0].username,
+              });
+              setDisabled(false);
+            } else {
+              router.push("/your-profile");
+            }
           }
         }
       );
@@ -223,18 +242,24 @@ export default function User({ data, posts }) {
                           </h6>
                           <br></br>
                           <br></br>
-                          <Button
-                            style={{ margin: "2px" }}
-                            disabled={status == "loggedOut"}
-                          >
-                            Follow
-                          </Button>
-                          <Button
-                            style={{ margin: "2px" }}
-                            disabled={status == "loggedOut"}
-                          >
-                            Message
-                          </Button>
+                          {status == "loggedIn" && (
+                            <>
+                              {" "}
+                              <Button
+                                style={{ margin: "2px" }}
+                                disabled={disabled}
+                                onClick={onFollow}
+                              >
+                                {f ? "Unfollow" : "Follow"}
+                              </Button>
+                              <Button
+                                style={{ margin: "2px", display: "none" }}
+                                disabled={disabled}
+                              >
+                                Message
+                              </Button>
+                            </>
+                          )}
                         </div>
                       </div>
                     </div>

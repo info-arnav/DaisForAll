@@ -8,17 +8,17 @@ export default async (req, res) => {
       .collection("posts")
       .aggregate([
         { $match: { _id: ObjectID(req.body.post) } },
-        { $project: { username: 1, likes: 1 } },
+        { $project: { username: 1, bookmarks: 1 } },
       ])
       .limit(1)
       .toArray();
 
-    if (posts[0].likes.indexOf(req.body.username) == -1) {
+    if (posts[0].bookmarks.indexOf(req.body.username) == -1) {
       await db
         .collection("posts")
         .update(
           { _id: ObjectId(req.body.post) },
-          { $push: { likes: req.body.username } }
+          { $push: { bookmarks: req.body.username } }
         )
         .then(
           async (e) =>
@@ -28,18 +28,18 @@ export default async (req, res) => {
                 { username: req.body.username },
                 {
                   $push: {
-                    likes: req.body.post,
+                    bookmarked: req.body.post,
                   },
                 }
               )
-              .then((e) => res.status(200).send("like"))
+              .then((e) => res.status(200).send("bookmark"))
         );
     } else {
       await db
         .collection("posts")
         .update(
           { _id: ObjectId(req.body.post) },
-          { $pull: { likes: req.body.username } }
+          { $pull: { bookmarks: req.body.username } }
         )
         .then(
           async (e) =>
@@ -49,11 +49,11 @@ export default async (req, res) => {
                 { username: req.body.username },
                 {
                   $pull: {
-                    likes: req.body.post,
+                    bookmarked: req.body.post,
                   },
                 }
               )
-              .then((e) => res.status(200).send("unlike"))
+              .then((e) => res.status(200).send("unbookmark"))
         );
     }
   } else {
