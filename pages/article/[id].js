@@ -359,8 +359,14 @@ export default function Article({ data, data2 }) {
                             color: "white",
                           }}
                         >
-                          {activeUser && f && "Following"}
-                          {activeUser && !f && "Follow"}
+                          {activeUser &&
+                            activeUser !== data.username &&
+                            f &&
+                            "Following"}
+                          {activeUser &&
+                            activeUser !== data.username &&
+                            !f &&
+                            "Follow"}
                         </span>
                       </div>{" "}
                     </div>
