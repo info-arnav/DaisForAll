@@ -377,7 +377,9 @@ export default function Article({ data, data2 }) {
                 {activeUser && activeUser != data.username && a && (
                   <button onClick={onLike}>unlike</button>
                 )}
-                {activeUser && !a && <button onClick={onLike}>like</button>}
+                {activeUser && activeUser != data.username && !a && (
+                  <button onClick={onLike}>like</button>
+                )}
               </p>
               <p style={{ margin: "2px" }}>
                 {activeUser && activeUser != data.username && b && (
