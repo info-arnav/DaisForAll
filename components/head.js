@@ -135,11 +135,7 @@ export default function Head({
       />
       <meta key="28" name="theme-color" content="#000000" />
       <link key="29" rel="apple-touch-icon" type="image/png" href={images} />
-      <script
-        data-ad-client="ca-pub-7188053188045336"
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      ></script>
+
       <link key="30" rel="manifest" href="/manifest.json" />
       <link key="31" rel="icon" href="/favicon.ico" alt={alts} />
       <meta key="32" name="twitter:title" content={title} />
