@@ -120,7 +120,7 @@ export default function Head({
       <meta key="15" property="og:type" content="website" />
       <meta key="16" property="og:url" content={url} />
       <meta key="17" property="og:locale" content="en_IN" />
-      <meta key="19" property="og:site_name" content="Infinity" />
+      <meta key="19" property="og:site_name" content="DaisForAll" />
       <meta key="20" property="og:description" content={description} />
       <meta key="21" property="fb:app_id" content="478626783320499" />
       <meta key="22" property="og:region" content="IN" />
