@@ -12,7 +12,7 @@ export default function Pp() {
   const imagec = "https://www.daisforall.com/logo.png";
   const altc = "logo of the DaisForAll website";
   const tags =
-    "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, Privacy Policy, privacy, policy, Privacy, Policy";
+    "Praivacy Policy";
   const card = "summary_large_image";
   return (
     <div>

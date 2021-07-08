@@ -13,7 +13,7 @@ export default function About() {
   const imagec = "https://www.daisforall.com/logo.png";
   const altc = "logo of the DaisForAll website";
   const tags =
-    "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world,about";
+    "DaisForAll, Dais For All, Platform, Sharing";
   const card = "summary_large_image";
   return (
     <div>

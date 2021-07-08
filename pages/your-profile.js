@@ -180,7 +180,7 @@ export default function User() {
   const router = useRouter();
   const tag =
     data._id &&
-    `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, posts, followers, following,${data.username},`;
+    `Profile`;
   const card = "summary_large_image";
   useEffect(() => {
     if (data.error) {

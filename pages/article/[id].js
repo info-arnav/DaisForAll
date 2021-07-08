@@ -151,7 +151,7 @@ export default function Article({ data, data2 }) {
   const router = useRouter();
   const tag =
     data._id &&
-    `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, ${
+    `${
       data.title
     },
     ${

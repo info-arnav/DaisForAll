@@ -12,7 +12,7 @@ export default function Tnc() {
   const imagec = "https://www.daisforall.com/logo.png";
   const altc = "logo of the DaisForAll website";
   const tags =
-    "blog, infinity, passionate bloggers, blogs, passionate, write, read, post, Terms and Conditions,Terms And Conditions, terms, consitoons, Terms, Conditions, and, And";
+    "Terms and Conditions";
   const card = "summary_large_image";
   return (
     <div>

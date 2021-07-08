@@ -11,9 +11,7 @@ export default function Head({
   tags,
   card,
 }) {
-  tags =
-    tags +
-    "infiniti, cyou, daisforall, DaisForAll, daisonline, daisOnline,infinity.cyou, arnavgupta.net, passionatebloggers.me, daisforall.com, daisforall.in, www.infinity.cyou, www.arnavgupta.net, www.passionatebloggers.me, www.daisforall.com, www.daisforall.in";
+  tags = tags;
   return (
     <Heads>
       <link

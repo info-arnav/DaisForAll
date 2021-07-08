@@ -128,7 +128,7 @@ export default function User() {
   const imagec = `https://www.daisforall.com/logo.png`;
   const altc = `logo of infinity`;
   const router = useRouter();
-  const tag = `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, posts, followers, following,${username},`;
+  const tag = `Bookmarks`;
   const card = "summary_large_image";
   useEffect(() => {
     if (data && data.error) {

@@ -211,7 +211,7 @@ export default function Dashboard() {
   const imagec = "https://www.daisforall.com/logo.png";
   const altc = "logo of the DaisForAll website";
   const tag =
-    "blog, infinity, passionate bloggers, blogs, passionate, write, read, post,dashboard, live thousand lives in one world,new, blog, new blog";
+    "Dashboard";
   const card = "summary_large_image";
   return (
     <div>

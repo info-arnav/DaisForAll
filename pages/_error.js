@@ -11,7 +11,7 @@ export default function Error({ statusCode }) {
   const alts = "logo of the DaisForAll website";
   const imagec = "https://www.daisforall.com/logo.png";
   const altc = "logo of the DaisForAll website";
-  const tags = `blog, infinity, passionate bloggers, blogs, passionate, write, read, post, live thousand lives in one world, error,${statusCode}`;
+  const tags = `Error Page`;
   const card = "summary_large_image";
   return (
     <div>
