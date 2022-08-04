@@ -259,11 +259,11 @@ export default function Home(data) {
             ))}
         </div>
         <br></br>
-        {data.length > 20 && (
+        {data.length > 20 ? (
           <div style={{ width: "95%", marginLeft: "calc(2.5%)" }}>
             <Button style={{ border: "none" }}>Previous</Button>{" "}
             <Button style={{ border: "none" }}>Next</Button>
-          </div>
+          </div> : <div />
         )}{" "}
       </main>
       <Footer></Footer>
