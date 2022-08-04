@@ -259,7 +259,7 @@ export default function Home(data) {
             ))}
         </div>
         <br></br>
-        {data.length > 19 ? (
+        {data.length > 100 ? (
           <div style={{ width: "95%", marginLeft: "calc(2.5%)" }}>
             <Button style={{ border: "none" }}>Previous</Button>{" "}
             <Button style={{ border: "none" }}>Next</Button>
@@ -291,7 +291,7 @@ export async function getServerSideProps({ params }) {
         },
       },
     ])
-    .limit(20)
+    .limit(100)
     .toArray();
   posts = JSON.parse(JSON.stringify(posts)).reverse();
   if (posts) {
