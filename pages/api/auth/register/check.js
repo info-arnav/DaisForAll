@@ -17,7 +17,7 @@ let transporterAlternate = nodemailer.createTransport({
   secure: true,
   auth: {
     user: "arnav.xx.gupta@gmail.com",
-    pass: "cymbyjmfibfphzol4",
+    pass: "cymbyjmfibfphzol",
   },
 });
 export default async (req, res) => {
