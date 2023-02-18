@@ -92,3 +92,5 @@ typings/
 
 #travis
 out
+
+.env.local
